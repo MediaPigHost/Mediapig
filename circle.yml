@@ -1,3 +1,8 @@
 machine:
   node:
     version: v0.11.12
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./deploy_prod.sh
