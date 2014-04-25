@@ -3,7 +3,7 @@ var express = require('express'),
     data = require('./src/content/site.json'),
     app = express();
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 app.engine('html', cons.swig);
 
