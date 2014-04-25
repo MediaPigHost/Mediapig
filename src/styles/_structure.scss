@@ -1,0 +1,94 @@
+body {
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  color: #707070;
+  background: #FFF;
+}
+
+.container {
+  position: relative;
+  top: 50%;
+}
+
+/*
+  Resets
+*/
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input[type=text] {
+  background-color: #FFF;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.8em;
+  font-size: 1.3em;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.signup {
+  width: 330px;
+  margin: 0 auto;
+  z-index: 100;
+  position: relative;
+}
+
+/*
+  Structure
+*/
+.line,
+.column-row {
+  @include container;
+  margin: 0 auto;
+}
+
+.omega {
+  @include last;
+}
+
+.content {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -300px;
+}
+
+.logo {
+  color: #FFF;
+  text-decoration: none;
+  margin: 50px auto;
+  width: 310px;
+  height: 120px;
+  text-indent: -9999px;
+  font-size: 3em;
+  top: 300px;
+  display: block;
+  background: url('../images/logo.png') no-repeat;
+}
+
+.btn {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  padding: 10px 15px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #FFF;
+  border: 0;
+}
+
+.large {
+  position: relative;
+  font-size: 1.6em;
+  padding: 0.65em 1.1em;
+  background-color: #398aa3;
+  top: 0;
+  left: 0;
+  color: #FFF;
+}

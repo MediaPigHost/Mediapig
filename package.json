@@ -1,0 +1,30 @@
+{
+  "name": "MediaPigHolding",
+  "version": "0.0.0",
+  "description": "Holding Page for MediaPig",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MediaPig/MediaPig-Holding"
+  },
+  "keywords": [
+    "mediapig"
+  ],
+  "author": [
+    "Phillip Gourley",
+    "Leon Young"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MediaPig/MediaPig-Holding/issues"
+  },
+  "homepage": "https://github.com/MediaPig/MediaPig-Holding",
+  "dependencies": {
+    "express": "4.0.0",
+    "consolidate": "0.10.0",
+    "swig": "1.3.2"
+  },
+  "devDependencies": {
+    "gulp": "3.6.2",
+    "gulp-ruby-sass": "^0.4.3"
+  }
+}
