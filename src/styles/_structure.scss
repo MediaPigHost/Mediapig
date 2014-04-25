@@ -5,11 +5,6 @@ body {
   background: #FFF;
 }
 
-.container {
-  position: relative;
-  top: 50%;
-}
-
 /*
   Resets
 */
@@ -20,7 +15,8 @@ ol, ul {
   list-style: none;
 }
 
-input[type=text] {
+input[type=text],
+input[type=email] {
   background-color: #FFF;
   border: 0;
   border-radius: 10px;
@@ -45,6 +41,10 @@ input[type=text] {
 .column-row {
   @include container;
   margin: 0 auto;
+}
+
+.container {
+  margin-top: 25%;
 }
 
 .omega {
