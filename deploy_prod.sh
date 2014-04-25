@@ -2,6 +2,6 @@
 
 set -e
 
-rsync -rPt --delete --exclude=.idea --exclude=.DS_Store ./ mediapig@live.mediapig.co.uk:/home/mediapig/public_html
+rsync -rPt --delete --exclude=.idea --exclude=.DS_Store ./ mediapig@live.mediapig.co.uk:/home/mediapig/node
 
 ssh mediapig@live.mediapig.co.uk 'sudo /etc/init.d/node-mpig restart'
