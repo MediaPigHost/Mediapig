@@ -25,6 +25,13 @@ input[type=email] {
   display: block;
   width: 100%;
   margin-bottom: 20px;
+  outline: none;
+  -webkit-transition: box-shadow 1s;
+  -o-transition: box-shadow 1s;
+  transition: box-shadow 1s;
+  &:focus {
+    box-shadow: 0 0 10px #56cef3;
+  }
 }
 
 .signup {
@@ -74,6 +81,14 @@ input[type=email] {
   text-decoration: none;
   color: #FFF;
   border: 0;
+  -webkit-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #49b6d7;
 }
 
 .large {

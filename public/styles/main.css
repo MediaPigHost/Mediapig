@@ -375,7 +375,14 @@ input[type=email] {
   font-size: 1.3em;
   display: block;
   width: 100%;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  outline: none;
+  -webkit-transition: box-shadow 1s;
+  -o-transition: box-shadow 1s;
+  transition: box-shadow 1s; }
+  input[type=text]:focus,
+  input[type=email]:focus {
+    box-shadow: 0 0 10px #56cef3; }
 
 .signup {
   width: 330px;
@@ -418,7 +425,14 @@ input[type=email] {
   border-radius: 10px;
   text-decoration: none;
   color: #FFF;
-  border: 0; }
+  border: 0;
+  -webkit-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  transition: background-color 1s; }
+
+.btn:hover,
+.btn:focus {
+  background-color: #49b6d7; }
 
 .large {
   position: relative;
