@@ -386,30 +386,16 @@ input[type=email] {
 /*
   Structure
 */
-.line,
-.column-row {
-  max-width: 1180.0px;
-  margin-left: auto;
-  margin-right: auto;
-  margin: 0 auto; }
-  .line::after,
-  .column-row::after {
-    content: " ";
-    display: block;
-    clear: both; }
-
-.container {
-  margin-top: 25%; }
-
-.omega {
-  float: right;
-  margin-right: 0; }
-
 .content {
-  width: 500px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: -300px; }
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 6% auto auto auto;
+  text-align: center; }
 
 .logo {
   color: #FFF;
@@ -465,14 +451,6 @@ input[type=email] {
     margin: 0 auto;
     display: block; }
 
-@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
-  .logo {
-    background: url("../images/logo@x2.png") no-repeat;
-    background-size: 307px 118px; }
-
-  .footer .mountains {
-    background: url("../images/bg@x2.png") no-repeat center center;
-    background-size: 1032px 400px; } }
 @-webkit-keyframes move {
   0% {
     opacity: 0.0; }
