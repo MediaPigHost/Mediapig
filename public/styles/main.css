@@ -610,6 +610,10 @@ input[type=email] {
   border-radius: 10px;
 }
 
+.header .btn:hover {
+  background-color: transparent;
+}
+
 .body {
   position: absolute;
   padding: 30px 60px;
