@@ -15,6 +15,10 @@ app.get('/', function(req, res){
   res.render('index', data);
 });
 
+app.get('/home', function(req, res){
+  res.render('home', data);
+});
+
 app.listen(4333);
 
 console.log('Listening on port 4333');
