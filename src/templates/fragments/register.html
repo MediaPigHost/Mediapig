@@ -1,7 +1,11 @@
 <section class='signup'>
   <form id="signup" action="http://api.mediapig.co.uk/index.php?/user/create" method="post">
     <input type="email" name="email" placeholder="Email Address" />
-    <input type="password" name="password" placeholder="Password" />
+    <div class="password-field">
+      <input type="password" name="password" placeholder="Password" />
+      <span class="help">?</span>
+      <span class="help-message">You'll need 8 characters, including a number.</span>
+    </div>
     <input type="submit" id="create-account-button" class="btn large" value="Create account">
   </form>
 </section>

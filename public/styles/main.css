@@ -618,6 +618,55 @@ input[type=password] {
   animation: move 1s ease 0s 1 normal forwards;
 }
 
+.password-field {
+  position: relative;
+}
+
+.help {
+  background-color: rgba(0,0,0,0.2);
+  padding: 5px;
+  border-radius: 50% 50%;
+  width: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.help-message {
+  padding: 10px;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 5px;
+  width: 193px;
+  display: none;
+  position: absolute;
+  top: 1px;
+  right: -228px;
+}
+
+.help-message:before {
+  content: " ";
+	height: 0;
+	position: absolute;
+	width: 0;
+
+	border: 10px solid transparent;
+  border-right-color: rgba(0,0,0,0.2);
+  left: -20px;
+  top: 17px;
+}
+
+.help-message.active {
+  display: block;
+  opacity: 0;
+  -webkit-animation: show .5s ease 0s 1 normal forwards;
+  -moz-animation: show .5s ease 0s 1 normal forwards;
+  -o-animation: show .5s ease 0s 1 normal forwards;
+  animation: show .5s ease 0s 1 normal forwards;
+}
+
 @-webkit-keyframes move {
   0% {
     -webkit-transform: translate(0, 0); }

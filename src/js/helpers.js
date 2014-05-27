@@ -23,6 +23,14 @@ var helpers = {
     xhr.open (oFormElement.method, oFormElement.action, true);
     xhr.send (new FormData (oFormElement));
     return false;
+  },
+  showTooltip : function(e, tooltipClass) {
+    var message = e.target.parentNode.getElementsByClassName(tooltipClass)[0];
+    if(message.className.indexOf("active") > -1){
+      message.classList.remove('active');
+    } else {
+      message.className += ' active';
+    }
   }
 }
 

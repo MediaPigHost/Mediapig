@@ -37,6 +37,9 @@ var site = {
     app.subscribe("/view/register/success", function(flag){
         if(flag === true){
           site.postSignup(app);
+          app.help.addEventListenerByClass('help', 'click', function(e){
+            app.help.showTooltip(e, 'help-message');
+          });
         }
     });
 
