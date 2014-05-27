@@ -555,6 +555,14 @@ input[type=password] {
   animation: hide .8s ease 0s 1 normal forwards;
 }
 
+.home .error {
+  display: none;
+}
+
+.overlay-visible .error {
+  display: block;
+}
+
 .overlay-visible .overlay {
   position: fixed;
   top: 0;
