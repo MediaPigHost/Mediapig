@@ -23,10 +23,18 @@ window.onload = function(){
     events : function (app, dom) {
 
       app.help.addEventListenerByClass('overlay-trigger', 'click', function(){
-        console.log('duh');
         app.help.addBodyClass('overlay-visible');
         app.ajax(window.location.origin + '/fragments/register', function (res) {
           app.publish('/view/register/success', true);
+          dom.overlayContent.innerHTML = res;
+        });
+      });
+
+      app.help.addEventListenerByClass('signin-btn', 'click', function(e){
+        e.preventDefault();
+        app.help.addBodyClass('overlay-visible');
+        app.ajax(window.location.origin + '/fragments/signin', function (res) {
+          app.publish('/view/signin/success', true);
           dom.overlayContent.innerHTML = res;
         });
       });

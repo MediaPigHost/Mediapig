@@ -548,7 +548,7 @@ input[type=password] {
 }
 
 .overlay-visible .wrap .body,
-.overlay-visible .signin {
+.overlay-visible .signin-btn {
   -webkit-animation: hide .8s ease 0s 1 normal forwards;
   -moz-animation: hide .8s ease 0s 1 normal forwards;
   -o-animation: hide .8s ease 0s 1 normal forwards;
@@ -587,7 +587,7 @@ input[type=password] {
 .overlay-close {
   font-size: 1.5em;
   background-color: rgba(255,255,255,0.1);
-  padding: 10px;
+  padding: 10px 15px;
   border-radius: 5px;
   color: #FFF;
   text-decoration: none;
@@ -601,7 +601,8 @@ input[type=password] {
   top: 200px;
 }
 
-.signup {
+.signup,
+.signin-form {
   text-align: center;
   padding: 30px 60px;
   width: 400px;
@@ -609,7 +610,9 @@ input[type=password] {
 }
 
 .signup input[type=email],
-.signup input[type=password] {
+.signup input[type=password],
+.signin-form input[type=email],
+.signin-form input[type=password] {
   color: #666;
 }
 
