@@ -367,7 +367,8 @@ ol, ul {
   list-style: none; }
 
 input[type=text],
-input[type=email] {
+input[type=email],
+input[type=password] {
   background-color: #FFF;
   border: 0;
   border-radius: 10px;
@@ -384,7 +385,7 @@ input[type=email] {
   input[type=email]:focus {
     box-shadow: 0 0 10px #56cef3; }
 
-.signup {
+.holding-signup {
   width: 330px;
   margin: 0 auto;
   z-index: 100;
@@ -472,7 +473,7 @@ input[type=email] {
 }
 
 .home .wrap {
-  width: 1028px;
+  max-width: 1028px;
   margin: 0 auto;
   text-align: center;
 }
@@ -529,13 +530,13 @@ input[type=email] {
 
 .body {
   position: absolute;
-  padding: 30px 60px;
+  padding: 30px 0;
   height: 300px;
-  width: 600px;
+  width: 400px;
   top: 50%;
   left: 50%;
   margin-top: -150px;
-  margin-left: -330px;
+  margin-left: -200px;
 }
 
 .body hgroup {
@@ -546,6 +547,14 @@ input[type=email] {
   display: none;
 }
 
+.overlay-visible .wrap .body,
+.overlay-visible .signin {
+  -webkit-animation: hide .8s ease 0s 1 normal forwards;
+  -moz-animation: hide .8s ease 0s 1 normal forwards;
+  -o-animation: hide .8s ease 0s 1 normal forwards;
+  animation: hide .8s ease 0s 1 normal forwards;
+}
+
 .overlay-visible .overlay {
   position: fixed;
   top: 0;
@@ -554,17 +563,17 @@ input[type=email] {
   height: 100%;
   width: 100%;
   z-index: 10;
-  background-color: rgba(0,0,0,0.8);
-  -webkit-animation: show 1s ease 0s 1 normal forwards;
-  -moz-animation: show 1s ease 0s 1 normal forwards;
-  -o-animation: show 1s ease 0s 1 normal forwards;
-  animation: show 1s ease 0s 1 normal forwards;
+  opacity: 0;
+  -webkit-animation: show 1s ease 1s 1 normal forwards;
+  -moz-animation: show 1s ease 1s 1 normal forwards;
+  -o-animation: show 1s ease 1s 1 normal forwards;
+  animation: show 1s ease 1s 1 normal forwards;
 }
 
-.overlay-content {
-  width: 928px;
-  margin: 0;
-  padding: 50px;
+.overlay-wrap {
+  max-width: 1028px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .overlay-close {
@@ -574,46 +583,65 @@ input[type=email] {
   border-radius: 5px;
   color: #FFF;
   text-decoration: none;
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }
 
+.overlay-content {
+  position: relative;
+  top: 200px;
+}
 
+.signup {
+  text-align: center;
+  padding: 30px 60px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.signup input[type=email],
+.signup input[type=password] {
+  color: #666;
+}
+
+.error {
+  background-color: #d79f81;
+  padding: 20px;
+  width: 100%;
+  position: absolute;
+  bottom: -60px;
+  text-align: center;
+  -webkit-animation: move 1s ease 0s 1 normal forwards;
+  -moz-animation: move 1s ease 0s 1 normal forwards;
+  -o-animation: move 1s ease 0s 1 normal forwards;
+  animation: move 1s ease 0s 1 normal forwards;
+}
 
 @-webkit-keyframes move {
   0% {
-    opacity: 0.0; }
-
-  75% {
-    opacity: 1; }
+    -webkit-transform: translate(0, 0); }
 
   100% {
-    -webkit-transform: translate(0, -129px); } }
+    -webkit-transform: translate(0, -60px); } }
 @-moz-keyframes move {
   0% {
-    opacity: 0.0; }
-
-  75% {
-    opacity: 1; }
+    -moz-transform: translate(0, 0); }
 
   100% {
-    -moz-transform: translate(0, -129px); } }
+    -moz-transform: translate(0, -60px); } }
 @-o-keyframes move {
   0% {
-    opacity: 0.0; }
-
-  75% {
-    opacity: 1; }
+    -o-transform: translate(0, -0); }
 
   100% {
-    -o-transform: translate(0, -129px); } }
+    -o-transform: translate(0, -60px); } }
 @keyframes move {
   0% {
-    opacity: 0.0; }
-
-  75% {
-    opacity: 1; }
+    transform: translate(0, 0); }
 
   100% {
-    transform: translate(0, -129px); } }
+    transform: translate(0, -60px); } }
 @-webkit-keyframes show {
   0% {
     opacity: 0.0; }
@@ -638,6 +666,30 @@ input[type=email] {
 
   100% {
     opacity: 1; } }
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+@-moz-keyframes hide {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+@-o-keyframes hide {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+@keyframes hide {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
 @-webkit-keyframes slidedown {
   0% {
     -webkit-transform: translate(0, -45px); }

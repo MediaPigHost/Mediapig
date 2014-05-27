@@ -19,6 +19,10 @@ app.get('/home', function(req, res){
   res.render('home', data);
 });
 
+app.get('/fragments/:page', function(req, res){
+  res.render('fragments/' + req.params.page, data);
+});
+
 app.listen(4333);
 
 console.log('Listening on port 4333');
