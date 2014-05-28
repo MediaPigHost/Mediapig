@@ -1,3 +1,4 @@
+
 var helpers = {
   addEventListenerByClass : function (className, event, fn) {
     var list = document.getElementsByClassName(className);
@@ -30,6 +31,18 @@ var helpers = {
       message.classList.remove('active');
     } else {
       message.className += ' active';
+    }
+  },
+  loading : function(target, type){
+    if (!target) return;
+    var spinner = target.parentNode;
+    if(spinner.className.indexOf("active") == -1){
+      spinner.className += ' active';
+    }
+    if(type === 'remove'){
+      window.setTimeout(function() {
+        spinner.classList.remove('active');
+      }, 1000);
     }
   }
 }

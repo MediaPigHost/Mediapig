@@ -23,7 +23,7 @@ window.onload = function(){
     events : function (app, dom) {
 
       app.help.addEventListenerByClass('overlay-trigger', 'click', function(){
-        app.help.addBodyClass('overlay-visible');
+        app.publish('/event/register/submit', true);
         app.ajax(window.location.origin + '/fragments/register', function (res) {
           app.publish('/view/register/success', true);
           dom.overlayContent.innerHTML = res;
@@ -53,23 +53,37 @@ window.onload = function(){
           }
       });
 
+      app.subscribe("/form/register/update", function(flag){
+          var button = document.getElementById('create-account-button');
+          app.help.loading(button, 'remove');
+      });
+
+      app.subscribe("/event/register/submit", function(){
+        app.help.addBodyClass('overlay-visible');
+      });
+
       app.subscribe("/message/error", function(data){
         document.getElementById("error-wrap").innerHTML += data.html;
       })
     },
     postSignup : function(app){
-      var submitacct = document.getElementById('create-account-button')
+      var submitacct = document.getElementById('create-account-button');
       submitacct.addEventListener('click', function(e){
         e.preventDefault();
+        app.help.loading(submitacct);
         var signupFormEl = document.getElementById("signup");
         var formData = new FormData(signupFormEl);
         app.help.postForm(signupFormEl, function(xhr){
           app.help.removeElementsByClass('error');
+
           var res = JSON.parse(xhr.response);
           if(res.errors){
+            app.publish('/form/register/update', 'fail');
             var tpl = app.precompile('{% for error in errors |reverse %}<div class="error">{{ error }}</div>{% endfor %}').tpl
             var template = app.render(tpl, { 'errors' : res.errors });
             app.publish('/message/error', { html : template })
+          } else {
+            app.publish('/form/register/update', 'success');
           }
         });
       });
