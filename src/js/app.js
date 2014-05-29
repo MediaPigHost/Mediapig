@@ -40,6 +40,21 @@ window.onload = function(){
         });
       });
 
+      app.subscribe("/view/order/details/loaded", function(flag){
+        app.help.addEventListenerByClass('attribute', 'click', function(e){
+          app.help.variations({ target: e.currentTarget, childClass: 'attribute', parentClass: 'attribute-selector', buttonClass: 'package-detail-btn', api: 'http://api.mediapig.co.uk/index.php?', endpoint: '/product/read/' }, app);
+          e.preventDefault();
+        });
+
+        app.help.addEventListenerByClass('disabled', 'click', function(e){
+          if( e.currentTarget.className.indexOf("disabled") > -1){
+            e.preventDefault();
+          } else {
+            console.log('nextPage');
+          }
+        });
+      });
+
       if(dom.overlayClose){
         dom.overlayClose.addEventListener('click', function(){
           app.help.removeBodyClass('overlay-visible');
@@ -48,17 +63,17 @@ window.onload = function(){
       }
 
       app.subscribe("/view/register/loaded", function(flag){
-          if(flag === true){
-            site.postSignup(app);
-            app.help.addEventListenerByClass('help', 'click', function(e){
-              app.help.showTooltip(e, 'help-message');
-            });
-          }
+        if(flag === true){
+          site.postSignup(app);
+          app.help.addEventListenerByClass('help', 'click', function(e){
+            app.help.showTooltip(e, 'help-message');
+          });
+        }
       });
 
       app.subscribe("/view/order", function(flag){
         document.getElementsByClassName('wrap')[0].innerHTML = "";
-        app.ajax(window.location.origin + '/fragments/order', function (res) {
+        app.ajax(window.location.origin + '/fragments/paackage-type', function (res) {
           app.publish('/view/order/loaded', true);
           dom.overlayContent.innerHTML = res;
         });
@@ -70,6 +85,7 @@ window.onload = function(){
           app.help.addBodyClass('order');
         }, 1000);
         app.help.addEventListenerByClass('package-type', 'click', function(e){
+          e.preventDefault();
           var target = e.currentTarget;
           var siblings = target.parentNode.getElementsByClassName('package-type');
           var formbtn = target.parentNode.parentNode.parentNode.getElementsByClassName('package-type-btn')[0];
@@ -84,7 +100,13 @@ window.onload = function(){
           if( e.currentTarget.className.indexOf("disabled") > -1){
             e.preventDefault();
           } else {
-            return true;
+            console.log('loading');
+            app.help.addBodyClass('package-type-chosen');
+            var selected = document.getElementsByClassName('package-type-list')[0].getElementsByClassName('active')[0];
+            console.log(selected);
+            history.pushState('order-details', 'order-details', '/order/details/' + selected.getAttribute('data-id'));
+            site.defered(app, dom);
+            e.preventDefault();
           }
         });
       });
@@ -92,7 +114,7 @@ window.onload = function(){
       app.subscribe("/form/register/update", function(flag){
           var button = document.getElementById('create-account-button');
           if(flag == 'success'){
-            app.help.addBodyClass('loading-success');
+            app.help.addBodyClass('register-success');
             app.help.loading(button, 'success');
             setTimeout(function () {
               app.publish('/view/order', true);
@@ -111,11 +133,23 @@ window.onload = function(){
       })
     },
     defered : function(app, dom){
+      if(document.getElementsByTagName('body')[0].className.indexOf('package-type-chosen') > -1){
+        var path = window.location.pathname;
+        app.ajax(window.location.origin + '/fragments/package-detail/' + path.substr(path.length -1), function (res) {
+          app.publish('/view/order/details/loaded', true);
+          dom.overlayContent.innerHTML = res;
+        });
+
+        return
+      }
+
       if(document.getElementsByTagName('body')[0].className.indexOf('order') > -1){
-        app.ajax(window.location.origin + '/fragments/order', function (res) {
+        app.ajax(window.location.origin + '/fragments/package-type', function (res) {
           app.publish('/view/order/loaded', true);
           dom.overlayContent.innerHTML = res;
         });
+
+        return
       }
     },
     postSignup : function(app){

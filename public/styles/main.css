@@ -772,23 +772,23 @@ input[type=password] {
   transition: padding .5s;
 }
 
-.loading-success .form-inputs,
-.loading-success .overlay-close,
-.loading-success .logo {
+.register-success .form-inputs,
+.register-success .overlay-close,
+.register-success .logo {
   -webkit-animation: hide .8s ease 1s 1 normal forwards;
   -moz-animation: hide .8s ease 1s 1 normal forwards;
   -o-animation: hide .8s ease 1s 1 normal forwards;
   animation: hide .8s ease 1s 1 normal forwards;
 }
 
-.loading-success .form-submit {
+.register-success .form-submit {
   -webkit-animation: hide .8s ease 1.5s 1 normal forwards;
   -moz-animation: hide .8s ease 1.5s 1 normal forwards;
   -o-animation: hide .8s ease 1.5s 1 normal forwards;
   animation: hide .8s ease 1.5s 1 normal forwards;
 }
 
-.loading-success .overlay {
+.register-success .overlay {
   background-color: rgba(0,0,0,.8);
   -webkit-transition: background-color .5s;
   -o-transition: background-color .5s;
@@ -798,7 +798,7 @@ input[type=password] {
   transition-delay: 2s;
 }
 
-.loading-success .overlay-content {
+.register-success .overlay-content {
   max-width: 1028px;
   margin: 0 auto;
   text-align: center;
@@ -806,6 +806,64 @@ input[type=password] {
 
 .order-overlay .package-type-list {
   margin-bottom: 40px;
+}
+
+.package-detail-overlay li {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.package-detail-overlay li:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.package-type-chosen .overlay-content {
+  top: 100px;
+}
+
+.package-type-chosen .order-overlay {
+  display: none;
+}
+
+.package-detail-overlay ul {
+  text-align: left;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.1);
+  position: relative;
+  clear: both;
+  white-space: nowrap;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 50px;
+}
+
+.package-detail-overlay h2 {
+  margin-bottom: 30px;
+}
+
+.package-detail-overlay h3 {
+  font-size: 1.4em;
+  display: inline-block;
+  float: left;
+  padding: 10px 20px;
+  border-radius: 10px 10px 0 0;
+  margin-top: 50px;
+  margin: 50px 0 0 50px
+}
+
+.package-detail-overlay .btn {
+  margin-top: 50px;
+}
+
+.package-detail-overlay .active {
+  background-color: #4e4d55;
+}
+
+.package-detail-overlay h3.first {
+  margin-top: 0;
 }
 
 .order-overlay p {

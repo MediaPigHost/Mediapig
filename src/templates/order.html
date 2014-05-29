@@ -8,26 +8,11 @@
       {{name}} | Hosting without the hassle
     </title>
   </head>
-  <body class="order overlay-visible loading-success">
+  <body class="order overlay-visible register-success">
     <div class="overlay">
       <div class="overlay-wrap">
         <div id="overlay-content" class="overlay-content">
-          <section class="order-overlay">
-            <h2>Setup your hosting in a few easy steps</h2>
-          {% for type in types %}
-            {% if loop.first %}
-            <ul>
-            {% endif %}
-              <li{% if loop.first %} class="active"{% endif %}>
-                <div class="package-img"></div>
-                {{ type.name }}
-                <p>{{ type.description }}</p>
-              </li>
-            {% if loop.last %}
-            </ul>
-            {% endif %}
-          {% endfor %}
-          </section>
+          
         </div>
       </div>
     </div>

@@ -37,10 +37,20 @@ app.get('/home', function(req, res){
   res.render('home', data);
 });
 
-app.get('/fragments/order', function(req, res){
+app.get('/fragments/package-type', function(req, res){
   request('http://api.mediapig.co.uk/index.php?/servicetype/read/all', function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      res.render('fragments/order', JSON.parse(body));
+      res.render('fragments/package-type', JSON.parse(body));
+    }
+  })
+});
+
+
+app.get('/fragments/package-detail/:typeid', function(req, res){
+  request('http://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(JSON.parse(body));
+      res.render('fragments/package-detail', JSON.parse(body));
     }
   })
 });
@@ -49,7 +59,7 @@ app.get('/fragments/:page', function(req, res){
   res.render('fragments/' + req.params.page, data);
 });
 
-app.get('/order', function(req, res){
+app.get('/order*', function(req, res){
   var cookies = parseCookies(req);
   request('http://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, body) {
     if (!error && response.statusCode == 200) {

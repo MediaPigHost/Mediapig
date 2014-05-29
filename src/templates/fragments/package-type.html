@@ -4,7 +4,7 @@
   {% if loop.first %}
   <ul class="package-type-list">
   {% endif %}
-    <li class="package-type">
+    <li class="package-type" data-id="{{type.id}}">
       <div class="package-img"></div>
       {{ type.name }}
       <p>{{ type.description }}</p>

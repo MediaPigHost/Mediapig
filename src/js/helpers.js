@@ -1,4 +1,3 @@
-
 var helpers = {
   addEventListenerByClass : function (className, event, fn) {
     var list = document.getElementsByClassName(className);
@@ -35,6 +34,14 @@ var helpers = {
       elem.detachEvent ('on'+eventType,handler);
     }
   },
+  postJSON : function(data, url, cb){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){ cb(xhr) };
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(data);
+    return false;
+  },
   postForm : function(oFormElement, cb){
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){ cb(xhr) };
@@ -68,11 +75,70 @@ var helpers = {
       }, 1000);
     }
   },
+  toArray : function(obj) {
+    var array = [];
+    for (var i = obj.length >>> 0; i--;) {
+      array[i] = obj[i];
+    }
+    return array;
+  },
   setCookie : function(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime()+(exdays*24*60*60*1000));
     var expires = "expires="+d.toGMTString();
     document.cookie = cname + "=" + cvalue + "; " + expires;
+  },
+  variations : function(config, app){
+    var target = config.target;
+    var parent = target.parentNode;
+    var siblings = parent.getElementsByClassName(config.childClass);
+    var formbtn = parent.parentNode.parentNode.getElementsByClassName(config.buttonClass)[0];
+    var attributes = document.getElementsByClassName(config.childClass);
+    var variants = document.getElementsByClassName(config.parentClass);
+    var totalSelected = 0;
+
+    for (var i = 0; i < siblings.length; i++) {
+      helpers.removeClass(siblings[i],'active');
+    }
+
+    if(parent.parentNode.getAttribute('data-id') <= (variants.length - 1)){
+      var variantList = helpers.toArray(variants),
+          index = parent.parentNode.getAttribute('data-id') + 1;
+          newlist = variantList.splice(index, variants.length),
+          complex = 0;
+
+      if (parent.parentNode.getAttribute('data-complex') == 'true'){
+        var productId = target.getAttribute('data-product-id');
+        app.ajax(config.api + config.endpoint + productId, function (res) {
+          console.log(JSON.parse(res));
+          console.log(index);
+          for (var i = index; i < variantList.length; i++) {
+            console.log(variants[i]);
+          }
+        });
+      }
+
+      for (var i = 0; i < newlist.length; i++) {
+        var newListEl = newlist[i].getElementsByClassName(config.childClass);
+        for (var x = 0; x < newListEl.length; x++) {
+          helpers.removeClass(newListEl[x], 'active');
+        }
+      }
+    }
+
+    target.className += ' active';
+
+    for (var i = 0; i < attributes.length; i++) {
+      if( attributes[i].className.indexOf("active") > -1 ){
+        totalSelected++;
+      }
+    }
+
+    if (totalSelected == variants.length){
+      helpers.removeClass(formbtn, 'disabled');
+    } else {
+      formbtn.className += ' disabled';
+    }
   }
 }
 

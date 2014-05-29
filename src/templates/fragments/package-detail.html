@@ -1,0 +1,20 @@
+<section class="package-detail-overlay">
+  <h2>Setup your hosting in a few easy steps</h2>
+  {% for attribute in attributes %}
+  <div class="attribute-selector" data-id="{{loop.index0}}" {% if attribute.id %} data-complex="true"{% endif %}>
+    <h3 {% if loop.first %}class="first"{% endif %}>{{attribute.display_name}}</h3>
+    <ul>
+      {% for value in attribute.values %}
+        <li class="attribute" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
+        {% if value.value %}
+          {{value.value}} {{attribute.suffix}}
+        {% else %}
+          {{value}} {{attribute.suffix}}
+        {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  <a href="#" class="btn large disabled package-detail-btn">Next step</a>
+</section>
