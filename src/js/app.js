@@ -65,19 +65,27 @@ window.onload = function(){
       });
 
       app.subscribe("/view/order/loaded", function(flag){
-        console.log('view/order/loaded');
         setTimeout(function () {
           app.help.removeBodyClass('home');
           app.help.addBodyClass('order');
         }, 1000);
         app.help.addEventListenerByClass('package-type', 'click', function(e){
-          console.log('clicked');
           var target = e.currentTarget;
           var siblings = target.parentNode.getElementsByClassName('package-type');
+          var formbtn = target.parentNode.parentNode.parentNode.getElementsByClassName('package-type-btn')[0];
           for (var i = 0; i < siblings.length; i++) {
             app.help.removeClass(siblings[i],'active');
           }
           target.className += ' active';
+          app.help.removeClass(formbtn, 'disabled');
+        });
+
+        app.help.addEventListenerByClass('disabled', 'click', function(e){
+          if( e.currentTarget.className.indexOf("disabled") > -1){
+            e.preventDefault();
+          } else {
+            return true;
+          }
         });
       });
 

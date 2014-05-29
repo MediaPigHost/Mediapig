@@ -27,6 +27,14 @@ var helpers = {
         elements[0].parentNode.removeChild(elements[0]);
     }
   },
+  removeEventListeners : function (elem,eventType,handler) {
+    if (elem.removeEventListener) {
+      elem.removeEventListener (eventType,handler,false);
+    }
+    if (elem.detachEvent) {
+      elem.detachEvent ('on'+eventType,handler);
+    }
+  },
   postForm : function(oFormElement, cb){
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){ cb(xhr) };

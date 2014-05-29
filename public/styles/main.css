@@ -453,6 +453,11 @@ input[type=password] {
 .btn:focus {
   background-color: #49b6d7; }
 
+.btn.disabled {
+  background-color: #666;
+  opacity: 0.3;
+}
+
 .large {
   position: relative;
   font-size: 1.6em;
@@ -799,6 +804,10 @@ input[type=password] {
   text-align: center;
 }
 
+.order-overlay .package-type-list {
+  margin-bottom: 40px;
+}
+
 .order-overlay p {
   font-size: 0.5em;
   color: rgba(255,255,255,0.5);
@@ -824,14 +833,14 @@ input[type=password] {
 }
 
 .order-overlay li.active {
-  background-color: #a4bb7f;
   -webkit-transition: background-color .5s;
   -o-transition: background-color .5s;
   transition: background-color .5s;
+  background-color: rgba(255,255,255,0.1);
 }
 
 .order-overlay li.active:hover {
-  background-color: #b2cb8a;
+  background-color: none;
 }
 
 .order-overlay li.active p {
