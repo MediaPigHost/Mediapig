@@ -5,6 +5,7 @@ deployment:
   production:
     branch: master
     commands:
+      - npm install -g gulp
       - gulp buildjs
       - gulp compress
       - ./deploy_prod.sh
