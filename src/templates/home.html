@@ -1,13 +1,4 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{url}}styles/main.css">
-    <title>
-      {{name}} | Hosting without the hassle
-    </title>
-  </head>
+{% include 'fragments/header.html' %}
   <body class="home">
     <div class="wrap">
       <section class="header line">
@@ -35,6 +26,4 @@
       </div>
     </div>
     <div id="error-wrap"></div>
-    <script src="{{url}}js/app.js" charset="utf-8"></script>
-  </body>
-</html>
+{% include 'fragments/footer.html' %}
