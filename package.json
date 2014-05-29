@@ -25,7 +25,8 @@
     "request": "^2.36.0",
     "extend": "^1.2.1",
     "cookie-parser": "^1.1.0",
-    "express-session": "^1.2.1"
+    "express-session": "^1.2.1",
+    "body-parser": "^1.2.2"
   },
   "devDependencies": {
     "gulp": "3.6.2",

@@ -5,22 +5,11 @@ var express = require('express'),
     extend = require('extend'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
+    bodyParser = require('body-parser'),
     app = express();
 
-function parseCookies (request) {
-  var list = {},
-      rc = request.headers.cookie;
-
-  rc && rc.split(';').forEach(function( cookie ) {
-      var parts = cookie.split('=');
-      list[parts.shift().trim()] = unescape(parts.join('='));
-  });
-
-  return list;
-}
-
 app.use(express.static(__dirname + '/public'));
-
+app.use(bodyParser());
 app.engine('html', cons.swig);
 
 // set .html as the default extension
@@ -31,6 +20,10 @@ app.use(session({ secret: 'bacon wave', cookie: { maxAge: 60000 }}))
 
 app.get('/', function(req, res){
   res.render('index', data);
+});
+
+app.post('/error/message', function(req, res, next) {
+  res.render('fragments/error', req.body);
 });
 
 app.get('/home', function(req, res){
@@ -75,3 +68,15 @@ app.get('/order*', function(req, res){
 app.listen(4333);
 
 console.log('Listening on port 4333');
+
+function parseCookies (request) {
+  var list = {},
+      rc = request.headers.cookie;
+
+  rc && rc.split(';').forEach(function( cookie ) {
+      var parts = cookie.split('=');
+      list[parts.shift().trim()] = unescape(parts.join('='));
+  });
+
+  return list;
+}
