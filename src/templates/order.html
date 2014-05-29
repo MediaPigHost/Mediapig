@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{url}}styles/main.css">
+    <title>
+      {{name}} | Hosting without the hassle
+    </title>
+  </head>
+  <body class="order overlay-visible loading-success">
+    <div class="overlay">
+      <div class="overlay-wrap">
+        <div id="overlay-content" class="overlay-content">
+          <section class="order-overlay">
+            <h2>Setup your hosting in a few easy steps</h2>
+          {% for type in types %}
+            {% if loop.first %}
+            <ul>
+            {% endif %}
+              <li{% if loop.first %} class="active"{% endif %}>
+                <div class="package-img"></div>
+                {{ type.name }}
+                <p>{{ type.description }}</p>
+              </li>
+            {% if loop.last %}
+            </ul>
+            {% endif %}
+          {% endfor %}
+          </section>
+        </div>
+      </div>
+    </div>
+    <div id="error-wrap"></div>
+    <script src="{{url}}js/app.js" charset="utf-8"></script>
+  </body>
+</html>

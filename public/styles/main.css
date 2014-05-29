@@ -391,6 +391,24 @@ input[type=password] {
   z-index: 100;
   position: relative; }
 
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-checkmark:before {
+  content: "\e600";
+}
+
 /*
   Structure
 */
@@ -466,25 +484,31 @@ input[type=password] {
     margin: 0 auto;
     display: block; }
 
-.home {
+.home,
+.order {
   background: #4E4D55 url('../images/homebg.png') center bottom no-repeat;
   background-size: cover;
   color: #FFF;
 }
 
-.home .wrap {
+.home .wrap,
+.order .wrap {
   max-width: 1028px;
   margin: 0 auto;
   text-align: center;
 }
 
-.home h1 {
+.home h1,
+.order h1 {
   font-size: 3em;
 }
 
 .home h1,
 .home h2,
-.home h3 {
+.home h3,
+.order h1,
+.order h2,
+.order h3 {
   font-weight: 400;
   margin: 0;
 }
@@ -555,7 +579,8 @@ input[type=password] {
   animation: hide .8s ease 0s 1 normal forwards;
 }
 
-.home .error {
+.home .error,
+.order .error {
   display: none;
 }
 
@@ -576,6 +601,14 @@ input[type=password] {
   -moz-animation: show 1s ease 1s 1 normal forwards;
   -o-animation: show 1s ease 1s 1 normal forwards;
   animation: show 1s ease 1s 1 normal forwards;
+}
+
+.order.overlay-visible .overlay {
+  opacity: 1;
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  animation: none;
 }
 
 .overlay-wrap {
@@ -678,24 +711,47 @@ input[type=password] {
   animation: show .5s ease 0s 1 normal forwards;
 }
 
-.loading {
+.loading,
+.tick {
   display: none;
+}
+
+.active .loading,
+.active.success .tick {
+  opacity: 0;
+  display: block;
+  left: 70px;
+  top: 47px;
+  z-index: 100;
+  position: relative;
 }
 
 .active .loading {
   background: url('../images/spin.png') no-repeat;
   width: 30px;
   height: 30px;
-  display: block;
-  opacity: 0;
-  left: 70px;
-  top: 47px;
-  z-index: 100;
-  position: relative;
   -webkit-animation: spin 2s infinite, show .8s ease .55s 1 normal forwards;
   -moz-animation: spin 2s infinite, show .8s ease .55s 1 normal forwards;
   -o-animation: spin 2s infinite, show .8s ease .55s 1 normal forwards;
   animation: spin 2s infinite, show .8s ease .55s 1 normal forwards;
+}
+
+.active.success .loading {
+  display: none;
+}
+
+.active.success .tick {
+  font-size: 2em;
+  width: 35px;
+  overflow: hidden;
+  -webkit-animation: show .5s ease 0s 1 normal forwards;
+  -moz-animation: show .5s ease 0s 1 normal forwards;
+  -o-animation: show .5s ease 0s 1 normal forwards;
+  animation: show .5s ease 0s 1 normal forwards;
+}
+
+.active.success .btn {
+  background-color: #BCD09E;
 }
 
 .form-submit .btn {
@@ -709,6 +765,84 @@ input[type=password] {
   -webkit-transition: padding .5s;
   -o-transition: padding .5s;
   transition: padding .5s;
+}
+
+.loading-success .form-inputs,
+.loading-success .overlay-close,
+.loading-success .logo {
+  -webkit-animation: hide .8s ease 1s 1 normal forwards;
+  -moz-animation: hide .8s ease 1s 1 normal forwards;
+  -o-animation: hide .8s ease 1s 1 normal forwards;
+  animation: hide .8s ease 1s 1 normal forwards;
+}
+
+.loading-success .form-submit {
+  -webkit-animation: hide .8s ease 1.5s 1 normal forwards;
+  -moz-animation: hide .8s ease 1.5s 1 normal forwards;
+  -o-animation: hide .8s ease 1.5s 1 normal forwards;
+  animation: hide .8s ease 1.5s 1 normal forwards;
+}
+
+.loading-success .overlay {
+  background-color: rgba(0,0,0,.8);
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  transition: background-color .5s;
+  -webkit-transition-delay: 2s;
+  -o-transition-delay: 2s;
+  transition-delay: 2s;
+}
+
+.loading-success .overlay-content {
+  max-width: 1028px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.order-overlay p {
+  font-size: 0.5em;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+  width: 85%;
+  margin: 20px auto 0;
+  letter-spacing: 0.6
+}
+
+.order-overlay h2 {
+  margin-bottom: 50px;
+  font-weight: 100;
+}
+
+.order-overlay li {
+  padding: 40px 20px;
+  font-size: 2em;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 40px;
+  cursor: pointer;
+  width: 355px;
+}
+
+.order-overlay li.active {
+  background-color: #a4bb7f;
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  transition: background-color .5s;
+}
+
+.order-overlay li.active:hover {
+  background-color: #b2cb8a;
+}
+
+.order-overlay li.active p {
+  color: rgba(255,255,255,0.7);
+}
+
+.order-overlay li:hover {
+  background-color: rgba(255,255,255,0.05);
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  transition: background-color .5s;
 }
 
 @-webkit-keyframes move {
@@ -786,3 +920,15 @@ input[type=password] {
 @keyframes slidedown {
   0% { transform: translate(0, -45px); }
   100% { transform: translate(0, 0); } }
+
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?-lcj9le');
+	src:url('../fonts/icomoon.eot?#iefix-lcj9le') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-lcj9le') format('woff'),
+		url('../fonts/icomoon.ttf?-lcj9le') format('truetype'),
+		url('../fonts/icomoon.svg?-lcj9le#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

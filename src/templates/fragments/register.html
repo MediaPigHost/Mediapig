@@ -1,13 +1,16 @@
 <section class='signup'>
   <form id="signup" action="http://api.mediapig.co.uk/index.php?/user/create" method="post">
-    <input type="email" name="email" placeholder="Email Address" />
-    <div class="password-field">
-      <input type="password" name="password" placeholder="Password" />
-      <span class="help">?</span>
-      <span class="help-message">You'll need 8 characters, including a number.</span>
+    <div class="form-inputs">
+      <input type="email" name="email" placeholder="Email Address" />
+      <div class="password-field">
+        <input type="password" name="password" placeholder="Password" />
+        <span class="help">?</span>
+        <span class="help-message">You'll need 8 characters, including a number.</span>
+      </div>
     </div>
     <div class="form-submit">
       <span class="loading"></span>
+      <span class="tick icon-checkmark"></span>
       <input type="submit" id="create-account-button" class="btn large" value="Create account">
     </div>
   </form>
