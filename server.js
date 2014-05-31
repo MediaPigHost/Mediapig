@@ -75,8 +75,7 @@ app.get('/order*', function(req, res){
     if (!error && response.statusCode == 200) {
       var body = JSON.parse(body);
       if(body.customer_id === false) {
-        res.render('home', data);
-        console.log('home');
+        res.redirect('/home');
       } else {
         var out = extend(data, body);
         res.render('order', out);
