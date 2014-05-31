@@ -1,0 +1,23 @@
+<section class="package-os-overlay">
+  <h2>Which system would you like?</h2>
+  {% for attribute in attributes %}
+    <ul class="os-list">{% for value in attribute.values %}<li class="os" data-os="{{value.name|lower|join('')}}">
+      <img width="200" src="{{url}}images/{{value.name|lower|join('')}}.png" alt="{{value.name}}" />
+      <span class="os-name">{{value.name}}</span>
+    </li>{% endfor %}</ul>
+    {% for value in attribute.values %}
+    <div class="os-variations" data-os="{{value.name|lower|join('')}}">
+      <div class="os">
+        <img width="200" src="{{url}}images/{{value.name|lower|join('')}}.png" alt="{{value.name}}" />
+      </div>
+      <ul>
+        {% for variation in value.variations %}
+          <li class="btn">{{variation.name}}</li>
+        {% endfor %}
+      </ul>
+      <a href="#" class="btn large package-type-btn secondary"><i class="icon-arrow-left"></i> Back</a>
+    </div>
+    {% endfor %}
+  {% endfor %}
+  <a href="#" class="btn large disabled package-detail-btn">Next step</a>
+</section>

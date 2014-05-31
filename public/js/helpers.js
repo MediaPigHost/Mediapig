@@ -40,7 +40,7 @@ define(function (require, exports, module) {
       xhr.onload = function(){ cb(xhr) };
       xhr.open('POST', url, true);
       xhr.setRequestHeader('Content-type', 'application/json');
-      xhr.send(JSON.stringify(data));
+      xhr.send(JSON.stringify(data, null));
       return false;
     },
     postForm : function(oFormElement, cb){
@@ -89,7 +89,7 @@ define(function (require, exports, module) {
       var expires = "expires="+d.toGMTString();
       document.cookie = cname + "=" + cvalue + "; " + expires;
     },
-    variations : function(config, app){
+    variations : function(config, app, cb){
       var target = config.target;
       var parent = target.parentNode;
       var siblings = parent.getElementsByClassName(config.childClass);
@@ -102,6 +102,7 @@ define(function (require, exports, module) {
         helpers.removeClass(siblings[i],'active');
       }
 
+      // Logic for everything below the selected
       if(parent.parentNode.getAttribute('data-id') <= (variants.length - 1)){
         var variantList = helpers.toArray(variants),
             index = parent.parentNode.getAttribute('data-id') + 1;
@@ -111,11 +112,7 @@ define(function (require, exports, module) {
         if (parent.parentNode.getAttribute('data-complex') == 'true'){
           var productId = target.getAttribute('data-product-id');
           app.ajax(config.api + config.endpoint + productId, function (res) {
-            console.log(JSON.parse(res));
-            console.log(index);
-            for (var i = index; i < variantList.length; i++) {
-              console.log(variants[i]);
-            }
+            cb(JSON.parse(res));
           });
         }
 
@@ -123,6 +120,7 @@ define(function (require, exports, module) {
           var newListEl = newlist[i].getElementsByClassName(config.childClass);
           for (var x = 0; x < newListEl.length; x++) {
             helpers.removeClass(newListEl[x], 'active');
+
           }
         }
       }

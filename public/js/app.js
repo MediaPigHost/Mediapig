@@ -1,17 +1,19 @@
 curl([
   'js/helpers',
   'js/microajax',
-  'js/pubsub'
-]).then(function (helpers, microAjax, pubsub) {
-
+  'js/pubsub',
+  'js/slide'
+]).then(function (helpers, microAjax, pubsub, slide) {
     var site = {
       init : function () {
+
         var app = {
           'help' : helpers,
           'ajax' : microAjax,
           'publish' : pubsub.publish,
           'subscribe' : pubsub.subscribe,
-          'unsubscribe' : pubsub.unsubscribe
+          'unsubscribe' : pubsub.unsubscribe,
+          'slide' : slide
         },
         dom = {
           'overlayClose' : document.getElementById('overlay-close'),
@@ -21,6 +23,13 @@ curl([
         site.events(app, dom);
       },
       events : function (app, dom) {
+
+        if(dom.overlayClose){
+          dom.overlayClose.addEventListener('click', function(){
+            app.help.removeBodyClass('overlay-visible');
+            app.publish('/view/overlay/closed', true);
+          });
+        }
 
         app.help.addEventListenerByClass('overlay-trigger', 'click', function(){
           app.publish('/event/register/submit', true);
@@ -39,9 +48,42 @@ curl([
           });
         });
 
+        app.subscribe("/view/details/2/loaded", function(flag){
+          app.help.addEventListenerByClass('os', 'click', function(e){
+            e.preventDefault();
+            var target = e.currentTarget;
+            var siblings = target.parentNode.getElementsByClassName('os');
+            var osLists = document.getElementsByClassName('os-variations');
+            var targetOS = target.getAttribute('data-os');
+
+            for (var i = 0; i < siblings.length; i++) {
+              app.help.removeClass(siblings[i], 'active');
+              app.help.addBodyClass('os-variations-choice');
+            }
+
+            for (var i = 0; i < osLists.length; i++) {
+              app.help.removeClass(osLists[i], 'active');
+              if (osLists[i].getAttribute('data-os') === targetOS){
+                osLists[i].className += ' active';
+              }
+            }
+
+            target.className += ' active';
+          });
+        });
+
+        app.subscribe("/event/details/1/submit", function(flag){
+          var path = window.location.pathname;
+          app.ajax(window.location.origin + '/fragments/package-detail/' + path.substr(path.length -1) + '/os', function (res) {
+            app.publish('/view/details/2/loaded', true);
+            dom.overlayContent.innerHTML = res;
+          });
+        });
+
         app.subscribe("/view/order/details/loaded", function(flag){
           app.help.addEventListenerByClass('attribute', 'click', function(e){
-            app.help.variations({ target: e.currentTarget, childClass: 'attribute', parentClass: 'attribute-selector', buttonClass: 'package-detail-btn', api: 'http://api.mediapig.co.uk/index.php?', endpoint: '/product/read/' }, app);
+            var target = e.currentTarget;
+            site.variations(target, 'attribute', 'attribute-selector', 'package-detail-btn', 'http://api.mediapig.co.uk/index.php?', '/product/read/', app);
             e.preventDefault();
           });
 
@@ -49,17 +91,12 @@ curl([
             if( e.currentTarget.className.indexOf("disabled") > -1){
               e.preventDefault();
             } else {
-              console.log('nextPage');
+              // Next page! (packages)
+              app.publish('/event/details/1/submit', true);
+              e.preventDefault();
             }
           });
         });
-
-        if(dom.overlayClose){
-          dom.overlayClose.addEventListener('click', function(){
-            app.help.removeBodyClass('overlay-visible');
-            app.publish('/view/overlay/closed', true);
-          });
-        }
 
         app.subscribe("/view/register/loaded", function(flag){
           if(flag === true){
@@ -137,6 +174,13 @@ curl([
           app.ajax(window.location.origin + '/fragments/package-detail/' + path.substr(path.length -1), function (res) {
             app.publish('/view/order/details/loaded', true);
             dom.overlayContent.innerHTML = res;
+            var sliders = document.getElementsByClassName('slider');
+            for (var i = 0; i < sliders.length; i++) {
+              app.slide.init(sliders[i], {
+                'parentClass' : 'slider',
+                'childClass' : 'slides'
+              });
+            }
           });
 
           return
@@ -171,6 +215,41 @@ curl([
               app.publish('/form/register/update', 'success');
             }
           });
+        });
+      },
+      variations : function(target, childClass, parentClass, buttonClass, api, endpoint, app){
+        app.help.variations({ target: target, childClass: childClass, parentClass: parentClass, buttonClass: buttonClass, api: api, endpoint: endpoint }, app, function(res){
+          var nextId = parseInt(target.parentNode.parentNode.getAttribute('data-id')) + 1;
+          var nextEl = document.getElementsByClassName('attribute-selector')[nextId];
+          app.help.postJSON(res, window.location.origin + '/fragments/variant', function(xhr){
+
+            // Cleanup work
+            var arrowr = document.getElementsByClassName('slide-arrow-right')[nextId];
+            var arrowl = document.getElementsByClassName('slide-arrow-left')[nextId];
+            arrowr.parentNode.removeChild(arrowr);
+            arrowl.parentNode.removeChild(arrowl);
+            // Replace old with new
+            nextEl.outerHTML = xhr.response;
+
+            // Execute slider again for new bindings
+            var newEl = document.getElementsByClassName('attribute-selector')[nextId];
+            app.slide.init(newEl, {
+              'parentClass' : 'slider',
+              'childClass' : 'slides'
+            });
+
+            // Remove disabled added from markup
+            app.help.removeClass(nextEl, 'disabled');
+
+            for (var i = 0; i < newEl.getElementsByClassName('attribute').length; i++) {
+              newEl.getElementsByClassName('attribute')[i].addEventListener('click', function(e){
+                var target = e.currentTarget;
+                site.variations(target, childClass, parentClass, buttonClass, api, endpoint, app);
+                e.preventDefault();
+              });
+            }
+
+          })
         });
       }
     }
