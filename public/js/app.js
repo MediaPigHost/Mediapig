@@ -49,6 +49,14 @@ curl([
         });
 
         app.subscribe("/view/details/2/loaded", function(flag){
+
+          app.help.addEventListenerByClass('os-variations-close', 'click', function(e){
+            console.log('Clicked');
+            e.preventDefault();
+            app.help.removeBodyClass('os-variations-choice');
+            app.help.addBodyClass('os-variations-chosen');
+          });
+
           app.help.addEventListenerByClass('os', 'click', function(e){
             e.preventDefault();
             var target = e.currentTarget;
@@ -58,6 +66,7 @@ curl([
 
             for (var i = 0; i < siblings.length; i++) {
               app.help.removeClass(siblings[i], 'active');
+              app.help.removeBodyClass('os-variations-chosen');
               app.help.addBodyClass('os-variations-choice');
             }
 

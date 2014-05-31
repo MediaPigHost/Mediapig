@@ -1055,6 +1055,7 @@ input[type=password] {
   z-index: 100;
   min-height: 290px;
   padding: 40px 0;
+  visibility: visible;
   -webkit-animation: show .8s ease .8s 1 normal forwards;
   -moz-animation: show .8s ease .8s 1 normal forwards;
   -o-animation: show .8s ease .8s 1 normal forwards;
@@ -1076,6 +1077,27 @@ input[type=password] {
 
 .os-variations-choice .os-list,
 .os-variations-choice .package-detail-btn {
+  -webkit-animation: hide .8s ease 0s 1 normal forwards;
+  -moz-animation: hide .8s ease 0s 1 normal forwards;
+  -o-animation: hide .8s ease 0s 1 normal forwards;
+  animation: hide .8s ease 0s 1 normal forwards;
+}
+
+.os-variations-chosen .os-list,
+.os-variations-chosen .package-detail-btn {
+  opacity: 0;
+  -webkit-animation: show .8s ease .8s 1 normal forwards;
+  -moz-animation: show .8s ease .8s 1 normal forwards;
+  -o-animation: show .8s ease .8s 1 normal forwards;
+  animation: show .8s ease .8s 1 normal forwards;
+}
+
+.os-variations-chosen .os-variations {
+  z-index: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 0s linear .8s;
+  -o-transition: visibility 0s linear .8s;
+  transition: visibility 0s linear .8s;
   -webkit-animation: hide .8s ease 0s 1 normal forwards;
   -moz-animation: hide .8s ease 0s 1 normal forwards;
   -o-animation: hide .8s ease 0s 1 normal forwards;
