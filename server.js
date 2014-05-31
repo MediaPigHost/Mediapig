@@ -73,11 +73,14 @@ app.get('/order*', function(req, res){
   var cookies = parseCookies(req);
   request('http://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, body) {
     if (!error && response.statusCode == 200) {
+      var body = JSON.parse(body);
       if(body.customer_id === false) {
         res.render('home', data);
+        console.log('home');
+      } else {
+        var out = extend(data, body);
+        res.render('order', out);
       }
-      var out = extend(data, JSON.parse(body));
-      res.render('order', out);
     }
   })
 });
