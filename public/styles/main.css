@@ -356,7 +356,8 @@ body {
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
   color: #707070;
-  background: #FFF; }
+  background: #FFF;
+  height: 100% }
 
 /*
   Resets
