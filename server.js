@@ -92,13 +92,11 @@ app.get('/order*', function(req, res){
   })
 });
 
-var options = {
-  key: fs.readFileSync(__dirname + '/etc/ssl/server.key'),
-  cert: fs.readFileSync(__dirname + '/etc/ssl/bundle.crt')
-};
-
-
 if(process.env.DEVENV === 'false'){
+  var options = {
+    key: fs.readFileSync('/etc/ssl/server.key'),
+    cert: fs.readFileSync('/etc/ssl/bundle.crt')
+  };
   // Create an HTTPS service identical to the HTTP service.
   https.createServer(options, app).listen(4333);
 } else {
