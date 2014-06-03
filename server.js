@@ -93,8 +93,8 @@ app.get('/order*', function(req, res){
 });
 
 var options = {
-  key: fs.readFileSync('./etc/ssl/server.key'),
-  cert: fs.readFileSync('./etc/ssl/bundle.crt')
+  key: fs.readFileSync(__dirname + '/etc/ssl/server.key'),
+  cert: fs.readFileSync(__dirname + '/etc/ssl/bundle.crt')
 };
 
 
