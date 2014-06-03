@@ -26,3 +26,7 @@ node_modules
 
 .sass-cache
 src/content/site.json
+
+etc/ssl/bundle.crt
+
+etc/ssl/server.key

@@ -4,7 +4,8 @@ curl([
   'js/pubsub',
   'js/slide'
 ]).then(function (helpers, microAjax, pubsub, slide) {
-    var site = {
+    var configOrder = {},
+      site = {
       init : function () {
 
         var app = {
@@ -51,7 +52,6 @@ curl([
         app.subscribe("/view/details/2/loaded", function(flag){
 
           app.help.addEventListenerByClass('os-variations-close', 'click', function(e){
-            console.log('Clicked');
             e.preventDefault();
             app.help.removeBodyClass('os-variations-choice');
             app.help.addBodyClass('os-variations-chosen');
@@ -79,6 +79,38 @@ curl([
 
             target.className += ' active';
           });
+
+          app.help.addEventListenerByClass('os-variation', 'click', function(e){
+            e.preventDefault();
+            var target = e.currentTarget;
+            var variation = document.getElementsByClassName('os-variation');
+            for (var i = 0; i < variation.length; i++) {
+              app.help.removeClass(variation[i], 'active');
+            }
+
+            if(target.getAttribute('data-id')){
+              configOrder['os'] = target.getAttribute('data-id');
+              console.log(configOrder);
+            }
+
+            target.className += ' active';
+            app.help.removeClass(target.parentNode.parentNode.getElementsByClassName('place-order-btn')[0], 'disabled');
+          });
+
+          app.help.addEventListenerByClass('place-order-btn', 'click', function(e){
+            if( e.currentTarget.className.indexOf("disabled") > -1){
+              e.preventDefault();
+            } else {
+              app.publish('/place/order', true);
+              e.preventDefault();
+            }
+          });
+        });
+
+        app.subscribe("/place/order", function(flag){
+          app.help.postJSON(configOrder, 'https://api.mediapig.co.uk/index.php?/order/create', function(res){
+            console.log(res);
+          });
         });
 
         app.subscribe("/event/details/1/submit", function(flag){
@@ -92,7 +124,14 @@ curl([
         app.subscribe("/view/order/details/loaded", function(flag){
           app.help.addEventListenerByClass('attribute', 'click', function(e){
             var target = e.currentTarget;
-            site.variations(target, 'attribute', 'attribute-selector', 'package-detail-btn', 'http://api.mediapig.co.uk/index.php?', '/product/read/', app);
+            if(target.getAttribute('data-product-id')){
+              configOrder['key'] = app.help.getCookie('key');
+              configOrder['product_id'] = target.getAttribute('data-product-id');
+            }
+            if(target.getAttribute('data-value')){
+              configOrder[target.getAttribute('data-name')] = target.getAttribute('data-value');
+            }
+            site.variations(target, 'attribute', 'attribute-selector', 'package-detail-btn', 'https://api.mediapig.co.uk/index.php?', '/product/read/', app);
             e.preventDefault();
           });
 
@@ -116,19 +155,61 @@ curl([
           }
         });
 
+        app.subscribe("/view/order/loaded", function(){
+          var hostname = document.getElementById('package-hostname');
+          configOrder['customer_id'] = document.getElementById('customerid').value;
+          hostname.addEventListener('keyup', function(e){
+            var button = e.currentTarget.parentNode.getElementsByClassName('package-hostname-btn')[0];
+            var re = /^[a-zA-Z0-9.]{3,}$/;
+            if (!re.test(hostname.value)) {
+              app.help.removeClass(button, 'disabled');
+              button.className += ' disabled';
+            } else {
+              configOrder['hostname'] = e.currentTarget.value;
+              app.help.removeClass(button, 'disabled');
+              if(e && e.keyCode == 13){
+                submit(e);
+              }
+            }
+          });
+
+          var submit = function(e){
+            app.help.addBodyClass('hostname-chosen');
+            app.publish('/view/order/type', true);
+            history.pushState('order-details', 'order-details', '/order/details/');
+            e.preventDefault();
+          }
+
+          app.help.addEventListenerByClass('disabled', 'click', function(e){
+            if( e.currentTarget.className.indexOf("disabled") > -1){
+              e.preventDefault();
+            } else {
+              submit(e);
+            }
+          });
+        });
+
         app.subscribe("/view/order", function(flag){
           document.getElementsByClassName('wrap')[0].innerHTML = "";
-          app.ajax(window.location.origin + '/fragments/package-type', function (res) {
+          app.ajax(window.location.origin + '/fragments/package-hostname', function (res) {
             app.publish('/view/order/loaded', true);
             dom.overlayContent.innerHTML = res;
           });
         });
 
-        app.subscribe("/view/order/loaded", function(flag){
+        app.subscribe("/view/order/type", function(flag){
+          app.ajax(window.location.origin + '/fragments/package-type', function (res) {
+            app.publish('/view/order/type/loaded', true);
+            dom.overlayContent.innerHTML = res;
+          });
+        });
+
+        app.subscribe("/view/order/type/loaded", function(flag){
           setTimeout(function () {
             app.help.removeBodyClass('home');
             app.help.addBodyClass('order');
           }, 1000);
+
           app.help.addEventListenerByClass('package-type', 'click', function(e){
             e.preventDefault();
             var target = e.currentTarget;
@@ -149,6 +230,7 @@ curl([
               var selected = document.getElementsByClassName('package-type-list')[0].getElementsByClassName('active')[0];
               history.pushState('order-details', 'order-details', '/order/details/' + selected.getAttribute('data-id'));
               site.defered(app, dom);
+              console.log('Hello dave');
               e.preventDefault();
             }
           });
@@ -196,7 +278,7 @@ curl([
         }
 
         if(document.getElementsByTagName('body')[0].className.indexOf('order') > -1){
-          app.ajax(window.location.origin + '/fragments/package-type', function (res) {
+          app.ajax(window.location.origin + '/fragments/package-hostname', function (res) {
             app.publish('/view/order/loaded', true);
             dom.overlayContent.innerHTML = res;
           });
@@ -253,6 +335,9 @@ curl([
             for (var i = 0; i < newEl.getElementsByClassName('attribute').length; i++) {
               newEl.getElementsByClassName('attribute')[i].addEventListener('click', function(e){
                 var target = e.currentTarget;
+                if(target.getAttribute('data-value')){
+                  configOrder[target.getAttribute('data-name')] = target.getAttribute('data-value');
+                }
                 site.variations(target, childClass, parentClass, buttonClass, api, endpoint, app);
                 e.preventDefault();
               });

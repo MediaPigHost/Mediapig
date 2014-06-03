@@ -13,7 +13,7 @@ define(['require', 'exports', 'module', 'js/move', 'js/helpers'], function(requi
       child[0].style.width = childWidth + 'px';
       var childRect = child[0].getBoundingClientRect();
       var parentRect = el.getBoundingClientRect();
-      var parentPadding = (el.offsetWidth - child[0].offsetWidth + movementRoom) /2;
+      var parentPadding = (el.offsetWidth - child[0].offsetWidth + movementRoom) / 2;
       var childX = childRect.left;
       var parentX = parentRect.left + parentPadding;
 

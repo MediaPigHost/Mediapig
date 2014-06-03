@@ -477,6 +477,12 @@ input[type=password] {
   position: relative;
 }
 
+.btn .icon-uniE604 {
+  left: 8px;
+  font-size: 0.8em;
+  position: relative;
+}
+
 .large {
   position: relative;
   font-size: 1.6em;
@@ -1005,7 +1011,7 @@ input[type=password] {
 }
 
 .package-os-overlay h2 {
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .os {
@@ -1041,6 +1047,10 @@ input[type=password] {
   transition: background-color 1s;
 }
 
+.os-variation.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
 .os-variations li.active {
   background-color: #4e4d55;
 }
@@ -1063,6 +1073,10 @@ input[type=password] {
   animation: show .8s ease .8s 1 normal forwards;
 }
 
+.os-variations .package-detail-btn {
+  margin-left: 10px;
+}
+
 .os-variations ul {
   padding: 40px;
 }
@@ -1076,16 +1090,14 @@ input[type=password] {
   background-color: rgba(255,255,255,0.2);
 }
 
-.os-variations-choice .os-list,
-.os-variations-choice .package-detail-btn {
+.os-variations-choice .os-list {
   -webkit-animation: hide .8s ease 0s 1 normal forwards;
   -moz-animation: hide .8s ease 0s 1 normal forwards;
   -o-animation: hide .8s ease 0s 1 normal forwards;
   animation: hide .8s ease 0s 1 normal forwards;
 }
 
-.os-variations-chosen .os-list,
-.os-variations-chosen .package-detail-btn {
+.os-variations-chosen .os-list {
   opacity: 0;
   -webkit-animation: show .8s ease .8s 1 normal forwards;
   -moz-animation: show .8s ease .8s 1 normal forwards;
@@ -1141,6 +1153,19 @@ input[type=password] {
   -webkit-transition: opacity .5s;
   -o-transition: opacity .5s;
   transition: opacity .5s;
+}
+
+.package-host-overlay {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.package-host-overlay h2 {
+  margin-bottom: 40px;
+}
+
+.package-host-overlay input {
+  color: #666;
 }
 
 

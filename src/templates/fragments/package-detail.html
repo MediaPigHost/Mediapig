@@ -3,7 +3,7 @@
   {% for attribute in attributes %}
   <h3 {% if loop.first %}class="first"{% endif %}>{{attribute.display_name}}</h3>
   <div class="attribute-selector slider {% if loop.first %}{% else %}disabled{% endif %}" data-id="{{loop.index0}}" {% if attribute.id %} data-complex="true"{% endif %} data-slider>
-    <ul class="slides">{% for value in attribute.values %}<li class="attribute" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
+    <ul class="slides">{% for value in attribute.values %}<li class="attribute" data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
         {% if value.value %}
           {{value.value}} {{attribute.suffix}}
         {% else %}

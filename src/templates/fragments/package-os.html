@@ -7,17 +7,16 @@
     </li>{% endfor %}</ul>
     {% for value in attribute.values %}
     <div class="os-variations" data-os="{{value.name|lower|join('')}}">
-      <div class="os">
+      <div class="os os-circle">
         <img width="200" src="{{url}}images/{{value.name|lower|join('')}}.png" alt="{{value.name}}" />
       </div>
       <ul>
         {% for variation in value.variations %}
-          <li class="btn os-variations-close">{{variation.name}}</li>
+          <li class="btn os-variation" data-id="{{variation.id}}">{{variation.name}}</li>
         {% endfor %}
       </ul>
-      <a href="#" class="btn large os-variations-close secondary"><i class="icon-arrow-left"></i> Back</a>
+      <a href="#" class="btn large os-variations-close secondary"><i class="icon-arrow-left"></i> Back</a> <a href="#" class="btn large disabled place-order-btn">Place order <i class="icon-uniE604"></i></a>
     </div>
     {% endfor %}
   {% endfor %}
-  <a href="#" class="btn large disabled package-detail-btn">Next step</a>
 </section>

@@ -6,6 +6,9 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
+    https = require('https'),
+    http = require('http'),
+    fs = require('fs'),
     app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -34,8 +37,12 @@ app.get('/home', function(req, res){
   res.render('home', data);
 });
 
+app.get('/fragments/package-hostname', function(req, res){
+  res.render('fragments/package-hostname', data);
+});
+
 app.get('/fragments/package-type', function(req, res){
-  request('http://api.mediapig.co.uk/index.php?/servicetype/read/all', function (error, response, body) {
+  request('https://api.mediapig.co.uk/index.php?/servicetype/read/all', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       res.render('fragments/package-type', JSON.parse(body));
     }
@@ -43,19 +50,18 @@ app.get('/fragments/package-type', function(req, res){
 });
 
 app.get('/fragments/package-detail/:typeid', function(req, res){
-  request('http://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
+  request('https://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
       var attr = json.attributes;
       var out = extend(data, {'attributes' : attr.slice(0,2)});
-      console.log(out);
       res.render('fragments/package-detail', out);
     }
   })
 });
 
 app.get('/fragments/package-detail/:typeid/os', function(req, res){
-  request('http://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
+  request('https://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
       var attr = json.attributes;
@@ -71,20 +77,34 @@ app.get('/fragments/:page', function(req, res){
 
 app.get('/order*', function(req, res){
   var cookies = parseCookies(req);
-  request('http://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, body) {
+  request('https://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var body = JSON.parse(body);
+      console.log(body.customer_id);
       if(body.customer_id === false) {
         res.redirect('/home');
       } else {
         var out = extend(data, body);
+        console.log(out);
         res.render('order', out);
       }
     }
   })
 });
 
-app.listen(4333);
+var options = {
+  key: fs.readFileSync('./etc/ssl/server.key'),
+  cert: fs.readFileSync('./etc/ssl/bundle.crt')
+};
+
+
+if(process.env.DEVENV === 'false'){
+  // Create an HTTPS service identical to the HTTP service.
+  https.createServer(options, app).listen(4333);
+} else {
+  // Create an HTTP service.
+  http.createServer(app).listen(4333);
+}
 
 console.log('Listening on port 4333');
 
