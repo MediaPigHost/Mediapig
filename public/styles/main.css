@@ -519,18 +519,40 @@ input[type=password] {
     margin: 0 auto;
     display: block; }
 
-.home,
-.order {
-  background: #4E4D55 url('../images/homebg.png') center bottom no-repeat;
-  background-size: cover;
+.intro-head {
   color: #FFF;
 }
 
+.home .bg,
+.order .bg,
+.register-success {
+  background: #4E4D55 url('../images/homebg.png') center bottom no-repeat;
+  background-size: cover;
+}
+
+.home .bg,
+.order .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+.wrap,
+.intro-head {
+  z-index: 2;
+}
+
+.home .intro-head,
 .home .wrap,
 .order .wrap {
   max-width: 1028px;
   margin: 0 auto;
   text-align: center;
+}
+
+.home .intro-head {
+  overflow: hidden;
 }
 
 .home h1,
@@ -546,6 +568,21 @@ input[type=password] {
 .order h3 {
   font-weight: 400;
   margin: 0;
+}
+
+.home .intro-arrow {
+  position: absolute;
+  width: 100%;
+  max-width: 1028px;
+  bottom: 20px;
+  font-size: 2.6em;
+  font-weight: bold;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.3);
+  -webkit-animation: slidedown 1s ease 0s 1 normal forwards, arrowHover 2s ease 1s infinite;
+  -moz-animation: slidedown 1s ease 0s 1 normal forwards, arrowHover 2s ease 1s infinite;
+  -o-animation: slidedown 1s ease 0s 1 normal forwards, arrowHover 2s ease 1s infinite;
+  animation: slidedown 1s ease 0s 1 normal forwards, arrowHover 2s ease 1s infinite;
+  cursor: pointer;
 }
 
 .sub {
@@ -576,6 +613,11 @@ input[type=password] {
 
 .header {
   padding: 30px;
+  position: absolute;
+  top: 0;
+  display: block;
+  max-width: 968px;
+  width: 100%;
 }
 
 .header .btn {
@@ -624,6 +666,7 @@ input[type=password] {
 }
 
 .overlay-visible .overlay {
+  color: #FFF;
   position: fixed;
   top: 0;
   display: block;
@@ -632,6 +675,7 @@ input[type=password] {
   width: 100%;
   z-index: 10;
   opacity: 0;
+  background-color: rgba(0,0,0,0.8);
   -webkit-animation: show 1s ease 1s 1 normal forwards;
   -moz-animation: show 1s ease 1s 1 normal forwards;
   -o-animation: show 1s ease 1s 1 normal forwards;
@@ -746,6 +790,19 @@ input[type=password] {
   animation: show .5s ease 0s 1 normal forwards;
 }
 
+.overlay-visible .help-message:before {
+  border-right-color: rgba(255,255,255,0.1);
+}
+
+.overlay-visible .help-message {
+  color: #888;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.overlay-visible .help {
+  background-color: rgba(0,0,0,0.2);
+}
+
 .loading,
 .tick {
   display: none;
@@ -800,6 +857,14 @@ input[type=password] {
   -webkit-transition: padding .5s;
   -o-transition: padding .5s;
   transition: padding .5s;
+}
+
+.register-success .body,
+.register-success .intro-arrow {
+  -webkit-animation: hide .8s ease 0s 1 normal forwards;
+  -moz-animation: hide .8s ease 0s 1 normal forwards;
+  -o-animation: hide .8s ease 0s 1 normal forwards;
+  animation: hide .8s ease 0s 1 normal forwards;
 }
 
 .register-success .form-inputs,
@@ -1168,6 +1233,20 @@ input[type=password] {
   color: #666;
 }
 
+.image-list-image {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  margin: 20px;
+}
+
+.break {
+  padding: 50px;
+}
+
+.break h2 {
+  margin-bottom: 25px;
+}
 
 @-webkit-keyframes move {
   0% { -webkit-transform: translate(0, 0); }
@@ -1230,21 +1309,60 @@ input[type=password] {
   100% { opacity: 0; } }
 
 @-webkit-keyframes slidedown {
-  0% { -webkit-transform: translate(0, -45px); }
-  100% { -webkit-transform: translate(0, 0); } }
+  0% { -webkit-transform: translateY(-45px); }
+  100% { -webkit-transform: translateY(0); } }
 
 @-moz-keyframes slidedown {
-  0% { -moz-transform: translate(0, -45px); }
-  100% { -moz-transform: translate(0, 0); } }
+  0% { -moz-transform: translateY(-45px); }
+  100% { -moz-transform: translateY(0); } }
 
 @-o-keyframes slidedown {
-  0% { -o-transform: translate(0, -45px); }
-  100% { -o-transform: translate(0, 0); } }
+  0% { -o-transform: translateY(-45px); }
+  100% { -o-transform: translateY(0); } }
 
 @keyframes slidedown {
-  0% { transform: translate(0, -45px); }
-  100% { transform: translate(0, 0); } }
+  0% { transform: translateY(-45px); }
+  100% { transform: translateY(0); } }
 
+@-webkit-keyframes arrowSlideIn {
+  0% { bottom: 100px; }
+  100% { bottom: 50px; } }
+
+@-moz-keyframes arrowSlideIn {
+  0% { bottom: 100px; }
+  100% { bottom: 50px; } }
+
+@-o-keyframes arrowSlideIn {
+  0% { bottom: 100px; }
+  100% { bottom: 50px; } }
+
+@keyframes arrowSlideIn {
+  0% { bottom: 100px; }
+  100% { bottom: 50px; } }
+
+@-webkit-keyframes arrowHover {
+  0% { -webkit-transform: translateY(0); }
+  50% { -webkit-transform: translateY(-10px); }
+  100% { -webkit-transform: translateY(0); }
+}
+
+@-moz-keyframes arrowHover {
+  0% { -moz-transform: translateY(0); }
+  50% { -moz-transform: translateY(-10px); }
+  100% { -moz-transform: translateY(0); }
+}
+
+@-o-keyframes arrowHover {
+  0% { -o-transform: translateY(0); }
+  50% { -o-transform: translateY(-10px); }
+  100% { -o-transform: translateY(0); }
+}
+
+@keyframes arrowHover {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 
 @font-face {
 	font-family: 'icomoon';

@@ -1,6 +1,7 @@
 {% include 'fragments/header.html' %}
   <body class="home">
-    <div class="wrap">
+    <div class="bg"></div>
+    <div class="intro-head">
       <section class="header line">
         <div class="left">
           <a id="logo" href="index.html" class="logo">{{name}}</a>
@@ -18,12 +19,14 @@
         </hgroup>
         <a href="#" class="btn large overlay-trigger">Get started</a>
       </article>
+      <i class="intro-arrow icon-arrow-down"></i>
     </div>
     <div class="overlay">
       <div class="overlay-wrap">
         <a id="overlay-close" class="overlay-close" href="#">Back</a>
         <div id="overlay-content" class="overlay-content"></div>
       </div>
+      <div id="error-wrap"></div>
     </div>
-    <div id="error-wrap"></div>
+    {% include 'sales.html' %}
 {% include 'fragments/footer.html' %}

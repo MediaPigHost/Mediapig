@@ -6,6 +6,19 @@ define(function (require, exports, module) {
         list[i].addEventListener(event, fn, false);
       }
     },
+    getNodePosition : function(node) {
+        var top = left = 0;
+        while (node) {
+           if (node.tagName) {
+               top = top + node.offsetTop;
+               left = left + node.offsetLeft;
+               node = node.offsetParent;
+           } else {
+               node = node.parentNode;
+           }
+        }
+        return [top, left];
+    },
     addBodyClass : function (c) {
       if(document.getElementsByTagName('body')[0].className.indexOf(c) == -1){
         return document.getElementsByTagName('body')[0].className +=' '+c;

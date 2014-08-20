@@ -8,6 +8,8 @@ curl([
       site = {
       init : function () {
 
+
+
         var app = {
           'help' : helpers,
           'ajax' : microAjax,
@@ -18,10 +20,34 @@ curl([
         },
         dom = {
           'overlayClose' : document.getElementById('overlay-close'),
-          'overlayContent' : document.getElementById('overlay-content')
+          'overlayContent' : document.getElementById('overlay-content'),
+          'body' : document.getElementsByTagName('body')
         };
+
+        site.snapBackground(app, dom);
         site.defered(app, dom);
         site.events(app, dom);
+      },
+      snapBackground: function (app, dom) {
+
+        if(dom.body[0].classList.contains('home')){
+          var windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+            document.getElementsByClassName('bg')[0].style.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            dom.body[0].style.overflow = 'visible';
+            var $content = document.getElementsByClassName('body')[0];
+            var $header = document.getElementsByClassName('intro-head')[0];
+            var bodyViewportOffset = $content.getBoundingClientRect();
+            $header.style.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            $content.style.top = bodyViewportOffset.top;
+            $content.style.marginTop = 0;
+
+            setTimeout(function () {
+              var viewMoreViewportOffset = document.getElementsByClassName('icon-arrow-down')[0].getBoundingClientRect();
+              document.getElementsByClassName('icon-arrow-down')[0].style.top = viewMoreViewportOffset.top + window.pageYOffset;
+            }, 1100);
+        }
+
       },
       events : function (app, dom) {
 
@@ -351,6 +377,6 @@ curl([
     site.init();
 
 }, function (ex) {
-  var msg = 'OH SNAP: ' + ex.message;
-  alert(msg);
+  var msg = ex.message;
+  console.log(ex);
 });
