@@ -29,16 +29,10 @@ define(function (require, exports, module) {
 
             return [top, left];
         },
-        addBodyClass: function (bodyClass) {
+        addBodyClass: function (className) {
 
-            var documentBodyClassName   = document.getElementsByTagName('body')[0].className;
-            var bodyClassAddition       = '';
-
-            if (documentBodyClassName.indexOf(bodyClass) === -1) {
-
-                bodyClassAddition = documentBodyClassName += ' ' + bodyClass
-
-                return bodyClassAddition;
+            if(document.getElementsByTagName('body')[0].className.indexOf(className) == -1){
+                return document.getElementsByTagName('body')[0].className +=' '+className;
             }
         },
         removeBodyClass: function (bodyClass) {
