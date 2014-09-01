@@ -163,7 +163,7 @@ curl([
 
                     app.help.postJSON(configOrder, 'https://api.mediapig.co.uk/index.php?/order/create', function (res) {
 
-                        orderID = JSON.parse(res.response);
+                        orderID = JSON.parse(res.response).order_id;
 
                         app.publish('order/card-details', true);
                     });
@@ -204,7 +204,7 @@ curl([
                                         order_id: orderID,
                                         token: token
                                     }
-
+                                    console.log(orderDetails);
                                     app.help.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
                                         console.log(res);
 
