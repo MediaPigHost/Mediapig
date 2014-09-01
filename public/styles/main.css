@@ -1248,6 +1248,10 @@ input[type=password] {
   margin-bottom: 25px;
 }
 
+.card-details-form input, .card-details-form select {
+    color: #666;
+}
+
 @-webkit-keyframes move {
   0% { -webkit-transform: translate(0, 0); }
   100% { -webkit-transform: translate(0, -60px); } }

@@ -56,6 +56,8 @@ curl([
             },
             events: function (app, dom) {
 
+                var orderID = "";
+
                 if (dom.overlayClose) {
 
                     dom.overlayClose.addEventListener('click', function () {
@@ -160,8 +162,62 @@ curl([
                 app.subscribe("/place/order", function (flag) {
 
                     app.help.postJSON(configOrder, 'https://api.mediapig.co.uk/index.php?/order/create', function (res) {
-                        console.log(res);
+
+                        orderID = JSON.parse(res.response);
+
+                        app.publish('order/card-details', true);
                     });
+                });
+
+                app.subscribe("order/card-details", function (flag) {
+
+                    app.ajax(window.location.origin + "/fragments/card-details.html", function (res) {
+
+                        dom.overlayContent.innerHTML = res;
+
+                        app.help.addEventListenerByClass('submit-card-details', 'click', function (event) {
+                            event.preventDefault();
+
+                            var formElements = document.getElementById("cardDetails").elements;
+                            var cardDetails = {};
+
+                            for (var i = 0, length = formElements.length; i < length; i++) {
+
+                                if (formElements[i].type !== "submit") {
+                                    cardDetails[formElements[i].name] = formElements[i].value;
+                                }
+                            }
+
+                            Stripe.setPublishableKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
+
+                            Stripe.card.createToken({
+                                number: cardDetails.number,
+                                cvc: cardDetails.cvc,
+                                exp_month: cardDetails.exp_month,
+                                exp_year: cardDetails.exp_year
+                            }, function (status, response) {
+
+                                if (status === 200) {
+                                    var token = response.id;
+
+                                    var orderDetails = {
+                                        order_id: orderID,
+                                        token: token
+                                    }
+
+                                    app.help.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
+                                        console.log(res);
+
+
+                                    });
+                                }
+                            });
+
+
+
+                        });
+                    });
+
                 });
 
                 app.subscribe("/event/details/1/submit", function (flag) {
