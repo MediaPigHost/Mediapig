@@ -348,8 +348,8 @@ curl([
                 app.subscribe("/message/error", function (data) {
                     app.help.postJSON({'errors': data }, window.location.origin + '/error/message', function (xhr) {
                         document.getElementById("error-wrap").innerHTML += xhr.response;
-                    })
-                })
+                    });
+                });
             },
             defered: function (app, dom) {
 
@@ -447,7 +447,7 @@ curl([
 
                         var newElAttribute = newEl.getElementsByClassName('attribute');
 
-                        for (var i = 0, length = newElAttribute; i < length; i++) {
+                        for (var i = 0, length = newElAttribute.length; i < length; i++) {
                             newElAttribute[i].addEventListener('click', function (event) {
 
                                 var target = event.currentTarget;
