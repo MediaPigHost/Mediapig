@@ -56,7 +56,7 @@ curl([
             },
             events: function (app, dom) {
 
-                var orderID = "";
+                var invoiceID = "";
 
                 if (dom.overlayClose) {
 
@@ -163,7 +163,7 @@ curl([
 
                     app.help.postJSON(configOrder, 'https://api.mediapig.co.uk/index.php?/order/create', function (res) {
 
-                        orderID = JSON.parse(res.response).order_id;
+                        invoiceID = JSON.parse(res.response).invoice_id;
 
                         app.publish('order/card-details', true);
                     });
@@ -201,7 +201,7 @@ curl([
                                     var token = response.id;
 
                                     var orderDetails = {
-                                        order_id: orderID,
+                                        invoice_id: invoiceID,
                                         token: token
                                     }
                                     console.log(orderDetails);
