@@ -201,7 +201,7 @@ curl([
                                     var token = response.id;
 
                                     var orderDetails = {
-                                        invoice_id: invoiceID,
+                                        invoice_id: parseInt(invoiceID),
                                         token: token
                                     }
                                     console.log(orderDetails);
