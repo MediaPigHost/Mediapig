@@ -501,6 +501,13 @@ input[type=password] {
   color: #FFF;
   text-transform: uppercase; }
 
+.large:active {
+  top: 4px;
+  -webkit-box-shadow: 0px 0px 0px #354C5F;
+  -moz-box-shadow: 0px 0px 0px #354C5F;
+  box-shadow: 0px 0px 0px #354C5F;
+}
+
 .btn.secondary {
   background-color: #282829;
 }
@@ -697,6 +704,24 @@ input[type=password] {
   margin-bottom: 28px;
 }
 
+.row-1, .row-2 {
+  display: block;
+}
+
+.feature {
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+.feature-1 .feature-img {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  background: url('../images/ubuntu.png') no-repeat center center;
+  background-size: 100%;
+}
+
 .overlay {
   display: none;
 }
@@ -830,23 +855,25 @@ input[type=password] {
   background-color: rgba(0,0,0,0.2);
   padding: 5px;
   border-radius: 50% 50%;
+  height: 18px;
   width: 18px;
   display: inline-block;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 11px;
+  right: 11px;
   z-index: 10;
+  text-align: center;
   cursor: pointer;
 }
 
 .help-message {
   padding: 10px;
-  background-color: rgba(0,0,0,0.2);
+  background-color: #333;
   border-radius: 5px;
   width: 193px;
   display: none;
   position: absolute;
-  top: 1px;
+  top: -4px;
   right: -228px;
 }
 
@@ -855,11 +882,10 @@ input[type=password] {
 	height: 0;
 	position: absolute;
 	width: 0;
-
 	border: 10px solid transparent;
   border-right-color: rgba(0,0,0,0.2);
   left: -20px;
-  top: 17px;
+  top: 22px;
 }
 
 .help-message.active {
@@ -872,12 +898,12 @@ input[type=password] {
 }
 
 .overlay-visible .help-message:before {
-  border-right-color: rgba(255,255,255,0.1);
+  border-right-color: #333;
 }
 
 .overlay-visible .help-message {
-  color: #888;
-  background-color: rgba(255,255,255,0.1);
+  color: #BBB;
+  background-color: #333;
 }
 
 .overlay-visible .help {
