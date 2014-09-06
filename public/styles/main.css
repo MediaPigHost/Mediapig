@@ -701,12 +701,11 @@ input[type=password] {
   display: none;
 }
 
-.overlay-visible .wrap .body,
-.overlay-visible .signin-btn {
-  -webkit-animation: hide .8s ease 0s 1 normal forwards;
-  -moz-animation: hide .8s ease 0s 1 normal forwards;
-  -o-animation: hide .8s ease 0s 1 normal forwards;
-  animation: hide .8s ease 0s 1 normal forwards;
+.overlay-visible .wrap .body {
+  -webkit-animation: hide .4s ease 0s 1 normal forwards;
+  -moz-animation: hide .4s ease 0s 1 normal forwards;
+  -o-animation: hide .4s ease 0s 1 normal forwards;
+  animation: hide .4s ease 0s 1 normal forwards;
 }
 
 .home .error,
@@ -729,10 +728,10 @@ input[type=password] {
   z-index: 10;
   opacity: 0;
   background-color: rgba(34,34,34,0.8);
-  -webkit-animation: show 1s ease 1s 1 normal forwards;
-  -moz-animation: show 1s ease 1s 1 normal forwards;
-  -o-animation: show 1s ease 1s 1 normal forwards;
-  animation: show 1s ease 1s 1 normal forwards;
+  -webkit-animation: show .4s ease 1 normal forwards;
+  -moz-animation: show .4s ease 1 normal forwards;
+  -o-animation: show .4s ease 1 normal forwards;
+  animation: show .4s ease 1 normal forwards;
 }
 
 .order.overlay-visible .overlay {
@@ -750,10 +749,10 @@ input[type=password] {
 }
 
 .overlay-close {
-  background-color: rgba(37,37,37,0.6);
+  background-color: rgba(37,37,37,1);
   padding: 0.875em 1.625em 0.875em 1.625em;
   border-radius: 5px;
-  color: #FFF;
+  color: #E6E7E8;
   text-transform: uppercase;
   text-decoration: none;
   position: absolute;
