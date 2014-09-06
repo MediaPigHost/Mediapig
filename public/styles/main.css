@@ -470,9 +470,11 @@ input[type=password] {
   text-decoration: none;
   color: #FFF;
   border: 0;
-  -webkit-transition: background-color .2s;
-  -o-transition: background-color .2s;
-  transition: background-color .2s; }
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s; }
 
 .btn:hover,
 .btn:focus {
@@ -506,7 +508,8 @@ input[type=password] {
   top: 0;
   left: 0;
   color: #FFF;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .large:active {
   top: 4px;
@@ -967,17 +970,8 @@ input[type=password] {
   background-color: #BCD09E;
 }
 
-.form-submit .btn {
-  -webkit-transition: padding .5s;
-  -o-transition: padding .5s;
-  transition: padding .5s;
-}
-
 .form-submit.active .btn {
   padding: 0.65em 1.1em 0.65em 2.5em;
-  -webkit-transition: padding .5s;
-  -o-transition: padding .5s;
-  transition: padding .5s;
 }
 
 .register-success .body,
