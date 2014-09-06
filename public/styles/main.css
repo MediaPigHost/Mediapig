@@ -370,14 +370,15 @@ ol, ul {
 input[type=text],
 input[type=email],
 input[type=password] {
+  padding-left: 15px;
   background-color: #FFF;
   border: 0;
-  border-radius: 10px;
-  padding: 0.8em;
-  font-size: 1.3em;
+  border-radius: 5px;
+  height: 48px;
+  font-size: 1em;
   display: block;
-  width: 100%;
-  margin-bottom: 20px;
+  width: 300px;
+  margin: 0 auto 15px auto;
   outline: none;
   -webkit-transition: box-shadow 1s;
   -o-transition: box-shadow 1s;
@@ -548,7 +549,7 @@ input[type=password] {
 .home .intro-head,
 .home .wrap,
 .order .wrap {
-  max-width: 1028px;
+  max-width: 1140px;
   margin: 0 auto;
   text-align: center;
 }
@@ -624,12 +625,48 @@ input[type=password] {
 }
 
 .header {
-  padding: 30px;
+  padding: 30px 0;
   position: absolute;
   top: 0;
   display: block;
-  max-width: 968px;
+  max-width: 1140px;
   width: 100%;
+}
+
+.header ul  {
+  padding-top: 8px;
+}
+
+.header ul li  {
+  padding: 5px 27px;
+  display: inline-block;
+  border-right: 1px dotted rgba(255,255,255,0.2);
+}
+
+.header ul li:last-child {
+  padding-right: 0;
+  border: 0;
+}
+
+.header ul li a {
+  display: inline-block;
+  color: rgba(255,255,255,.6);
+  font-size: 0.875em;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: color .2s;
+  -moz-transition: color .2s;
+  -ms-transition: color .2s;
+  -o-transition: color .2s;
+  transition: color .2s;
+}
+
+.header ul li a:hover {
+  color: rgba(255,255,255,.8);
+}
+
+.header ul li a.active {
+  color: rgba(255,255,255,1)
 }
 
 .header .btn {
@@ -644,11 +681,11 @@ input[type=password] {
 .body {
   position: absolute;
   padding: 30px 0;
-  height: 300px;
+  height: 182px;
   width: 600px;
   top: 50%;
   left: 50%;
-  margin-top: -150px;
+  margin-top: -91px;
   margin-left: -300px;
 }
 
@@ -687,7 +724,7 @@ input[type=password] {
   width: 100%;
   z-index: 10;
   opacity: 0;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(34,34,34,0.8);
   -webkit-animation: show 1s ease 1s 1 normal forwards;
   -moz-animation: show 1s ease 1s 1 normal forwards;
   -o-animation: show 1s ease 1s 1 normal forwards;
@@ -703,17 +740,17 @@ input[type=password] {
 }
 
 .overlay-wrap {
-  max-width: 1028px;
+  max-width: 1440px;
   margin: 0 auto;
   position: relative;
 }
 
 .overlay-close {
-  font-size: 1.5em;
-  background-color: rgba(255,255,255,0.1);
-  padding: 10px 15px;
+  background-color: rgba(37,37,37,0.6);
+  padding: 0.875em 1.625em 0.875em 1.625em;
   border-radius: 5px;
   color: #FFF;
+  text-transform: uppercase;
   text-decoration: none;
   position: absolute;
   top: 30px;
@@ -722,15 +759,27 @@ input[type=password] {
 
 .overlay-content {
   position: relative;
-  top: 200px;
+  top: 150px;
+}
+
+#signin {
+  margin-bottom: 0;
 }
 
 .signup,
 .signin-form {
-  text-align: center;
-  padding: 30px 60px;
-  width: 400px;
+  background-color: #415C71;
+  padding: 26px 30px 30px 30px;
+  width: 300px;
   margin: 0 auto;
+  border-radius: 5px;
+}
+
+.signup label,
+.signin-form label {
+  color: #E6E7E8;
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
 .signup input[type=email],
@@ -738,6 +787,23 @@ input[type=password] {
 .signin-form input[type=email],
 .signin-form input[type=password] {
   color: #666;
+}
+
+.signin-form a {
+  display: inline-block;
+  margin: 20px 0 0 20px;
+  vertical-align: -1px;
+  color: #E6E7E8;
+  text-decoration: none;
+  -webkit-transition: color .2s;
+  -moz-transition: color .2s;
+  -ms-transition: color .2s;
+  -o-transition: color .2s;
+  transition: color .2s;
+}
+
+.signin-form a:hover {
+  color: #FFF;
 }
 
 .error {
