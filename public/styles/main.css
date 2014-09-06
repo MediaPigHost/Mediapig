@@ -197,6 +197,10 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
+form {
+  margin-bottom: 0;
+}
+
 button,
 input,
 optgroup,
