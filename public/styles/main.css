@@ -616,9 +616,10 @@ input[type=password] {
 
 .logo {
   display: block;
-  width: 152px;
-  height: 59px;
+  width: 109px;
+  height: 42px;
   background: url('../images/logo-small.png') center center no-repeat;
+  background-size: 100%;
   text-indent: -9999px;
 }
 
