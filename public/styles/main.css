@@ -801,13 +801,13 @@ input[type=password] {
 .gray-section .screenshot {
   width: 50%;
   height: 370px;
-  float: left;
+  float: right;
   background-color: #CCC;
 }
 
 .gray-section .big-feature {
   width: 50%;
-  float: right;
+  float: left;
 }
 
 .overlay {
