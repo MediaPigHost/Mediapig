@@ -367,7 +367,8 @@ body {
   overflow: hidden;
   font-family: 'proxima-nova', sans-serif;
   background: #FFF;
-  height: 100% }
+  height: 100%;
+  outline: none; }
 
 .clearfix {
   content: '';
@@ -577,7 +578,6 @@ input[type=password] {
 .order .wrap {
   max-width: 1140px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .home .intro-head {
@@ -713,6 +713,7 @@ input[type=password] {
   left: 50%;
   margin-top: -91px;
   margin-left: -300px;
+  text-align: center;
 }
 
 .body hgroup {
@@ -721,6 +722,7 @@ input[type=password] {
 
 .white-section {
   padding: 100px 0;
+  text-align: center;
 }
 
 .row-1, .row-2 {
@@ -734,7 +736,6 @@ input[type=password] {
 .feature {
   width: 300px;
   display: inline-block;
-  text-align: center;
 }
 
 .feature-1, .feature-4 {
@@ -754,7 +755,7 @@ input[type=password] {
 .feature p {
   margin: 0;
   color: #666;
-  line-height: 1.375em;
+  line-height: 1.5em;
 }
 
 .feature-1 .feature-img, .feature-2 .feature-img, .feature-3 .feature-img, .feature-4 .feature-img, .feature-5 .feature-img, .feature-6 .feature-img {
@@ -796,6 +797,7 @@ input[type=password] {
 .gray-section {
   padding: 100px 0;
   background-color: #F2F2F2;
+  text-align: left;
 }
 
 .gray-section .screenshot {
@@ -806,8 +808,23 @@ input[type=password] {
 }
 
 .gray-section .big-feature {
-  width: 50%;
+  max-width: 50%;
   float: left;
+  line-height: 1.5em;
+}
+
+.gray-section .big-feature .big-feature-text {
+  margin-right: 140px;
+}
+
+.big-feature-text p, .feature-list-text p {
+  color: #666;
+}
+
+.big-feature-text h3, .feature-list-text h3 {
+  margin-bottom: 19px;
+  color: #333;
+  font-size: 1.250em;
 }
 
 .overlay {
