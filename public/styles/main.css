@@ -988,14 +988,14 @@ input[type=password] {
 }
 
 .help-message {
-  padding: 10px;
+  padding: 10px 15px;
   background-color: #333;
   border-radius: 5px;
   width: 193px;
   display: none;
   position: absolute;
-  top: -4px;
-  right: -228px;
+  top: -6px;
+  right: -242px;
 }
 
 .help-message:before {
@@ -1006,7 +1006,7 @@ input[type=password] {
 	border: 10px solid transparent;
   border-right-color: rgba(0,0,0,0.2);
   left: -20px;
-  top: 22px;
+  top: 20px;
 }
 
 .help-message.active {
@@ -1041,7 +1041,7 @@ input[type=password] {
   opacity: 0;
   display: block;
   left: 70px;
-  top: 47px;
+  top: 100px;
   z-index: 100;
   position: relative;
 }
