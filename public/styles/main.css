@@ -369,6 +369,12 @@ body {
   background: #FFF;
   height: 100% }
 
+.clearfix {
+  content: '';
+  display: table;
+  clear: both;
+}
+
 /*
   Resets
 */
