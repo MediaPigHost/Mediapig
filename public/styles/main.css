@@ -713,8 +713,8 @@ input[type=password] {
   margin-bottom: 28px;
 }
 
-.features {
-  margin-top: 100px;
+.white-section {
+  padding: 100px 0;
 }
 
 .row-1, .row-2 {
@@ -785,6 +785,11 @@ input[type=password] {
 .feature-6 .feature-img {
   background: url('../images/box.png') no-repeat center center;
   background-size: 100%;
+}
+
+.gray-section {
+  padding: 100px 0;
+  background-color: #F2F2F2;
 }
 
 .overlay {
