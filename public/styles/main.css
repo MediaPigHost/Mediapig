@@ -726,9 +726,17 @@ input[type=password] {
 }
 
 .feature {
-  width: 33%;
+  width: 300px;
   display: inline-block;
   text-align: center;
+}
+
+.feature-1, .feature-4 {
+  float: left;
+}
+
+.feature-3, .feature-6 {
+  float: right;
 }
 
 .feature h3 {
