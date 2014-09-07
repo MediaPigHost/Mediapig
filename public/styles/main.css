@@ -366,7 +366,6 @@ th {
 body {
   overflow: hidden;
   font-family: 'proxima-nova', sans-serif;
-  color: #707070;
   background: #FFF;
   height: 100% }
 
@@ -714,8 +713,16 @@ input[type=password] {
   margin-bottom: 28px;
 }
 
+.features {
+  margin-top: 100px;
+}
+
 .row-1, .row-2 {
   display: block;
+}
+
+.features .row-2 {
+  margin-top: 50px;
 }
 
 .feature {
@@ -724,11 +731,51 @@ input[type=password] {
   text-align: center;
 }
 
-.feature-1 .feature-img {
+.feature h3 {
+  margin: 25px 0 20px;
+  color: #333;
+  font-size: 1.250em;
+}
+
+.feature p {
+  margin: 0;
+  color: #666;
+  line-height: 1.375em;
+}
+
+.feature-1 .feature-img, .feature-2 .feature-img, .feature-3 .feature-img, .feature-4 .feature-img, .feature-5 .feature-img, .feature-6 .feature-img {
   height: 100px;
   width: 100px;
   display: inline-block;
-  background: url('../images/ubuntu.png') no-repeat center center;
+}
+
+.feature-1 .feature-img {
+  background: url('../images/heart.png') no-repeat center center;
+  background-size: 100%;
+}
+
+.feature-2 .feature-img {
+  background: url('../images/briefcase.png') no-repeat center center;
+  background-size: 100%;
+}
+
+.feature-3 .feature-img {
+  background: url('../images/console.png') no-repeat center center;
+  background-size: 100%;
+}
+
+.feature-4 .feature-img {
+  background: url('../images/help.png') no-repeat center center;
+  background-size: 100%;
+}
+
+.feature-5 .feature-img {
+  background: url('../images/diploma.png') no-repeat center center;
+  background-size: 100%;
+}
+
+.feature-6 .feature-img {
+  background: url('../images/box.png') no-repeat center center;
   background-size: 100%;
 }
 
@@ -867,10 +914,10 @@ input[type=password] {
   position: absolute;
   bottom: -60px;
   text-align: center;
-  -webkit-animation: move 1s ease 0s 1 normal forwards;
-  -moz-animation: move 1s ease 0s 1 normal forwards;
-  -o-animation: move 1s ease 0s 1 normal forwards;
-  animation: move 1s ease 0s 1 normal forwards;
+  -webkit-animation: move .4s ease 0s 1 normal forwards;
+  -moz-animation: move .4s ease 0s 1 normal forwards;
+  -o-animation: move .4s ease 0s 1 normal forwards;
+  animation: move .4s ease 0s 1 normal forwards;
 }
 
 .password-field {
@@ -952,6 +999,7 @@ input[type=password] {
 }
 
 .active .loading {
+  position: absolute;
   background: url('../images/spin.png') no-repeat;
   width: 30px;
   height: 30px;
@@ -980,7 +1028,7 @@ input[type=password] {
 }
 
 .form-submit.active .btn {
-  padding: 0.65em 1.1em 0.65em 2.5em;
+  
 }
 
 .register-success .body,
