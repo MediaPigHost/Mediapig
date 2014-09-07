@@ -798,6 +798,18 @@ input[type=password] {
   background-color: #F2F2F2;
 }
 
+.gray-section .screenshot {
+  width: 50%;
+  height: 500px;
+  float: left;
+  background-color: #CCC;
+}
+
+.gray-section .big-feature {
+  width: 50%;
+  float: right;
+}
+
 .overlay {
   display: none;
 }
