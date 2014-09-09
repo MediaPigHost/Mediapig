@@ -909,7 +909,7 @@ input[type=password] {
 
 .signup,
 .signin-form {
-  background-color: #415C71;
+  background-color: #F2F2F2;
   padding: 26px 30px 30px 30px;
   width: 300px;
   margin: 0 auto;
@@ -918,7 +918,7 @@ input[type=password] {
 
 .signup label,
 .signin-form label {
-  color: #E6E7E8;
+  color: #999;
   display: inline-block;
   margin-bottom: 5px;
 }
@@ -928,6 +928,7 @@ input[type=password] {
 .signin-form input[type=email],
 .signin-form input[type=password] {
   color: #666;
+  background-color: #FFF;
   border: none;
   overflow: auto;
   outline: none;
@@ -941,7 +942,7 @@ input[type=password] {
   display: inline-block;
   margin: 20px 0 0 20px;
   vertical-align: -1px;
-  color: #E6E7E8;
+  color: #999;
   text-decoration: none;
   -webkit-transition: color .2s;
   -moz-transition: color .2s;
@@ -951,7 +952,7 @@ input[type=password] {
 }
 
 .signin-form a:hover {
-  color: #FFF;
+  color: #666;
 }
 
 .error {
