@@ -879,8 +879,8 @@ input[type=password] {
 }
 
 .overlay-close {
-  background-color: #333;
-  padding: 0.875em 1.625em 0.875em 1.625em;
+  background-color: #354C5F;
+  padding: 15px;
   border-radius: 5px;
   color: #E6E7E8;
   text-decoration: none;
@@ -895,7 +895,7 @@ input[type=password] {
 }
 
 .overlay-close:hover {
-  background-color: #3A3A3A;
+  background-color: #415C71;
 }
 
 .overlay-content {
