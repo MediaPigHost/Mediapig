@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>cross</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="cross" sketch:type="MSLayerGroup" fill="#F2F2F2">
+            <path d="M62.828,6.828 C64.39,5.266 64.39,2.733 62.828,1.172 C61.266,-0.39 58.734,-0.39 57.172,1.172 L32,26.343 L6.829,1.172 C5.267,-0.39 2.734,-0.39 1.172,1.172 C-0.39,2.734 -0.39,5.267 1.172,6.828 L26.344,32 L1.172,57.172 C-0.39,58.734 -0.39,61.267 1.172,62.828 C1.953,63.609 2.977,64 4,64 C5.023,64 6.048,63.609 6.829,62.828 L32,37.657 L57.172,62.828 C57.953,63.609 58.977,64 60,64 C61.023,64 62.048,63.609 62.828,62.828 C64.39,61.266 64.39,58.733 62.828,57.172 L37.657,32 L62.828,6.828 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
