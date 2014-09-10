@@ -777,6 +777,10 @@ body {
   line-height: 70px;
 }
 
+/*
+  Overlay
+*/
+
 .overlay {
   display: none;
 }
