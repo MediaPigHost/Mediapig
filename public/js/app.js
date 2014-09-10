@@ -47,10 +47,10 @@ curl([
                     content.style.top = bodyViewportOffset.top;
                     content.style.marginTop = 0;
 
-                    setTimeout(function () {
-                        var viewMoreViewportOffset = document.getElementsByClassName('icon-arrow-down')[0].getBoundingClientRect();
-                        document.getElementsByClassName('icon-arrow-down')[0].style.top = viewMoreViewportOffset.top + window.pageYOffset;
-                    }, 1100);
+                    // setTimeout(function () {
+                    //     var viewMoreViewportOffset = document.getElementsByClassName('icon-arrow-down')[0].getBoundingClientRect();
+                    //     document.getElementsByClassName('icon-arrow-down')[0].style.top = viewMoreViewportOffset.top + window.pageYOffset;
+                    // }, 1100);
                 }
 
             },
@@ -321,6 +321,8 @@ curl([
 
                     app.ajax(window.location.origin + '/fragments/package-hostname', function (res) {
                         app.publish('/view/order/loaded', true);
+                        app.help.removeBodyClass('register-success-transition');
+                        app.help.addBodyClass('register-success');
                         dom.overlayContent.innerHTML = res;
                     });
                 });
@@ -383,7 +385,7 @@ curl([
 
                     if (flag === 'success') {
 
-                        app.help.addBodyClass('register-success');
+                        app.help.addBodyClass('register-success-transition');
                         app.help.loading(button, 'success');
 
                         setTimeout(function () {

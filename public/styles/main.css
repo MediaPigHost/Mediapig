@@ -863,11 +863,12 @@ body {
 
 .signup,
 .signin-form {
-  background-color: #F2F2F2;
+  background-color: #FFF;
   padding: 26px 30px 30px 30px;
   width: 300px;
   margin: 0 auto;
   border-radius: 5px;
+  position: relative;
 }
 
 .signup label,
@@ -882,14 +883,19 @@ body {
 .signin-form input[type=email],
 .signin-form input[type=password] {
   color: #666;
-  background-color: #FFF;
+  background-color: #EFEFEF;
   border: none;
   overflow: auto;
   outline: none;
 
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.signup h2 {
+  color: #666;
+  margin-bottom: 15px;
 }
 
 .signin-form a {
@@ -995,10 +1001,13 @@ body {
 .active.success .tick {
   opacity: 0;
   display: block;
+  bottom: 40px;
   left: 70px;
-  top: 100px;
   z-index: 100;
   position: relative;
+  -webkit-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
 }
 
 .active .loading {
@@ -1012,6 +1021,10 @@ body {
   animation: spin 2s infinite, show .8s ease .55s 1 normal forwards;
 }
 
+.active .btn {
+  padding-left: 60px;
+}
+
 .active.success .loading {
   display: none;
 }
@@ -1020,6 +1033,7 @@ body {
   font-size: 2em;
   width: 35px;
   overflow: hidden;
+  position: absolute;
   -webkit-animation: show .5s ease 0s 1 normal forwards;
   -moz-animation: show .5s ease 0s 1 normal forwards;
   -o-animation: show .5s ease 0s 1 normal forwards;
@@ -1028,49 +1042,52 @@ body {
 
 .active.success .btn {
   background-color: #BCD09E;
+  -webkit-box-sizing: 0px 4px 0px #9bae7e;
+  -moz-box-sizing: 0px 4px 0px #9bae7e;
+  box-sizing: 0px 4px 0px #9bae7e;
 }
 
-.form-submit.active .btn {
-  
+.form-submit {
+  text-align: center;
 }
 
-.register-success .body,
-.register-success .intro-arrow {
+.register-success-transition .body,
+.register-success-transition .intro-arrow {
   -webkit-animation: hide .8s ease 0s 1 normal forwards;
   -moz-animation: hide .8s ease 0s 1 normal forwards;
   -o-animation: hide .8s ease 0s 1 normal forwards;
   animation: hide .8s ease 0s 1 normal forwards;
 }
 
-.register-success .form-inputs,
-.register-success .overlay-close,
-.register-success .logo {
+.register-success-transition .form-inputs,
+.register-success-transition .overlay-close,
+.register-success-transition .logo {
   -webkit-animation: hide .8s ease 1s 1 normal forwards;
   -moz-animation: hide .8s ease 1s 1 normal forwards;
   -o-animation: hide .8s ease 1s 1 normal forwards;
   animation: hide .8s ease 1s 1 normal forwards;
 }
 
-.register-success .form-submit {
+.register-success-transition .form-submit {
   -webkit-animation: hide .8s ease 1.5s 1 normal forwards;
   -moz-animation: hide .8s ease 1.5s 1 normal forwards;
   -o-animation: hide .8s ease 1.5s 1 normal forwards;
   animation: hide .8s ease 1.5s 1 normal forwards;
 }
 
-.register-success .overlay {
-  background-color: rgba(0,0,0,.8);
-  -webkit-transition: background-color .5s;
-  -o-transition: background-color .5s;
-  transition: background-color .5s;
-  -webkit-transition-delay: 2s;
-  -o-transition-delay: 2s;
-  transition-delay: 2s;
+.register-success-transition .signup h2 {
+  -webkit-animation: hide .8s ease 1.5s 1 normal forwards;
+  -moz-animation: hide .8s ease 1.5s 1 normal forwards;
+  -o-animation: hide .8s ease 1.5s 1 normal forwards;
+  animation: hide .8s ease 1.5s 1 normal forwards;
 }
 
-.register-success .overlay-content {
+.register-success-transition .overlay-content {
   max-width: 1028px;
   margin: 0 auto;
+}
+
+.register-success {
   text-align: center;
 }
 
