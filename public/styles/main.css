@@ -719,15 +719,53 @@ body {
   text-align: center;
 }
 
+.testimonials-mark {
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
 .home .testimonials blockquote {
   margin: 0 auto;
   max-width: 700px;
 }
 
 .home .testimonials .testimonial {
+  margin: 0 0 25px;
   color: #666;
   font-size: 1.250em;
   line-height: 1.50;
+}
+
+.home .testimonials cite {
+  color: #999;
+  font-size: 1em;
+  font-style: normal;
+}
+
+.home .testimonials cite p {
+  margin: 0;
+}
+
+.home .testimonials cite img {
+  margin: 0 0 10px;
+}
+
+.home .testimonials .name {
+  margin-bottom: 5px;
+  font-family: 'proxima-nova-soft', sans-serif;
+  font-weight: 600;
+}
+
+.home .testimonials-pagination {
+  margin-top: 25px;
+}
+
+.home .testimonials-pagination span {
+  opacity: 0.5;
+}
+
+.home .testimonials-pagination span.active {
+  opacity: 1;
 }
 
 .dark-section {
