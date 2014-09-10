@@ -755,6 +755,9 @@ body {
   margin-bottom: 5px;
 }
 
+.home .footer-buttons li {
+  margin-bottom: 10px;
+}
 .home .footer-links a {
   color: #999;
   font-size: 0.875em;
