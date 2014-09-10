@@ -734,6 +734,36 @@ body {
   font-family: 'proxima-nova', sans-serif;
   font-weight: 400;
 }
+
+.home .footer {
+  padding: 100px 0;
+  background-color: #2C2C2C;
+}
+
+.column-1, .column-2, .column-3, .column-4, .column-5 {
+  width: 228px;
+  float: left;
+}
+
+.home .footer h3 {
+  color: #666;
+  font-size: 1.250em;
+}
+
+.home .footer-links a {
+  color: #999;
+  font-size: 0.875em;
+  text-decoration: none;
+  -webkit-transition: color .2s;
+  -moz-transition: color .2s;
+  -ms-transition: color .2s;
+  -o-transition: color .2s;
+  transition: color .2s;
+}
+
+.home .footer-links a:hover {
+  color: #FFF;
+}
 .overlay {
   display: none;
 }
