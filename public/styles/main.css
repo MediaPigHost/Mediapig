@@ -764,6 +764,19 @@ body {
 .home .footer-links a:hover {
   color: #FFF;
 }
+
+.home .footer-bar {
+  height: 70px;
+  background-color: #242424;
+}
+
+.home .footer-bar p {
+  margin: 0;
+  color: #666;
+  font-size: 0.875em;
+  line-height: 70px;
+}
+
 .overlay {
   display: none;
 }
