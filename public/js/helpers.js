@@ -245,6 +245,45 @@ define(function (require, exports, module) {
         },
         deleteCookie: function (name) {
             this.set(name, "", -1);
+        },
+        stripe: function () {
+
+            var _self = this;
+
+            this.invoiceID = '';
+
+
+            return {
+                getInvoiceID: function () {
+                    return _self.invoiceID;
+                },
+                setInvoiceID: function (id) {
+                    _self.invoiceID = id;
+                },
+                setKey: function (key) {
+                    Stripe.setPublishableKey(key);
+                },
+                createToken: function (cardDetails, callback) {
+
+                    var details = {
+                        number: cardDetails.number,
+                        cvc: cardDetails.cvc,
+                        exp_month: cardDetails.exp_month,
+                        exp_year: cardDetails.exp_year
+                    };
+
+                    Stripe.card.createToken(details, function (status, response) {
+
+                        if (status === 200) {
+                            callback(response);
+                        }
+                        else {
+                            document.getElementById("error-wrap").innerHTML += response.error.message;
+                        }
+
+                    });
+                }
+            }
         }
     };
 

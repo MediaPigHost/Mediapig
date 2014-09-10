@@ -57,6 +57,7 @@ curl([
             events: function (app, dom) {
 
                 var invoiceID = "";
+                var stripe = null;
 
                 if (dom.overlayClose) {
 
@@ -162,8 +163,11 @@ curl([
                 app.subscribe("/place/order", function (flag) {
 
                     app.help.postJSON(configOrder, 'https://api.mediapig.co.uk/index.php?/order/create', function (res) {
+                        console.log(res);
 
-                        invoiceID = JSON.parse(res.response).invoice_id;
+                        stripe = new app.help.stripe();
+
+                        stripe.setInvoiceID(JSON.parse(res.response).invoice_id);
 
                         app.publish('order/card-details', true);
                     });
@@ -188,36 +192,30 @@ curl([
                                 }
                             }
 
-                            Stripe.setPublishableKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
+                            stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
 
-                            Stripe.card.createToken({
-                                number: cardDetails.number,
-                                cvc: cardDetails.cvc,
-                                exp_month: cardDetails.exp_month,
-                                exp_year: cardDetails.exp_year
-                            }, function (status, response) {
+                            stripe.createToken(cardDetails, function (response) {
 
-                                if (status === 200) {
-                                    var token = response.id;
+                                var token = response.id;
 
-                                    var orderDetails = {
-                                        invoice_id: parseInt(invoiceID),
-                                        token: token
+                                var orderDetails = {
+                                    invoice_id: +stripe.getInvoiceID(),
+                                    token: token
+                                };
+
+                                app.help.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
+                                    var response = JSON.parse(res.response);
+
+                                    if (response.status === 'success') {
+                                        alert('Success');
                                     }
-                                    console.log(orderDetails);
-                                    app.help.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
-                                        console.log(res);
-
-
-                                    });
-                                }
+                                    else {
+                                        document.getElementById("error-wrap").innerHTML += response.status;
+                                    }
+                                });
                             });
-
-
-
                         });
                     });
-
                 });
 
                 app.subscribe("/event/details/1/submit", function (flag) {
@@ -458,7 +456,7 @@ curl([
                         app.help.removeElementsByClass('error');
 
                         var res = JSON.parse(xhr.response);
-
+                        console.log(res);
                         if (res.errors) {
                             app.publish('/form/register/update', 'fail');
                             app.publish('/message/error', res.errors)
