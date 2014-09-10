@@ -604,11 +604,11 @@ body {
 .body {
   position: absolute;
   padding: 30px 0;
-  height: 182px;
+  height: 242px;
   width: 600px;
   top: 50%;
   left: 50%;
-  margin-top: -91px;
+  margin-top: -121px;
   margin-left: -300px;
   text-align: center;
 }
