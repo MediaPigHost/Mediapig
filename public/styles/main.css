@@ -746,8 +746,13 @@ body {
 }
 
 .home .footer h3 {
+  margin-bottom: 20px;
   color: #666;
   font-size: 1.250em;
+}
+
+.home .footer-links li {
+  margin-bottom: 5px;
 }
 
 .home .footer-links a {
