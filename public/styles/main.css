@@ -715,6 +715,21 @@ body {
   font-size: 1.250em;
 }
 
+.home .testimonials {
+  text-align: center;
+}
+
+.home .testimonials blockquote {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.home .testimonials .testimonial {
+  color: #666;
+  font-size: 1.250em;
+  line-height: 1.50;
+}
+
 .dark-section {
   padding: 100px 0;
   background-color: #415C71;
