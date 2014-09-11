@@ -370,6 +370,9 @@ body {
 .btn.disabled {
   background-color: #666;
   opacity: 0.3;
+  -webkit-box-shadow: 0px 4px 0px #212121;
+  -moz-box-shadow: 0px 4px 0px #212121;
+  box-shadow: 0px 4px 0px #212121;
 }
 
 .btn .icon-arrow-left {
