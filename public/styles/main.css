@@ -1521,11 +1521,15 @@ body {
 }
 
 .package-host-overlay h2 {
-  margin-bottom: 40px;
+  margin-bottom: 22px;
 }
 
 .package-host-overlay input {
   color: #666;
+}
+
+.package-hostname-btn {
+  margin-top: 15px;
 }
 
 .image-list-image {
