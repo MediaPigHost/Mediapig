@@ -1144,10 +1144,13 @@ body {
 }
 
 .active.success .btn {
-  background-color: #BCD09E;
+  background-color: #58E493;
   -webkit-box-sizing: 0px 4px 0px #9bae7e;
   -moz-box-sizing: 0px 4px 0px #9bae7e;
   box-sizing: 0px 4px 0px #9bae7e;
+  -webkit-box-shadow: 0px 4px 0px #53BC7F;
+  -moz-box-shadow: 0px 4px 0px #53BC7F;
+  box-shadow: 0px 4px 0px #53BC7F;
 }
 
 .form-submit {
