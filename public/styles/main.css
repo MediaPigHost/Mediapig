@@ -702,7 +702,7 @@ body {
 
 .gray-section .big-feature .big-feature-text {
   margin-right: 140px;
-  text-align: justify;
+  text-align: left;
 }
 
 .white-section .screenshot {
@@ -715,7 +715,7 @@ body {
 .white-section .feature-list {
   width: 50%;
   float: right;
-  text-align: justify;
+  text-align: left;
 }
 
 .white-section .feature-list-text {
