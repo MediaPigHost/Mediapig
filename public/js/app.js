@@ -46,11 +46,6 @@ curl([
                     header.style.height = Math.max(clientHeight, innerHeight || 0);
                     content.style.top = bodyViewportOffset.top;
                     content.style.marginTop = 0;
-
-                    // setTimeout(function () {
-                    //     var viewMoreViewportOffset = document.getElementsByClassName('icon-arrow-down')[0].getBoundingClientRect();
-                    //     document.getElementsByClassName('icon-arrow-down')[0].style.top = viewMoreViewportOffset.top + window.pageYOffset;
-                    // }, 1100);
                 }
 
             },
@@ -298,8 +293,11 @@ curl([
                     var submit = function (event) {
 
                         app.help.addBodyClass('hostname-chosen');
-                        app.publish('/view/order/type', true);
-                        history.pushState('order-details', 'order-details', '/order/details/');
+                        app.help.addBodyClass('package-type-chosen');
+
+                        history.pushState('order-details', 'order-details', '/order/details/1');
+
+                        site.defered(app, dom);
 
                         event.preventDefault();
                     }
@@ -373,7 +371,6 @@ curl([
 
                             site.defered(app, dom);
 
-                            console.log('Hello dave');
                             event.preventDefault();
                         }
                     });
