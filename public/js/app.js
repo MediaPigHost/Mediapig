@@ -23,31 +23,8 @@ curl([
                     body: document.getElementsByTagName('body')
                 };
 
-                site.snapBackground(app, dom);
                 site.defered(app, dom);
                 site.events(app, dom);
-            },
-            snapBackground: function (app, dom) {
-
-                if (dom.body[0].classList.contains('home')) {
-
-                    var clientHeight    = document.documentElement.clientHeight;
-                    var innerHeight     = window.innerHeight;
-                    var windowHeight    = Math.max(clientHeight, innerHeight || 0);
-
-                    document.getElementsByClassName('bg')[0].style.height = Math.max(clientHeight, innerHeight || 0);
-
-                    dom.body[0].style.overflow = 'visible';
-
-                    var content = document.getElementsByClassName('body')[0];
-                    var header = document.getElementsByClassName('intro-head')[0];
-                    var bodyViewportOffset = content.getBoundingClientRect();
-
-                    header.style.height = Math.max(clientHeight, innerHeight || 0);
-                    content.style.top = bodyViewportOffset.top;
-                    content.style.marginTop = 0;
-                }
-
             },
             events: function (app, dom) {
 
