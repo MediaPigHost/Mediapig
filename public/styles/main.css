@@ -260,11 +260,6 @@ input[type=password] {
   transition: box-shadow 1s;
 }
 
-  input[type=text]:focus,
-  input[type=email]:focus {
-    box-shadow: 0 0 10px #56cef3;
-  }
-
 .holding-signup {
   width: 330px;
   margin: 0 auto;
