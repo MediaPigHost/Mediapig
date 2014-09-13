@@ -1200,9 +1200,9 @@ body {
 
 .package-detail-overlay li {
   display: inline-block;
-  padding: 20px;
-  border-radius: 10px;
-  font-size: 1.4em;
+  padding: 10px 15px 9px 15px;
+  border-radius: 5px;
+  font-size: 1.250em;
   cursor: pointer;
 }
 
