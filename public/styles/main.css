@@ -1575,6 +1575,12 @@ body {
   margin-bottom: 25px;
 }
 
+#cardDetails {
+  margin: 0 auto;
+  width: 340px;
+  position: relative;
+  z-index: 9999;
+}
 .card-details-form input, .card-details-form select {
     color: #666;
 }
