@@ -1614,6 +1614,13 @@ input.submit-card-details {
   margin-top: 30px;
   color: #FFF;
 }
+
+.card-details-form input:not(.btn) {
+  width: 100%;
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+}
 }
 
 @-webkit-keyframes move {
