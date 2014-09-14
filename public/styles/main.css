@@ -1199,13 +1199,19 @@ body {
 .package-detail-overlay li {
   display: inline-block;
   padding: 10px 15px 9px 15px;
+  color: #666;
   border-radius: 5px;
   font-size: 1.250em;
   cursor: pointer;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
 }
 
 .package-detail-overlay li:hover {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(0,0,0,0.1);
 }
 
 .package-type-chosen .overlay-content {
