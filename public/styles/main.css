@@ -1608,6 +1608,12 @@ body {
 .card-details-form input, .card-details-form select {
   color: #666;
 }
+
+input.submit-card-details {
+  width: 100%;
+  margin-top: 30px;
+  color: #FFF;
+}
 }
 
 @-webkit-keyframes move {
