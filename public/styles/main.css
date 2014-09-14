@@ -1585,6 +1585,13 @@ body {
 #cardDetails h2 {
   margin: 0 0 19px -14px;
 }
+
+#cardDetails label {
+  color: #E6E7E8;
+  margin: 2px 0 5px 0;
+  display: block;
+  text-align: left;
+}
 .card-details-form input, .card-details-form select {
     color: #666;
 }
