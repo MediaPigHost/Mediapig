@@ -1396,7 +1396,7 @@ body {
   border-radius: 50% 50%;
   padding: 50px;
   background-color: rgba(255,255,255,0.1);
-  height: 120px;
+  height: 70px;
   margin-right: 20px;
   margin-bottom: 20px;
   -webkit-transition: background-color 1s;
@@ -1505,7 +1505,7 @@ body {
   z-index: 100;
   color: #FFF;
   font-size: 2em;
-  max-width: 130px;
+  max-width: 80px;
   height: 100%;
   top: 0;
   display: block;
@@ -1531,7 +1531,7 @@ body {
 
 .os img {
   vertical-align: middle;
-  max-width: 120px;
+  max-width: 70px;
   -webkit-transition: opacity .5s;
   -o-transition: opacity .5s;
   transition: opacity .5s;
