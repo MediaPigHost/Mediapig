@@ -1223,20 +1223,23 @@ body {
 }
 
 .package-detail-overlay .slider {
+  max-width: 500px;
   text-align: left;
   padding: 10px;
-  background-color: #262627;
+  background-color: #FFF;
   position: relative;
   clear: both;
   white-space: nowrap;
   border-radius: 10px;
   overflow: hidden;
-  margin: 0 50px;
+  margin: 0 auto;
 }
 
 .package-detail-overlay .slides {
   position: relative;
   padding: 0px 40px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .slider-nav {
@@ -1251,9 +1254,9 @@ body {
 .slide-arrow-left {
   top: 0;
   position: absolute;
-  color: #FFF;
+  color: #999;
   text-decoration: none;
-  font-size: 2em;
+  font-size: 1.250em;
   height: 100%;
   line-height: 2.7;
   width: 50px;
