@@ -992,9 +992,10 @@ body {
   box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 }
 
-.signup h2 {
-  color: #666;
-  margin-bottom: 15px;
+.signup h2, .signin-form h2 {
+  color: #999;
+  margin-bottom: 19px;
+  font-size: 1.250em;
 }
 
 .signin-form a {
