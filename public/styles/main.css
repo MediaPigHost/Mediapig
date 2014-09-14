@@ -1460,6 +1460,11 @@ body {
 .os-variations ul .btn {
   padding: 20px;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.os-name {
+  cursor: pointer;
 }
 
 .os-variations ul .btn:hover {
