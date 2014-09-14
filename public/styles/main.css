@@ -1581,6 +1581,10 @@ body {
   position: relative;
   z-index: 9999;
 }
+
+#cardDetails h2 {
+  margin: 0 0 19px -14px;
+}
 .card-details-form input, .card-details-form select {
     color: #666;
 }
