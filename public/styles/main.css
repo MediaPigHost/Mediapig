@@ -1539,7 +1539,9 @@ body {
 }
 
 .package-host-overlay input {
+  width: 385px;
   color: #666;
+  margin: 0 auto 15px;
 }
 
 .package-hostname-btn {
