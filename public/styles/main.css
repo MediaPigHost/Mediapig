@@ -1271,22 +1271,26 @@ body {
 
 .slide-arrow-right {
   right: 0;
-  background: -moz-linear-gradient(left, rgba(38,38,39,0) 0%, rgba(38,38,39,1) 26%, rgba(38,38,39,1) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(38,38,39,0)), color-stop(26%,rgba(38,38,39,1)), color-stop(100%,rgba(38,38,39,1)));
-  background: -webkit-linear-gradient(left, rgba(38,38,39,0) 0%,rgba(38,38,39,1) 26%,rgba(38,38,39,1) 100%);
-  background: -o-linear-gradient(left, rgba(38,38,39,0) 0%,rgba(38,38,39,1) 26%,rgba(38,38,39,1) 100%);
-  background: -ms-linear-gradient(left, rgba(38,38,39,0) 0%,rgba(38,38,39,1) 26%,rgba(38,38,39,1) 100%);
-  background: linear-gradient(to right, rgba(38,38,39,0) 0%,rgba(38,38,39,1) 26%,rgba(38,38,39,1) 100%);
+  padding-left: 10px;
+  background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
 }
 
 .slide-arrow-left {
   left: 0;
-  background: -moz-linear-gradient(left, rgba(38,38,39,1) 0%, rgba(38,38,39,1) 74%, rgba(38,38,39,0) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(38,38,39,1)), color-stop(74%,rgba(38,38,39,1)), color-stop(100%,rgba(38,38,39,0)));
-  background: -webkit-linear-gradient(left, rgba(38,38,39,1) 0%,rgba(38,38,39,1) 74%,rgba(38,38,39,0) 100%);
-  background: -o-linear-gradient(left, rgba(38,38,39,1) 0%,rgba(38,38,39,1) 74%,rgba(38,38,39,0) 100%);
-  background: -ms-linear-gradient(left, rgba(38,38,39,1) 0%,rgba(38,38,39,1) 74%,rgba(38,38,39,0) 100%);
-  background: linear-gradient(to right, rgba(38,38,39,1) 0%,rgba(38,38,39,1) 74%,rgba(38,38,39,0) 100%);
+  padding-right: 10px;
+  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+  background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+  background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
 }
 
 .slider-nav a {
