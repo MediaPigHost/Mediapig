@@ -357,7 +357,9 @@ body {
   -moz-transition: all .2s;
   -ms-transition: all .2s;
   -o-transition: all .2s;
-  transition: all .2s; }
+  transition: all .2s;
+  backface-visibility: hidden;
+}
 
 .btn:hover,
 .btn:focus {
