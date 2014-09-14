@@ -1602,7 +1602,8 @@ body {
 }
 
 .card-details-form input, .card-details-form select {
-    color: #666;
+  color: #666;
+}
 }
 
 @-webkit-keyframes move {
