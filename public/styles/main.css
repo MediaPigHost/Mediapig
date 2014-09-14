@@ -1267,7 +1267,7 @@ body {
 .slide-arrow-right:before,
 .slide-arrow-left:before {
   position: relative;
-  top: 5px;
+  top: 3px;
 }
 
 .slide-arrow-right {
