@@ -1403,6 +1403,7 @@ body {
   -o-transition: background-color 1s;
   transition: background-color 1s;
   border: 5px solid transparent;
+  cursor: pointer;
 }
 
 .os:hover {
@@ -1534,6 +1535,7 @@ body {
   -webkit-transition: opacity .5s;
   -o-transition: opacity .5s;
   transition: opacity .5s;
+  cursor: pointer;
 }
 
 .package-host-overlay {
