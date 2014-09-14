@@ -1263,6 +1263,12 @@ body {
   text-align: center;
 }
 
+.slide-arrow-right:before,
+.slide-arrow-left:before {
+  position: relative;
+  top: 5px;
+}
+
 .slide-arrow-right {
   right: 0;
   background: -moz-linear-gradient(left, rgba(38,38,39,0) 0%, rgba(38,38,39,1) 26%, rgba(38,38,39,1) 100%);
