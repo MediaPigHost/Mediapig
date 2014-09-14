@@ -911,7 +911,7 @@ body {
   width: 100%;
   z-index: 10;
   opacity: 0;
-  background-color: rgba(34,34,34,0.8);
+  background-color: rgba(34,34,34,0.9);
   -webkit-animation: show .4s ease 1 normal forwards;
   -moz-animation: show .4s ease 1 normal forwards;
   -o-animation: show .4s ease 1 normal forwards;
