@@ -1601,6 +1601,10 @@ body {
   float: left;
 }
 
+#cardDetails .first {
+  margin-right: 10px;
+}
+
 .card-details-form input, .card-details-form select {
   color: #666;
 }
