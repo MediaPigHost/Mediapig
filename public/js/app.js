@@ -462,6 +462,7 @@ curl([
                             app.publish('/message/error', res.errors)
                         }
                         else {
+                            window.location.href = '/order';
                             history.pushState('order', 'order', '/order');
                             app.help.setCookie('key', res.key, '1');
                             app.publish('/form/register/update', 'success');
