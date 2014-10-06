@@ -23,36 +23,8 @@ curl([
                     body: document.getElementsByTagName('body')
                 };
 
-                site.snapBackground(app, dom);
                 site.defered(app, dom);
                 site.events(app, dom);
-            },
-            snapBackground: function (app, dom) {
-
-                if (dom.body[0].classList.contains('home')) {
-
-                    var clientHeight    = document.documentElement.clientHeight;
-                    var innerHeight     = window.innerHeight;
-                    var windowHeight    = Math.max(clientHeight, innerHeight || 0);
-
-                    document.getElementsByClassName('bg')[0].style.height = Math.max(clientHeight, innerHeight || 0);
-
-                    dom.body[0].style.overflow = 'visible';
-
-                    var content = document.getElementsByClassName('body')[0];
-                    var header = document.getElementsByClassName('intro-head')[0];
-                    var bodyViewportOffset = content.getBoundingClientRect();
-
-                    header.style.height = Math.max(clientHeight, innerHeight || 0);
-                    content.style.top = bodyViewportOffset.top;
-                    content.style.marginTop = 0;
-
-                    setTimeout(function () {
-                        var viewMoreViewportOffset = document.getElementsByClassName('icon-arrow-down')[0].getBoundingClientRect();
-                        document.getElementsByClassName('icon-arrow-down')[0].style.top = viewMoreViewportOffset.top + window.pageYOffset;
-                    }, 1100);
-                }
-
             },
             events: function (app, dom) {
 
@@ -298,8 +270,11 @@ curl([
                     var submit = function (event) {
 
                         app.help.addBodyClass('hostname-chosen');
-                        app.publish('/view/order/type', true);
-                        history.pushState('order-details', 'order-details', '/order/details/');
+                        app.help.addBodyClass('package-type-chosen');
+
+                        history.pushState('order-details', 'order-details', '/order/details/1');
+
+                        site.defered(app, dom);
 
                         event.preventDefault();
                     }
@@ -321,6 +296,8 @@ curl([
 
                     app.ajax(window.location.origin + '/fragments/package-hostname', function (res) {
                         app.publish('/view/order/loaded', true);
+                        app.help.removeBodyClass('register-success-transition');
+                        app.help.addBodyClass('register-success');
                         dom.overlayContent.innerHTML = res;
                     });
                 });
@@ -371,7 +348,6 @@ curl([
 
                             site.defered(app, dom);
 
-                            console.log('Hello dave');
                             event.preventDefault();
                         }
                     });
@@ -383,7 +359,7 @@ curl([
 
                     if (flag === 'success') {
 
-                        app.help.addBodyClass('register-success');
+                        app.help.addBodyClass('register-success-transition');
                         app.help.loading(button, 'success');
 
                         setTimeout(function () {

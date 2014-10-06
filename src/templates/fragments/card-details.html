@@ -1,8 +1,13 @@
 <section class="card-details-form">
     <form id="cardDetails" action="" method="post">
-        <input type="text" name="number" placeholder="Please enter your card number" />
-        <input type="text" name="cvc" placeholder="Please enter your 3-digit CVC" />
-        <select id="cardExpiryMonth" name="exp_month">
+        <h2>Please, add your credit card</h2>
+        <label>Card number</label>
+        <input type="text" name="number" placeholder="1234 5678 9123 4567" />
+        <label>3-digit CVC</label>
+        <input type="text" name="cvc" placeholder="123" />
+        <label>Expiration date</label>
+        <select class="first" id="cardExpiryMonth" name="exp_month">
+            <option value="9999" disabled selected>Month</option>
             <option value="1">01</option>
             <option value="2">02</option>
             <option value="3">03</option>
@@ -17,10 +22,11 @@
             <option value="12">12</option>
         </select>
         <select id="cardExpiryYear" name="exp_year">
+            <option value="9999" disabled selected>Year</option>
             <option value="2014">2014</option>
             <option value="2015">2015</option>
             <option value="2016">2016</option>
         </select>
-        <input type="submit" id="submitCardDetails" class="btn large submit-card-details" value="Confirm" />
+        <input type="submit" id="submitCardDetails" class="btn large submit-card-details" value="Confirm your payment" />
     </form>
 </section>
