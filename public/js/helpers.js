@@ -263,7 +263,7 @@ define(function (require, exports, module) {
                 setKey: function (key) {
                     Stripe.setPublishableKey(key);
                 },
-                createToken: function (cardDetails, callback) {
+                createToken: function (app, cardDetails, callback) {
 
                     var details = {
                         number: cardDetails.number,
@@ -278,7 +278,7 @@ define(function (require, exports, module) {
                             callback(response);
                         }
                         else {
-                            document.getElementById("error-wrap").innerHTML += response.error.message;
+                            app.publish('/message/error', response.error.message);
                         }
 
                     });

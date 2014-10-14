@@ -166,7 +166,7 @@ curl([
 
                             stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
 
-                            stripe.createToken(cardDetails, function (response) {
+                            stripe.createToken(app, cardDetails, function (response) {
 
                                 var token = response.id;
 
@@ -182,7 +182,7 @@ curl([
                                         alert('Success');
                                     }
                                     else {
-                                        document.getElementById("error-wrap").innerHTML += response.status;
+                                        app.publish('/message/error', response.status);
                                     }
                                 });
                             });
@@ -376,8 +376,20 @@ curl([
                 });
 
                 app.subscribe("/message/error", function (data) {
+
+                    if (typeof data != 'array') {
+                      var arr = [];
+                      arr.push(data);
+                      data = arr;
+                    }
+
                     app.help.postJSON({'errors': data }, window.location.origin + '/error/message', function (xhr) {
-                        document.getElementById("error-wrap").innerHTML += xhr.response;
+                        var errorWrap = document.getElementById("error-wrap");
+                        errorWrap.innerHTML += xhr.response;
+                        errorWrap.className = errorWrap.className + ' active-error';
+                        setTimeout(function () {
+                          app.help.removeClass(errorWrap, 'active-error');
+                        }, 5000);
                     });
                 });
             },
@@ -432,7 +444,7 @@ curl([
                         app.help.removeElementsByClass('error');
 
                         var res = JSON.parse(xhr.response);
-                        console.log(res);
+
                         if (res.errors) {
                             app.publish('/form/register/update', 'fail');
                             app.publish('/message/error', res.errors)
@@ -502,5 +514,4 @@ curl([
 
     }, function (ex) {
         var msg = ex.message;
-        console.log(ex);
     });

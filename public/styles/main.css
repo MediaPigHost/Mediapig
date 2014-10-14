@@ -480,7 +480,8 @@ body {
 .home .bg,
 .order .bg,
 .register-success {
-  background: #415C71;
+  background: #4E4D55 url('../images/homebg.png') center bottom no-repeat;
+  background-size: cover;
 }
 
 .home .bg,
@@ -603,7 +604,6 @@ body {
 
 .body {
   position: absolute;
-  padding: 30px 0;
   height: 242px;
   width: 600px;
   top: 50%;
@@ -803,7 +803,7 @@ body {
 
 .dark-section {
   padding: 100px 0;
-  background-color: #415C71;
+  background-color: #4E4D55;
   text-align: center;
 }
 
@@ -861,6 +861,12 @@ body {
   transition: color .2s;
 }
 
+.home .highlight-anchor {
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.2);
+  color: #E6E7E8;
+}
+
 .home .footer-links a:hover {
   color: #FFF;
 }
@@ -892,11 +898,6 @@ body {
   animation: hide .4s ease 0s 1 normal forwards;
 }
 
-.home .error,
-.order .error {
-  display: none;
-}
-
 .overlay-visible .error {
   display: block;
 }
@@ -910,12 +911,19 @@ body {
   height: 100%;
   width: 100%;
   z-index: 10;
-  opacity: 0;
+}
+
+.home.overlay-visible .overlay {
   background-color: rgba(34,34,34,0.9);
   -webkit-animation: show .4s ease 1 normal forwards;
   -moz-animation: show .4s ease 1 normal forwards;
   -o-animation: show .4s ease 1 normal forwards;
   animation: show .4s ease 1 normal forwards;
+  -webkit-transition: background-color .2s;
+  -moz-transition: background-color .2s;
+  -ms-transition: background-color .2s;
+  -o-transition: background-color .2s;
+  transition: background-color .2s;
 }
 
 .order.overlay-visible .overlay {
@@ -933,49 +941,45 @@ body {
 }
 
 .overlay-close {
-  background-color: #354C5F;
-  padding: 15px;
-  border-radius: 5px;
-  color: #E6E7E8;
   text-decoration: none;
   position: absolute;
   top: 30px;
   right: 30px;
-  -webkit-transition: background-color .2s;
-  -moz-transition: background-color .2s;
-  -ms-transition: background-color .2s;
-  -o-transition: background-color .2s;
-  transition: background-color .2s;
+  opacity: 0.7;
+  -webkit-transition: opacity .3s;
+  -o-transition: opacity .3s;
+  transition: opacity .3s;
 }
 
 .overlay-close:hover {
-  background-color: #415C71;
+  opacity: 1;
+  -webkit-transition: opacity .3s;
+  -o-transition: opacity .3s;
+  transition: opacity .3s;
 }
 
-.overlay-content {
+.overlay-wrap {
+  padding: 22px 30px 30px 30px;
+  margin: 0 auto;
+  border-radius: 5px;
   position: relative;
   top: 150px;
+}
+
+.home .overlay-wrap {
+  background-color: #FFF;
+  width: 300px;
 }
 
 #signin {
   margin-bottom: 0;
 }
 
-.signup,
-.signin-form {
-  background-color: #FFF;
-  padding: 22px 30px 30px 30px;
-  width: 300px;
-  margin: 0 auto;
-  border-radius: 5px;
-  position: relative;
-}
-
 .signup label,
 .signin-form label {
   color: #999;
   display: inline-block;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .signup input[type=email],
@@ -993,7 +997,7 @@ body {
 }
 
 .signup h2, .signin-form h2 {
-  color: #999;
+  color: #666;
   margin-bottom: 19px;
   font-size: 1.250em;
 }
@@ -1017,16 +1021,17 @@ body {
 
 .error {
   color: #E6E7E8;
-  background-color: #333;
-  padding: 20px;
+  background-color: #c88c64;
+  padding: 20px 0;
   width: 100%;
   position: absolute;
-  bottom: -60px;
+  bottom: 0;
   text-align: center;
   -webkit-animation: move .4s ease 0s 1 normal forwards;
   -moz-animation: move .4s ease 0s 1 normal forwards;
   -o-animation: move .4s ease 0s 1 normal forwards;
   animation: move .4s ease 0s 1 normal forwards;
+  z-index: 10;
 }
 
 .password-field {
@@ -1151,6 +1156,7 @@ body {
 }
 
 .form-submit {
+  margin-top: 25px;
   text-align: center;
 }
 
@@ -1633,7 +1639,7 @@ input.submit-card-details {
   100% { -moz-transform: translate(0, -60px); } }
 
 @-o-keyframes move {
-  0% { -o-transform: translate(0, -0); }
+  0% { -o-transform: translate(0, 0); }
   100% { -o-transform: translate(0, -60px); } }
 
 @keyframes move {
