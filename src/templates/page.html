@@ -1,0 +1,30 @@
+{% include 'fragments/header.html' %}
+  <body class="page content">
+    <div class="bg"></div>
+    <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
+      <header class="header line">
+        <div class="left">
+          <a id="logo" href="/home" class="logo">{{name}}</a>
+        </div>
+        <div class="right">
+          <ul>
+            <li><a href="" class="active">Home</a></li>
+            <li><a class="overlay-trigger" href="#">Place an order</a></li>
+            <li><a href="/signin" class="signin-btn">Sign in</a></li>
+          </ul>
+        </div>
+
+        {% block heading %}
+          <h1 class="clearfix">Uh oh!</h1>
+        {% endblock %}
+      </header>
+    </div>
+    <div class="wrap">
+      <article class="content">
+        {% block body %}
+          Sorry - This page doesn't exist!
+        {% endblock %}
+      </article>
+    </div>
+{% include 'fragments/footer-links.html' %}
+{% include 'fragments/footer.html' %}

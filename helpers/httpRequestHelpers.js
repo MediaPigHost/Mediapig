@@ -26,6 +26,9 @@ var Requests = function () {
         home: function(req, res){
             res.render('home', data);
         },
+        page: function(req, res){
+            res.render('fragments/' + req.params.page, data);
+        },
         error: {
             message: function(req, res, next) {
                 res.render('fragments/error', req.body);
@@ -120,6 +123,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/fragments/package-detail/:typeid', Requests.fragments.packageDetail);
     this.app.get('/fragments/package-detail/:typeid/os', Requests.fragments.packageDetailOS);
     this.app.get('/fragments/:page', Requests.fragments.page);
+    this.app.get('/page/:page', Requests.page);
     this.app.get('/order*', Requests.order);
 
     this.app.post('/error/message', Requests.error.message);

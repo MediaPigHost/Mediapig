@@ -316,13 +316,30 @@ body {
   z-index: 2;
 }
 
-.home .intro-head,
+.intro-head,
 .home .wrap,
-.order .wrap {
+.order .wrap,
+.page .wrap {
   max-width: 1140px;
   min-width: 1180px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.page .content {
+  padding: 100px 0;
+}
+
+.page .content h2 {
+  margin: 30px 0 20px 0;
+}
+
+.page .heading-center h1 {
+  margin: 175px auto 0;
+}
+
+.page .heading-left h1 {
+  margin: 175px 0 0;
 }
 
 .line {
@@ -457,6 +474,7 @@ body {
   left: 0;
   bottom: 0;
   text-align: center;
+  padding: 0;
 }
 
 .landing .footer .mountains {
@@ -479,16 +497,93 @@ body {
 
 .home .bg,
 .order .bg,
-.register-success {
-  background: #4E4D55 url('../images/homebg.png') center bottom no-repeat;
-  background-size: cover;
+.register-success,
+.page .bg {
+  background: #4E4D55;
+  position: relative;
+}
+
+.page .bg {
+  width: 100%;
+  height: 300px;
+  z-index: 0;
 }
 
 .home .bg,
 .order .bg {
   width: 100%;
-  height: 90%;
+  height: 100%;
   z-index: 0;
+}
+
+.home .mountrange {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.home .mountrange-fencing {
+  max-width: 1550px;
+  height: 252px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.home .front-mountain-1 {
+  background: url('../images/mountains1.svg') center 0 no-repeat;
+  -webkit-animation: mountainSlideUp 1s ease .3s 1 normal forwards;
+  -moz-animation: mountainSlideUp 1s ease .3s 1 normal forwards;
+  -o-animation: mountainSlideUp 1s ease .3s 1 normal forwards;
+  animation: mountainSlideUp 1s ease .3s 1 normal forwards;
+  z-index: 100;
+}
+
+.home .front-mountain-2 {
+  background: url('../images/mountains1.svg') center -252px no-repeat;
+  -webkit-animation: mountainSlideUp 1s ease .6s 1 normal forwards;
+  -moz-animation: mountainSlideUp 1s ease .6s 1 normal forwards;
+  -o-animation: mountainSlideUp 1s ease .6s 1 normal forwards;
+  animation: mountainSlideUp 1s ease .6s 1 normal forwards;
+  z-index: 105;
+}
+
+.home .front-mountain-3 {
+  background: url('../images/mountains1.svg') center -504px no-repeat;
+  -webkit-animation: mountainSlideUp 1s ease .9s 1 normal forwards;
+  -moz-animation: mountainSlideUp 1s ease .9s 1 normal forwards;
+  -o-animation: mountainSlideUp 1s ease .9s 1 normal forwards;
+  animation: mountainSlideUp 1s ease .9s 1 normal forwards;
+  z-index: 90;
+}
+
+.home .back-mountain-1 {
+  background: url('../images/mountains1.svg') center -756px no-repeat;
+  -webkit-animation: mountainSlideUp 1s ease 1.1s 1 normal forwards;
+  -moz-animation: mountainSlideUp 1s ease 1.1s 1 normal forwards;
+  -o-animation: mountainSlideUp 1s ease 1.1s 1 normal forwards;
+  animation: mountainSlideUp 1s ease 1.1s 1 normal forwards;
+  z-index: 85;
+}
+
+.home .tree-line-1 {
+  background: url('../images/mountains1.svg') center -1008px no-repeat;
+  -webkit-animation: mountainSlideUp 1s ease 1.3s 1 normal forwards;
+  -moz-animation: mountainSlideUp 1s ease 1.3s 1 normal forwards;
+  -o-animation: mountainSlideUp 1s ease 1.3s 1 normal forwards;
+  animation: mountainSlideUp 1s ease 1.3s 1 normal forwards;
+  z-index: 110;
+}
+
+.home .front-mountain-1,
+.home .front-mountain-2,
+.home .front-mountain-3,
+.home .back-mountain-1,
+.home .tree-line-1 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: -255px;
 }
 
 .home .intro-head {
@@ -501,7 +596,8 @@ body {
 }
 
 .home h1,
-.order h1 {
+.order h1,
+.page h1 {
   font-size: 2.500em;
 }
 
@@ -510,7 +606,10 @@ body {
 .home h3,
 .order h1,
 .order h2,
-.order h3 {
+.order h3,
+.page h1,
+.page h2,
+.page h3 {
   font-family: 'proxima-nova-soft', sans-serif;
   font-weight: 600;
   margin: 0;
@@ -550,12 +649,13 @@ body {
 
 .header {
   padding: 30px 0;
-  position: absolute;
-  top: 0;
   display: block;
   max-width: 1140px;
   width: 100%;
+  position: absolute;
+  top: 0;
 }
+
 
 .header ul  {
   padding-top: 8px;
@@ -822,7 +922,7 @@ body {
   line-height: 1.5;
 }
 
-.home .footer {
+.footer {
   padding: 100px 0;
   background-color: #2C2C2C;
 }
@@ -832,25 +932,25 @@ body {
   float: left;
 }
 
-.home .footer h3 {
+.footer h3 {
   margin-bottom: 20px;
   color: #666;
   font-size: 1.250em;
 }
 
-.home .footer-links li {
+.footer-links li {
   margin-bottom: 5px;
 }
 
-.home .footer-buttons li {
+.footer-buttons li {
   margin-bottom: 10px;
 }
 
-.home .footer-links li:last-child {
+.footer-links li:last-child {
   margin-bottom: 0;
 }
 
-.home .footer-links a {
+.footer-links a {
   color: #999;
   font-size: 0.875em;
   text-decoration: none;
@@ -861,22 +961,22 @@ body {
   transition: color .2s;
 }
 
-.home .highlight-anchor {
+.highlight-anchor {
   text-decoration: none;
   border-bottom: 1px dotted rgba(255,255,255,0.2);
   color: #E6E7E8;
 }
 
-.home .footer-links a:hover {
+.footer-links a:hover {
   color: #FFF;
 }
 
-.home .footer-bar {
+.footer-bar {
   height: 70px;
   background-color: #242424;
 }
 
-.home .footer-bar p {
+.footer-bar p {
   margin: 0;
   color: #666;
   font-size: 0.875em;
@@ -1721,6 +1821,38 @@ input.submit-card-details {
 @keyframes arrowSlideIn {
   0% { bottom: 100px; }
   100% { bottom: 50px; } }
+
+@-webkit-keyframes mountainSlideUp {
+  0% { -webkit-transform: translateY(0); }
+  100% { -webkit-transform: translateY(-255px); } }
+
+@-moz-keyframes mountainSlideUp {
+  0% { -moz-transform: translateY(0); }
+  100% { -moz-transform: translateY(-255px); } }
+
+@-o-keyframes mountainSlideUp {
+  0% { -o-transform: translateY(0); }
+  100% { -o-transform: translateY(-255px); } }
+
+@keyframes mountainSlideUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-255px); } }
+
+/*@-webkit-keyframes mountainSlideUp {
+  0% { bottom: -255px; }
+  100% { bottom: 0; } }
+
+@-moz-keyframes mountainSlideUp {
+  0% { bottom: -255px; }
+  100% { bottom: 0; } }
+
+@-o-keyframes mountainSlideUp {
+  0% { bottom: -255px; }
+  100% { bottom: 0; } }
+
+@keyframes mountainSlideUp {
+  0% { bottom: -255px; }
+  100% { bottom: 0; } }*/
 
 @-webkit-keyframes arrowHover {
   0% { -webkit-transform: translateY(0); }
