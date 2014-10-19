@@ -1059,7 +1059,8 @@ body {
   z-index: 10;
 }
 
-.home.overlay-visible .overlay {
+.home.overlay-visible .overlay,
+.page.overlay-visible .overlay {
   background-color: rgba(34,34,34,0.9);
   -webkit-animation: show .4s ease 1 normal forwards;
   -moz-animation: show .4s ease 1 normal forwards;
@@ -1112,7 +1113,8 @@ body {
   top: 150px;
 }
 
-.home .overlay-wrap {
+.home .overlay-wrap,
+.page .overlay-wrap {
   background-color: #FFF;
   width: 300px;
 }
