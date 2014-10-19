@@ -1,5 +1,5 @@
 {% include 'fragments/header.html' %}
-  <body class="page content">
+  <body class="page content {% block pageclass %}default{% endblock %}">
     <div class="bg"></div>
     <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
       <header class="header line">

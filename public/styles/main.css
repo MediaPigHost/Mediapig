@@ -342,6 +342,48 @@ body {
   margin: 175px 0 0;
 }
 
+.page.page-contact {
+  background-color: #706e7c;
+}
+
+.page.page-contact .content {
+  padding: 300px 0 80px;
+  color: #FFF;
+}
+
+.page.page-contact .header .logo {
+  background: url('../images/logo-small-dark.png') center center no-repeat;
+  background-size: 100%;
+  opacity: 0.6;
+}
+
+.page.page-contact .heading-left h1 {
+  margin: 690px auto 0;
+}
+
+.page.page-contact .header {
+  background: url('/images/mediapig-support.svg') center 45px no-repeat;
+  height: 720px;
+}
+
+.page.page-contact .header a.active,
+.page.page-contact .header a:hover {
+  color: rgba(88,88,88,.9);
+}
+
+.page.page-contact .header ul li {
+  border-right: 1px dotted rgba(88,88,88,0.2);
+}
+
+.page.page-contact .header a {
+  color: rgba(88,88,88,.6);
+}
+
+.page.page-contact .bg {
+  height: 535px;
+  background-color: #faf9f4;
+}
+
 .line {
   overflow: hidden;
   *overflow: visible;
