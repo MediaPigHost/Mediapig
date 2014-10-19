@@ -1,7 +1,7 @@
 {% extends "../page.html" %}
 
 {% block heading %}
-  <h1 class="clearfix">Contact Mediapig</h1>
+  <h1 class="clearfix">Say hello!</h1>
 {% endblock %}
 
 {% block pageclass %}
@@ -9,8 +9,10 @@
 {% endblock %}
 
 {% block body %}
-  <h2>Lorem</h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
+  <form id="contact" action="" method="post">
+    <input type="email" name="email" placeholder="Your e-mail address" />
+    <input type="text" name="subject" placeholder="Your e-mail subject" />
+    <textarea name="body" cols="30" rows="8"></textarea>
+    <input type="submit" name="submit" class="btn large" value="Send!">
+  </form>
 {% endblock %}

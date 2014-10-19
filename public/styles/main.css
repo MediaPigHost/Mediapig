@@ -244,7 +244,8 @@ ol, ul {
 
 input[type=text],
 input[type=email],
-input[type=password] {
+input[type=password],
+textarea {
   padding-left: 15px;
   background-color: #FFF;
   border: 0;
@@ -258,6 +259,11 @@ input[type=password] {
   -webkit-transition: box-shadow 1s;
   -o-transition: box-shadow 1s;
   transition: box-shadow 1s;
+}
+
+textarea {
+  padding-top: 15px;
+  height: auto;
 }
 
 .holding-signup {
@@ -386,6 +392,20 @@ body {
 .page.page-contact .bg {
   height: 535px;
   background-color: #faf9f4;
+}
+
+.page.page-contact .content input[type="text"],
+.page.page-contact .content input[type="email"],
+.page.page-contact .content textarea {
+  width: 500px;
+  color: #666;
+}
+
+.page.page-contact .content input[type="submit"] {
+  width: 500px;
+  margin: 0 auto;
+  display: block;
+  color: #FFF;
 }
 
 .line {
