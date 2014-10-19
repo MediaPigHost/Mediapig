@@ -362,7 +362,7 @@ body {
 }
 
 .page.page-contact .header {
-  background: url('/images/mediapig-support.svg') center 45px no-repeat;
+  background: url('/images/mediapig-support1.svg') center 45px no-repeat;
   height: 720px;
 }
 
@@ -373,6 +373,10 @@ body {
 
 .page.page-contact .header ul li {
   border-right: 1px dotted rgba(88,88,88,0.2);
+}
+
+.page.page-contact .header ul li:last-child {
+  border: none;
 }
 
 .page.page-contact .header a {
