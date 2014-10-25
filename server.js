@@ -8,6 +8,22 @@ var https               = require('https');
 var http                = require('http');
 var fs                  = require('fs');
 var app                 = express();
+var winston             = require('winston');
+var domains             = require('domain').create();
+
+var logger = new (winston.Logger)({
+    transports: [
+        new (winston.transports.Console)(),
+        new (winston.transports.File)({ filename: 'somefile.log' })
+    ]
+});
+
+domains.on('error', function (err) {
+    console.log(err);
+    logger.log('error', err, function (err, level, msg, meta) {
+        process.exit(1);
+    });
+});
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
