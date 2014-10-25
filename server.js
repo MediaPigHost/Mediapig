@@ -14,7 +14,7 @@ var domains             = require('domain').create();
 var logger = new (winston.Logger)({
     transports: [
         new (winston.transports.Console)(),
-        new (winston.transports.File)({ filename: 'somefile.log' })
+        new (winston.transports.File)({ filename: 'logs/node_log.log' })
     ]
 });
 
