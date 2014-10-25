@@ -108,6 +108,14 @@ var Requests = function () {
                     }
                 }
             });
+        },
+        notFound: function (req, res, next) {
+            console.log('404?');
+            next();
+        },
+        serverError: function (req, res, next) {
+            console.log('internal server error');
+            next(new Error('Internal Server Error'));
         }
     }
 }();
@@ -128,4 +136,7 @@ module.exports.SetRequests = function (app) {
 
     this.app.post('/error/message', Requests.error.message);
     this.app.post('/fragments/variant', Requests.fragments.variant);
+
+    this.app.get('/404', Requests.notFound);
+    this.app.get('/404', Requests.serverError);
 };
