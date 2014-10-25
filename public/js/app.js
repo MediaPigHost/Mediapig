@@ -135,7 +135,6 @@ curl([
                 app.subscribe("/place/order", function (flag) {
 
                     app.help.postJSON(configOrder, 'https://api.mediapig.co.uk/index.php?/order/create', function (res) {
-                        console.log(res);
 
                         stripe = new app.help.stripe();
 
@@ -154,6 +153,12 @@ curl([
                         app.help.addEventListenerByClass('submit-card-details', 'click', function (event) {
                             event.preventDefault();
 
+                            if (event.currentTarget.className.indexOf('disabled') > -1) {
+                                return;
+                            }
+
+                            event.currentTarget.className += ' disabled';
+
                             var formElements = document.getElementById("cardDetails").elements;
                             var cardDetails = {};
 
@@ -166,25 +171,32 @@ curl([
 
                             stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
 
-                            stripe.createToken(app, cardDetails, function (response) {
+                            stripe.createToken(app, cardDetails, function (status, response) {
+                                console.log(response);
+                                if (status === 200) {
+                                    var token = response.id;
 
-                                var token = response.id;
+                                    var orderDetails = {
+                                        invoice_id: +stripe.getInvoiceID(),
+                                        token: token
+                                    };
 
-                                var orderDetails = {
-                                    invoice_id: +stripe.getInvoiceID(),
-                                    token: token
-                                };
+                                    app.help.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
+                                        var response = JSON.parse(res.response);
 
-                                app.help.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
-                                    var response = JSON.parse(res.response);
-
-                                    if (response.status === 'success') {
-                                        alert('Success');
-                                    }
-                                    else {
-                                        app.publish('/message/error', response.status);
-                                    }
-                                });
+                                        if (response.status === 'success') {
+                                            alert('Success');
+                                        }
+                                        else {
+                                            event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
+                                            app.publish('/message/error', response.status);
+                                        }
+                                    });
+                                }
+                                else {
+                                    event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
+                                    app.publish('/message/error', response.error.message);
+                                }
                             });
                         });
                     });
