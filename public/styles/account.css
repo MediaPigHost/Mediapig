@@ -134,6 +134,7 @@ header .right a.last {
 .product h3 {
 	margin: 0;
 	color: #666;
+	font-weight: 600;
 }
 
 .product a {
