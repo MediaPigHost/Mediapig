@@ -1,3 +1,9 @@
+html {
+	font-size: 0.875em; 
+  -webkit-text-size-adjust: 0.875em;
+  -ms-text-size-adjust: 0.875em;
+}
+
 body {
 	
 }
