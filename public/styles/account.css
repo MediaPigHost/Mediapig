@@ -148,6 +148,27 @@ header .right a.last {
 	vertical-align: -4px;
 }
 
+.sidebar {
+	width: 20%;
+	margin-top: 60px;
+	float: left;
+}
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar ul li {
+	margin-bottom: 5px;
+	list-style-type: none;
+}
+
+.sidebar ul li a {
+	color: #666;
+	text-decoration: none;
+}
+
 footer {
 	height: 70px;
 	position: absolute;
