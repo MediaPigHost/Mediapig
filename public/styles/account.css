@@ -25,4 +25,53 @@ body {
 	padding: 0 20px;
 }
 
+header {
+	height: 70px;
+	background-color: #2C2C2C;
+}
+
+.logo {
+	display: inline-block;
+}
+
+.logo img {
+	height: 35px;
+	width: 93px;
+	margin-top: 19px;
+	display: inline-block;
+}
+
+header .right {
+	display: inline-block;
+	font-weight: 600;
+	line-height: 42px;
+	text-transform: uppercase;
+}
+
+header .right a {
+	color: rgba(255,255,255,.6);
+	text-decoration: none;
+}
+
+header .right a:hover {
+	color: rgba(255,255,255,1);
+}
+
+header .right a:hover img {
+	opacity: 1;
+}
+
+header .right .name {
+	margin-right: 30px;
+	padding-right: 30px;
+	color: rgba(255,255,255,.6);
+	display: inline-block;
+	border-right: 1px dotted rgba(255,255,255,.2);
+}
+
+header .right img {
+	margin-right: 15px;
+	display: inline-block;
+	vertical-align: -6px;
+	opacity: .6;
 }
