@@ -170,6 +170,18 @@ header .right a.last {
 	text-decoration: none;
 }
 
+.content {
+	width: 80%;
+	margin-top: 60px;
+	float: right;
+}
+
+.content h3 {
+	margin: 0;
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
 footer {
 	height: 70px;
 	position: absolute;
