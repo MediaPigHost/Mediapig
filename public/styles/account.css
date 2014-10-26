@@ -105,6 +105,18 @@ header .right a.last {
 }
 
 .top-head h2 {
+	margin: 0 0 5px;
+	color: #333;
+	font-size: 2em;
+}
+
+.top-head h3 {
+	margin: 0;
+	color: #666;
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
 	margin: 0;
 	font-weight: 600;
 footer {
