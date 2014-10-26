@@ -161,13 +161,20 @@ header .right a.last {
 }
 
 .sidebar ul li {
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	list-style-type: none;
 }
 
 .sidebar ul li a {
 	color: #666;
 	text-decoration: none;
+}
+
+.sidebar ul li a img {
+	height: 18px;
+	width: 18px;
+	margin-right: 15px;
+	vertical-align: -4px;
 }
 
 .content {
