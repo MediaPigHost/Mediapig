@@ -117,8 +117,37 @@ header .right a.last {
 	font-weight: 600;
 }
 
+.products {
+	padding: 60px 0;
+}
+
+.product {
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px dotted rgba(0,0,0,.2);
+}
+
+.last.product {
+	border-bottom: 0;
+}
+
+.product h3 {
 	margin: 0;
+	color: #666;
+}
+
+.product a {
+	float: right;
+	color: #666;
+	text-decoration: none;
 	font-weight: 600;
+}
+
+.product a img {
+	margin-right: 15px;
+	vertical-align: -4px;
+}
+
 footer {
 	height: 70px;
 	position: absolute;
