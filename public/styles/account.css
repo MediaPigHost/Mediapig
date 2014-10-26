@@ -14,4 +14,8 @@ body {
   display: table;
   clear: both;
 }
+
+.right {
+	float: right;
+}
 }
