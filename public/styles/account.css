@@ -48,9 +48,10 @@ header {
 }
 
 header .right {
+	margin-top: 22px;
 	display: inline-block;
 	font-weight: 600;
-	line-height: 42px;
+	line-height: 25px;
 	text-transform: uppercase;
 }
 
@@ -67,7 +68,7 @@ header .right a:hover img {
 	opacity: 1;
 }
 
-header .right .name {
+header .right a {
 	margin-right: 30px;
 	padding-right: 30px;
 	color: rgba(255,255,255,.6);
@@ -75,9 +76,28 @@ header .right .name {
 	border-right: 1px dotted rgba(255,255,255,.2);
 }
 
+header .right a.last {
+	margin-right: 0;
+	padding-right: 0;
+	border-right: 0;
+}
+
 header .right img {
 	margin-right: 15px;
 	display: inline-block;
-	vertical-align: -6px;
+	vertical-align: -4px;
 	opacity: .6;
+}
+
+.top-head {
+	padding: 60px 0;
+	background-color: #F2F2F2;
+}
+
+.top-head h2 {
+	margin: 0;
+	font-weight: 600;
+	color: #666;
+	font-size: 2em;
+	font-family: 'Proxima Nova Soft', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
