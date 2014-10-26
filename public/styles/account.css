@@ -8,3 +8,10 @@ body {
 	font-family: 'Proxima Nova', Helvetica Neue, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+}
