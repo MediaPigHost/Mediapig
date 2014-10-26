@@ -64,6 +64,13 @@ header .right a:hover {
 	color: rgba(255,255,255,1);
 }
 
+header .right img {
+	margin-right: 15px;
+	display: inline-block;
+	vertical-align: -4px;
+	opacity: .6;
+}
+
 header .right a:hover img {
 	opacity: 1;
 }
@@ -80,13 +87,6 @@ header .right a.last {
 	margin-right: 0;
 	padding-right: 0;
 	border-right: 0;
-}
-
-header .right img {
-	margin-right: 15px;
-	display: inline-block;
-	vertical-align: -4px;
-	opacity: .6;
 }
 
 .top-head {
