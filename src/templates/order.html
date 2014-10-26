@@ -1,5 +1,10 @@
 {% include 'fragments/header.html' %}
   <body class="order overlay-visible register-success">
+    <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
+      <header class="header line">
+        <a id="logo" href="/home" class="logo">{{name}}</a>
+      </header>
+    </div>
     <div class="overlay">
       <div class="overlay-wrap">
         <div id="overlay-content" class="overlay-content">

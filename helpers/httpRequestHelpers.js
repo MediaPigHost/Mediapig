@@ -29,6 +29,12 @@ var Requests = function () {
         page: function(req, res){
             res.render('fragments/' + req.params.page, data);
         },
+        account : function(req, res){
+            res.render('account/' + req.params.page, data);
+        },
+        accounthome: function(req, res){
+            res.render('account/home', data);
+        },
         error: {
             message: function(req, res, next) {
                 res.render('fragments/error', req.body);
@@ -132,6 +138,8 @@ module.exports.SetRequests = function (app) {
     this.app.get('/fragments/package-detail/:typeid/os', Requests.fragments.packageDetailOS);
     this.app.get('/fragments/:page', Requests.fragments.page);
     this.app.get('/page/:page', Requests.page);
+    this.app.get('/manage', Requests.accounthome);
+    this.app.get('/manage/:page', Requests.account);
     this.app.get('/order*', Requests.order);
 
     this.app.post('/error/message', Requests.error.message);
