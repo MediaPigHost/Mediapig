@@ -5,12 +5,15 @@
 }
 
 html {
+	position: relative;
+  min-height: 100%;
 	font-size: 0.875em; 
   -webkit-text-size-adjust: 0.875em;
   -ms-text-size-adjust: 0.875em;
 }
 
 body {
+	margin: 0 0 70px;
 	font-family: 'Proxima Nova', Helvetica Neue, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
@@ -97,7 +100,18 @@ header .right a.last {
 .top-head h2 {
 	margin: 0;
 	font-weight: 600;
+footer {
+	height: 70px;
+	position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+	background-color: #242424;
+}
+
+footer p {
+	margin: 0;
 	color: #666;
-	font-size: 2em;
-	font-family: 'Proxima Nova Soft', Helvetica Neue, Helvetica, Arial, sans-serif;
+	line-height: 70px;
+	font-weight: 600;
 }
