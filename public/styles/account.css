@@ -117,6 +117,42 @@ header .right a.last {
 	font-weight: 600;
 }
 
+.profile .text-module {
+	margin-left: 25px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.profile h3 {
+	color: #333;
+}
+
+.social-icons {
+	margin-top: 5px;
+}
+
+.social-icons a {
+	margin-right: 10px;
+	color: #666;
+	text-decoration: none;
+}
+
+.social-icons a .icon {
+	margin-right: 5px;
+	vertical-align: -3px;
+}
+
+.avatar {
+	height: 90px;
+	width: 90px;
+	display: inline-block;
+	background: #999;
+	vertical-align: middle;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
 .products {
 	padding: 60px 0;
 }
@@ -184,8 +220,22 @@ header .right a.last {
 }
 
 .content h3 {
-	margin: 0;
+	margin: 0 0 15px;
 	font-size: 1.5em;
+	font-weight: 600;
+}
+
+.details {
+	margin: 0;
+	padding: 0;
+}
+
+.details li {
+	list-style-type: none;
+}
+
+.details li .detail {
+	display: block;
 	font-weight: 600;
 }
 
