@@ -215,6 +215,12 @@ header .right a.last {
 
 .content {
 	width: 80%;
+	margin: 60px 0;
+	float: right;
+}
+
+.overview, .ftp {
+	width: 40%;
 	margin-top: 60px;
 	float: right;
 }
