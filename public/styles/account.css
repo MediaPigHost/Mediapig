@@ -142,8 +142,8 @@ header .right a.last {
 }
 
 .avatar {
-	height: 90px;
-	width: 90px;
+	height: 80px;
+	width: 80px;
 	display: inline-block;
 	background: #999;
 	vertical-align: middle;
