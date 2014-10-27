@@ -19,14 +19,14 @@ body {
 	font-family: 'Proxima Nova', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+.right {
+	float: right;
+}
+
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
-}
-
-.right {
-	float: right;
 }
 
 h1, h2 {
@@ -38,9 +38,9 @@ h3, h4, h5, h6 {
 }
 
 .container {
-	max-width: 1140px;
+	max-width: 1020px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 30px;
 }
 
 header {
