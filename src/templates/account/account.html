@@ -1,0 +1,85 @@
+{% extends "../account.html" %}
+
+{% block content %}
+<div class="top-head">
+	<div class="container">
+		<h2>My account</h2>
+		<h3>Settings</h3>
+	</div>
+</div>
+<div class="container clearfix">
+	<div class="generalform clearfix">
+		<h3>General</h3>
+		<form role="form" class="account-form">
+			<div class="formgroup file clearfix">
+				<label for="inputAvatar">Avatar:</label>
+				<div class="settingsavatar"></div>
+		    <input type="file" id="inputAvatar">
+	    </div>
+			<div class="formgroup clearfix">
+				<label for="inputFirstname">First name:</label>
+		    <input type="text" id="inputName">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputSecondname">Second name:</label>
+		    <input type="text" id="inputName">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputEmail">Email:</label>
+		    <input type="email" id="inputEmail">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputAddress">Address:</label>
+		    <input type="text" id="inputAddress">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputCity">City:</label>
+		    <input type="text" id="inputCity">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputStateorregion">State or region:</label>
+		    <input type="text" id="inputStateorregion">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputCountry">Country:</label>
+		    <input type="text" id="inputCountry">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputPostalcode">Postal code:</label>
+		    <input type="text" id="inputPostalcode">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputPhone">Phone:</label>
+		    <input type="tel" id="inputPhone">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputFacebook">Facebook profile:</label>
+		    <input type="text" id="inputFacebook">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputTwitter">Twitter profile:</label>
+		    <input type="text" id="inputTwitter">
+	    </div>
+	    <button type="submit">Submit</button>
+		</form>
+	</div>
+	<div class="changepassword">
+	<h3>Change password</h3>
+		<form role="form" class="account-form">
+			<div class="formgroup clearfix">
+				<label for="inputPassword">New password:</label>
+		    <input type="password" id="inputPassword">
+	    </div>
+			<div class="formgroup clearfix">
+				<label for="inputPasswordagain">New password again:</label>
+		    <input type="password" id="inputPasswordagain">
+	    </div>
+	    <div class="formgroup clearfix">
+				<label for="inputCurrentpassword">Current password:</label>
+		    <input type="password" id="inputCurrentpassword">
+	    </div>
+	    <button type="submit">Change password</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
