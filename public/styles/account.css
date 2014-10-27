@@ -219,13 +219,19 @@ header .right a.last {
 	float: right;
 }
 
-.overview, .ftp {
+.ftp, .nameservers {
 	width: 40%;
 	margin-top: 60px;
 	float: right;
 }
 
-.overview h3, .ftp h3, .content h3, .generalform h3, .changepassword h3 {
+.overview {
+	width: 40%;
+	margin-top: 60px;
+	float: left;
+}
+
+.overview h3, .ftp h3, .content h3, .generalform h3, .changepassword h3, .nameservers h3, .paymentinfo h3, .paymentfrequency h3 {
 	margin: 0 0 15px;
 	font-size: 1.5em;
 	font-weight: 600;
@@ -298,8 +304,13 @@ form input {
 	border-radius: 3px;
 }
 
+.paymentform form input {
+	width: 80%;
+}
+
 form .file input {
 	height: auto;
+	padding: 0;
 	color: #666;
 	float: right;
 	background-color: transparent;
