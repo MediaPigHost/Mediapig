@@ -13,11 +13,27 @@
 			<li><a href="/manage/product.html"><img src="../images/overview_grey.svg">Overview</a></li>
 			<li><a href="/manage/upgrade.html"><img src="../images/upgrade_grey.svg">Upgrade</a></li>
 			<li><a href="/manage/payment.html"><img src="../images/billing_grey.svg">Billing</a></li>
-			<li><a href="/manage/settings.html"><img src="../images/cog_grey.svg">Settings</a></li>
 		</ul>
 	</div>
-	<div class="content">
+	<div class="content clearfix">
 		<h3>Billing</h3>
+		<div class="paymentinfo">
+			<h3>Payment details</h3>
+			<form role="form" class="paymentform">
+				<div class="formgroup clearfix">
+					<label for="inputPassword">Full name:</label>
+			    <input type="text" id="inputPassword">
+		    </div>
+		    <div class="formgroup clearfix">
+					<label for="inputPassword">Card number:</label>
+			    <input type="text" id="inputPassword">
+		    </div>
+		    <button type="submit">Save</button>
+			</form>
+		</div>
+		<div class="paymentfrequency">
+			<h3>Payment frequency</h3>
+		</div>
 	</div>
 </div>
 {% endblock %}
