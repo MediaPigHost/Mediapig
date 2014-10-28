@@ -145,11 +145,15 @@ header .right a.last {
 	height: 80px;
 	width: 80px;
 	display: inline-block;
-	background: #999;
+	background: url('https://s3.amazonaws.com/uifaces/faces/twitter/emieljanson/128.jpg') no-repeat center center;
 	vertical-align: middle;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .products {
@@ -334,6 +338,11 @@ form .file label {
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
+	background: url('https://s3.amazonaws.com/uifaces/faces/twitter/emieljanson/128.jpg') no-repeat center center;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .changepassword, .generalform {
