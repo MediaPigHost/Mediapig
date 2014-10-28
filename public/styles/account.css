@@ -220,18 +220,16 @@ header .right a.last {
 }
 
 .ftp, .nameservers {
-	width: 40%;
-	margin-top: 60px;
+	width: 50%;
 	float: right;
 }
 
-.overview {
-	width: 40%;
-	margin-top: 60px;
+.overview, .usage {
+	width: 50%;
 	float: left;
 }
 
-.overview h3, .ftp h3, .content h3, .generalform h3, .changepassword h3, .nameservers h3, .paymentinfo h3, .paymentfrequency h3 {
+.overview h3, .ftp h3, .content h3, .generalform h3, .changepassword h3, .nameservers h3, .paymentinfo h3, .paymentfrequency h3, .usage h3 {
 	margin: 0 0 15px;
 	font-size: 1.5em;
 	font-weight: 600;
