@@ -122,8 +122,8 @@ header .right a.last {
 	vertical-align: middle;
 }
 
-.profile h3 {
-	color: #333;
+.top-head .profile h2 {
+	margin-top: 10px;
 }
 
 .avatar {
