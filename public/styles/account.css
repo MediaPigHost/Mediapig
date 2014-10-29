@@ -493,10 +493,20 @@ td.last a .icon {
 	display: inline-block;
 }
 
+.replies {
+	width: 80%;
+	float: right;
+}
+
+.replies-label {
+	width: 20%;
+	color: #666;
+}
+
 .reply {
 	margin-bottom: 30px;
 	padding: 30px 30px 15px;
-	background-color: #F2F2F2;
+	border: 1px dotted rgba(0,0,0,.2);
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -526,7 +536,7 @@ td.last a .icon {
 }
 
 .reply .text-module {
-	margin: 3px 0 0 10px;
+	margin: 3px 0 0 7px;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -541,6 +551,7 @@ td.last a .icon {
 .remove-ticket {
 	margin-bottom: 60px;
 	padding: 10px 20px;
+	float: right;
 	position: relative;
 	color: #FFF;
 	background-color: #C0392B;
