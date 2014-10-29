@@ -259,6 +259,7 @@ form button {
 	position: relative;
 	float: right;
 	color: #FFF;
+	display: inline-block;
 	background-color: #597F9D;
 	border: 0;
 	-webkit-box-shadow: 0px 3px 0px #354C5F;
@@ -276,7 +277,7 @@ form button:active {
 	box-shadow: 0px 0px 0px #354C5F;
 }
 
-form input {
+form input, form textarea, form select {
 	height: 30px;
 	width: 70%;
 	margin-bottom: 15px;
@@ -451,6 +452,23 @@ td.last a .icon {
 	-webkit-box-shadow: 0px 0px 0px #354C5F;
 	-moz-box-shadow: 0px 0px 0px #354C5F;
 	box-shadow: 0px 0px 0px #354C5F;
+}
+
+.submit-ticket-form {
+	padding: 60px 0 97px;
+}
+
+.submit-ticket-form .formgroup input, .submit-ticket-form .formgroup select {
+	width: 80%;
+}
+
+.submit-ticket-form .formgroup textarea {
+	height: auto;
+	width: 80%;
+}
+
+.submit-ticket-form .formgroup label {
+	width: 20%;
 }
 
 footer {
