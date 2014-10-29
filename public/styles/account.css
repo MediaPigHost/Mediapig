@@ -126,6 +126,10 @@ header .right a.last {
 	margin: 0;
 }
 
+.top-head .profile h3 {
+	margin: 0 0 5px;
+}
+
 .avatar {
 	height: 80px;
 	width: 80px;
