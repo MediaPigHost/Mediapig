@@ -126,21 +126,6 @@ header .right a.last {
 	color: #333;
 }
 
-.social-icons {
-	margin-top: 10px;
-}
-
-.social-icons a {
-	margin-right: 13px;
-	color: #666;
-	text-decoration: none;
-}
-
-.social-icons a .icon {
-	margin-right: 5px;
-	vertical-align: -4px;
-}
-
 .avatar {
 	height: 80px;
 	width: 80px;
