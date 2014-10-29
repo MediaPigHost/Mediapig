@@ -8,50 +8,48 @@
 	</div>
 </div>
 <div class="container">
-	<a href="newticket.html" class="newticket">New ticket</a>
-	<table class="tickets">
-		<thead>
-			<tr>
-				<th class="first">Number</th>
-				<th>Subject</th>
-				<th>Product</th>
-				<th>Status</th>
-				<th>Last updated</th>
-				<th class="last">Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="first" data-title="Number">0003</td>
-				<td data-title="Subject">Student discount</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status"><span class="badge open">Open</span></td>
-				<td data-title="Last updated">12 days ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket.html"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0002</td>
-				<td data-title="Subject">Access to API</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status"><span class="badge solved">Solved</span></td>
-				<td data-title="Last updated">2 months ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket.html"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0001</td>
-				<td data-title="Subject">Multiple users</td>
-				<td data-title="Product">Account</td>
-				<td data-title="Status"><span class="badge closed">Closed</span></td>
-				<td data-title="Last updated">3 months ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket.html"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<dl class="ticket clearfix">
+	   <dt>Product:</dt>
+	   <dd>VPS Hosting</dd>
+
+	   <dt>Subject:</dt>
+	   <dd>Multiple users</dd>
+
+	   <dt>Description:</dt>
+	   <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempus commodo nunc vel tempor. Vivamus vulputate, mauris tincidunt ullamcorper maximus, tellus ipsum cursus est, id malesuada tortor odio vitae ante. Morbi ullamcorper ipsum dui, sed egestas turpis condimentum quis. Pellentesque placerat felis lacinia turpis interdum, sit amet sodales ex hendrerit.</dd>
+
+	   <dt>Status:</dt>
+	   <dd><span class="badge closed">Closed</span></dd>
+
+	   <dt>Last updated:</dt>
+	   <dd>3 months ago</dd>
+	</dl>
+	<section class="replies">
+		<div class="reply">
+			<div class="author-profile">
+				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/emieljanson/128.jpg" class="avatar" alt="Aleksi Tappura">
+				<div class="text-module">
+					<p class="author">Aleksi Tappura</p>
+					<p class="date">5th of October, 2014</p>
+				</div>
+			</div>
+			<div class="reply-reply">
+				<p>Sed metus erat, fermentum vel elit ut, molestie condimentum lectus. Pellentesque imperdiet hendrerit ante, at congue erat. Pellentesque efficitur lectus non lectus tempor, non porttitor massa fermentum.</p>
+			</div>
+		</div>
+		<div class="reply">
+			<div class="author-profile">
+				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/theaccordance/128.jpg" class="avatar" alt="Aleksi Tappura">
+				<div class="text-module">
+					<p class="author">Phillip Gourley</p>
+					<p class="date">4th of October, 2014</p>
+				</div>
+			</div>
+			<div class="reply-reply">
+				<p>Sed non tristique erat, et tincidunt odio. Donec at faucibus orci, non rhoncus leo. Phasellus vel varius mauris. Nulla molestie luctus enim nec aliquam. Sed at sapien at libero rutrum sodales sed sit amet nisl. Nullam placerat justo justo.</p>
+			</div>
+		</div>
+	</section>
+	<a href="#" class="remove-ticket">Delete ticket</a>
 </div>
 {% endblock %}
