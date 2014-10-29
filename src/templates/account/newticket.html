@@ -8,50 +8,29 @@
 	</div>
 </div>
 <div class="container">
-	<a href="newticket.html" class="newticket">New ticket</a>
-	<table class="tickets">
-		<thead>
-			<tr>
-				<th class="first">Number</th>
-				<th>Subject</th>
-				<th>Product</th>
-				<th>Status</th>
-				<th>Last updated</th>
-				<th class="last">Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="first" data-title="Number">0003</td>
-				<td data-title="Subject">Student discount</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status"><span class="badge open">Open</span></td>
-				<td data-title="Last updated">12 days ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket.html"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0002</td>
-				<td data-title="Subject">Access to API</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status"><span class="badge solved">Solved</span></td>
-				<td data-title="Last updated">2 months ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket.html"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0001</td>
-				<td data-title="Subject">Multiple users</td>
-				<td data-title="Product">Account</td>
-				<td data-title="Status"><span class="badge closed">Closed</span></td>
-				<td data-title="Last updated">3 months ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket.html"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<form role="form" class="account-form submit-ticket-form">
+		<div class="formgroup clearfix">
+			<label for="selectProduct">Product:</label>
+			<select>
+			  <option value="general">General</option>
+			  <option value="account">Account</option>
+			  <option value="vpshosting">VPS Hosting</option>
+			  <option value="other">Other</option>
+			</select>
+		</div>
+		<div class="formgroup clearfix">
+			<label for="inputSubject">Subject:</label>
+	    <input type="text" id="inputSubject">
+    </div>
+    <div class="formgroup clearfix">
+			<label for="inputDescription">Description:</label>
+	    <textarea rows="10" id="inputDescription"></textarea>
+    </div>
+    <div class="formgroup file clearfix">
+    	<label for="inputPhone">Attachments:</label>
+		  <input type="file" id="inputAvatar">
+	  </div>
+    <button type="submit">Submit ticket</button>
+	</form>
 </div>
 {% endblock %}
