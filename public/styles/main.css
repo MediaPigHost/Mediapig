@@ -998,6 +998,32 @@ body {
   float: left;
 }
 
+.footer .column-4 {
+  width: 456px;
+}
+
+.footer .newsletter-signup {
+  margin-top: 23px;
+}
+
+.footer .newsletter-description {
+  font-size: 0.875em;
+  color: #999;
+}
+
+.footer .newsletter-input {
+  margin: 0;
+  float: left;
+  width: 330px;
+}
+
+.footer .newsletter-button {
+  float: left;
+  margin-left: 15px;
+  padding: 14px 20px;
+  background-color: #597F9D;
+}
+
 .footer h3 {
   margin-bottom: 20px;
   color: #666;
