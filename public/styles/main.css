@@ -784,7 +784,7 @@ body {
 }
 
 .white-section {
-  padding: 100px 0;
+  padding: 150px 0;
   text-align: center;
 }
 
@@ -802,9 +802,9 @@ body {
 }
 
 .feature h3 {
-  margin: 25px 0 21px;
+  margin: 75px 0 25px;
   color: #333;
-  font-size: 1.250em;
+  font-size: 1.450em;
 }
 
 .feature p {
@@ -813,10 +813,11 @@ body {
   line-height: 1.5;
 }
 
-.feature-1 .feature-img, .feature-2 .feature-img, .feature-3 .feature-img, .feature-4 .feature-img, .feature-5 .feature-img, .feature-6 .feature-img {
+.feature-1 .feature-img, .feature-2 .feature-img, .feature-3 .feature-img {
   height: 100px;
   width: 100px;
   display: inline-block;
+  transform: scale(1.6)
 }
 
 .feature-1 .feature-img {
@@ -833,7 +834,7 @@ body {
   background: url('../images/console.png') no-repeat center center;
   background-size: 100%;
 }
-
+/*
 .feature-4 .feature-img {
   background: url('../images/help.png') no-repeat center center;
   background-size: 100%;
@@ -847,10 +848,10 @@ body {
 .feature-6 .feature-img {
   background: url('../images/box.png') no-repeat center center;
   background-size: 100%;
-}
+}*/
 
 .gray-section {
-  padding: 100px 0;
+  padding: 150px 0;
   background-color: #F2F2F2;
   text-align: left;
 }
@@ -901,6 +902,21 @@ body {
   font-size: 1.250em;
 }
 
+.gray-section .oneclick-text {
+  max-width: 45%;
+}
+
+.gray-section .oneclick-text .big-feature-text {
+  margin-right: 40px;
+}
+
+.oneclick {
+  width: 55%;
+  height: 445px;
+  float: right;
+  background: url('../images/oneclick-fadeout.svg') top right no-repeat;
+}
+
 .feature-list-text h3 {
   margin: 45px 0 0;
 }
@@ -926,7 +942,7 @@ body {
 .home .testimonials .testimonial {
   margin: 0 0 25px;
   color: #666;
-  font-size: 1.250em;
+  font-size: 1.450em;
   line-height: 1.50;
 }
 
