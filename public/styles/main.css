@@ -910,11 +910,77 @@ body {
   margin-right: 40px;
 }
 
-.oneclick {
+.oneclick-window {
   width: 55%;
   height: 445px;
   float: right;
-  background: url('../images/oneclick-fadeout.svg') top right no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+
+.oneclick,
+.oneclick-popup {
+  width: 650px;
+  height: 445px;
+  -webkit-transform: translateX(650px);
+  -ms-transform: translateX(650px);
+  -o-transform: translateX(650px);
+  transform: translateX(650px);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.oneclick-window-fade {
+  height: 445px;
+  width: 7px;
+  z-index: 15;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(242,242,242,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(242,242,242,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(242,242,242,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(242,242,242,1) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(242,242,242,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#f2f2f2',GradientType=1 ); /* IE6-9 */
+}
+
+.oneclick {
+  background: url('../images/oneclick.svg') top right no-repeat;
+}
+
+.animate .oneclick {
+  -webkit-animation: laptopSlideIn .4s ease 0s 1 normal forwards;
+  -o-animation: laptopSlideIn .4s ease 0s 1 normal forwards;
+  animation: laptopSlideIn .4s ease 0s 1 normal forwards;
+}
+
+.oneclick-popup {
+  opacity: 0;
+  background: url('../images/oneclick-popup.svg') top right no-repeat;
+}
+
+.animate .oneclick-popup {
+  top: 80px;
+  right: 130px;
+  -webkit-animation: laptopSlideIn .7s ease .3s 1 normal forwards, show .5s ease .4s 1 normal forwards;
+  -o-animation: laptopSlideIn .7s ease .3s 1 normal forwards, show .5s ease .4s 1 normal forwards;
+  animation: laptopSlideIn .7s ease .3s 1 normal forwards, show .5s ease .4s 1 normal forwards;
+}
+
+.animate .oneclick-popup-content {
+  top: 80px;
+  right: 150px;
+  background: url('../images/oneclick-popup-contents.svg') -88px 0 no-repeat;
+  -webkit-animation: show 1.5s ease .8s 1 normal forwards;
+  -o-animation: show 1.5s ease .8s 1 normal forwards;
+  animation: show 1.5s ease .8s 1 normal forwards;
+  height: 210px;
+  width: 215px;
+  z-index: 10;
+  position: absolute;
 }
 
 .feature-list-text h3 {
@@ -1948,22 +2014,6 @@ input.submit-card-details {
   0% { transform: translateY(0); }
   100% { transform: translateY(-255px); } }
 
-/*@-webkit-keyframes mountainSlideUp {
-  0% { bottom: -255px; }
-  100% { bottom: 0; } }
-
-@-moz-keyframes mountainSlideUp {
-  0% { bottom: -255px; }
-  100% { bottom: 0; } }
-
-@-o-keyframes mountainSlideUp {
-  0% { bottom: -255px; }
-  100% { bottom: 0; } }
-
-@keyframes mountainSlideUp {
-  0% { bottom: -255px; }
-  100% { bottom: 0; } }*/
-
 @-webkit-keyframes arrowHover {
   0% { -webkit-transform: translateY(0); }
   50% { -webkit-transform: translateY(-10px); }
@@ -1986,6 +2036,26 @@ input.submit-card-details {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
+}
+
+@-webkit-keyframes laptopSlideIn {
+  0% { -webkit-transform: translateX(650px); }
+  100% { -webkit-transform: translateX(0); }
+}
+
+@-moz-keyframes laptopSlideIn {
+  0% { -moz-transform: translateX(650px); }
+  100% { -moz-transform: translateX(0); }
+}
+
+@-o-keyframes laptopSlideIn {
+  0% { -o-transform: translateX(650px); }
+  100% { -o-transform: translateX(0); }
+}
+
+@keyframes laptopSlideIn {
+  0% { transform: translateX(650px); }
+  100% { transform: translateX(0); }
 }
 
 @font-face {

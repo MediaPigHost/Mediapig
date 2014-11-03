@@ -30,6 +30,7 @@ curl([
 
                 var invoiceID = "";
                 var stripe = null;
+                var animateStatus = [{}];
 
                 if (dom.overlayClose) {
 
@@ -37,6 +38,17 @@ curl([
                         app.help.removeBodyClass('overlay-visible');
                         app.publish('/view/overlay/closed', true);
                     });
+                }
+
+                window.onscroll = function (event) {
+                  console.log(animateStatus[0].active);
+                  if (window.pageYOffset > 1000 && (animateStatus[0].active != 'true' || typeof animateStatus[0].active === 'undefined')) {
+                    var el = document.getElementsByClassName('oneclick-window');
+                    if (el) {
+                      el[0].className += ' animate';
+                    }
+                    animateStatus[0].active = 'true';
+                  }
                 }
 
                 app.help.addEventListenerByClass('overlay-trigger', 'click', function () {
