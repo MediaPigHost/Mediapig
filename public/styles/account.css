@@ -86,8 +86,8 @@ header .right a:hover img {
 }
 
 header .right a {
-	margin-right: 30px;
-	padding-right: 30px;
+	margin-right: 20px;
+	padding-right: 5px;
 	color: rgba(255,255,255,.6);
 	display: inline-block;
 	border-right: 1px dotted rgba(255,255,255,.2);
