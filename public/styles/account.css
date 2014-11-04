@@ -19,6 +19,10 @@ body {
 	font-family: 'Proxima Nova', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+body.account-home {
+	background-color: #F2F2F2;
+}
+
 .right {
 	float: right;
 }
@@ -135,6 +139,10 @@ header .right a:hover:before {
 	border-bottom: 1px solid #DDD;
 }
 
+body.account-home .top-head {
+	border-bottom: 0;
+}
+
 .home.top-head {
 	background-color: #FFF;
 }
@@ -216,17 +224,17 @@ header .right a:hover:before {
 }
 
 .products {
-	padding: 60px 0;
+	padding-bottom: 60px;
 }
 
 .product {
 	margin-bottom: 30px;
-	padding-bottom: 30px;
-	border-bottom: solid 1px #DDD;
-}
-
-.last.product {
-	border-bottom: 0;
+	padding: 30px;
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .product h3 {
