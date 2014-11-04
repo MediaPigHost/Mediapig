@@ -92,7 +92,7 @@ header .right a {
 	position: relative;
 	color: rgba(255,255,255,.6);
 	display: inline-block;
-	border-right: 1px dotted rgba(255,255,255,.2);
+	border-right: 1px solid rgba(255,255,255,.2);
 }
 
 header .right a.last {
@@ -123,7 +123,7 @@ header .right a:hover:before {
   bottom: 20px;
   content: "";
   left: 5px;
-  bottom: -15px;
+  bottom: -16px;
   position: absolute;
   display: inline-block;
   z-index: 99;
@@ -132,6 +132,11 @@ header .right a:hover:before {
 .top-head {
 	padding: 60px 0;
 	background-color: #F2F2F2;
+	border-bottom: 1px solid #DDD;
+}
+
+.home.top-head {
+	background-color: #FFF;
 }
 
 .top-head h2 {
@@ -177,7 +182,8 @@ header .right a:hover:before {
 
 .breadcrumb {
 	padding: 15px 0 16px;
-	background-color: #DDD;
+	background-color: #FFF;
+	border-bottom: 1px solid #DDD;
 }
 
 .breadcrumb ul {
@@ -216,7 +222,7 @@ header .right a:hover:before {
 .product {
 	margin-bottom: 30px;
 	padding-bottom: 30px;
-	border-bottom: 1px dotted rgba(0,0,0,.2);
+	border-bottom: solid 1px #DDD;
 }
 
 .last.product {
@@ -574,7 +580,7 @@ td.last a .icon {
 .reply {
 	margin-bottom: 30px;
 	padding: 30px 30px 15px;
-	border: 1px dotted rgba(0,0,0,.2);
+	border: solid 1px #DDD;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
