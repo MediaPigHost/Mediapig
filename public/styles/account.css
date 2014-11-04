@@ -107,7 +107,7 @@ header .right a:hover:after {
   bottom: 26px;
   color: #FFF;
   content: attr(data-tooltip);
-  left: -44px;
+  left: -43px;
   bottom: -50px;
   padding: 5px 15px;
   position: absolute;
@@ -122,7 +122,7 @@ header .right a:hover:before {
   border-width: 0 6px 6px 6px;
   bottom: 20px;
   content: "";
-  left: 4px;
+  left: 5px;
   bottom: -15px;
   position: absolute;
   display: inline-block;
