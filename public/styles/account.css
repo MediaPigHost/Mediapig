@@ -171,6 +171,10 @@ header .right a.last {
 	text-decoration: none;
 }
 
+.product a.first {
+	margin-right: 30px;
+}
+
 .product a img {
 	height: 18px;
 	width: 18px;
