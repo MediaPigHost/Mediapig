@@ -56,7 +56,7 @@ curl([
                       app.help.addEventListenerByClass('oneclick-window', 'mouseout', function(e){
                         app.help.removeClass(el[0], 'animate-hover');
                       });
-                    }, 2000);
+                    }, 900);
                   }
                 }
 
