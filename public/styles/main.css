@@ -984,6 +984,7 @@ body {
 }
 
 .animate .oneclick-popup-content {
+  opacity: 0;
   top: 80px;
   right: 150px;
   background: url('../images/oneclick-popup-contents.svg') -88px 0 no-repeat;
