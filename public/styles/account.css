@@ -75,6 +75,7 @@ header .right a:hover {
 }
 
 header .right img {
+	width: 20px;
 	margin-right: 15px;
 	display: inline-block;
 	vertical-align: -4px;
@@ -86,8 +87,9 @@ header .right a:hover img {
 }
 
 header .right a {
-	margin-right: 17px;
-	padding-right: 5px;
+	margin-right: 15px;
+	padding-right: 3px;
+	position: relative;
 	color: rgba(255,255,255,.6);
 	display: inline-block;
 	border-right: 1px dotted rgba(255,255,255,.2);
@@ -97,6 +99,34 @@ header .right a.last {
 	margin-right: 0;
 	padding-right: 0;
 	border-right: 0;
+}
+
+header .right a:hover:after {
+  background: #2C2C2C;
+  border-radius: 5px;
+  bottom: 26px;
+  color: #FFF;
+  content: attr(data-tooltip);
+  left: -44px;
+  bottom: -50px;
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+  width: 106px;
+  text-align: center;
+}
+
+header .right a:hover:before {
+  border: solid;
+  border-color: #2C2C2C transparent;
+  border-width: 0 6px 6px 6px;
+  bottom: 20px;
+  content: "";
+  left: 4px;
+  bottom: -15px;
+  position: absolute;
+  display: inline-block;
+  z-index: 99;
 }
 
 .top-head {
