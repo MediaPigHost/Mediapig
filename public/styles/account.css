@@ -342,12 +342,12 @@ body.account-home .top-head, body.account-product .top-head {
 	float: right;
 }
 
-.overview, .nameservers {
+.overview, .usage {
 	margin-right: 30px;
 }
 
-.ftp, .nameservers, .overview {
-	width: 300px;
+.nameservers, .overview, .usage, .ftp {
+	width: 450px;
 	margin-bottom: 30px;
 	float: left;
 	background-color: #FFF;
@@ -358,13 +358,7 @@ body.account-home .top-head, body.account-product .top-head {
 }
 
 .usage {
-	width: 100%;
-	float: left;
-	background-color: #FFF;
-	border: 1px solid #DDD;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+	margin-bottom: 60px;
 }
 
 .overview h3, .ftp h3, .content h3, .generalform h3, .changepassword h3, .nameservers h3, .paymentinfo h3, .paymentfrequency h3, .usage h3 {
@@ -381,18 +375,86 @@ body.account-home .top-head, body.account-product .top-head {
 	font-size: 16px;
 }
 
+.nameservers .details li, .overview .details li, .ftp .details li {
+	margin-bottom: 15px;
+}
+
+.details li.last {
+	margin-bottom: 0;
+}
+
+.nameservers .details .detail, .overview .details .detail ,.ftp .details .detail {
+	margin-bottom: 5px;
+}
+
 .details {
 	margin: 0;
 	padding: 15px 18px 16px;
+}
+
+.usage .details {
+	padding-top: 17px;
+}
+
+.detail-wrap {
+	margin-bottom: 12px;
+	position: relative;
+}
+
+.last.detail-wrap {
+	margin-bottom: 0;
 }
 
 .details li {
 	list-style-type: none;
 }
 
-.details li .detail {
+.detail-wrap li {
+	font-weight: 600;
+}
+
+.details .detail {
 	display: block;
 	font-weight: 600;
+}
+
+.detail-wrap .detail {
+	position: absolute;
+	right: 15px;
+	bottom: 13px;
+	color: #666;
+	font-weight: 400;
+}
+
+.details progress {
+	margin-top: 10px;
+	height: 35px;
+	width: 100%;
+	color: #F2F2F2;
+	background-color: #F2F2F2;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.details progress[value] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+}
+
+.details progress[value]::-webkit-progress-bar {
+	background-color: #DDD;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.details progress[value]::-webkit-progress-value {
+	background-color: #597F9D;
+	-webkit-border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;
 }
 
 .formgroup {
