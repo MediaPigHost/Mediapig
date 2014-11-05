@@ -766,7 +766,7 @@ td.last a .icon {
 .remove-ticket {
 	margin-bottom: 60px;
 	padding: 10px 20px;
-	float: right;
+	float: left;
 	position: relative;
 	color: #FFF;
 	background-color: #C0392B;
@@ -788,7 +788,43 @@ td.last a .icon {
 }
 
 .new-reply {
+	width: 100%;
+}
 
+.new-reply textarea {
+	width: 100%;
+	float: right;
+	margin-bottom: 15px;
+	padding: 0 10px;
+	float: left;
+	color: #333;
+	background-color: #EFEFEF;
+	display: inline-block;
+	border: none;
+	outline: none;
+	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.new-reply button {
+	float: right;
+	padding: 10px 20px;
+	position: relative;
+	float: right;
+	color: #FFF;
+	display: inline-block;
+	background-color: #597F9D;
+	border: 0;
+	-webkit-box-shadow: 0px 3px 0px #354C5F;
+	-moz-box-shadow: 0px 3px 0px #354C5F;
+	box-shadow: 0px 3px 0px #354C5F;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 footer {
