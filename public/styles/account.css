@@ -731,10 +731,11 @@ td.last a .icon {
 .accordion-tabs-minimal a.tab-link {
 	background-color: white;
 	border-top: 1px solid #DDD;
-	color: #333;
+	color: #666;
 	display: block;
 	font-weight: 400;
-	padding: 0.75em 1.618em;
+	padding: 10px 20px;
+	text-decoration: none;
 }
 
 @media screen and (min-width: 40em) {
@@ -749,7 +750,7 @@ td.last a .icon {
 }
 
 .accordion-tabs-minimal a.tab-link:hover {
-	color: #477DCA;
+	color: #333;
 }
 
 .accordion-tabs-minimal a.tab-link:focus {
@@ -768,7 +769,7 @@ td.last a .icon {
 }
 .accordion-tabs-minimal .tab-content {
 	display: none;
-	padding: 1.5em 1.618em;
+	padding: 13px 15px;
 }
 
 @media screen and (min-width: 40em) {
