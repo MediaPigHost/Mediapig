@@ -342,14 +342,29 @@ body.account-home .top-head, body.account-product .top-head {
 	float: right;
 }
 
-.ftp, .nameservers {
-	width: 50%;
-	float: right;
+.overview, .nameservers {
+	margin-right: 30px;
 }
 
-.overview, .usage {
-	width: 50%;
+.ftp, .nameservers, .overview {
+	width: 300px;
+	margin-bottom: 30px;
 	float: left;
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.usage {
+	width: 100%;
+	float: left;
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .overview h3, .ftp h3, .content h3, .generalform h3, .changepassword h3, .nameservers h3, .paymentinfo h3, .paymentfrequency h3, .usage h3 {
@@ -358,9 +373,17 @@ body.account-home .top-head, body.account-product .top-head {
 	font-weight: 600;
 }
 
+.ftp h3, .nameservers h3, .usage h3, .overview h3 {
+	margin: 0;
+	padding: 10px 15px;
+	color: #666;
+	border-bottom: 1px solid #DDD;
+	font-size: 16px;
+}
+
 .details {
 	margin: 0;
-	padding: 0;
+	padding: 15px 18px 16px;
 }
 
 .details li {
