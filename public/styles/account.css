@@ -292,6 +292,7 @@ body.account-home .top-head, body.account-product .top-head {
 }
 
 .product a {
+	margin-top: 1px;
 	float: right;
 	color: #666;
 	text-decoration: none;
