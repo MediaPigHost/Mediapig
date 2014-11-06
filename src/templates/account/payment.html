@@ -16,10 +16,44 @@
 	</div>
 </div>
 <div class="container">
-<ul class="tab-nav">
-	<li><a href="#" class="active">Payment history</a></li>
-	<li><a href="#">Manage subscriptions</a></li>
-	<li><a href="#">Payment type</a></li>
-</ul>	
+	<ul class="tab-nav">
+		<li><a href="#" class="active">Payment history</a></li>
+		<li><a href="#">Manage subscriptions</a></li>
+		<li><a href="#">Payment type</a></li>
+	</ul>
+	<table class="tickets">
+		<thead>
+			<tr>
+				<th class="first">Invoice</th>
+				<th>Date</th>
+				<th>Product</th>
+				<th>Description</th>
+				<th class="last">Amount (VAT 0%)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="first" data-title="Number">0003</td>
+				<td data-title="Subject">01.03.2014</td>
+				<td data-title="Product">VPS Hosting</td>
+				<td data-title="Status">Pellentesque posuere fermentum nisl ac dignissim.</td>
+				<td data-title="Last updated">9.99 £</td>
+			</tr>
+			<tr>
+				<td class="first" data-title="Number">0002</td>
+				<td data-title="Subject">01.02.2014</td>
+				<td data-title="Product">VPS Hosting</td>
+				<td data-title="Status">Pellentesque posuere fermentum nisl ac dignissim.</td>
+				<td data-title="Last updated">9.99 £</td>
+			</tr>
+			<tr>
+				<td class="first" data-title="Number">0001</td>
+				<td data-title="Subject">01.01.2014</td>
+				<td data-title="Product">VPS Hosting</td>
+				<td data-title="Status">Pellentesque posuere fermentum nisl ac dignissim.</td>
+				<td data-title="Last updated">9.99 £</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 {% endblock %}
