@@ -398,7 +398,7 @@ body.account-home .top-head, body.account-product .top-head {
 }
 
 .detail-wrap {
-	margin-bottom: 12px;
+	margin-bottom: 15px;
 	position: relative;
 }
 
@@ -428,7 +428,7 @@ body.account-home .top-head, body.account-product .top-head {
 }
 
 .details progress {
-	margin-top: 10px;
+	margin-top: 7px;
 	height: 35px;
 	width: 100%;
 	color: #F2F2F2;
