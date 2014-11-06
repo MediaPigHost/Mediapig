@@ -828,6 +828,34 @@ td.last a .icon {
 	border-radius: 3px;
 }
 
+.tab-nav {
+	margin: 60px 0 30px;
+	padding: 0;
+}
+
+.tab-nav li {
+	padding: 10px 15px;
+	display: inline-block;
+	list-style-type: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.tab-nav li.active {
+	background-color: #F2F2F2;
+}
+
+.tab-nav li a {
+	color: #666;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.tab-nav li a:hover {
+	color: #333;
+}
+
 footer {
 	height: 70px;
 	position: absolute;
