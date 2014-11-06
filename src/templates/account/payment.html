@@ -1,38 +1,21 @@
 {% extends "../account.html" %}
 
 {% block content %}
-<div class="top-head">
+<div class="breadcrumb">
 	<div class="container">
-		<h2>aleksitappura.com</h2>
-		<h3>Billing</h3>
-	</div>
-</div>
-<div class="container clearfix">
-	<div class="sidebar">
 		<ul>
-			<li><a href="/manage/product.html"><img src="../images/overview_grey.svg">Overview</a></li>
-			<li><a href="/manage/upgrade.html"><img src="../images/upgrade_grey.svg">Upgrade</a></li>
+			<li><a href="/manage">Account</a></li>
+			<li class="active">Billing</li>
 		</ul>
 	</div>
-	<div class="content clearfix">
-		<h3>Payment history</h3>
-		<div class="paymentinfo">
-			<h3>Payment details</h3>
-			<form role="form" class="paymentform">
-				<div class="formgroup clearfix">
-					<label for="inputPassword">Full name:</label>
-			    <input type="text" id="inputPassword">
-		    </div>
-		    <div class="formgroup clearfix">
-					<label for="inputPassword">Card number:</label>
-			    <input type="text" id="inputPassword">
-		    </div>
-		    <button type="submit">Save</button>
-			</form>
-		</div>
-		<div class="paymentfrequency">
-			<h3>Payment frequency</h3>
-		</div>
+</div>
+<div class="top-head">
+	<div class="container">
+		<h2>Billing</h2>
+		<h3>Overview</h3>
 	</div>
+</div>
+<div class="container">
+	
 </div>
 {% endblock %}
