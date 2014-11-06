@@ -844,6 +844,7 @@ td.last a .icon {
 
 .tab-nav li.active {
 	background-color: #F2F2F2;
+	border: 1px solid #DDD;
 }
 
 .tab-nav li a {
