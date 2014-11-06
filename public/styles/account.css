@@ -117,12 +117,12 @@ header .right a:after {
   bottom: 26px;
   color: #FFF;
   content: attr(data-tooltip);
-  left: -43px;
+  left: -30px;
   bottom: -50px;
   padding: 5px 15px;
   position: absolute;
   z-index: 98;
-  width: 106px;
+  width: 81px;
   text-align: center;
   -webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
