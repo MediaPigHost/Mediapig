@@ -79,6 +79,11 @@ header .right img {
 	display: inline-block;
 	vertical-align: -4px;
 	opacity: .6;
+	-webkit-transition: opacity .2s ease-in-out;
+	-moz-transition: opacity .2s ease-in-out;
+	-ms-transition: opacity .2s ease-in-out;
+	-o-transition: opacity .2s ease-in-out;
+	transition: opacity .2s ease-in-out;
 }
 
 header .right a:hover img {
@@ -252,6 +257,11 @@ body.account-home .top-head, body.account-product .top-head {
 .breadcrumb ul li a {
 	color: #666;
 	text-decoration: none;
+	-webkit-transition: color .2s ease-in-out;
+	-moz-transition: color .2s ease-in-out;
+	-ms-transition: color .2s ease-in-out;
+	-o-transition: color .2s ease-in-out;
+	transition: color .2s ease-in-out;
 }
 
 .breadcrumb ul li a:hover {
@@ -843,6 +853,11 @@ td.last a .icon {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+	-webkit-transition: color .2s ease-in-out;
+	-moz-transition: color .2s ease-in-out;
+	-ms-transition: color .2s ease-in-out;
+	-o-transition: color .2s ease-in-out;
+	transition: color .2s ease-in-out;
 }
 
 .tab-nav li a:hover {
