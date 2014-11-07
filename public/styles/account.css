@@ -73,15 +73,6 @@ header .right {
 	line-height: 25px;
 }
 
-header .right a {
-	color: rgba(255,255,255,.6);
-	text-decoration: none;
-}
-
-header .right a:hover {
-	color: rgba(255,255,255,1);
-}
-
 header .right img {
 	width: 20px;
 	margin-right: 15px;
