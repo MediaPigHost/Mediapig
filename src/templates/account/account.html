@@ -11,11 +11,15 @@
 </div>
 <div class="top-head">
 	<div class="container">
-		<h2>Account</h2>
-		<h3>Settings</h3>
+		<h2>Settings</h2>
+		<h3>General</h3>
 	</div>
 </div>
 <div class="container clearfix">
+	<ul class="tab-nav">
+		<li><a href="/manage/account.html" class="active">General</a></li>
+		<li><a href="/manage/password.html">Change password</a></li>
+	</ul>
 	<div class="generalform clearfix">
 		<h3>General</h3>
 		<form role="form" class="account-form">
@@ -61,24 +65,6 @@
 		    <input type="tel" id="inputPhone">
 	    </div>
 	    <button type="submit">Save</button>
-		</form>
-	</div>
-	<div class="changepassword">
-	<h3>Change password</h3>
-		<form role="form" class="account-form">
-			<div class="formgroup clearfix">
-				<label for="inputPassword">New password:</label>
-		    <input type="password" id="inputPassword">
-	    </div>
-			<div class="formgroup clearfix">
-				<label for="inputPasswordagain">New password again:</label>
-		    <input type="password" id="inputPasswordagain">
-	    </div>
-	    <div class="formgroup clearfix">
-				<label for="inputCurrentpassword">Current password:</label>
-		    <input type="password" id="inputCurrentpassword">
-	    </div>
-	    <button type="submit">Change password</button>
 		</form>
 	</div>
 </div>
