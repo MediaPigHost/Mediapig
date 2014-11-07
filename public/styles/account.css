@@ -83,7 +83,6 @@ header .right img {
 	-ms-transition: opacity .2s ease-in-out;
 	-o-transition: opacity .2s ease-in-out;
 	transition: opacity .2s ease-in-out;
-	cursor: pointer;
 }
 
 header .right a:hover img {
@@ -294,7 +293,7 @@ body.account-home .top-head, body.account-product .top-head {
 	right: -10px;
 	top: -10px;
 	color: #FFF;
-	background-color: #D76868;
+	background-color: #C65E5E;
 	font-size: 0.929em;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -779,12 +778,12 @@ td.last a .icon {
 	float: left;
 	position: relative;
 	color: #FFF;
-	background-color: #C0392B;
+	background-color: #C65E5E;
 	display: inline-block;
 	text-decoration: none;
-	-webkit-box-shadow: 0px 3px 0px #86271D;
-	-moz-box-shadow: 0px 3px 0px #86271D;
-	box-shadow: 0px 3px 0px #86271D;
+	-webkit-box-shadow: 0px 3px 0px #8E4242;
+	-moz-box-shadow: 0px 3px 0px #8E4242;
+	box-shadow: 0px 3px 0px #8E4242;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -797,9 +796,9 @@ td.last a .icon {
 
 .remove-ticket:active {
 	top: 3px;
-	-webkit-box-shadow: 0px 0px 0px #86271D;
-	-moz-box-shadow: 0px 0px 0px #86271D;
-	box-shadow: 0px 0px 0px #86271D;
+	-webkit-box-shadow: 0px 0px 0px #8E4242;
+	-moz-box-shadow: 0px 0px 0px #8E4242;
+	box-shadow: 0px 0px 0px #8E4242;
 }
 
 .new-reply {
@@ -910,6 +909,42 @@ td.last a .icon {
 	margin-right: 15px;
 	display: inline-block;
 	vertical-align: -4px;
+}
+
+.notification {
+	margin-top: 30px;
+	padding: 23px;
+	color: #FFF;
+	background-color: #D76868;
+	border: 1px solid #A14D4D;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.notification p {
+	margin: 3px 0 0;
+}
+
+.notification a {
+	float: right;
+	display: inline-block;
+}
+
+.notification a img {
+	height: 18px;
+	width: 18px;
+	margin-top: 3px;
+	opacity: .6;
+	-webkit-transition: opacity .2s ease-in-out;
+	-moz-transition: opacity .2s ease-in-out;
+	-ms-transition: opacity .2s ease-in-out;
+	-o-transition: opacity .2s ease-in-out;
+	transition: opacity .2s ease-in-out;
+}
+
+.notification a:hover img {
+	opacity: 1;
 }
 
 footer {
