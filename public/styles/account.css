@@ -90,8 +90,7 @@ header .right a:hover img {
 }
 
 header .right a {
-	margin-right: 20px;
-	padding-right: 3px;
+	margin-right: 15px;
 	position: relative;
 	color: rgba(255,255,255,.6);
 	display: inline-block;
@@ -287,13 +286,13 @@ body.account-home .top-head, body.account-product .top-head {
 
 .notification-bubble:after {
 	content: attr(data-notification);
-	height: 26px;
-	width: 26px;
+	height: 24px;
+	width: 24px;
 	text-align: center;
 	position: absolute;
-	line-height: 26px;
-	right: -13px;
-	top: -13px;
+	line-height: 24px;
+	right: -12px;
+	top: -12px;
 	color: #FFF;
 	background-color: #C0392B;
 	-webkit-border-radius: 50%;
