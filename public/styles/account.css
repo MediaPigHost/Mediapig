@@ -927,6 +927,10 @@ td.last a .icon {
 }
 
 .notification a {
+	color: #FFF;
+}
+
+.notification a.remove {
 	float: right;
 	display: inline-block;
 }
