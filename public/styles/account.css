@@ -930,6 +930,10 @@ td.last a .icon {
 	color: #FFF;
 }
 
+.notification a:hover {
+	text-decoration: none;
+}
+
 .notification a.remove {
 	float: right;
 	display: inline-block;
@@ -949,6 +953,25 @@ td.last a .icon {
 
 .notification a:hover img {
 	opacity: 1;
+}
+
+.add-cc {
+	padding-bottom: 60px;
+}
+
+.add-cc h3 {
+	margin: -5px 0 30px;
+	color: #666;
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
+.cc-form select {
+	max-width: 262px;
+}
+
+.cc-form select:first-of-type {
+	margin-right: 13px;
 }
 
 footer {
