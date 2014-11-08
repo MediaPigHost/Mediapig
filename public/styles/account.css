@@ -269,7 +269,7 @@ body.account-home .top-head, body.account-product .top-head {
 }
 
 .products {
-	padding-bottom: 60px;
+	padding-bottom: 30px;
 }
 
 .product {
@@ -1041,6 +1041,18 @@ td.last a .icon {
 
 .cc-form .selectbox:first-of-type {
 	margin-right: 9px;
+}
+
+.subscriptions {
+	margin-top: 30px;
+}
+
+.subscriptions .product {
+	background-color: #F2F2F2;
+}
+
+.subscriptions a.first {
+	margin-right: 30px;
 }
 
 footer {
