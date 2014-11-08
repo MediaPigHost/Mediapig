@@ -1037,8 +1037,8 @@ td.last a .icon {
 	font-weight: 600;
 }
 
-.cc-form select:first-of-type {
-	margin-right: 13px;
+.cc-form .selectbox:first-of-type {
+	margin-right: 9px;
 }
 
 footer {
