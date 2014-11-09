@@ -1128,29 +1128,6 @@ td.last a .icon {
 	opacity: 1;
 }
 
-@media (max-width : 48rem) {
-
-  .method-modal__contents, .upgrade-modal__contents {
-  	top: 0;
-  	left: 0;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
-  }
-  
-  .method-modal__close, .upgrade-modal__close {
-    display: block;
-  }
-  
-  .method-modal--transition, .upgrade-modal--transition {
-    -webkit-transform: translateX(-0) translateY(150%);
-    -moz-transform: translateX(-0) translateY(150%);
-    -ms-transform: translateX(-0) translateY(150%);
-    transform: translateX(-0) translateY(150%);
-  }
-  
-}
-
 .modal h3 {
 	margin: 0 0 1.643em;
 	color: #333;
