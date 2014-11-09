@@ -461,6 +461,7 @@ body.account-home .top-head, body.account-product .top-head {
 	background-color: #F2F2F2;
 	appearance: none;
 	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 .details progress[value] {
@@ -472,6 +473,7 @@ body.account-home .top-head, body.account-product .top-head {
 
 .details progress[value]::-webkit-progress-bar {
 	background-color: #DDD;
+	-moz-appearance: none;
 	-webkit-border-radius: 0.214em;
 	-moz-border-radius: 0.214em;
 	border-radius: 0.214em;
@@ -479,6 +481,7 @@ body.account-home .top-head, body.account-product .top-head {
 
 .details progress[value]::-webkit-progress-value {
 	background-color: #597F9D;
+	-moz-appearance: none;
 	-webkit-border-radius: 0.214em 0 0 0.214em;
 	-moz-border-radius: 0.214em 0 0 0.214em;
 	border-radius: 0.214em 0 0 0.214em;
