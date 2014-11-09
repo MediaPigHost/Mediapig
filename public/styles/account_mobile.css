@@ -1,4 +1,4 @@
-@media only screen and (max-width : 480px) {
+@media only screen and (max-width : 59.143em) {
 	table, 
 	thead, 
 	tbody, 
@@ -60,6 +60,40 @@
     -moz-transform: translateX(-0) translateY(150%);
     -ms-transform: translateX(-0) translateY(150%);
     transform: translateX(-0) translateY(150%);
+  }
+
+  .notification {
+  	padding: 0.929em 1.071em;
+  }
+
+  .usage {
+  	margin-bottom: 2.143em;
+  }
+
+  .ftp {
+  	margin-bottom: 4.286em;
+  }
+
+  .usage, .nameservers, .ftp, .overview {
+  	width: 100%;
+  	max-width: 100%;
+  }
+
+  .tab-nav li a {
+  	display: block;
+  }
+
+  .product a {
+  	display: block;
+  	float: none;
+  }
+
+  .add-cc .selectbox {
+  	width: 33%;
+  }
+
+  .add-cc .selectbox:first-of-type {
+  	margin-right: 1.083em;
   }
 
 }
