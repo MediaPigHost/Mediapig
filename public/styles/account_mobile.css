@@ -1,4 +1,11 @@
-@media only screen and (max-width : 59.143em) {
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width : 54.857em) {
 	table, 
 	thead, 
 	tbody, 
@@ -17,17 +24,17 @@
 	td { 
 		border: none;
 		position: relative;
-		padding: 40px 15px 15px !important;
+		padding: 1.786em 1.071em 0.357em !important;
 		white-space: normal;
-		text-align:left;
+		text-align: left;
 	}
  
 	td:before { 
 		position: absolute;
-		top: 15px;
-		left: 15px;
+		top: 0.357em;
+		left: 1.071em;
 		width: 45%; 
-		padding-right: 10px;
+		padding-right: 0.714em;
 		white-space: nowrap;
 		text-align:left;
 		font-weight: bold;
@@ -35,6 +42,19 @@
 
 	td:before {
 		content: attr(data-title);
+	}
+
+	tr {
+		margin-bottom: 2.143em;
+		padding: 0.714em 0 1.071em;
+		border: 1px solid #DDD;
+		-webkit-border-radius: 0.214em;
+		-moz-border-radius: 0.214em;
+		border-radius: 0.214em;
+	}
+
+	tr:last-of-type {
+		margin-bottom: 0;
 	}
 
 	body {
@@ -53,13 +73,6 @@
   
   .method-modal__close, .upgrade-modal__close {
     display: block;
-  }
-  
-  .method-modal--transition, .upgrade-modal--transition {
-    -webkit-transform: translateX(-0) translateY(150%);
-    -moz-transform: translateX(-0) translateY(150%);
-    -ms-transform: translateX(-0) translateY(150%);
-    transform: translateX(-0) translateY(150%);
   }
 
   .notification {
@@ -83,17 +96,44 @@
   	display: block;
   }
 
-  .product a {
+  .product h3 {
+  	margin-bottom: 0.714em;
   	display: block;
   	float: none;
   }
 
+  .product a {
+  	margin-bottom: 0.571em;
+  	display: block;
+  	float: none;
+  }
+
+  .product a:last-of-type {
+  	margin-bottom: 0;
+  }
+
+  .formgroup label {
+  	width: 40%;
+  }
+
+  .formgroup input {
+  	width: 60%;
+  }
+
   .add-cc .selectbox {
-  	width: 33%;
+  	width: 28%;
   }
 
   .add-cc .selectbox:first-of-type {
-  	margin-right: 1.083em;
+  	margin-right: 0.9em;
+  }
+
+  .select-arrow:after {
+  	margin-left: 0.35em;
+  }
+
+  .modal .selectbox {
+  	width: 60%;
   }
 
 }
