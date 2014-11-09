@@ -141,4 +141,8 @@
   	float: none;
   }
 
+  .reply .text-module {
+  	margin: 0.357em 0 0;
+  }
+
 }
