@@ -1094,8 +1094,8 @@ td.last a .icon {
 
 .method-modal__close, .upgrade-modal__close {
   position: absolute;
-  right: 1.286em;
-  top: 1.286em;
+  right: 2.143em;
+  top: 2.143em;
   text-decoration: none;
   display: none;
 }
