@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<div class="modal">
-  <div class="overlay"></div>
-  <div class="modal__contents modal--transition">
-    <a class="modal__close" href="#"><img src="../images/remove_grey.svg"></a>
-    <h3>Change your plan</h3>
+<div class="modal upgrade-modal">
+  <div class="upgrade-overlay"></div>
+  <div class="upgrade-modal__contents upgrade-modal--transition">
+    <a class="upgrade-modal__close" href="#"><img src="../images/remove_grey.svg"></a>
+    <h3>Your plan</h3>
     <form role="form">
     	<div class="formgroup clearfix">
 				<label for="selectProduct">CPU:</label>
@@ -49,6 +49,31 @@
   </div>
 </div>
 
+<div class="modal method-modal">
+  <div class="method-overlay"></div>
+  <div class="method-modal__contents method-modal--transition">
+    <a class="method-modal__close" href="#"><img src="../images/remove_grey.svg"></a>
+    <h3>Payment details</h3>
+    <form role="form">
+    	<div class="formgroup clearfix">
+				<label for="selectProduct">Card:</label>
+				<select>
+				  <option value="">Aleksi Tappura XXXX1716</option>
+				  <option value="">Aleksi Tappura XXXX1234</option>
+				</select>
+			</div>
+			<div class="formgroup clearfix">
+				<label for="selectProduct">Billing frequency:</label>
+				<select>
+				  <option value="">Monthly</option>
+				  <option value="">Annual</option>
+				</select>
+			</div>
+			<button type="submit">Save</button>
+    </form>
+  </div>
+</div>
+
 <div class="breadcrumb">
 	<div class="container">
 		<ul>
@@ -71,23 +96,27 @@
 	</ul>
 	<div class="products subscriptions">
 		<div class="product clearfix">
-			<a href="#"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
-			<a href="#" class="first btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
+			<a href="#" class="last"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
+			<a href="#" class="method-btn"><img src="../images/billing_grey.svg">Payment</a>
+			<a href="#" class="upgrade-btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
 			<h3>aleksitappura.com</h3>
 		</div>
 		<div class="product clearfix">
-			<a href="#"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
-			<a href="#" class="first btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
+			<a href="#" class="last"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
+			<a href="#" class="method-btn"><img src="../images/billing_grey.svg">Payment</a>
+			<a href="#" class="upgrade-btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
 			<h3>google.com</h3>
 		</div>
 		<div class="product clearfix">
-			<a href="#"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
-			<a href="#" class="first btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
+			<a href="#" class="last"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
+			<a href="#" class="method-btn"><img src="../images/billing_grey.svg">Payment</a>
+			<a href="#" class="upgrade-btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
 			<h3>youtube.com</h3>
 		</div>
 		<div class="product clearfix">
-			<a href="#"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
-			<a href="#" class="first btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
+			<a href="#" class="last"><img src="../images/remove_grey.svg" alt="Manage">Cancel</a>
+			<a href="#" class="method-btn"><img src="../images/billing_grey.svg">Payment</a>
+			<a href="#" class="upgrade-btn"><img src="../images/upgrade_grey.svg" alt="Manage">Upgrade</a>
 			<h3>gmail.com</h3>
 		</div>
 	</div>
