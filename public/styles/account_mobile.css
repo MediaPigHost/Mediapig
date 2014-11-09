@@ -136,4 +136,9 @@
   	width: 60%;
   }
 
+  .new-reply button {
+  	margin-bottom: 0.938em;
+  	float: none;
+  }
+
 }
