@@ -36,4 +36,10 @@
 	td:before {
 		content: attr(data-title);
 	}
+
+	body {
+		font-size: 0.750em; 
+	  -webkit-text-size-adjust: 0.750em;
+	  -ms-text-size-adjust: 0.750em;
+	}
 }
