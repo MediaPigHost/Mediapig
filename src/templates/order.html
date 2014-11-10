@@ -1,4 +1,15 @@
-{% include 'fragments/header.html' %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
+    <link rel="stylesheet" href="{{url}}styles/main.css">
+    <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <title>
+      {{name}} | Hosting without the hassle
+    </title>
+  </head>
+
   <body class="order overlay-visible register-success">
     <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
       <header class="header line">
@@ -13,4 +24,14 @@
       </div>
     </div>
     <div id="error-wrap"></div>
-{% include 'fragments/footer.html' %}
+
+    <script charset="utf-8">
+      var curl = {
+          baseUrl: '{{url}}'
+      }
+    </script>
+    <script src="{{url}}js/curl.js"></script>
+    <script src="{{url}}js/app.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+</body>
+</html>

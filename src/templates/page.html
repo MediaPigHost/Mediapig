@@ -1,4 +1,15 @@
-{% include 'fragments/header.html' %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
+    <link rel="stylesheet" href="{{url}}styles/main.css">
+    <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <title>
+      {{name}} | Hosting without the hassle
+    </title>
+  </head>
+
   <body class="page content {% block pageclass %}default{% endblock %}">
     <div class="bg"></div>
     <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
@@ -33,5 +44,68 @@
       </div>
       <div id="error-wrap"></div>
     </div>
-{% include 'fragments/footer-links.html' %}
-{% include 'fragments/footer.html' %}
+    <footer class="footer">
+      <div class="wrap clearfix">
+        <div class="column-1">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="/page/about">About Us</a></li>
+            <li><a href="/page/contact">Contact Us</a></li>
+            <li><a href="/page/press">Press</a></li>
+          </ul>
+        </div>
+        <div class="column-2">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Submit a Ticket</a></li>
+            <li><a href="mailto:team@mediapig.co.uk">Give Feedback</a></li>
+          </ul>
+        </div>
+        <div class="column-3">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="/page/terms">Terms of Service</a></li>
+            <li><a href="/page/privacy">Privacy Policy</a></li>
+            <li><a href="/page/refund">Refund Policy</a></li>
+            <li><a href="/page/sla">Service Level Agreement</a></li>
+          </ul>
+        </div>
+        <div class="column-4">
+          <h3>Newsletter Sign-up</h3>
+          <p class="newsletter-description">Sign up to Mediapig's newsletter to find out the latest news and offers!</p>
+          <form id="newsletter" action="#" class="newsletter-signup" method="post">
+            <input class="newsletter-input" type="text" name="address" value="" placeholder="Enter your email...">
+            <input type="button" name="subscribe" class="btn newsletter-button" value="Sign up">
+          </form>
+        </div>
+      </div>
+    </footer>
+    <section class="footer-bar">
+      <div class="wrap">
+        <p>Copyright &copy; 2014 MediaPig. All rights reserved.</p>
+      </div>
+    </section>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/fi_FI/sdk.js#xfbml=1&appId=272682532872032&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <script charset="utf-8">
+    var curl = {
+        baseUrl: '{{url}}'
+    }
+    </script>
+    <script src="{{url}}js/curl.js"></script>
+    <script src="{{url}}js/app.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  </body>
+</html>
