@@ -27,7 +27,7 @@ var Requests = function () {
             res.render('home', data);
         },
         page: function(req, res){
-            res.render('fragments/' + req.params.page, data);
+            res.render('pages/' + req.params.page, data);
         },
         account : function(req, res){
             res.render('account/' + req.params.page, data);
@@ -37,23 +37,23 @@ var Requests = function () {
         },
         error: {
             message: function(req, res, next) {
-                res.render('fragments/error', req.body);
+                res.render('pages/error', req.body);
             }
         },
         fragments: {
             variant: function(req, res, next) {
-                res.render('fragments/variant', {
+                res.render('pages/variant', {
                     'attributes': req.body.attributes.slice(1,2)
                 });
             },
             packageHostname: function(req, res){
-                res.render('fragments/package-hostname', siteData);
+                res.render('pages/package-hostname', siteData);
             },
             packageType: function(req, res){
                 request('https://api.mediapig.co.uk/index.php?/servicetype/read/all', function (error, response, body) {
 
                     if (!error && response.statusCode == 200) {
-                        res.render('fragments/package-type', JSON.parse(body));
+                        res.render('pages/package-type', JSON.parse(body));
                     }
                 })
             },
@@ -68,7 +68,7 @@ var Requests = function () {
                             'attributes': attr.slice(0,2)
                         });
 
-                        res.render('fragments/package-detail', out);
+                        res.render('pages/package-detail', out);
                     }
                 });
             },
@@ -83,12 +83,12 @@ var Requests = function () {
                             'attributes' : attr.slice(2,3)
                         });
 
-                        res.render('fragments/package-os', out);
+                        res.render('pages/package-os', out);
                     }
                 });
             },
             page: function(req, res){
-                res.render('fragments/' + req.params.page, data);
+                res.render('pages/' + req.params.page, data);
             }
         },
         order: function(req, res){
@@ -132,18 +132,18 @@ module.exports.SetRequests = function (app) {
 
     this.app.get('/', Requests.index);
     this.app.get('/home', Requests.home);
-    this.app.get('/fragments/package-hostname', Requests.fragments.packageHostname);
-    this.app.get('/fragments/package-type', Requests.fragments.packageType);
-    this.app.get('/fragments/package-detail/:typeid', Requests.fragments.packageDetail);
-    this.app.get('/fragments/package-detail/:typeid/os', Requests.fragments.packageDetailOS);
-    this.app.get('/fragments/:page', Requests.fragments.page);
+    this.app.get('/pages/package-hostname', Requests.fragments.packageHostname);
+    this.app.get('/pages/package-type', Requests.fragments.packageType);
+    this.app.get('/pages/package-detail/:typeid', Requests.fragments.packageDetail);
+    this.app.get('/pages/package-detail/:typeid/os', Requests.fragments.packageDetailOS);
+    this.app.get('/pages/:page', Requests.fragments.page);
     this.app.get('/page/:page', Requests.page);
     this.app.get('/manage', Requests.accounthome);
     this.app.get('/manage/:page', Requests.account);
     this.app.get('/order*', Requests.order);
 
     this.app.post('/error/message', Requests.error.message);
-    this.app.post('/fragments/variant', Requests.fragments.variant);
+    this.app.post('/pages/variant', Requests.fragments.variant);
 
     this.app.get('/404', Requests.notFound);
     this.app.get('/404', Requests.serverError);
