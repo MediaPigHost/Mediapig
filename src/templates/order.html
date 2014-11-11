@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
     <link rel="stylesheet" href="{{url}}styles/main.css">
+    <link rel="stylesheet" href="{{url}}styles/wizard.css">
     <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <title>
@@ -16,12 +17,139 @@
         <a id="logo" href="/home" class="logo">{{name}}</a>
       </header>
     </div>
-    <div class="overlay">
-      <div class="overlay-wrap">
-        <div id="overlay-content" class="overlay-content">
-
+    <div class="wrap">
+      <div class="content">
+        <div class="order-wrap clearfix">
+          <h2 class="order-grid-heading">Choose your memory.</h2>
+          <ul class="order-grid">
+            <li>
+              <div class="order-box">
+                1
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li class="selected">
+              <div class="order-box">
+                2
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-box">
+                3
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-box">
+                4
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-box">
+                1
+                <span class="unit">TB</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="order-wrap clearfix">
+          <h2 class="order-grid-heading">Choose disk space.</h2>
+          <ul class="order-grid">
+            <li>
+              <div class="order-box">
+                50
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li class="selected">
+              <div class="order-box">
+                60
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-box">
+                70
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-box">
+                100
+                <span class="unit">GB</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-box">
+                1
+                <span class="unit">TB</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="order-wrap clearfix">
+          <h2 class="order-grid-heading">Choose your OS.</h2>
+          <ul class="order-grid">
+            <li>
+              <div class="order-box">
+                <div class="os-logo">
+                  <img width="200" src="{{url}}images/ubuntu.png" alt="" />
+                </div>
+                <h4>Ubuntu</h4>
+              </div>
+            </li>
+            <li class="selected">
+              <div class="order-box">
+                <div class="os-logo">
+                  <img width="200" src="{{url}}images/debian.png" alt="" />
+                </div>
+                <h4>Debian</h4>
+              </div>
+            </li>
+            <li>
+              <div class="order-box">
+                <div class="os-logo">
+                  <img width="200" src="{{url}}images/centos.png" alt="" />
+                </div>
+                <h4>CentOS</h4>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
+      <aside class="order-total">
+        <div class="order-summary">
+          <h3 class="order-total-price"><span class="order-total-value">£6.99</span></h3>
+          <div href="#" class="option">
+            <ul class="option-dropdown">
+              <li><a href="#">Per year <span class="soon">Soon!</span></a></li>
+              <li><a href="#" class="enabled">Per month </a></li>
+              <li><a href="#">Per hour <span class="soon">Soon!</span></a></li>
+            </ul>
+            <a href="#" class="option-trigger">Per month <i class="icon-arrow-down"></i></a>
+          </div>
+          <h3 class="for">for</h3>
+          <div href="#" class="option">
+            <ul class="option-dropdown">
+              <li><a href="#">100GB</a></li>
+              <li><a href="#">50GB</a></li>
+              <li><a href="#">25GB</a></li>
+            </ul>
+            <a href="#" class="option-trigger">50GB HDD <i class="icon-arrow-down"></i></a>
+          </div>
+          <div href="#" class="option option-ram disabled">
+            <ul class="option-dropdown">
+              <li><a href="#">10GB</a></li>
+              <li><a href="#">5GB</a></li>
+              <li><a href="#">1GB</a></li>
+            </ul>
+            <a href="#" class="option-trigger">5GB RAM <i class="icon-arrow-down"></i></a>
+          </div>
+        </div>
+        <a href="#" class="btn large payment-trigger">Make Payment</a>
+      </aside>
     </div>
     <div id="error-wrap"></div>
 
