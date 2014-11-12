@@ -31,16 +31,17 @@ h2.order-grid-heading {
 
 .selected .order-box {
   background-color: rgba(0,0,0,0.3);
+  color: #FFF;
 }
 
 .order-wrap {
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .order-box {
   background-color: rgba(0,0,0,0.15);
   border: 3px solid transparent;
-  color: #FFF;
   border-radius: 5px;
   padding: 40px 20px;
   margin: 0 15px 15px 0;
@@ -48,6 +49,7 @@ h2.order-grid-heading {
   font-weight: bold;
   cursor: pointer;
   position: relative;
+  color: rgba(255,255,255,0.6);
 }
 
 .order-box .order-recommended {

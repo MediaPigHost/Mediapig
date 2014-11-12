@@ -490,8 +490,8 @@ curl([
                         }
                     });
                 });
-            },
-            variations: function (target, childClass, parentClass, buttonClass, api, endpoint, app) {
+            }//,
+            //variations: function (target, childClass, parentClass, buttonClass, api, endpoint, app) {
 
                 // app.help.variations({ target: target, childClass: childClass, parentClass: parentClass, buttonClass: buttonClass, api: api, endpoint: endpoint }, app, function (res) {
                 //
@@ -540,7 +540,7 @@ curl([
                 //
                 //     })
                 // });
-            }
+            //}
         }
 
         site.init();
