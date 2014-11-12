@@ -1,6 +1,6 @@
 .order .order-total {
   background-color: #36353b;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
   position: fixed;
   bottom: 0;
   color: #FFF;
@@ -47,6 +47,20 @@ h2.order-grid-heading {
   font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
+  position: relative;
+}
+
+.order-box .order-recommended {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: rgba(0,0,0,0.2);
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 0.5em;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .order-box h4 {

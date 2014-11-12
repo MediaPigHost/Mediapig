@@ -23,7 +23,7 @@ curl([
                     body: document.getElementsByTagName('body')
                 };
 
-                site.defered(app, dom);
+                //site.defered(app, dom);
                 site.events(app, dom);
             },
             events: function (app, dom) {
@@ -426,7 +426,7 @@ curl([
                     });
                 });
             },
-            defered: function (app, dom) {
+            //defered: function (app, dom) {
                 //
                 // if (document.getElementsByTagName('body')[0].className.indexOf('package-type-chosen') > -1) {
                 //
@@ -459,7 +459,7 @@ curl([
                 //
                 //     return;
                 // }
-            },
+            //},
             postSignup: function (app) {
 
                 var submitAccount = document.getElementById('create-account-button');
