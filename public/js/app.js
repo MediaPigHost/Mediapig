@@ -81,6 +81,22 @@ curl([
                         dom.overlayContent.innerHTML = res;
                     });
                 });
+
+
+                app.help.addEventListenerByClass('order-grid-item', 'click', function (e) {
+
+                    var target = e.currentTarget,
+                        selectionParent = target.parentNode;
+                        siblings = selectionParent.getElementsByClassName('order-box');
+
+                    for (var i = 0, length = siblings.length; i < length; i++) {
+                      app.help.removeClass(siblings[i].parentNode, "selected");
+                    }
+                    target.className += " selected";
+
+                    e.preventDefault();
+                });
+
                 //
                 // app.subscribe("/view/details/2/loaded", function (flag) {
                 //
