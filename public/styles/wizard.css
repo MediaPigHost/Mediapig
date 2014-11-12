@@ -1,14 +1,18 @@
-.order .order-total {
-  background-color: #36353b;
-  border-radius: 5px 5px 0 0;
+.order .order-total-wrap {
   position: fixed;
   bottom: 0;
+  background-color: #36353b;
+  width: 100%;
+}
+
+.order .order-total {
   color: #FFF;
   padding: 10px 0;
 }
 
 .order .content {
-  margin-bottom: 150px;
+  width: 80%;
+  margin: 0 auto 150px auto;
 }
 
 .order h1,
