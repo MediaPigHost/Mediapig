@@ -69,12 +69,12 @@
               <div href="#" class="option option-ram">
                 <ul class="option-dropdown">
                   {% for value in attribute.values %}
-                  <li><a href="#">{{value.value}}{{attribute.suffix}}</a></li>
+                  <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} RAM</a></li>
                   {% endfor %}
                 </ul>
                 {% for value in attribute.values %}
                   {% if value.default %}
-                      <a href="#" class="option-trigger">{{value.value}}{{attribute.suffix}} HDD <i class="icon-arrow-down"></i></a>
+                      <a href="#" class="option-trigger">{{value.value}}{{attribute.suffix}} RAM <i class="icon-arrow-down"></i></a>
                   {% endif %}
                 {% endfor %}
               </div>
@@ -83,7 +83,7 @@
               <div href="#" class="option">
                 <ul class="option-dropdown">
                   {% for value in attribute.values %}
-                  <li><a href="#">{{value.value}}{{attribute.suffix}}</a></li>
+                  <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} HDD</a></li>
                   {% endfor %}
                 </ul>
                 {% for value in attribute.values %}

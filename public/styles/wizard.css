@@ -109,10 +109,6 @@ h3.order-total-price {
   position: relative;
 }
 
-.option.disabled {
-  opacity: 0.5;
-}
-
 .option-ram {
   margin-right: 10px;
 }
@@ -138,12 +134,24 @@ h3.order-total-price {
 
 .option-dropdown {
   display: none;
+  opacity: 0;
   position: absolute;
   bottom: 58px;
   text-align: left;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(38,37,42, 0.95);
   border-radius: 5px;
   width: 175px;
+  -webkit-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.selected .option-dropdown {
+  display: block;
+  -webkit-transition: opacity .4s;
+  -o-transition: opacity .4s;
+  transition: opacity .4s;
+  opacity: 1;
 }
 
 .option-dropdown a {
@@ -154,6 +162,16 @@ h3.order-total-price {
   position: relative;
   text-transform: uppercase;
   font-weight: bold;
+  -webkit-transition: color .6s;
+  -o-transition: color .6s
+  transition: color .6s
+}
+
+.option-dropdown a:hover {
+  color: #FFF;
+  -webkit-transition: color .6s;
+  -o-transition: color .6s
+  transition: color .6s
 }
 
 .option-dropdown a.enabled {
