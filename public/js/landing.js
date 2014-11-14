@@ -1,4 +1,4 @@
-define(['require', 'exports', 'module'], function (require, exports, module) {
+define(['require', 'exports', 'module', 'helpers'], function (require, exports, module, helpers) {
   var landing = {
     init : function(){
       this.scrollEvents();
@@ -14,12 +14,12 @@ define(['require', 'exports', 'module'], function (require, exports, module) {
           animateStatus[0].active = 'true';
           setTimeout(function () {
 
-            app.help.addEventListenerByClass('oneclick-window', 'mouseover', function(e){
+            helpers.addEventListenerByClass('oneclick-window', 'mouseover', function(e){
               e.target.parentNode.className += ' animate-hover'
             });
 
-            app.help.addEventListenerByClass('oneclick-window', 'mouseout', function(e){
-              app.help.removeClass(el[0], 'animate-hover');
+            helpers.addEventListenerByClass('oneclick-window', 'mouseout', function(e){
+              helpers.removeClass(el[0], 'animate-hover');
             });
           }, 900);
         }
