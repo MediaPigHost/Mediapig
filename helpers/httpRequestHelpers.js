@@ -41,52 +41,52 @@ var Requests = function () {
             }
         },
         fragments: {
-            variant: function(req, res, next) {
-                res.render('pages/variant', {
-                    'attributes': req.body.attributes.slice(1,2)
-                });
-            },
-            packageHostname: function(req, res){
-                res.render('pages/package-hostname', siteData);
-            },
-            packageType: function(req, res){
-                request('https://api.mediapig.co.uk/index.php?/servicetype/read/all', function (error, response, body) {
-
-                    if (!error && response.statusCode == 200) {
-                        res.render('pages/package-type', JSON.parse(body));
-                    }
-                })
-            },
-            packageDetail: function(req, res){
-                request('https://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
-
-                    if (!error && response.statusCode == 200) {
-
-                        var json = JSON.parse(body);
-                        var attr = json.attributes;
-                        var out = extend(data, {
-                            'attributes': attr.slice(0,2)
-                        });
-
-                        res.render('pages/package-detail', out);
-                    }
-                });
-            },
-            packageDetailOS: function(req, res){
-                request('https://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
-
-                    if (!error && response.statusCode == 200) {
-
-                        var json = JSON.parse(body);
-                        var attr = json.attributes;
-                        var out = extend(data, {
-                            'attributes' : attr.slice(2,3)
-                        });
-
-                        res.render('pages/package-os', out);
-                    }
-                });
-            },
+            // variant: function(req, res, next) {
+            //     res.render('pages/variant', {
+            //         'attributes': req.body.attributes.slice(1,2)
+            //     });
+            // },
+            // packageHostname: function(req, res){
+            //     res.render('pages/package-hostname', siteData);
+            // },
+            // packageType: function(req, res){
+            //     request('https://api.mediapig.co.uk/index.php?/servicetype/read/all', function (error, response, body) {
+            //
+            //         if (!error && response.statusCode == 200) {
+            //             res.render('pages/package-type', JSON.parse(body));
+            //         }
+            //     })
+            // },
+            // packageDetail: function(req, res){
+            //     request('https://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
+            //
+            //         if (!error && response.statusCode == 200) {
+            //
+            //             var json = JSON.parse(body);
+            //             var attr = json.attributes;
+            //             var out = extend(data, {
+            //                 'attributes': attr.slice(0,2)
+            //             });
+            //
+            //             res.render('pages/package-detail', out);
+            //         }
+            //     });
+            // },
+            // packageDetailOS: function(req, res){
+            //     request('https://api.mediapig.co.uk/index.php?/attributes/producttype/' + req.params.typeid, function (error, response, body) {
+            //
+            //         if (!error && response.statusCode == 200) {
+            //
+            //             var json = JSON.parse(body);
+            //             var attr = json.attributes;
+            //             var out = extend(data, {
+            //                 'attributes' : attr.slice(2,3)
+            //             });
+            //
+            //             res.render('pages/package-os', out);
+            //         }
+            //     });
+            // },
             page: function(req, res){
                 res.render('pages/' + req.params.page, data);
             }
@@ -107,10 +107,19 @@ var Requests = function () {
                         res.redirect('/home');
                     }
                     else {
+                        request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
 
-                        var out = extend(data, body);
-                        console.log(out);
-                        res.render('order', out);
+                            if (!error && response.statusCode == 200) {
+
+                                var json = JSON.parse(body);
+                                var attr = json.attributes;
+                                var out = extend(data, {
+                                    'attributes': attr.slice(0,2)
+                                });
+
+                                res.render('order', out);
+                            }
+                        });
                     }
                 }
             });
@@ -132,10 +141,10 @@ module.exports.SetRequests = function (app) {
 
     this.app.get('/', Requests.index);
     this.app.get('/home', Requests.home);
-    this.app.get('/pages/package-hostname', Requests.fragments.packageHostname);
-    this.app.get('/pages/package-type', Requests.fragments.packageType);
-    this.app.get('/pages/package-detail/:typeid', Requests.fragments.packageDetail);
-    this.app.get('/pages/package-detail/:typeid/os', Requests.fragments.packageDetailOS);
+    //this.app.get('/pages/package-hostname', Requests.fragments.packageHostname);
+    //this.app.get('/pages/package-type', Requests.fragments.packageType);
+    //this.app.get('/pages/package-detail/:typeid', Requests.fragments.packageDetail);
+    //this.app.get('/pages/package-detail/:typeid/os', Requests.fragments.packageDetailOS);
     this.app.get('/pages/:page', Requests.fragments.page);
     this.app.get('/page/:page', Requests.page);
     this.app.get('/manage', Requests.accounthome);
@@ -143,7 +152,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/order*', Requests.order);
 
     this.app.post('/error/message', Requests.error.message);
-    this.app.post('/pages/variant', Requests.fragments.variant);
+    //this.app.post('/pages/variant', Requests.fragments.variant);
 
     this.app.get('/404', Requests.notFound);
     this.app.get('/404', Requests.serverError);

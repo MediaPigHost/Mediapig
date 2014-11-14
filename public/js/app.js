@@ -1,12 +1,32 @@
-curl([
-    'js/helpers',
-    'js/microajax',
-    'js/pubsub',
-    'js/slide'
-]).then(function (helpers, microAjax, pubsub, slide) {
+var cfg = {
+  baseUrl: './js/',
+  paths: {
+    require: './require',
+    helpers: 'helpers',
+    microAjax: 'microajax',
+    pubsub: 'pubsub',
+    slide: 'slide'
+  }
+}
+
+curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (require, helpers, microAjax, pubsub, slide) {
         var configOrder = {};
+
         var site = {
             init: function () {
+
+                if (siteObj.pagetype === 'order') {
+                  curl('order', function(order){
+                      order.init();
+                  });
+                }
+
+                if (siteObj.pagetype === 'landing') {
+                  curl('landing', function(landing){
+                      landing.init();
+                  });
+
+                }
 
                 var app = {
                     help: helpers,
@@ -40,25 +60,6 @@ curl([
                     });
                 }
 
-                window.onscroll = function (event) {
-                  if (window.pageYOffset > 1000 && (animateStatus[0].active != 'true' || typeof animateStatus[0].active === 'undefined')) {
-                    var el = document.getElementsByClassName('oneclick-window');
-                    if (el) {
-                      el[0].className += ' animate';
-                    }
-                    animateStatus[0].active = 'true';
-                    setTimeout(function () {
-
-                      app.help.addEventListenerByClass('oneclick-window', 'mouseover', function(e){
-                        e.target.parentNode.className += ' animate-hover'
-                      });
-
-                      app.help.addEventListenerByClass('oneclick-window', 'mouseout', function(e){
-                        app.help.removeClass(el[0], 'animate-hover');
-                      });
-                    }, 900);
-                  }
-                }
 
                 app.help.addEventListenerByClass('overlay-trigger', 'click', function () {
 

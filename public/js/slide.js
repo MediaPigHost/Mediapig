@@ -1,4 +1,4 @@
-define(['require', 'exports', 'module', 'js/move', 'js/helpers'], function (require, exports, module, move, helpers) {
+define(['require', 'exports', 'module', 'move', 'helpers'], function (require, exports, module, move, helpers) {
     var maxMovement;
 
     var slider = {

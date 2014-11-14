@@ -207,8 +207,13 @@
 
     <script charset="utf-8">
     var curl = {
-        baseUrl: '{{url}}'
+        paths: {
+          landing: '{{url}}js/landing'
+        }
     }
+    var siteObj = {
+      pagetype: 'landing'
+    };
     </script>
     <script src="{{url}}js/curl.js"></script>
     <script src="{{url}}js/app.js"></script>
