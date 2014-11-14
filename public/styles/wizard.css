@@ -29,7 +29,7 @@ h2.order-grid-heading {
 }
 
 .order-grid li {
-  width: 33.333%;
+  width: 25%;
   float: left;
 }
 
@@ -73,7 +73,7 @@ h2.order-grid-heading {
   margin-bottom: 0;
 }
 
-.order-grid li:nth-child(3n+3) .order-box {
+.order-grid li:nth-child(4n+4) .order-box {
   margin: 0 0 15px 0;
 }
 
