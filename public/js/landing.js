@@ -1,9 +1,10 @@
 define(['require', 'exports', 'module'], function (require, exports, module) {
   var landing = {
     init : function(){
-      landing.scrollEvents();
+      this.scrollEvents();
     },
     scrollEvents : function(){
+      var animateStatus = [{}];
       window.onscroll = function (event) {
         if (window.pageYOffset > 1000 && (animateStatus[0].active != 'true' || typeof animateStatus[0].active === 'undefined')) {
           var el = document.getElementsByClassName('oneclick-window');
