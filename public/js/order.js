@@ -1,7 +1,10 @@
-define(['require', 'exports', 'module'], function (require, exports, module) {
+define(['require', 'exports', 'module', 'helpers'], function (require, exports, module, helpers) {
   var order = {
     init : function(){
-
+      this.events();
+    },
+    events : function(){
+      
     }
   }
   module.exports = order;

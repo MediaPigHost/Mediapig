@@ -26,7 +26,7 @@
               {% for value in attribute.values %}
 
                 {% if attribute.name == 'os' %}
-                  <li class="order-grid-item">
+                  <li class="order-grid-item {% if value.default %}selected{% endif %}">
                     <div class="order-box">
                       <div class="os-logo">
                         <img width="175" src="{{url}}images/{{value.name|lower}}.png" alt="" />
@@ -35,7 +35,7 @@
                     </div>
                   </li>
                 {% else %}
-                  <li class="order-grid-item" data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
+                  <li class="order-grid-item {% if value.default %}selected{% endif %}" data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
                     <div class="order-box">
                       {% if value.value %}
                         {{value.value}} <span class="unit">{{attribute.suffix}}</span>
@@ -64,24 +64,37 @@
             <a href="#" class="option-trigger">Per month <i class="icon-arrow-down"></i></a>
           </div>
           <h3 class="for">for</h3>
+          {% for attribute in attributes %}
+            {% if attribute.name == 'ram' %}
+              <div href="#" class="option option-ram">
+                <ul class="option-dropdown">
+                  {% for value in attribute.values %}
+                  <li><a href="#">{{value.value}}{{attribute.suffix}}</a></li>
+                  {% endfor %}
+                </ul>
+                {% for value in attribute.values %}
+                  {% if value.default %}
+                      <a href="#" class="option-trigger">{{value.value}}{{attribute.suffix}} HDD <i class="icon-arrow-down"></i></a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% if attribute.name == 'disk' %}
+              <div href="#" class="option">
+                <ul class="option-dropdown">
+                  {% for value in attribute.values %}
+                  <li><a href="#">{{value.value}}{{attribute.suffix}}</a></li>
+                  {% endfor %}
+                </ul>
+                {% for value in attribute.values %}
+                  {% if value.default %}
+                      <a href="#" class="option-trigger">{{value.value}}{{attribute.suffix}} HDD <i class="icon-arrow-down"></i></a>
+                  {% endif %}
+                {% endfor %}
 
-          <div href="#" class="option option-ram disabled">
-            <ul class="option-dropdown">
-              <li><a href="#">10GB</a></li>
-              <li><a href="#">5GB</a></li>
-              <li><a href="#">1GB</a></li>
-            </ul>
-            <a href="#" class="option-trigger">5GB RAM <i class="icon-arrow-down"></i></a>
-          </div>
-
-          <div href="#" class="option">
-            <ul class="option-dropdown">
-              <li><a href="#">100GB</a></li>
-              <li><a href="#">50GB</a></li>
-              <li><a href="#">25GB</a></li>
-            </ul>
-            <a href="#" class="option-trigger">50GB HDD <i class="icon-arrow-down"></i></a>
-          </div>
+              </div>
+            {% endif %}
+          {% endfor %}
         </div>
         <a href="#" class="btn large payment-trigger">Make Payment</a>
       </div>
