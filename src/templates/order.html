@@ -65,34 +65,16 @@
           </div>
           <h3 class="for">for</h3>
           {% for attribute in attributes %}
-            {% if attribute.name == 'ram' %}
-              <div href="#" class="option option-ram">
-                <ul class="option-dropdown">
-                  {% for value in attribute.values %}
-                  <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} RAM</a></li>
-                  {% endfor %}
-                </ul>
+            {% if attribute.name == 'os' %}
+            {% else %}
+            <div href="#" class="option option-{{attribute.name}}">
+              <ul class="option-dropdown">
                 {% for value in attribute.values %}
-                  {% if value.default %}
-                      <a href="#" class="option-trigger">{{value.value}}{{attribute.suffix}} RAM <i class="icon-arrow-down"></i></a>
-                  {% endif %}
+                <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} {{attribute.short_display_name}}</a></li>
                 {% endfor %}
-              </div>
-            {% endif %}
-            {% if attribute.name == 'disk' %}
-              <div href="#" class="option">
-                <ul class="option-dropdown">
-                  {% for value in attribute.values %}
-                  <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} HDD</a></li>
-                  {% endfor %}
-                </ul>
-                {% for value in attribute.values %}
-                  {% if value.default %}
-                      <a href="#" class="option-trigger">{{value.value}}{{attribute.suffix}} HDD <i class="icon-arrow-down"></i></a>
-                  {% endif %}
-                {% endfor %}
-
-              </div>
+              </ul>
+              <a href="#" class="option-trigger">{{attribute.default_value}}{{attribute.suffix}} {{attribute.short_display_name}} <i class="icon-arrow-down"></i></a>
+            </div>
             {% endif %}
           {% endfor %}
         </div>

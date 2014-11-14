@@ -84,78 +84,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                 });
 
 
-                //
-                // app.subscribe("/view/details/2/loaded", function (flag) {
-                //
-                //     app.help.addEventListenerByClass('os-variations-close', 'click', function (event) {
-                //
-                //         event.preventDefault();
-                //
-                //         app.help.removeBodyClass('os-variations-choice');
-                //         app.help.addBodyClass('os-variations-chosen');
-                //     });
-                //
-                //     app.help.addEventListenerByClass('os', 'click', function (event) {
-                //
-                //         event.preventDefault();
-                //
-                //         var target      = event.currentTarget;
-                //         var siblings    = target.parentNode.getElementsByClassName('os');
-                //         var osLists     = document.getElementsByClassName('os-variations');
-                //         var targetOS    = target.getAttribute('data-os');
-                //
-                //         for (var i = 0, length = siblings.length; i < length; i++) {
-                //
-                //             app.help.removeClass(siblings[i], 'active');
-                //             app.help.removeBodyClass('os-variations-chosen');
-                //             app.help.addBodyClass('os-variations-choice');
-                //         }
-                //
-                //         for (var i = 0, length = osLists.length; i < length; i++) {
-                //
-                //             app.help.removeClass(osLists[i], 'active');
-                //
-                //             if (osLists[i].getAttribute('data-os') === targetOS) {
-                //                 osLists[i].className += ' active';
-                //             }
-                //         }
-                //
-                //         target.className += ' active';
-                //     });
-                //
-                //     app.help.addEventListenerByClass('os-variation', 'click', function (event) {
-                //
-                //         event.preventDefault();
-                //
-                //         var target      = event.currentTarget;
-                //         var variation   = document.getElementsByClassName('os-variation');
-                //
-                //         for (var i = 0, length = variation.length; i < length; i++) {
-                //             app.help.removeClass(variation[i], 'active');
-                //         }
-                //
-                //         if (target.getAttribute('data-id')) {
-                //             configOrder['os'] = target.getAttribute('data-id');
-                //             console.log(configOrder);
-                //         }
-                //
-                //         target.className += ' active';
-                //
-                //         app.help.removeClass(target.parentNode.parentNode.getElementsByClassName('place-order-btn')[0], 'disabled');
-                //     });
-                //
-                //     app.help.addEventListenerByClass('place-order-btn', 'click', function (event) {
-                //
-                //         if (event.currentTarget.className.indexOf("disabled") > -1) {
-                //             event.preventDefault();
-                //         }
-                //         else {
-                //             app.publish('/place/order', true);
-                //             event.preventDefault();
-                //         }
-                //     });
-                // });
-
                 // app.subscribe("/place/order", function (flag) {
                 //
                 //     app.help.postJSON(configOrder, 'https://api.mediapig.co.uk/index.php?/order/create', function (res) {
@@ -226,15 +154,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                 //     });
                 // });
 
-                // app.subscribe("/event/details/1/submit", function (flag) {
-                //
-                //     var path = window.location.pathname;
-                //
-                //     app.ajax(window.location.origin + '/fragments/package-detail/' + path.substr(path.length - 1) + '/os', function (res) {
-                //         app.publish('/view/details/2/loaded', true);
-                //         dom.overlayContent.innerHTML = res;
-                //     });
-                // });
 
                 // app.subscribe("/view/order/details/loaded", function (flag) {
                 //

@@ -32,7 +32,7 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
           }
 
           for (var i = 0, length = siblings.length; i < length; i++) {
-            helpers.removeClass(siblings[i], "selected");
+              helpers.removeClass(siblings[i], "selected");
           }
 
           if (!isSelected) {
