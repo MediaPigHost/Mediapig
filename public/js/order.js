@@ -3,6 +3,20 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
     init : function(){
       this.events();
     },
+    calculatePrice : function(){
+      var sections = document.getElementsByClassName('order-grid'),
+          price = parseFloat(siteObj.basePrice);
+
+      for (var i = 0, length = sections.length; i < length; i++) {
+        var selected = sections[i].getElementsByClassName('selected'),
+            selectedPrice = selected[0].getAttribute('data-price');
+        if (selectedPrice !== null && typeof selectedPrice !== 'undefined'){
+          price += parseFloat(selectedPrice);
+        }
+      }
+
+      document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(2);
+    },
     events : function(){
       helpers.addEventListenerByClass('order-grid-item', 'click', function (e) {
 
@@ -14,6 +28,8 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
             helpers.removeClass(siblings[i].parentNode, "selected");
           }
           target.className += " selected";
+
+          order.calculatePrice();
 
           e.preventDefault();
       });

@@ -35,13 +35,9 @@
                     </div>
                   </li>
                 {% else %}
-                  <li class="order-grid-item {% if value.default %}selected{% endif %}" data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
+                  <li class="order-grid-item {% if value.default %}selected{% endif %}" data-value="{{value.value}}" data-price="{{value.price}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
                     <div class="order-box">
-                      {% if value.value %}
-                        {{value.value}} <span class="unit">{{attribute.suffix}}</span>
-                      {% else %}
-                        {{value}} <span class="unit">{{attribute.suffix}}</span>
-                      {% endif %}
+                      {{value.value}} <span class="unit">{{attribute.suffix}}</span>
                     </div>
                   </li>
                 {% endif %}
@@ -54,7 +50,7 @@
     <aside class="order-total-wrap">
       <div class="order-total clearfix">
         <div class="order-summary">
-          <h3 class="order-total-price"><span class="order-total-value">£{{base_price}}</span></h3>
+          <h3 class="order-total-price">£<span id="order-total-value">{{base_price}}</span></h3>
           <div href="#" class="option">
             <ul class="option-dropdown">
               <li><a href="#">Per year <span class="soon">Soon!</span></a></li>
@@ -84,12 +80,9 @@
     <div id="error-wrap"></div>
 
     <script charset="utf-8">
-      var curl = {
-          baseUrl: '{{url}}'
-      };
-
       var siteObj = {
-        pagetype: 'order'
+        pagetype: 'order',
+        basePrice: {{base_price}}
       };
     </script>
     <script src="{{url}}js/curl.js"></script>
