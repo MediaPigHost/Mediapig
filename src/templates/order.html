@@ -24,127 +24,37 @@
             <h2 class="order-grid-heading">{{attribute.display_name}}</h2>
             <ul class="order-grid">
               {% for value in attribute.values %}
-              <li class="order-grid-item" data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
-                <div class="order-box">
-                  {% if value.value %}
-                    {{value.value}} <span class="unit">{{attribute.suffix}}</span>
-                  {% else %}
-                    {{value}} <span class="unit">{{attribute.suffix}}</span>
-                  {% endif %}
-                </div>
-              </li>
+
+                {% if attribute.name == 'os' %}
+                  <li class="order-grid-item">
+                    <div class="order-box">
+                      <div class="os-logo">
+                        <img width="200" src="{{url}}images/{{value.name|lower}}.png" alt="" />
+                      </div>
+                      <h4>{{value.name}}</h4>
+                    </div>
+                  </li>
+                {% else %}
+                  <li class="order-grid-item" data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
+                    <div class="order-box">
+                      {% if value.value %}
+                        {{value.value}} <span class="unit">{{attribute.suffix}}</span>
+                      {% else %}
+                        {{value}} <span class="unit">{{attribute.suffix}}</span>
+                      {% endif %}
+                    </div>
+                  </li>
+                {% endif %}
               {% endfor %}
             </ul>
           </div>
         {% endfor %}
-        <!-- <div class="order-wrap clearfix">
-          <h2 class="order-grid-heading">Choose your memory</h2>
-
-
-
-          <ul class="order-grid">
-            <li class="order-grid-item">
-              <div class="order-box">
-                1
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item selected">
-              <div class="order-box">
-                2
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item">
-              <div class="order-box">
-                3
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item">
-              <div class="order-box">
-                4
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item">
-              <div class="order-box">
-                1
-                <span class="unit">TB</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="order-wrap clearfix">
-          <h2 class="order-grid-heading">Choose disk space</h2>
-          <ul class="order-grid">
-            <li class="order-grid-item">
-              <div class="order-box">
-                50
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item selected">
-              <div class="order-box">
-                60
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item">
-              <div class="order-box">
-                70
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item">
-              <div class="order-box">
-                100
-                <span class="unit">GB</span>
-              </div>
-            </li>
-            <li class="order-grid-item">
-              <div class="order-box">
-                1
-                <span class="unit">TB</span>
-              </div>
-            </li>
-          </ul>
-        </div> -->
-        <div class="order-wrap clearfix">
-          <h2 class="order-grid-heading">Choose your OS</h2>
-          <ul class="order-grid">
-            <li class="order-grid-item">
-              <div class="order-box">
-                <div class="os-logo">
-                  <img width="200" src="{{url}}images/ubuntu.png" alt="" />
-                </div>
-                <h4>Ubuntu</h4>
-              </div>
-            </li>
-            <li class="order-grid-item selected">
-              <div class="order-box">
-                <div class="os-logo">
-                  <img width="200" src="{{url}}images/debian.png" alt="" />
-                </div>
-                <h4>Debian</h4>
-              </div>
-            </li>
-            <li class="order-grid-item">
-              <div class="order-box">
-                <div class="os-logo">
-                  <img width="200" src="{{url}}images/centos.png" alt="" />
-                </div>
-                <h4>CentOS</h4>
-              </div>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
     <aside class="order-total-wrap">
       <div class="order-total clearfix">
         <div class="order-summary">
-          <h3 class="order-total-price"><span class="order-total-value">£6.99</span></h3>
+          <h3 class="order-total-price"><span class="order-total-value">£{{base_price}}</span></h3>
           <div href="#" class="option">
             <ul class="option-dropdown">
               <li><a href="#">Per year <span class="soon">Soon!</span></a></li>

@@ -112,11 +112,7 @@ var Requests = function () {
                             if (!error && response.statusCode == 200) {
 
                                 var json = JSON.parse(body);
-                                var attr = json.attributes;
-                                var out = extend(data, {
-                                    'attributes': attr.slice(0,2)
-                                });
-
+                                var out = extend(json, siteData);
                                 res.render('order', out);
                             }
                         });
