@@ -113,7 +113,6 @@ var Requests = function () {
                                 var body = JSON.parse(body);
                                 var json = extend(body, siteData);
                                 var out = extend(json, customer);
-                                out.product_id = 1;
                                 res.render('order', out);
                             }
                         });
