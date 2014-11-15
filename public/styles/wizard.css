@@ -201,7 +201,6 @@ h3.order-total-price {
 
 .card-details-form form {
   position: relative;
-  z-index: 9999;
 }
 
 .card-details-form h2 {

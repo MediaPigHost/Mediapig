@@ -1245,6 +1245,7 @@ body {
   -webkit-transition: opacity .3s;
   -o-transition: opacity .3s;
   transition: opacity .3s;
+  z-index: 100;
 }
 
 .overlay-close:hover {
