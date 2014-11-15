@@ -20,7 +20,7 @@
     <div class="wrap">
       <div class="content">
         {% for attribute in attributes %}
-          <div class="order-wrap clearfix">
+          <div class="order-wrap clearfix section-{{attribute.name|lower}}">
             <h2 class="order-grid-heading">{{attribute.display_name}}</h2>
             <ul class="order-grid">
               {% for value in attribute.values %}
@@ -63,13 +63,13 @@
           {% for attribute in attributes %}
             {% if attribute.name == 'os' %}
             {% else %}
-            <div href="#" class="option option-{{attribute.name}}">
+            <div href="#" class="option option-{{attribute.name|lower}}">
               <ul class="option-dropdown">
                 {% for value in attribute.values %}
-                <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} {{attribute.name}}</a></li>
+                <li data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}><a href="#" class="option-link {% if value.default %}enabled{% endif %}"><span class="option-value">{{value.value}}</span>{{attribute.suffix}} {{attribute.name}}</a></li>
                 {% endfor %}
               </ul>
-              <a href="#" class="option-trigger">{{attribute.default_value}}{{attribute.suffix}} {{attribute.name}} <i class="icon-arrow-down"></i></a>
+              <a href="#" class="option-trigger option-trigger-{{attribute.name|lower}}"><span class="option-value">{{attribute.default_value}}</span>{{attribute.suffix}} {{attribute.name}} <i class="icon-arrow-down"></i></a>
             </div>
             {% endif %}
           {% endfor %}
