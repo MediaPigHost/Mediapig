@@ -82,7 +82,13 @@
     <script charset="utf-8">
       var siteObj = {
         pagetype: 'order',
-        basePrice: {{base_price}}
+        basePrice: {{base_price}},
+        orderConfig : {
+          'user': '{{customer_id}}',
+          'key' : '{{session_key}}',
+          'attributes' : [],
+          'product_id' : {{product_id}}
+        }
       };
     </script>
     <script src="{{url}}js/curl.js"></script>

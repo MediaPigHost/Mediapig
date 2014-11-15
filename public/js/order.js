@@ -2,15 +2,19 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
   var order = {
     init : function(){
       this.events();
+      this.calculatePrice();
     },
     calculatePrice : function(){
       var sections = document.getElementsByClassName('order-grid'),
           price = parseFloat(siteObj.basePrice);
 
+      siteObj.orderConfig.attributes = [];
+
       for (var i = 0, length = sections.length; i < length; i++) {
         var selected = sections[i].getElementsByClassName('selected');
-        console.log(selected[0]);
+
         var selectedPrice = selected[0].getAttribute('data-price');
+        siteObj.orderConfig.attributes.push(parseInt(selected[0].getAttribute('data-product-id')));
 
         if (selectedPrice !== null && typeof selectedPrice !== 'undefined'){
           price += parseFloat(selectedPrice);

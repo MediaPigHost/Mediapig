@@ -95,15 +95,14 @@ var Requests = function () {
 
             var cookies = parseCookies(req);
 
-            request('https://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, body) {
+            request('https://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, customer) {
 
                 if (!error && response.statusCode == 200) {
 
-                    var body = JSON.parse(body);
+                    var customer = JSON.parse(customer);
+                    customer.session_key = cookies.key;
 
-                    console.log(body.customer_id);
-
-                    if (body.customer_id === false) {
+                    if (customer.customer_id === false) {
                         res.redirect('/home');
                     }
                     else {
@@ -111,8 +110,10 @@ var Requests = function () {
 
                             if (!error && response.statusCode == 200) {
 
-                                var json = JSON.parse(body);
-                                var out = extend(json, siteData);
+                                var body = JSON.parse(body);
+                                var json = extend(body, siteData);
+                                var out = extend(json, customer);
+                                out.product_id = 1;
                                 res.render('order', out);
                             }
                         });
