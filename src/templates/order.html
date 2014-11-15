@@ -66,10 +66,10 @@
             <div href="#" class="option option-{{attribute.name}}">
               <ul class="option-dropdown">
                 {% for value in attribute.values %}
-                <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} {{attribute.short_display_name}}</a></li>
+                <li><a href="#" {% if value.default %}class="enabled"{% endif %}>{{value.value}}{{attribute.suffix}} {{attribute.name}}</a></li>
                 {% endfor %}
               </ul>
-              <a href="#" class="option-trigger">{{attribute.default_value}}{{attribute.suffix}} {{attribute.short_display_name}} <i class="icon-arrow-down"></i></a>
+              <a href="#" class="option-trigger">{{attribute.default_value}}{{attribute.suffix}} {{attribute.name}} <i class="icon-arrow-down"></i></a>
             </div>
             {% endif %}
           {% endfor %}
