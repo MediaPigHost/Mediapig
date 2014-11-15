@@ -49,11 +49,16 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
 
       var optionSectionEl = document.getElementsByClassName('section-' + name),
           optionEl = optionSectionEl[0].querySelectorAll('[data-product-id="'+id+'"]'),
-          optionElSiblings = optionSectionEl[0].getElementsByClassName('order-grid-item');
+          optionElSiblings = optionSectionEl[0].getElementsByClassName('order-grid-item'),
+          optionOSVariationEl = optionSectionEl[0].getElementsByClassName('os-variations');
 
       // Remove all dropdown active classes
       for (var i = 0; i < optionElSiblings.length; i++) {
         helpers.removeClass(optionElSiblings[i], "selected");
+      }
+
+      for (var i = 0; i < optionOSVariationEl.length; i++) {
+        helpers.removeClass(optionOSVariationEl[i], "selected");
       }
 
       optionEl[0].className += " selected";
@@ -69,8 +74,33 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
 
           order.refreshSelectionViews(sectionName, targetId, targetValue);
           order.calculatePrice();
-
           e.preventDefault();
+      });
+
+      helpers.addEventListenerByClass('os-trigger', 'click', function(e){
+
+        var target = e.currentTarget,
+            targetParent = target.parentNode;
+            siblings = targetParent.parentNode.parentNode.parentNode.getElementsByClassName('os-variations'),
+            isSelected = false;
+
+        if (targetParent.className.match(/\bselected\b/)) {
+            helpers.removeClass(targetParent, "selected");
+            isSelected = true;
+        }
+
+        for (var i = 0, length = siblings.length; i < length; i++) {
+            helpers.removeClass(siblings[i], "selected");
+        }
+
+        if (!isSelected) {
+            targetParent.className += " selected";
+        }
+
+        isSelected = false;
+
+        e.stopPropagation();
+        e.preventDefault();
       });
 
       helpers.addEventListenerByClass('payment-trigger', 'click', function (e) {
