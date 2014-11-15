@@ -20,7 +20,7 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
           price += parseFloat(selectedPrice);
         }
       }
-
+      helpers.removeClass(document.getElementById('order-button'), 'disabled');
       document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(2);
     },
     refreshSelectionViews : function(name, id, value){
