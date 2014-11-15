@@ -8,8 +8,10 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
           price = parseFloat(siteObj.basePrice);
 
       for (var i = 0, length = sections.length; i < length; i++) {
-        var selected = sections[i].getElementsByClassName('selected'),
-            selectedPrice = selected[0].getAttribute('data-price');
+        var selected = sections[i].getElementsByClassName('selected');
+        console.log(selected[0]);
+        var selectedPrice = selected[0].getAttribute('data-price');
+
         if (selectedPrice !== null && typeof selectedPrice !== 'undefined'){
           price += parseFloat(selectedPrice);
         }
@@ -18,32 +20,40 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
       document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(2);
     },
     refreshSelectionViews : function(name, id, value){
-      var dropdownSelectedEl = document.getElementsByClassName('option-' + name),
-          dropdownTriggerEl = dropdownSelectedEl[0].getElementsByClassName('option-trigger'),
-          optionSectionEl = document.getElementsByClassName('section-' + name),
+      var dropdownSelectedEl = document.getElementsByClassName('option-' + name);
+
+
+      // Length check for dropdown as OS dropdown doesn't exist.
+      if (dropdownSelectedEl.length){
+
+        var dropdownTriggerEl = dropdownSelectedEl[0].getElementsByClassName('option-trigger'),
+            dropdownListEl = dropdownSelectedEl[0].getElementsByClassName('option-dropdown'),
+            dropdownEl = dropdownListEl[0].querySelectorAll('[data-product-id="'+id+'"] a'),
+            dropdownElValue = dropdownEl[0].getElementsByClassName('option-value'),
+            dropdownElSiblings = dropdownEl[0].parentNode.parentNode.getElementsByTagName('li');
+
+        // Updating dropdown value
+        dropdownTriggerEl[0].getElementsByClassName('option-value')[0].innerHTML = value;
+
+        // Remove all dropdown active classes
+        for (var i = 0; i < dropdownElSiblings.length; i++) {
+          helpers.removeClass(dropdownElSiblings[i].getElementsByClassName('option-link')[0], "enabled");
+        }
+        // Add new dropdown active class
+        dropdownEl[0].className += " enabled";
+
+      }
+
+      var optionSectionEl = document.getElementsByClassName('section-' + name),
           optionEl = optionSectionEl[0].querySelectorAll('[data-product-id="'+id+'"]'),
-          optionElSiblings = optionSectionEl[0].getElementsByClassName('order-grid-item'),
-          dropdownListEl = dropdownSelectedEl[0].getElementsByClassName('option-dropdown'),
-          dropdownEl = dropdownListEl[0].querySelectorAll('[data-product-id="'+id+'"] a'),
-          dropdownElValue = dropdownEl[0].getElementsByClassName('option-value'),
-          dropdownElSiblings = dropdownEl[0].parentNode.parentNode.getElementsByTagName('li');
+          optionElSiblings = optionSectionEl[0].getElementsByClassName('order-grid-item');
 
-          // Updating dropdown value
-          dropdownTriggerEl[0].getElementsByClassName('option-value')[0].innerHTML = value;
+      // Remove all dropdown active classes
+      for (var i = 0; i < optionElSiblings.length; i++) {
+        helpers.removeClass(optionElSiblings[i], "selected");
+      }
 
-          // Remove all dropdown active classes
-          for (var i = 0; i < dropdownElSiblings.length; i++) {
-            helpers.removeClass(dropdownElSiblings[i].getElementsByClassName('option-link')[0], "enabled");
-          }
-          // Add new dropdown active class
-          dropdownEl[0].className += " enabled";
-
-          // Remove all dropdown active classes
-          for (var i = 0; i < optionElSiblings.length; i++) {
-            helpers.removeClass(optionElSiblings[i], "selected");
-          }
-
-          optionEl[0].className += " selected";
+      optionEl[0].className += " selected";
 
     },
     events : function(){

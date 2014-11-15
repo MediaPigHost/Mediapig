@@ -26,16 +26,16 @@
               {% for value in attribute.values %}
 
                 {% if attribute.name == 'os' %}
-                  <li class="order-grid-item {% if value.default %}selected{% endif %}">
+                  <li class="order-grid-item {% if value.default %}selected{% endif %}" data-value="{{value.value|lower}}" data-price="0.00" data-name="{{attribute.name}}" data-product-id="{{value.id}}">
                     <div class="order-box">
                       <div class="os-logo">
-                        <img width="175" src="{{url}}images/{{value.name|lower}}.png" alt="" />
+                        <img width="175" src="{{url}}images/{{value.value|lower}}.png" alt="" />
                       </div>
-                      <h4>{{value.name}}</h4>
+                      <h4>{{value.value}}</h4>
                     </div>
                   </li>
                 {% else %}
-                  <li class="order-grid-item {% if value.default %}selected{% endif %}" data-value="{{value.value}}" data-price="{{value.price}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}>
+                  <li class="order-grid-item {% if value.default %}selected{% endif %}" data-value="{{value.value}}" data-price="{{value.price}}" data-name="{{attribute.name}}" data-product-id="{{value.id}}">
                     <div class="order-box">
                       {{value.value}} <span class="unit">{{attribute.suffix}}</span>
                     </div>
@@ -66,7 +66,7 @@
             <div href="#" class="option option-{{attribute.name|lower}}">
               <ul class="option-dropdown">
                 {% for value in attribute.values %}
-                <li data-value="{{value.value}}" data-name="{{attribute.name}}" {% if value.id %} data-product-id="{{value.id}}"{% endif %}><a href="#" class="option-link {% if value.default %}enabled{% endif %}"><span class="option-value">{{value.value}}</span>{{attribute.suffix}} {{attribute.name}}</a></li>
+                <li data-value="{{value.value}}" data-name="{{attribute.name}}" data-product-id="{{value.id}}"><a href="#" class="option-link {% if value.default %}enabled{% endif %}"><span class="option-value">{{value.value}}</span>{{attribute.suffix}} {{attribute.name}}</a></li>
                 {% endfor %}
               </ul>
               <a href="#" class="option-trigger option-trigger-{{attribute.name|lower}}"><span class="option-value">{{attribute.default_value}}</span>{{attribute.suffix}} {{attribute.name}} <i class="icon-arrow-down"></i></a>
