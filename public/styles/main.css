@@ -564,8 +564,7 @@ body {
 }
 
 .home .bg,
-.order .bg,
-.register-success,
+.order,
 .page .bg {
   background: #4E4D55;
   position: relative;
@@ -1217,8 +1216,8 @@ body {
   z-index: 10;
 }
 
-.home.overlay-visible .overlay,
-.page.overlay-visible .overlay {
+.overlay-visible .overlay,
+.overlay-visible .overlay {
   background-color: rgba(34,34,34,0.9);
   -webkit-animation: show .4s ease 1 normal forwards;
   -moz-animation: show .4s ease 1 normal forwards;
@@ -1229,14 +1228,6 @@ body {
   -ms-transition: background-color .2s;
   -o-transition: background-color .2s;
   transition: background-color .2s;
-}
-
-.order.overlay-visible .overlay {
-  opacity: 1;
-  -webkit-animation: none;
-  -moz-animation: none;
-  -o-animation: none;
-  animation: none;
 }
 
 .overlay-wrap {
@@ -1271,8 +1262,7 @@ body {
   top: 150px;
 }
 
-.home .overlay-wrap,
-.page .overlay-wrap {
+.overlay-wrap {
   background-color: #FFF;
   width: 300px;
 }
@@ -1463,46 +1453,6 @@ body {
 
 .form-submit {
   margin-top: 25px;
-  text-align: center;
-}
-
-.register-success-transition .body,
-.register-success-transition .intro-arrow {
-  -webkit-animation: hide .8s ease 0s 1 normal forwards;
-  -moz-animation: hide .8s ease 0s 1 normal forwards;
-  -o-animation: hide .8s ease 0s 1 normal forwards;
-  animation: hide .8s ease 0s 1 normal forwards;
-}
-
-.register-success-transition .form-inputs,
-.register-success-transition .overlay-close,
-.register-success-transition .logo {
-  -webkit-animation: hide .8s ease 1s 1 normal forwards;
-  -moz-animation: hide .8s ease 1s 1 normal forwards;
-  -o-animation: hide .8s ease 1s 1 normal forwards;
-  animation: hide .8s ease 1s 1 normal forwards;
-}
-
-.register-success-transition .form-submit {
-  -webkit-animation: hide .8s ease 1.5s 1 normal forwards;
-  -moz-animation: hide .8s ease 1.5s 1 normal forwards;
-  -o-animation: hide .8s ease 1.5s 1 normal forwards;
-  animation: hide .8s ease 1.5s 1 normal forwards;
-}
-
-.register-success-transition .signup h2 {
-  -webkit-animation: hide .8s ease 1.5s 1 normal forwards;
-  -moz-animation: hide .8s ease 1.5s 1 normal forwards;
-  -o-animation: hide .8s ease 1.5s 1 normal forwards;
-  animation: hide .8s ease 1.5s 1 normal forwards;
-}
-
-.register-success-transition .overlay-content {
-  max-width: 1028px;
-  margin: 0 auto;
-}
-
-.register-success {
   text-align: center;
 }
 
@@ -1886,54 +1836,6 @@ body {
 
 .break h2 {
   margin-bottom: 25px;
-}
-
-#cardDetails {
-  margin: 0 auto;
-  width: 340px;
-  position: relative;
-  z-index: 9999;
-}
-
-#cardDetails h2 {
-  margin: 0 0 19px -14px;
-}
-
-#cardDetails label {
-  color: #E6E7E8;
-  margin: 2px 0 5px 0;
-  display: block;
-  text-align: left;
-}
-
-#cardDetails select {
-  height: 48px;
-  width: 165px;
-  margin: 3px 0 0;
-  text-align: left;
-  float: left;
-}
-
-#cardDetails .first {
-  margin-right: 10px;
-}
-
-.card-details-form input, .card-details-form select {
-  color: #666;
-}
-
-input.submit-card-details {
-  width: 100%;
-  margin-top: 30px;
-  color: #FFF;
-}
-
-.card-details-form input:not(.btn) {
-  width: 100%;
-  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-}
 }
 
 @-webkit-keyframes move {

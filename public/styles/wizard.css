@@ -13,6 +13,7 @@
 .order .content {
   width: 80%;
   margin: 0 auto 150px auto;
+  text-align: center;
 }
 
 .order h1,
@@ -188,4 +189,62 @@ h3.order-total-price {
   text-transform: uppercase;
   top: 0;
   margin-left: 7px;
+}
+
+.overlay {
+  display: none;
+}
+
+.overlay-wrap {
+  width: 345px;
+}
+
+.card-details-form form {
+  position: relative;
+  z-index: 9999;
+}
+
+.card-details-form h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  color: #666;
+  display: inline-block;
+}
+
+.card-details-form label {
+  color: #999;
+  margin: 2px 0 5px 0;
+  display: block;
+  text-align: left;
+}
+
+.card-details-form select {
+  height: 48px;
+  width: 165px;
+  margin: 3px 0 0;
+  text-align: left;
+  float: left;
+}
+
+.card-details-form .first {
+  margin-right: 10px;
+}
+
+.card-details-form input[type='text'], .card-details-form select {
+  color: #666;
+  background-color: #EFEFEF;
+}
+
+input.submit-card-details {
+  width: 100%;
+  margin-top: 30px;
+  color: #FFF;
+}
+
+.card-details-form input:not(.btn) {
+  width: 100%;
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 }

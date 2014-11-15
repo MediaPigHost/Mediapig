@@ -26,7 +26,6 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
     refreshSelectionViews : function(name, id, value){
       var dropdownSelectedEl = document.getElementsByClassName('option-' + name);
 
-
       // Length check for dropdown as OS dropdown doesn't exist.
       if (dropdownSelectedEl.length){
 
@@ -74,6 +73,15 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
           e.preventDefault();
       });
 
+      helpers.addEventListenerByClass('payment-trigger', 'click', function (e) {
+        helpers.addBodyClass('overlay-visible');
+        e.preventDefault();
+      });
+
+      helpers.addEventListenerByClass('overlay-close', 'click', function () {
+        helpers.removeBodyClass('overlay-visible');
+        e.preventDefault();
+      });
 
       helpers.addEventListenerByClass('option-trigger', 'click', function (e) {
 
