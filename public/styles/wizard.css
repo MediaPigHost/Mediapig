@@ -278,6 +278,30 @@ h3.order-total-price {
   width: 345px;
 }
 
+.loading-text,
+.loading-image {
+  display: none;
+}
+
+.overlay-loading {
+  text-align: center;
+}
+
+.overlay-loading .overlay-close {
+  display: none;
+}
+
+.overlay-loading .loading-text {
+  text-align: center;
+  color: #CCC;
+  margin: 0 0 0 6px;
+  display: block;
+}
+
+.overlay-loading .loading-image {
+  display: inline-block;
+}
+
 .card-details-form form {
   position: relative;
 }

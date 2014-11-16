@@ -19,6 +19,35 @@ var Requests = function () {
         return list;
     }
 
+    function validCustomer (req, successCallback, errorCallback) {
+      var cookies = parseCookies(req);
+
+      var validity = request('https://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, customer) {
+        if (!error && response.statusCode == 200) {
+
+            var customer = JSON.parse(customer);
+            customer.session_key = cookies.key;
+            console.log(customer.customer_id);
+            if (customer.customer_id === false) {
+              if (typeof errorCallback === 'undefined'){
+                return false;
+              } else {
+                errorCallback();
+              }
+            } else {
+              console.log('valid customer');
+              if (typeof successCallback === 'undefined'){
+                return true;
+              } else {
+                successCallback(customer);
+              }
+            }
+        }
+      });
+
+      return validity;
+    }
+
     return {
         index: function(req, res){
             res.render('index', data);
@@ -43,35 +72,39 @@ var Requests = function () {
         fragments: {
             page: function(req, res){
                 res.render('pages/' + req.params.page, data);
+            },
+            setupOrder: function(req, res, next){
+              if(validCustomer(req)){
+                request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/create', body: req.body}, function (error, response, body) {
+                    if (body.status === 'success'){
+                      res.render('pages/card-details', {});
+                    } else {
+                      res.body = body.errors;
+                      next();
+                    }
+                });
+
+              } else {
+                console.log('Session timed out / Invalid Customer');
+              }
             }
         },
         order: function(req, res){
 
-            var cookies = parseCookies(req);
+            validCustomer(req, function(customer){
+              request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
 
-            request('https://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, customer) {
+                  if (!error && response.statusCode == 200) {
 
-                if (!error && response.statusCode == 200) {
-
-                    var customer = JSON.parse(customer);
-                    customer.session_key = cookies.key;
-
-                    if (customer.customer_id === false) {
-                        res.redirect('/home');
-                    }
-                    else {
-                        request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
-
-                            if (!error && response.statusCode == 200) {
-
-                                var body = JSON.parse(body);
-                                var json = extend(body, siteData);
-                                var out = extend(json, customer);
-                                res.render('order', out);
-                            }
-                        });
-                    }
-                }
+                      var body = JSON.parse(body);
+                      var json = extend(body, siteData);
+                      var out = extend(json, customer);
+                      res.render('order', out);
+                  }
+              });
+            }, function(){
+              console.log('hello');
+              res.redirect('/home');
             });
         },
         notFound: function (req, res, next) {
@@ -98,6 +131,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/order*', Requests.order);
 
     this.app.post('/error/message', Requests.error.message);
+    this.app.post('/post/order', Requests.fragments.setupOrder);
 
     this.app.get('/404', Requests.notFound);
     this.app.get('/404', Requests.serverError);

@@ -1,8 +1,19 @@
-define(['require', 'exports', 'module', 'helpers'], function (require, exports, module, helpers) {
+define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (require, exports, module, helpers, microAjax) {
   var order = {
     init : function(){
       this.events();
       this.calculatePrice();
+    },
+    startPurchase : function(){
+      helpers.postJSON(siteObj.orderConfig, window.location.origin + '/post/order', function (xhr) {
+          var overlay = document.getElementById("overlay-content");
+          overlay.innerHTML += xhr.response;
+          helpers.removeClass(overlay.parentNode, 'overlay-loading');
+          console.log(overlay.parentNode);
+      });
+    },
+    createOrder: function(){
+
     },
     calculatePrice : function(){
       var sections = document.getElementsByClassName('order-grid'),
@@ -15,8 +26,8 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
 
         // Pull out selected child variation and add to order object.
         if (selected[0].getAttribute('data-name') === 'os'){
-          var variationId = selected[0].getElementsByClassName('option-value')[0].getAttribute('data-id');
-          siteObj.orderConfig.os_variant = variationId;
+          var variationId = selected[0].getElementsByClassName('os-trigger')[0].getAttribute('data-id');
+          siteObj.orderConfig.os_variant = parseInt(variationId);
         }
 
         var selectedPrice = selected[0].getAttribute('data-price');
@@ -132,6 +143,7 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
 
       helpers.addEventListenerByClass('payment-trigger', 'click', function (e) {
         helpers.addBodyClass('overlay-visible');
+        order.startPurchase();
         e.preventDefault();
       });
 

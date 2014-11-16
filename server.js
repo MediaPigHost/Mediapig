@@ -61,7 +61,6 @@ else {
         httpRequestHelpers.SetRequests(app);
 
         app.use(function(req, res, next){
-            console.log('oopsie?');
             res.status(404);
 
             logger.log('error', '404 NOT FOUND. Headers: ' + JSON.stringify(req.headers), 'URL: ' + req.url);
@@ -82,7 +81,6 @@ else {
         });
 
         app.use(function(err, req, res, next){
-            console.log('ooh lala');
             logger.log('error', 'Error Code: ' + err.status, 'Headers: ' + JSON.stringify(req.headers), 'URL: ' + req.url);
             res.status(err.status || 500);
             res.render('500', { error: err });

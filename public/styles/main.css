@@ -1205,7 +1205,7 @@ body {
 }
 
 .overlay-visible .overlay {
-  color: #FFF;
+  color: #666;
   position: fixed;
   top: 0;
   display: block;

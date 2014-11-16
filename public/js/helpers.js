@@ -147,64 +147,6 @@ define(function (require, exports, module) {
 
             document.cookie = cname + "=" + cvalue + "; " + expires;
         },
-        variations: function (config, app, callback) {
-
-            var target          = config.target;
-            var parent          = target.parentNode;
-            var siblings        = parent.getElementsByClassName(config.childClass);
-            var formButton      = parent.parentNode.parentNode.getElementsByClassName(config.buttonClass)[0];
-            var attributes      = document.getElementsByClassName(config.childClass);
-            var variants        = document.getElementsByClassName(config.parentClass);
-            var totalSelected   = 0;
-
-            for (var i = 0, length = siblings.length; i < length; i++) {
-                helpers.removeClass(siblings[i], 'active');
-            }
-
-            // Logic for everything below the selected
-            if (parent.parentNode.getAttribute('data-id') <= (variants.length - 1)) {
-
-                var variantList = helpers.toArray(variants);
-                var index       = parent.parentNode.getAttribute('data-id') + 1;
-                var newList     = variantList.splice(index, variants.length);
-                var complex     = 0;
-
-                if (parent.parentNode.getAttribute('data-complex') === 'true') {
-
-                    var productId = target.getAttribute('data-product-id');
-
-                    app.ajax(config.api + config.endpoint + productId, function (res) {
-                        callback(JSON.parse(res));
-                    });
-                }
-
-                for (var i = 0, length = newList.length; i < length; i++) {
-
-                    var newListEl = newList[i].getElementsByClassName(config.childClass);
-
-                    for (var j = 0, elLength = newListEl.length; j < elLength; j++) {
-                        helpers.removeClass(newListEl[j], 'active');
-
-                    }
-                }
-            }
-
-            target.className += ' active';
-
-            for (var i = 0, length = attributes.length; i < length; i++) {
-
-                if (attributes[i].className.indexOf('active') > -1) {
-                    totalSelected++;
-                }
-            }
-
-            if (totalSelected === variants.length) {
-                helpers.removeClass(formButton, 'disabled');
-            }
-            else {
-                formButton.className += ' disabled';
-            }
-        },
         setCookie: function (name, value, days, path) {
 
             if (days) {
