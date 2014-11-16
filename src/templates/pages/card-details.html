@@ -1,4 +1,5 @@
 <section class="card-details-form">
+    <div id="card-details-form-error" class="card-details-form-error"></div>
     <form id="cardDetails" action="" method="post">
         <h2>Please, add your credit card</h2>
         <label>Card number</label>
@@ -27,6 +28,8 @@
             <option value="2015">2015</option>
             <option value="2016">2016</option>
         </select>
+        <input type="hidden" id="order_id" name="order_id" value="{{order_id}}" />
+        <input type="hidden" id="invoice_id" name="invoice_id" value="{{invoice_id}}">
         <input type="submit" id="submitCardDetails" class="btn large submit-card-details" value="Confirm your payment" />
     </form>
 </section>

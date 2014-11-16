@@ -205,7 +205,7 @@ define(function (require, exports, module) {
                 setKey: function (key) {
                     Stripe.setPublishableKey(key);
                 },
-                createToken: function (app, cardDetails, callback) {
+                createToken: function (cardDetails, callback) {
 
                     var details = {
                         number: cardDetails.number,
@@ -213,6 +213,8 @@ define(function (require, exports, module) {
                         exp_month: cardDetails.exp_month,
                         exp_year: cardDetails.exp_year
                     };
+
+                    console.log(details);
 
                     Stripe.card.createToken(details, function (status, response) {
                         callback(status, response);

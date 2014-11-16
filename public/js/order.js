@@ -9,7 +9,66 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
           var overlay = document.getElementById("overlay-content");
           overlay.innerHTML += xhr.response;
           helpers.removeClass(overlay.parentNode, 'overlay-loading');
-          console.log(overlay.parentNode);
+
+          var invoiceID = document.getElementById('invoice_id').getAttribute('value');
+          stripe = new helpers.stripe();
+          stripe.setInvoiceID(invoiceID);
+
+          helpers.addEventListenerByClass('submit-card-details', 'click', function (event) {
+              event.preventDefault();
+
+              if (event.currentTarget.className.indexOf('disabled') > -1) {
+                  return;
+              }
+
+              event.currentTarget.className += ' disabled';
+
+              var formElements = document.getElementById("cardDetails").elements;
+              stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
+              var cardDetails = {};
+              console.log(formElements);
+              for (var i = 0, length = formElements.length; i < length; i++) {
+                  console.log(formElements[i]);
+                  if (formElements[i].type !== "submit") {
+                      cardDetails[formElements[i].name] = formElements[i].value;
+                      console.log(cardDetails);
+                  }
+              }
+              console.log(cardDetails);
+
+              console.log(cardDetails);
+              stripe.createToken(cardDetails, function (status, response) {
+                  console.log(response);
+                  if (status === 200) {
+                      var token = response.id;
+
+                      var orderDetails = {
+                          invoice_id: +stripe.getInvoiceID(),
+                          token: token
+                      };
+
+                      helpers.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
+                          var response = JSON.parse(res.response);
+
+                          if (response.status === 'success') {
+                              alert('Success');
+                          }
+                          else {
+                              event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
+                              //app.publish('/message/error', response.status);
+                          }
+                      });
+                  }
+                  else {
+                      event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
+                      //app.publish('/message/error', response.error.message);
+                  }
+              }, function(status, response){
+                console.log(status);
+                console.log(response);
+                document.getElementById('card-details-form-error').innerHTML = 'Error - Check logs for now.';
+              });
+          });
       });
     },
     createOrder: function(){
@@ -147,8 +206,11 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         e.preventDefault();
       });
 
-      helpers.addEventListenerByClass('overlay-close', 'click', function () {
+      helpers.addEventListenerByClass('overlay-close', 'click', function (e) {
         helpers.removeBodyClass('overlay-visible');
+        // Cleanup view for next open
+        document.getElementById('overlay-content').className += ' overlay-loading';
+        document.getElementsByClassName('card-details-form')[0].outerHTML = "";
         e.preventDefault();
       });
 

@@ -77,7 +77,7 @@ var Requests = function () {
               if(validCustomer(req)){
                 request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/create', body: req.body}, function (error, response, body) {
                     if (body.status === 'success'){
-                      res.render('pages/card-details', {});
+                      res.render('pages/card-details', body);
                     } else {
                       res.body = body.errors;
                       next();
