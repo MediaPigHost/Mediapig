@@ -709,7 +709,7 @@ body {
   display: block;
   width: 109px;
   height: 42px;
-  background: url('../images/logo-small.png') center center no-repeat;
+  background: url('../images/logo-small.svg') center center no-repeat;
   background-size: 100%;
   text-indent: -9999px;
 }
