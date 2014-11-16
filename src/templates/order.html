@@ -38,7 +38,7 @@
                             <li><a href="#" data-id="{{variations.id}}" data-value="{{variations.name}}" class="os-link {% if variations.default %}enabled{% endif %}">{{variations.name}}</a></li>
                           {% endfor %}
                         </ul>
-                        <a href="#" data-id="" class="os-trigger selected-variation"><span class="option-value">{{value.default_value}}</span> <i class="icon-arrow-down"></i></a>
+                        <a href="#" data-id="{{value.default_id}}" class="os-trigger selected-variation"><span class="option-value">{{value.default_value}}</span> <i class="icon-arrow-down"></i></a>
                       </div>
                     </div>
                   </li>
