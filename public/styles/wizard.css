@@ -70,7 +70,7 @@ h2.order-grid-heading {
 }
 
 .order-box h4 {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   margin-top: 20px;
 }
 
@@ -127,6 +127,10 @@ h3.order-total-price {
   text-transform: uppercase;
 }
 
+.os-trigger {
+  color: rgba(255,255,255,0.6);
+}
+
 .option-trigger .icon-arrow-down,
 .os-trigger .icon-arrow-down {
   position: absolute;
@@ -135,8 +139,9 @@ h3.order-total-price {
   padding: 17px 20px;
 }
 
-.os-variations.selected .os-trigger {
+.order-grid-item.selected .os-trigger {
   background-color: #2b2a2f;
+  color: #FFF;
 }
 
 .option-dropdown,
@@ -164,7 +169,7 @@ h3.order-total-price {
 
 .selected-variation {
   width: 100%;
-  padding: 10px 0;
+  padding: 15px 0;
   border-radius: 0 0 5px 5px;
   height: 15px;
 }
@@ -196,7 +201,7 @@ h3.order-total-price {
 .os-dropdown {
   width: 100%;
   border-radius: 5px 5px 0 0;
-  bottom: 35px;
+  bottom: 45px;
   text-align: center;
   color: rgba(255,255,255,0.6);
 }
@@ -212,7 +217,7 @@ h3.order-total-price {
   transition: color .6s;
   text-transform: uppercase;
   text-align: left;
-  padding-left: 15px;
+  padding-left: 20px;
 }
 
 .os-dropdown a:hover {
@@ -241,14 +246,15 @@ h3.order-total-price {
 }
 
 .os-trigger .icon-arrow-down {
-  padding: 11px;
+  padding: 16px;
   right: 0;
+  font-weight: bold;
 }
 
 .os-variations .option-value {
   display: block;
   padding-right: 40px;
-  padding-left: 15px;
+  padding-left: 20px;
   text-align: left;
 }
 
