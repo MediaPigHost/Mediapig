@@ -26,19 +26,14 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
               var formElements = document.getElementById("cardDetails").elements;
               stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
               var cardDetails = {};
-              console.log(formElements);
+
               for (var i = 0, length = formElements.length; i < length; i++) {
-                  console.log(formElements[i]);
                   if (formElements[i].type !== "submit") {
                       cardDetails[formElements[i].name] = formElements[i].value;
-                      console.log(cardDetails);
                   }
               }
-              console.log(cardDetails);
 
-              console.log(cardDetails);
               stripe.createToken(cardDetails, function (status, response) {
-                  console.log(response);
                   if (status === 200) {
                       var token = response.id;
 
@@ -55,17 +50,13 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
                           }
                           else {
                               event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
-                              //app.publish('/message/error', response.status);
                           }
                       });
                   }
                   else {
                       event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
-                      //app.publish('/message/error', response.error.message);
                   }
               }, function(status, response){
-                console.log(status);
-                console.log(response);
                 document.getElementById('card-details-form-error').innerHTML = 'Error - Check logs for now.';
               });
           });
