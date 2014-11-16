@@ -13,6 +13,12 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
       for (var i = 0, length = sections.length; i < length; i++) {
         var selected = sections[i].getElementsByClassName('selected');
 
+        // Pull out selected child variation and add to order object.
+        if (selected[0].getAttribute('data-name') === 'os'){
+          var variationId = selected[0].getElementsByClassName('option-value')[0].getAttribute('data-id');
+          siteObj.orderConfig.os_variant = variationId;
+        }
+
         var selectedPrice = selected[0].getAttribute('data-price');
         siteObj.orderConfig.attributes.push(parseInt(selected[0].getAttribute('data-product-id')));
 
@@ -57,6 +63,7 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
         helpers.removeClass(optionElSiblings[i], "selected");
       }
 
+      // Remove all os variation active classes
       for (var i = 0; i < optionOSVariationEl.length; i++) {
         helpers.removeClass(optionOSVariationEl[i], "selected");
       }
@@ -80,7 +87,7 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
       helpers.addEventListenerByClass('os-trigger', 'click', function(e){
 
         var target = e.currentTarget,
-            targetParent = target.parentNode;
+            targetParent = target.parentNode,
             siblings = targetParent.parentNode.parentNode.parentNode.getElementsByClassName('os-variations'),
             isSelected = false;
 
@@ -100,6 +107,26 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
         isSelected = false;
 
         e.stopPropagation();
+        e.preventDefault();
+      });
+
+      helpers.addEventListenerByClass('os-link', 'click', function(e){
+
+        var target = e.currentTarget,
+            targetValue = target.getAttribute('data-value'),
+            targetId = target.getAttribute('data-id'),
+            targetParent = target.parentNode,
+            dropdown = targetParent.parentNode.parentNode,
+            dropdownValue = dropdown.getElementsByClassName('option-value'),
+            siblings = dropdown.getElementsByClassName('os-link');
+
+        for (var i = 0, length = siblings.length; i < length; i++) {
+            helpers.removeClass(siblings[i], "enabled");
+        }
+
+        target.className += " enabled";
+        dropdownValue[0].innerHTML = targetValue;
+        dropdownValue[0].setAttribute('data-id', targetId)
         e.preventDefault();
       });
 
