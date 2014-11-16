@@ -997,6 +997,20 @@ body {
   position: absolute;
 }
 
+.deploy {
+  background: url('../images/deploy.svg') 0 0 no-repeat;
+  height: 616px;
+  width: 616px;
+}
+
+.deploy-section {
+  padding: 100px 0 150px;
+}
+
+.deploy-section .feature-list {
+  margin-top: 100px;
+}
+
 .feature-list-text h3 {
   margin: 65px 0 0;
 }
