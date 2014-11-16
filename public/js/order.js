@@ -169,12 +169,15 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
 
           var target = e.currentTarget,
               targetParent = target.parentNode,
+              dropdownParent = target.parentNode.parentNode.parentNode,
               sectionName = targetParent.getAttribute('data-name'),
               targetId = targetParent.getAttribute('data-product-id'),
               targetValue = targetParent.getAttribute('data-value');
 
           order.refreshSelectionViews(sectionName, targetId, targetValue);
           order.calculatePrice();
+
+          helpers.removeClass(dropdownParent, "selected");
 
           e.preventDefault();
       });
