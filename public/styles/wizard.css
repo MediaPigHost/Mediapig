@@ -338,6 +338,11 @@ h3.order-total-price {
   background-color: #EFEFEF;
 }
 
+.card-details-form .disabled {
+  background: #665 url('../images/loading.svg') no-repeat center;
+  text-indent: -9999px;
+}
+
 input.submit-card-details {
   width: 100%;
   margin-top: 30px;

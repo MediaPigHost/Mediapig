@@ -46,7 +46,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
                           var response = JSON.parse(res.response);
 
                           if (response.status === 'success') {
-                              alert('Success');
+                              window.location.href = '/manage';
                           }
                           else {
                               event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');

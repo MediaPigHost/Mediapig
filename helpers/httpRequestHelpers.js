@@ -27,7 +27,6 @@ var Requests = function () {
 
             var customer = JSON.parse(customer);
             customer.session_key = cookies.key;
-            console.log(customer.customer_id);
             if (customer.customer_id === false) {
               if (typeof errorCallback === 'undefined'){
                 return false;
@@ -35,7 +34,6 @@ var Requests = function () {
                 errorCallback();
               }
             } else {
-              console.log('valid customer');
               if (typeof successCallback === 'undefined'){
                 return true;
               } else {
@@ -59,10 +57,18 @@ var Requests = function () {
             res.render('pages/' + req.params.page, data);
         },
         account : function(req, res){
+          if(validCustomer(req)){
             res.render('account/' + req.params.page, data);
+          } else {
+            res.redirect('/home');
+          }
         },
         accounthome: function(req, res){
+          if(validCustomer(req)){
             res.render('account/home', data);
+          } else {
+            res.redirect('/home');
+          }
         },
         error: {
             message: function(req, res, next) {
@@ -90,7 +96,6 @@ var Requests = function () {
             }
         },
         order: function(req, res){
-
             validCustomer(req, function(customer){
               request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
 
@@ -103,16 +108,15 @@ var Requests = function () {
                   }
               });
             }, function(){
-              console.log('hello');
               res.redirect('/home');
             });
         },
         notFound: function (req, res, next) {
-            console.log('404?');
+            console.log('404');
             next();
         },
         serverError: function (req, res, next) {
-            console.log('internal server error');
+            console.log('Internal server error');
             next(new Error('Internal Server Error'));
         }
     }
