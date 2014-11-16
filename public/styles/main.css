@@ -1395,6 +1395,7 @@ body {
 
 .overlay-visible .help {
   background-color: rgba(0,0,0,0.2);
+  color: #FFF;
 }
 
 .loading,
