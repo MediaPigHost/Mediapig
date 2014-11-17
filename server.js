@@ -1,4 +1,5 @@
 var express             = require('express');
+var data                = require('./src/content/site.json');
 var cons                = require('consolidate');
 var httpRequestHelpers  = require('./helpers/httpRequestHelpers');
 var cookieParser        = require('cookie-parser');
@@ -66,7 +67,7 @@ else {
             logger.log('error', '404 NOT FOUND. Headers: ' + JSON.stringify(req.headers), 'URL: ' + req.url);
             // respond with html page
             if (req.accepts('html')) {
-                res.render('404', { url: req.url });
+                res.render('404', data);
                 return;
             }
 

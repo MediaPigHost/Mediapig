@@ -1,0 +1,25 @@
+body {
+  background-color: #4E4D55;
+  text-align: center;
+  font-family: 'proxima-nova-soft', sans-serif;
+}
+
+.content {
+  padding-top: 100px;
+}
+
+.btn {
+  margin-top: 15px;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  color: #FFF;
+}
+
+h3 {
+  color: rgba(255,255,255,0.75);
+}

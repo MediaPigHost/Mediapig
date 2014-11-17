@@ -64,7 +64,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
 
                     app.publish('/event/register/submit', true);
 
-                    app.ajax(window.location.origin + '/pages/register', function (res) {
+                    app.ajax(window.location.origin + '/page/register', function (res) {
                         app.publish('/view/register/loaded', true);
                         dom.overlayContent.innerHTML = res;
                     });
@@ -76,7 +76,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
 
                     app.help.addBodyClass('overlay-visible');
 
-                    app.ajax(window.location.origin + '/pages/signin', function (res) {
+                    app.ajax(window.location.origin + '/page/signin', function (res) {
                         app.publish('/view/signin/loaded', true);
                         dom.overlayContent.innerHTML = res;
                     });
