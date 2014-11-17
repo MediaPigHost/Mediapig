@@ -8,6 +8,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
       helpers.postJSON(siteObj.orderConfig, window.location.origin + '/post/order', function (xhr) {
           var overlay = document.getElementById("overlay-content");
           overlay.innerHTML += xhr.response;
+          console.log(overlay.parentNode);
           helpers.removeClass(overlay.parentNode, 'overlay-loading');
 
           var invoiceID = document.getElementById('invoice_id').getAttribute('value');
@@ -200,7 +201,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
       helpers.addEventListenerByClass('overlay-close', 'click', function (e) {
         helpers.removeBodyClass('overlay-visible');
         // Cleanup view for next open
-        document.getElementById('overlay-content').className += ' overlay-loading';
+        document.getElementById('overlay-content').parentNode.className += ' overlay-loading';
         document.getElementsByClassName('card-details-form')[0].outerHTML = "";
         e.preventDefault();
       });
