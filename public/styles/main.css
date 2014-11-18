@@ -789,21 +789,20 @@ body {
   text-align: center;
 }
 
-.row-1, .row-2 {
+.row-1 {
   display: block;
-}
-
-.features .row-2 {
-  margin-top: 50px;
 }
 
 .feature {
   width: 300px;
   display: inline-block;
+  background-color: #f9f9f9;
+  padding: 35px 30px 50px;
+  border-radius: 10px;
 }
 
 .feature h3 {
-  margin: 75px 0 25px;
+  margin: 25px 0 25px;
   color: #333;
   font-size: 1.450em;
 }
@@ -812,27 +811,27 @@ body {
   margin: 0;
   color: #666;
   line-height: 1.5;
+  padding: 0 30px;
 }
 
 .feature-1 .feature-img, .feature-2 .feature-img, .feature-3 .feature-img {
-  height: 100px;
-  width: 100px;
+  width: 175px;
+  height: 175px;
   display: inline-block;
-  transform: scale(1.6)
 }
 
 .feature-1 .feature-img {
-  background: url('../images/heart.png') no-repeat center center;
+  background: url('../images/heart.svg') no-repeat center center;
   background-size: 100%;
 }
 
 .feature-2 .feature-img {
-  background: url('../images/briefcase.png') no-repeat center center;
+  background: url('../images/briefcase.svg') no-repeat center center;
   background-size: 100%;
 }
 
 .feature-3 .feature-img {
-  background: url('../images/console.png') no-repeat center center;
+  background: url('../images/cloud.svg') no-repeat center center;
   background-size: 100%;
 }
 
@@ -1004,7 +1003,13 @@ body {
 }
 
 .deploy-section {
-  padding: 100px 0 150px;
+  padding: 100px 0 0;
+}
+
+.deploy-time {
+  padding: 50px;
+  color: #333;
+  border-bottom: 3px solid #EEE;
 }
 
 .deploy-section .feature-list {

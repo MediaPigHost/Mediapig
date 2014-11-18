@@ -6,7 +6,7 @@ define(['require', 'exports', 'module', 'helpers'], function (require, exports, 
     scrollEvents : function(){
       var animateStatus = [{}];
       window.onscroll = function (event) {
-        if (window.pageYOffset > 1000 && (animateStatus[0].active != 'true' || typeof animateStatus[0].active === 'undefined')) {
+        if (window.pageYOffset > 500 && (animateStatus[0].active != 'true' || typeof animateStatus[0].active === 'undefined')) {
           var el = document.getElementsByClassName('oneclick-window');
           if (el) {
             el[0].className += ' animate';
