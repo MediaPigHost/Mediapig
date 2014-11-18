@@ -69,8 +69,35 @@ var Requests = function () {
             res.render('pages/' + req.params.page, data);
         },
         account : {
-          account: function(req, res, next) {
-            res.render('account/account', data);
+          account: {
+            read: function(req, res, next) {
+              var customer = customerValues(req);
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
+                  if (body.status === 'success'){
+                    var out = extend(data, body);
+                    console.log(out);
+                    res.render('account/account', out);
+                  } else {
+                    res.redirect('/home');
+                  }
+              });
+            },
+            update: function(req, res, next) {
+
+              var out = req.body,
+                  customer = customerValues(req);
+              out.door = customer.door;
+              out.user = customer.user;
+              console.log(out);
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/update', body: out}, function (error, response, body) {
+                console.log(body);
+                if (body.status === 'success') {
+                  res.redirect('/manage/account');
+                } else {
+                  next();
+                }
+              });
+            }
           },
           methods: function(req, res, next) {
             res.render('account/methods', data);
@@ -204,7 +231,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/page/:page', Requests.page);
 
     this.app.get('/manage', Requests.account.home);
-    this.app.get('/manage/account', Requests.account.account);
+    this.app.get('/manage/account', Requests.account.account.read);
     this.app.get('/manage/methods', Requests.account.methods);
     this.app.get('/manage/newticket', Requests.account.newticket);
     this.app.get('/manage/password', Requests.account.password);
@@ -220,6 +247,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/order/process', Requests.order.process);
     this.app.post('/error/message', Requests.error.message);
     this.app.post('/post/order', Requests.fragments.setupOrder);
+    this.app.post('/manage/account', Requests.account.account.update);
 
     this.app.get('/404', Requests.notFound);
     this.app.get('/404', Requests.serverError);
