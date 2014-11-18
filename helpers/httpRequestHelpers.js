@@ -187,9 +187,9 @@ var Requests = function () {
                   if (!error && response.statusCode == 200) {
 
                       var body = JSON.parse(body);
-                      var json = extend(body, siteData);
-                      var out = extend(json, customer);
-                      res.render('order', out);
+                      body.site = siteData;
+                      body.customer = customer;
+                      res.render('order', body);
                   }
               });
             }, function(){

@@ -2,12 +2,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
-    <link rel="stylesheet" href="{{url}}styles/main.css">
-    <link rel="stylesheet" href="{{url}}styles/wizard.css">
+    <link rel="stylesheet" href="{{site.url}}styles/main.css">
+    <link rel="stylesheet" href="{{site.url}}styles/wizard.css">
     <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <title>
-      {{name}} | Hosting without the hassle
+      {{site.name}} | Hosting without the hassle
     </title>
   </head>
 
@@ -101,15 +101,15 @@
         pagetype: 'order',
         basePrice: {{base_price}},
         orderConfig : {
-          'user': '{{user}}',
-          'door' : '{{door}}',
+          'user': '{{customer.user}}',
+          'door' : '{{customer.door}}',
           'attributes' : [],
           'product_id' : {{id}}
         }
       };
     </script>
-    <script src="{{url}}js/curl.js"></script>
-    <script src="{{url}}js/app.js"></script>
+    <script src="{{site.url}}js/curl.js"></script>
+    <script src="{{site.url}}js/app.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 </body>
 </html>
