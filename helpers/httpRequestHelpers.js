@@ -25,7 +25,7 @@ var Requests = function () {
         if (!error && response.statusCode == 200) {
 
             var customer = JSON.parse(customer);
-            customer.key = cookies.key;
+            customer.door = cookies.key;
             if (customer.user === false) {
               if (typeof errorCallback === 'undefined'){
                 return false;
