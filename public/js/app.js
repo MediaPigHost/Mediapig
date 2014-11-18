@@ -158,6 +158,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                             window.location.href = '/order';
                             history.pushState('order', 'order', '/order');
                             app.help.setCookie('key', res.key, '1');
+                            app.help.setCookie('user', res.customer_id, '1');
                             app.publish('/form/register/update', 'success');
                         }
                     });

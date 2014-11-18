@@ -8,7 +8,6 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
       helpers.postJSON(siteObj.orderConfig, window.location.origin + '/post/order', function (xhr) {
           var overlay = document.getElementById("overlay-content");
           overlay.innerHTML += xhr.response;
-          console.log(overlay.parentNode);
           helpers.removeClass(overlay.parentNode, 'overlay-loading');
 
           var invoiceID = document.getElementById('invoice_id').getAttribute('value');
@@ -40,16 +39,17 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
                       var orderDetails = {
                           invoice_id: +stripe.getInvoiceID(),
-                          token: token
+                          token: token,
+                          first_name: cardDetails.firstname,
+                          last_name: cardDetails.surname
                       };
 
-                      helpers.postJSON(orderDetails, 'https://api.mediapig.co.uk/index.php?/order/process', function (res) {
+                      helpers.postJSON(orderDetails, '/order/process', function (res) {
                           var response = JSON.parse(res.response);
 
                           if (response.status === 'success') {
                               window.location.href = '/manage';
-                          }
-                          else {
+                          } else {
                               event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
                           }
                       });
