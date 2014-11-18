@@ -73,7 +73,7 @@ var Requests = function () {
             read: function(req, res, next) {
               var customer = customerValues(req);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
-                  if (body.status === 'success'){
+                  if (body.status !== 'fail'){
                     var out = extend(data, body);
                     console.log(out);
                     res.render('account/account', out);
@@ -88,10 +88,8 @@ var Requests = function () {
                   customer = customerValues(req);
               out.door = customer.door;
               out.user = customer.user;
-              console.log(out);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/update', body: out}, function (error, response, body) {
-                console.log(body);
-                if (body.status === 'success') {
+                if (body.status !== 'fail') {
                   res.redirect('/manage/account');
                 } else {
                   next();
@@ -120,8 +118,7 @@ var Requests = function () {
           home: function(req, res, next){
               var customer = customerValues(req);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
-                  if (body.status === 'success'){
-                    console.log(body)
+                  if (body.status !== 'fail'){
                     var out = extend(data, body);
                     res.render('account/home', out);
                   } else {
@@ -132,8 +129,7 @@ var Requests = function () {
           support: function(req, res, next){
               var customer = customerValues(req);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/showlist', body: customer}, function (error, response, body) {
-                  console.log(body)
-                  if (body.status === 'success'){
+                  if (body.status !== 'fail'){
                     var out = extend(data, body);
                     res.render('account/support', out);
                   } else {
@@ -145,7 +141,7 @@ var Requests = function () {
               var customer = customerValues(req);
               var ticket = extend(customer, { 'ticket_id' : parseInt(req.params.ticketid) });
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getticket', body: ticket}, function (error, response, body) {
-                  if (body.status === 'success'){
+                  if (body.status !== 'fail'){
                     var out = extend(data, body);
                     res.render('account/ticket', out);
                   } else {
@@ -169,7 +165,7 @@ var Requests = function () {
               order.door = customer.door;
               order.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/create', body: order}, function (error, response, body) {
-                  if (body.status === 'success'){
+                  if (body.status !== 'fail'){
                     res.render('pages/card-details', body);
                   } else {
                     next();
@@ -202,7 +198,7 @@ var Requests = function () {
             order.user = customer.user;
 
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/process', body: order}, function (error, response, body) {
-              if (body.status === 'success') {
+              if (body.status !== 'fail') {
                 res.send(body);
               } else {
                 console.log(body);
