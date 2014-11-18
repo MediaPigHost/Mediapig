@@ -1014,6 +1014,12 @@ body {
 
 .deploy-section .feature-list {
   margin-top: 100px;
+  width: 45%;
+}
+
+.deploy-section .feature-list-text {
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 .feature-list-text h3 {
