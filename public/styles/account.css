@@ -13,7 +13,7 @@ body {
 html {
 	position: relative;
   min-height: 100%;
-	font-size: 0.875em; 
+	font-size: 0.875em;
   -webkit-text-size-adjust: 0.875em;
   -ms-text-size-adjust: 0.875em;
 }
@@ -223,15 +223,16 @@ body.account-home .top-head, body.account-product .top-head {
 	height: 5.714em;
 	width: 5.714em;
 	display: inline-block;
-	background: url('https://s3.amazonaws.com/uifaces/faces/twitter/emieljanson/128.jpg') no-repeat center center;
 	vertical-align: middle;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
-	-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	overflow: hidden;
+}
+
+.profile .avatar img {
+	max-width: 100%;
+	height: auto;
 }
 
 .breadcrumb {
@@ -977,9 +978,9 @@ td.last a .icon {
 	height: 2.143em;
 	width: 80%;
 	margin-bottom: 1.071em;
-  position: relative; 
+  position: relative;
   display: inline-block;
-  *display: inline; 
+  *display: inline;
   zoom: 1;
   background: #EFEFEF;
 	-webkit-border-radius: 0.214em;
@@ -995,11 +996,11 @@ td.last a .icon {
 	margin: -0.357em 0 0 0.714em;
   z-index: 10;
   position: relative;
-  border: none; 
-  background: none; 
-  outline: none; 
+  border: none;
+  background: none;
+  outline: none;
   opacity: 0;
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
   filter: alpha(opacity=0);
 }
 
@@ -1008,7 +1009,7 @@ td.last a .icon {
   position: absolute;
   left: 1.071em;
   display: inline-block;
-  *display: inline; 
+  *display: inline;
   zoom: 1;
   padding-top: 0.429em;
   background: transparent;

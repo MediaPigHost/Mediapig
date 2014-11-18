@@ -94,6 +94,7 @@ var Requests = function () {
               var customer = customerValues(req);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status === 'success'){
+                    console.log(body)
                     var out = extend(data, body);
                     res.render('account/home', out);
                   } else {
@@ -104,6 +105,7 @@ var Requests = function () {
           support: function(req, res, next){
               var customer = customerValues(req);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/showlist', body: customer}, function (error, response, body) {
+                  console.log(body)
                   if (body.status === 'success'){
                     var out = extend(data, body);
                     res.render('account/support', out);
