@@ -187,8 +187,11 @@ var Requests = function () {
                   if (!error && response.statusCode == 200) {
 
                       var body = JSON.parse(body);
+                      console.log(body);
                       body.site = siteData;
+                      console.log(body);
                       body.customer = customer;
+                      console.log(body);
                       res.render('order', body);
                   }
               });
