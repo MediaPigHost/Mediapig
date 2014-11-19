@@ -130,10 +130,30 @@ var Requests = function () {
             res.render('account/password', data);
           },
           payment: function(req, res, next) {
-            res.render('account/payment', data);
+            var customer = customerValues(req);
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/payment/listpayments', body: customer}, function (error, response, body) {
+                if (body.status !== 'fail'){
+                  console.log(body);
+                  var out = extend(data, { payments: body });
+                  res.render('account/payment', out);
+                } else {
+                  res.redirect('/home');
+                }
+            });
           },
           product: function(req, res, next) {
-            res.render('account/product', data);
+            var out = { 'service_id' : parseInt(req.params.serviceid) },
+                customer = customerValues(req);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getservice', body: out}, function (error, response, body) {
+                if (body.status !== 'fail'){
+                  var out = extend(data, body);
+                  res.render('account/product', data);
+                } else {
+                  res.redirect('/home');
+                }
+            });
           },
           subscriptions: function(req, res, next) {
             res.render('account/subscriptions', data);
@@ -159,7 +179,6 @@ var Requests = function () {
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/showlist', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
-                    console.log(out);
                     res.render('account/support', out);
                   } else {
                     next();
@@ -265,7 +284,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/newticket', Requests.account.newticket.read);
     this.app.get('/manage/password', Requests.account.password);
     this.app.get('/manage/payment', Requests.account.payment);
-    this.app.get('/manage/product', Requests.account.product);
+    this.app.get('/manage/product/:serviceid', Requests.account.product);
     this.app.get('/manage/subscriptions', Requests.account.subscriptions);
     this.app.get('/manage/support', Requests.account.support);
     this.app.get('/manage/ticket/:ticketid', Requests.account.ticket);

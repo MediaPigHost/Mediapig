@@ -32,48 +32,15 @@
 			</tr>
 		</thead>
 		<tbody>
+			{% for payment in payments %}
 			<tr>
-				<td class="first" data-title="Number">0006</td>
-				<td data-title="Subject">01.06.2014</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status">Pellentesque posuere fermentum nisl.</td>
-				<td data-title="Last updated">9.99 £</td>
+				<td class="first" data-title="Number">{{payment.id}}</td>
+				<td data-title="Subject">{{payment.date}}</td>
+				<td data-title="Product">{{payment.description}}</td>
+				<td data-title="Status">Paid</td>
+				<td data-title="Last updated">{{payment.amount}} £</td>
 			</tr>
-			<tr>
-				<td class="first" data-title="Number">0005</td>
-				<td data-title="Subject">01.05.2014</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status">Pellentesque posuere fermentum nisl.</td>
-				<td data-title="Last updated">9.99 £</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0004</td>
-				<td data-title="Subject">01.04.2014</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status">Pellentesque posuere fermentum nisl.</td>
-				<td data-title="Last updated">9.99 £</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0003</td>
-				<td data-title="Subject">01.03.2014</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status">Pellentesque posuere fermentum nisl.</td>
-				<td data-title="Last updated">9.99 £</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0002</td>
-				<td data-title="Subject">01.02.2014</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status">Pellentesque posuere fermentum nisl.</td>
-				<td data-title="Last updated">9.99 £</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0001</td>
-				<td data-title="Subject">01.01.2014</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status">Pellentesque posuere fermentum nisl.</td>
-				<td data-title="Last updated">9.99 £</td>
-			</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 </div>
