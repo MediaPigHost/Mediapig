@@ -146,7 +146,9 @@ var Requests = function () {
                 customer = customerValues(req);
             out.door = customer.door;
             out.user = customer.user;
-            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getservice', body: out}, function (error, response, body) {
+            console.log(out);
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/getdetails', body: out}, function (error, response, body) {
+                console.log(body);
                 if (body.status !== 'fail'){
                   var out = extend(data, body);
                   res.render('account/product', data);
