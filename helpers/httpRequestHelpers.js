@@ -80,6 +80,11 @@ var Requests = function () {
                 }
             });
           },
+          logout: function(req, res, next){
+            res.clearCookie('key');
+            res.clearCookie('user');
+            res.redirect('/home');
+          },
           account: {
             read: function(req, res, next) {
               var customer = customerValues(req);
@@ -303,7 +308,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/support', Requests.account.support);
     this.app.get('/manage/ticket/:ticketid', Requests.account.ticket);
     this.app.get('/manage/upgrade', Requests.account.upgrade);
-
+    this.app.get('/logout', Requests.account.logout);
     //this.app.get('/manage/:page', Requests.account.pages);
 
     this.app.post('/order/process', Requests.order.process);
