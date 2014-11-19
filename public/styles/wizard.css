@@ -365,3 +365,7 @@ input.submit-card-details {
   -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
   box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 }
+
+.overlay-wrap {
+  top: 100px;
+}
