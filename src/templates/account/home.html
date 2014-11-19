@@ -25,23 +25,13 @@
 </div>
 <div class="container">
 	<div class="products">
-		<div class="product clearfix">
-			<h3>aleksitappura.com</h3>
-			<a href="manage/product" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>
-			<a href="manage/product" title="View notifications"><span class="notification-bubble" data-notification="1"></span></a>
-		</div>
-		<div class="product clearfix">
-			<h3>google.com</h3>
-			<a href="manage/product" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>
-		</div>
-		<div class="product clearfix">
-			<h3>youtube.com</h3>
-			<a href="manage/product" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>
-		</div>
-		<div class="product clearfix">
-			<h3>gmail.com</h3>
-			<a href="manage/product" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>
-		</div>
+		{% for service in services %}
+			<div class="product clearfix">
+				<h3>{{service.value}}</h3>
+				<a href="manage/product/{{service.id}}" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>
+				<!-- <a href="manage/product/{{service.id}}" title="View notifications"><span class="notification-bubble" data-notification="1"></span></a>-->
+			</div>
+		{% endfor %}
 	</div>
 </div>
 {% endblock %}

@@ -143,7 +143,12 @@ var Requests = function () {
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
-                    res.render('account/home', out);
+                    request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/listservices', body: customer}, function(error, response, body){
+                      if (body.status !== 'fail'){
+                        out.services = body.services;
+                        res.render('account/home', out);
+                      }
+                    });
                   } else {
                     res.redirect('/home');
                   }
