@@ -248,7 +248,7 @@ var Requests = function () {
         },
         order: {
           setup: function(req, res, next){
-            customerValues(req, res);
+            var customer = customerValues(req, res);
             request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
                 if (!error && response.statusCode == 200 && body.status != 'fail') {
                   var body = JSON.parse(body);
