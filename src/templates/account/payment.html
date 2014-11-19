@@ -26,7 +26,6 @@
 			<tr>
 				<th class="first">Invoice</th>
 				<th>Date</th>
-				<th>Product</th>
 				<th>Description</th>
 				<th class="last">Amount (VAT 0%)</th>
 			</tr>
@@ -37,7 +36,6 @@
 				<td class="first" data-title="Number">{{payment.id}}</td>
 				<td data-title="Subject">{{payment.date}}</td>
 				<td data-title="Product">{{payment.description}}</td>
-				<td data-title="Status">Paid</td>
 				<td data-title="Last updated">{{payment.amount}} £</td>
 			</tr>
 			{% endfor %}
