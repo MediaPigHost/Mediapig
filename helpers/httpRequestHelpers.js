@@ -69,6 +69,17 @@ var Requests = function () {
             res.render('pages/' + req.params.page, data);
         },
         account : {
+          login: function(req, res, next){
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/login', body: req.body}, function (error, response, body) {
+                if (body.status !== 'fail'){
+                  res.cookie('key', body.door);
+                  res.cookie('user', body.user);
+                  res.redirect('/manage');
+                } else {
+                  res.redirect('/home');
+                }
+            });
+          },
           account: {
             read: function(req, res, next) {
               var customer = customerValues(req);
@@ -279,6 +290,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/', Requests.index);
     this.app.get('/home', Requests.home);
     this.app.get('/page/:page', Requests.page);
+    this.app.get('/order', Requests.order.setup);
 
     this.app.get('/manage', Requests.account.home);
     this.app.get('/manage/account', Requests.account.account.read);
@@ -293,13 +305,13 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/upgrade', Requests.account.upgrade);
 
     //this.app.get('/manage/:page', Requests.account.pages);
-    this.app.get('/order', Requests.order.setup);
+
     this.app.post('/order/process', Requests.order.process);
     this.app.post('/error/message', Requests.error.message);
     this.app.post('/post/order', Requests.fragments.setupOrder);
     this.app.post('/manage/account', Requests.account.account.update);
     this.app.post('/manage/newticket', Requests.account.newticket.add);
-
+    this.app.post('/login', Requests.account.login);
 
     this.app.get('/404', Requests.notFound);
     this.app.get('/404', Requests.serverError);

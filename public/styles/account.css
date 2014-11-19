@@ -182,7 +182,6 @@ header .right a:hover:before {
 .top-head {
 	padding: 4.286em 0;
 	background-color: #F2F2F2;
-	border-bottom: 1px solid #DDD;
 }
 
 body.account-home .top-head, body.account-product .top-head {
@@ -238,7 +237,7 @@ body.account-home .top-head, body.account-product .top-head {
 .breadcrumb {
 	padding: 1.071em 0 1.143em;
 	background-color: #FFF;
-	border-bottom: 1px solid #DDD;
+	border-bottom: 2px solid rgba(0,0,0,0.1);
 }
 
 .breadcrumb ul {
@@ -281,10 +280,9 @@ body.account-home .top-head, body.account-product .top-head {
 
 .product {
 	margin-bottom: 2.143em;
-	padding: 1.643em;
+	padding: 2em;
 	position: relative;
 	background-color: #FFF;
-	border: 1px solid #DDD;
 	-webkit-border-radius: 0.214em;
 	-moz-border-radius: 0.214em;
 	border-radius: 0.214em;
