@@ -17,8 +17,8 @@
 	</div>
 </div>
 <div class="container">
-	<form role="form" class="account-form submit-ticket-form">
-		<div class="formgroup clearfix">
+	<form role="form" method="post" action="/manage/newticket" class="account-form submit-ticket-form">
+		<!-- <div class="formgroup clearfix">
 			<label for="selectProduct">Product:</label>
 			<select>
 			  <option value="general">General</option>
@@ -27,19 +27,28 @@
 			  <option value="other">Billing</option>
 			  <option value="other">Other</option>
 			</select>
+		</div> -->
+		<div class="formgroup clearfix">
+			<label for="selectProduct">Service:</label>
+			<select name="service_id">
+					<option value="">No service</option>
+				{% for service in services %}
+					<option value="{{service.id}}">{{service.value}}</option>
+				{% endfor %}
+			</select>
 		</div>
 		<div class="formgroup clearfix">
-			<label for="inputSubject">Subject:</label>
-	    <input type="text" id="inputSubject">
+			<label for="title">Subject:</label>
+	    <input type="text" id="title" name="title">
     </div>
     <div class="formgroup clearfix">
-			<label for="inputDescription">Description:</label>
-	    <textarea rows="10" id="inputDescription"></textarea>
+			<label for="message">Description:</label>
+	    <textarea rows="10" id="message" name="message"></textarea>
     </div>
-    <div class="formgroup file clearfix">
+    <!-- <div class="formgroup file clearfix">
     	<label for="inputPhone">Attachments:</label>
 		  <input type="file" id="inputAvatar">
-	  </div>
+	  </div> -->
     <button type="submit">Submit ticket</button>
 	</form>
 </div>

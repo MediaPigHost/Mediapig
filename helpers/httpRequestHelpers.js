@@ -100,8 +100,31 @@ var Requests = function () {
           methods: function(req, res, next) {
             res.render('account/methods', data);
           },
-          newticket: function(req, res, next) {
-            res.render('account/newticket', data);
+          newticket: {
+            read: function(req, res, next) {
+              var customer = customerValues(req);
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/listservices', body: customer}, function (error, response, body) {
+                  if (body.status !== 'fail'){
+                    var out = extend(data, body);
+                    res.render('account/newticket', out);
+                  } else {
+                    next();
+                  }
+              });
+            },
+            add: function(req, res, next) {
+              var out = req.body,
+                  customer = customerValues(req);
+              out.door = customer.door;
+              out.user = customer.user;
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/create', body: out}, function (error, response, body) {
+                  if (body.status !== 'fail'){
+                    res.redirect('/manage/ticket/'+ body.ticket_id);
+                  } else {
+                    next();
+                  }
+              });
+            }
           },
           password: function(req, res, next) {
             res.render('account/password', data);
@@ -131,6 +154,7 @@ var Requests = function () {
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/showlist', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
+                    console.log(out);
                     res.render('account/support', out);
                   } else {
                     next();
@@ -138,10 +162,14 @@ var Requests = function () {
               });
           },
           ticket: function(req, res, next){
-              var customer = customerValues(req);
-              var ticket = extend(customer, { 'ticket_id' : parseInt(req.params.ticketid) });
-              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getticket', body: ticket}, function (error, response, body) {
+              var out = { 'ticket_id' : parseInt(req.params.ticketid) },
+                  customer = customerValues(req);
+              out.door = customer.door;
+              out.user = customer.user;
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getticket', body: out}, function (error, response, body) {
                   if (body.status !== 'fail'){
+                    console.log(body);
+                    console.log(data);
                     var out = extend(data, body);
                     res.render('account/ticket', out);
                   } else {
@@ -229,7 +257,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage', Requests.account.home);
     this.app.get('/manage/account', Requests.account.account.read);
     this.app.get('/manage/methods', Requests.account.methods);
-    this.app.get('/manage/newticket', Requests.account.newticket);
+    this.app.get('/manage/newticket', Requests.account.newticket.read);
     this.app.get('/manage/password', Requests.account.password);
     this.app.get('/manage/payment', Requests.account.payment);
     this.app.get('/manage/product', Requests.account.product);
@@ -244,6 +272,8 @@ module.exports.SetRequests = function (app) {
     this.app.post('/error/message', Requests.error.message);
     this.app.post('/post/order', Requests.fragments.setupOrder);
     this.app.post('/manage/account', Requests.account.account.update);
+    this.app.post('/manage/newticket', Requests.account.newticket.add);
+
 
     this.app.get('/404', Requests.notFound);
     this.app.get('/404', Requests.serverError);

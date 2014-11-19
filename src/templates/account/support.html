@@ -17,6 +17,7 @@
 </div>
 <div class="container">
 	<a href="newticket" class="newticket">New ticket</a>
+	{% if tickets %}
 	<table class="tickets">
 		<thead>
 			<tr>
@@ -29,37 +30,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="first" data-title="Number">0003</td>
-				<td data-title="Subject">Student discount</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status"><span class="badge open">Open</span></td>
-				<td data-title="Last updated">12 days ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0002</td>
-				<td data-title="Subject">Access to API</td>
-				<td data-title="Product">VPS Hosting</td>
-				<td data-title="Status"><span class="badge solved">Solved</span></td>
-				<td data-title="Last updated">2 months ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="first" data-title="Number">0001</td>
-				<td data-title="Subject">Multiple users</td>
-				<td data-title="Product">Account</td>
-				<td data-title="Status"><span class="badge closed">Closed</span></td>
-				<td data-title="Last updated">3 months ago</td>
-				<td class="last" data-title="Details">
-					<a href="ticket"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-				</td>
-			</tr>
+			{% for ticket in tickets %}
+				<tr>
+					<td class="first" data-title="Number">#{{ticket.id}}</td>
+					<td data-title="Subject">{{ticket.title}}</td>
+					<td data-title="Product">{{ticket.service}}</td>
+					<td data-title="Status"><span class="badge {{ticket.status|lower}}">{{ticket.status}}</span></td>
+					<td data-title="Last updated">{{ticket.timestamp}}</td>
+					<td class="last" data-title="Details">
+						<a href="ticket/{{ticket.id}}"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
+					</td>
+				</tr>
+			{% endfor %}
 		</tbody>
 	</table>
+	{% else %}
+		<h2>Sorry no tickets for you!</h2>
+	{% endif %}
 </div>
 {% endblock %}

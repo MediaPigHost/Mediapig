@@ -6,65 +6,56 @@
 		<ul>
 			<li><a href="/manage">Account</a></li>
 			<li><a href="/manage/support">Support</a></li>
-			<li class="active">Ticket #0001</li>
+			<li class="active">Ticket #{{ticket_details.id}}</li>
 		</ul>
 	</div>
 </div>
 <div class="top-head">
 	<div class="container">
 		<h2>Support</h2>
-		<h3>Ticket #0001</h3>
+		<h3>Ticket #{{ticket_details.id}}</h3>
 	</div>
 </div>
 <div class="container clearfix">
 	<dl class="ticket clearfix">
-	   <dt>Product:</dt>
-	   <dd>VPS Hosting</dd>
+		<dt>Product:</dt>
+		<dd>&nbsp;{{ticket_details.service}}</dd>
 
-	   <dt>Subject:</dt>
-	   <dd>Multiple users</dd>
+		<dt>Subject:</dt>
+		<dd>{{ticket_details.title}}</dd>
 
-	   <dt>Description:</dt>
-	   <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempus commodo nunc vel tempor. Vivamus vulputate, mauris tincidunt ullamcorper maximus, tellus ipsum cursus est, id malesuada tortor odio vitae ante. Morbi ullamcorper ipsum dui, sed egestas turpis condimentum quis. Pellentesque placerat felis lacinia turpis interdum, sit amet sodales ex hendrerit.</dd>
+		<dt>Description:</dt>
+		<dd>{{ticket_details.message}}</dd>
 
-	   <dt>Status:</dt>
-	   <dd><span class="badge open">Open</span></dd>
+		<dt>Status:</dt>
+		<dd><span class="badge {{ticket_details.status|lower}}">{{ticket_details.status}}</span></dd>
 
-	   <dt>Last updated:</dt>
-	   <dd>3 months ago</dd>
+		<dt>Last updated:</dt>
+		<dd>{{ticket_details.date}}</dd>
 	</dl>
 	<span class="replies-label">Replies:</span>
 	<section class="replies clearfix">
+		{% for reply in ticket_details.replies %}
 		<div class="reply">
 			<div class="author-profile">
-				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/emieljanson/128.jpg" class="avatar" alt="Aleksi Tappura">
+				<img src="https://www.gravatar.com/avatar/{{reply.gravatar}}" class="avatar" alt="Aleksi Tappura">
 				<div class="text-module">
-					<p class="author">Aleksi Tappura</p>
-					<p class="date">5th of October, 2014</p>
+					<p class="author">Ticket Owners Name</p>
+					<p class="date">{{reply.date}}</p>
 				</div>
 			</div>
 			<div class="reply-reply">
-				<p>Sed metus erat, fermentum vel elit ut, molestie condimentum lectus. Pellentesque imperdiet hendrerit ante, at congue erat. Pellentesque efficitur lectus non lectus tempor, non porttitor massa fermentum.</p>
+				<p>{{reply.message}}</p>
 			</div>
 		</div>
-		<div class="reply">
-			<div class="author-profile">
-				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/gt/128.jpg" class="avatar" alt="Aleksi Tappura">
-				<div class="text-module">
-					<p class="author">Phillip Gourley</p>
-					<p class="date">4th of October, 2014</p>
-				</div>
-			</div>
-			<div class="reply-reply">
-				<p>Sed non tristique erat, et tincidunt odio. Donec at faucibus orci, non rhoncus leo. Phasellus vel varius mauris. Nulla molestie luctus enim nec aliquam. Sed at sapien at libero rutrum sodales sed sit amet nisl. Nullam placerat justo justo.</p>
-			</div>
+		{% endfor %}
+
+		<div class="new-reply">
+			<form role="form"></form>
+			<textarea rows="10"></textarea>
+			<button type="submit">Submit reply</button>
+			<a href="#" class="remove-ticket">Delete ticket</a>
 		</div>
-			<div class="new-reply">
-		<form role="form"></form>
-		<textarea rows="10"></textarea>
-		<button type="submit">Submit reply</button>
-		<a href="#" class="remove-ticket">Delete ticket</a>
-	</div>
 	</section>
 </div>
 {% endblock %}
