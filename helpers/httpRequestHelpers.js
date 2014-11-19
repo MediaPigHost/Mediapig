@@ -19,7 +19,7 @@ var Requests = function () {
         return list;
     }
 
-    function customerValues (req) {
+    function customerValues (req, res) {
       var cookies = parseCookies(req),
           customer = {
             'door' : cookies.key,
@@ -28,6 +28,7 @@ var Requests = function () {
       if (cookies.key && cookies.user) {
         return customer;
       } else {
+        res.redirect('/home');
         return false;
       }
     }
@@ -87,7 +88,7 @@ var Requests = function () {
           },
           account: {
             read: function(req, res, next) {
-              var customer = customerValues(req);
+              var customer = customerValues(req, res);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
@@ -101,7 +102,7 @@ var Requests = function () {
             update: function(req, res, next) {
 
               var out = req.body,
-                  customer = customerValues(req);
+                  customer = customerValues(req, res);
               out.door = customer.door;
               out.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/update', body: out}, function (error, response, body) {
@@ -118,7 +119,7 @@ var Requests = function () {
           },
           newticket: {
             read: function(req, res, next) {
-              var customer = customerValues(req);
+              var customer = customerValues(req, res);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/listservices', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
@@ -130,7 +131,7 @@ var Requests = function () {
             },
             add: function(req, res, next) {
               var out = req.body,
-                  customer = customerValues(req);
+                  customer = customerValues(req, res);
               out.door = customer.door;
               out.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/create', body: out}, function (error, response, body) {
@@ -146,7 +147,7 @@ var Requests = function () {
             res.render('account/password', data);
           },
           payment: function(req, res, next) {
-            var customer = customerValues(req);
+            var customer = customerValues(req, res);
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/payment/listpayments', body: customer}, function (error, response, body) {
                 if (body.status !== 'fail'){
                   console.log(body);
@@ -159,7 +160,7 @@ var Requests = function () {
           },
           product: function(req, res, next) {
             var out = { 'service_id' : parseInt(req.params.serviceid) },
-                customer = customerValues(req);
+                customer = customerValues(req, res);
             out.door = customer.door;
             out.user = customer.user;
             console.log(out);
@@ -177,8 +178,10 @@ var Requests = function () {
             res.render('account/subscriptions', data);
           },
           home: function(req, res, next){
-              var customer = customerValues(req);
+              var customer = customerValues(req, res);
+              console.log('customer: %s', customer);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
+                  console.log(body);
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
                     request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/listservices', body: customer}, function(error, response, body){
@@ -193,7 +196,7 @@ var Requests = function () {
               });
           },
           support: function(req, res, next){
-              var customer = customerValues(req);
+              var customer = customerValues(req, res);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/showlist', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
@@ -205,7 +208,7 @@ var Requests = function () {
           },
           ticket: function(req, res, next){
               var out = { 'ticket_id' : parseInt(req.params.ticketid) },
-                  customer = customerValues(req);
+                  customer = customerValues(req, res);
               out.door = customer.door;
               out.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getticket', body: out}, function (error, response, body) {
@@ -231,7 +234,7 @@ var Requests = function () {
         fragments: {
             setupOrder: function(req, res, next){
               var order = req.body,
-                  customer = customerValues(req);
+                  customer = customerValues(req, res);
               order.door = customer.door;
               order.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/create', body: order}, function (error, response, body) {
@@ -245,25 +248,21 @@ var Requests = function () {
         },
         order: {
           setup: function(req, res, next){
-            var customer = customerValues(req);
-            if (customer) {
-                request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
-                    if (!error && response.statusCode == 200 && body.status != 'fail') {
-                      var body = JSON.parse(body);
-                      body.site = siteData;
-                      body.customer = customer;
-                      res.render('order', body);
-                    } else {
-                      res.redirect('/home');
-                    }
-                });
-            } else {
-              res.redirect('/home');
-            }
+            customerValues(req, res);
+            request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
+                if (!error && response.statusCode == 200 && body.status != 'fail') {
+                  var body = JSON.parse(body);
+                  body.site = siteData;
+                  body.customer = customer;
+                  res.render('order', body);
+                } else {
+                  res.redirect('/home');
+                }
+            });
           },
           process : function(req, res, next){
             var order = req.body,
-                customer = customerValues(req);
+                customer = customerValues(req, res);
             order.door = customer.door;
             order.user = customer.user;
 
