@@ -185,6 +185,7 @@ var Requests = function () {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
                     request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/listservices', body: customer}, function(error, response, body){
+                      console.log(body);
                       if (body.status !== 'fail'){
                         out.services = body.services;
                         res.render('account/home', out);

@@ -19,7 +19,7 @@
 <div class="container">
 	<div class="products">
 		{% for service in services %}
-			<div class="product clearfix">
+			<div class="product clearfix {{service.status|lower}}">
 				<h3>{{service.value}}</h3>
 				<a href="manage/product/{{service.id}}" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>
 				<!-- <a href="manage/product/{{service.id}}" title="View notifications"><span class="notification-bubble" data-notification="1"></span></a>-->

@@ -288,6 +288,20 @@ body.account-home .top-head, body.account-product .top-head {
 	border-radius: 0.214em;
 }
 
+.product.pending,
+.product.suspended {
+	-webkit-animation: flash 2s infinite;
+	-moz-animation: flash 2s infinite;
+	-o-animation: flash 2s infinite;
+	animation: flash 2s infinite;
+}
+
+.product.terminated,
+.product.cancelled {
+	opacity: 0.4;
+}
+
+
 .notification-bubble:after {
 	content: attr(data-notification);
 	height: 1.571em;
@@ -946,7 +960,7 @@ td.last a .icon {
 
 .notification {
 	margin-top: 3.214em;
-	padding: 1.643em;
+	padding: 1em;
 	color: #FFF;
 	background-color: #D76868;
 	border: 1px solid #A14D4D;
@@ -1166,3 +1180,24 @@ footer p {
 	color: #999;
 	line-height: 5.000em;
 }
+
+
+@-webkit-keyframes flash {
+	0% { opacity: 1; }
+	50% { opacity: 0.6; }
+	100% { opacity: 1; }}
+
+@-moz-keyframes flash {
+	0% { opacity: 1; }
+	50% { opacity: 0.6; }
+	100% { opacity: 1; }}
+
+@-o-keyframes flash {
+	0% { opacity: 1; }
+	50% { opacity: 0.6; }
+	100% { opacity: 1; }}
+
+@keyframes flash {
+	0% { opacity: 1; }
+	50% { opacity: 0.6; }
+	100% { opacity: 1; }}
