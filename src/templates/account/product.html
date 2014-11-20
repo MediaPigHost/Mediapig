@@ -12,10 +12,12 @@
 	</div>
 </div>
 <div class="container">
-	<!-- <div class="notification clearfix" id="panel">
-		<a href="#" class="remove" id="remove" title="Mark as read"><img src="{{url}}/images/remove.svg"></a>
-		<p>Nunc consectetur a justo ut sagittis. We suggest you to <a href="#">renew now</a>.</p>
-	</div> -->
+	{% if stats.status == 'error' %}
+		<div class="notification clearfix" id="panel">
+			<a href="#" class="remove" id="remove" title="Mark as read"><img src="{{url}}/images/remove.svg"></a>
+			<p>{{stats.statusmsg}}</p>
+		</div>
+	{% endif %}
 </div>
 <div class="top-head">
 	<div class="container">
@@ -38,6 +40,7 @@
 			<li class="last"><span class="detail">Password:</span> {{attributes.solusvm_root_password.value}}</li>
 		</ul>
 	</div>
+	{% if stats.status != 'error' %}
 	<div class="usage">
 		<h3>Usage</h3>
 		<ul class="details">
@@ -65,5 +68,6 @@
 
 		</ul>
 	</div>
+	{% endif %}
 </div>
 {% endblock %}
