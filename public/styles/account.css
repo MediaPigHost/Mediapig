@@ -184,6 +184,10 @@ header .right a:hover:before {
 	background-color: #F2F2F2;
 }
 
+.top-head .container {
+	position: relative;
+}
+
 body.account-home .top-head, body.account-product .top-head {
 	border-bottom: 0;
 }
@@ -204,6 +208,12 @@ body.account-home .top-head, body.account-product .top-head {
 	font-weight: 600;
 }
 
+.top-head .btn {
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
+
 .profile .text-module {
 	margin-left: 1.786em;
 	display: inline-block;
@@ -216,6 +226,21 @@ body.account-home .top-head, body.account-product .top-head {
 
 .top-head .profile h3 {
 	margin: 0 0 0.357em;
+}
+
+.ticket-list .no-tickets {
+	padding: 50px;
+	text-align: center;
+	color: #666;
+}
+
+.ticket-list h4 {
+	color: #999;
+}
+
+.ticket-list a {
+	color: #59789D;
+	text-decoration: none;
 }
 
 .profile .avatar {

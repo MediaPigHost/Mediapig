@@ -13,39 +13,44 @@
 	<div class="container">
 		<h2>Support</h2>
 		<h3>View tickets</h3>
+		<a href="newticket" class="btn account">New ticket</a>
 	</div>
 </div>
-<div class="container">
-	<a href="newticket" class="newticket">New ticket</a>
-	{% if tickets %}
-	<table class="tickets">
-		<thead>
-			<tr>
-				<th class="first">Number</th>
-				<th>Subject</th>
-				<th>Product</th>
-				<th>Status</th>
-				<th>Last updated</th>
-				<th class="last">Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for ticket in tickets %}
+<section class="ticket-list">
+	<div class="container">
+		{% if tickets %}
+		<table class="tickets">
+			<thead>
 				<tr>
-					<td class="first" data-title="Number">#{{ticket.id}}</td>
-					<td data-title="Subject">{{ticket.title}}</td>
-					<td data-title="Product">{{ticket.service}}</td>
-					<td data-title="Status"><span class="badge {{ticket.status|lower}}">{{ticket.status}}</span></td>
-					<td data-title="Last updated">{{ticket.timestamp}}</td>
-					<td class="last" data-title="Details">
-						<a href="ticket/{{ticket.id}}"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-					</td>
+					<th class="first">Number</th>
+					<th>Subject</th>
+					<th>Product</th>
+					<th>Status</th>
+					<th>Last updated</th>
+					<th class="last">Details</th>
 				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-	{% else %}
-		<h2>Sorry no tickets for you!</h2>
-	{% endif %}
+			</thead>
+			<tbody>
+				{% for ticket in tickets %}
+					<tr>
+						<td class="first" data-title="Number">#{{ticket.id}}</td>
+						<td data-title="Subject">{{ticket.title}}</td>
+						<td data-title="Product">{{ticket.service}}</td>
+						<td data-title="Status"><span class="badge {{ticket.status|lower}}">{{ticket.status}}</span></td>
+						<td data-title="Last updated">{{ticket.timestamp}}</td>
+						<td class="last" data-title="Details">
+							<a href="ticket/{{ticket.id}}"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		<hgroup class="no-tickets">
+			<h2>No previous tickets!</h2>
+			<h4>Would you like to <a href="newticket">create one</a>?</h4>
+		</hgroup>
+		{% endif %}
+	</div>
 </div>
 {% endblock %}
