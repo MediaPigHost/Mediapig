@@ -26,10 +26,20 @@
 	</div>
 </div>
 <div class="container clearfix">
+	<div class="utilities">
+		{% if server_status|lower == 'active' %}
+			<a href="/service/stop" class="btn account"><i class="add-icon"></i>Stop</a>
+		{% else %}
+			<a href="/service/start" class="btn account"><i class="add-icon"></i>Start</a>
+		{% endif %}
+		<a href="/service/start" class="btn account"><i class="add-icon"></i>Restart</a>
+		<a href="/service/vnc" class="btn account"><i class="add-icon"></i>VNC</a>
+	</div>
 	<div class="overview">
 		<h3>General</h3>
 		<ul class="details">
 			<li><span class="detail">Hostname:</span> {{attributes.hostname.value}}</li>
+			<li><span class="status">Server status: </span><span class="server-status {{server_status|lower}}"></span> {{server_status}}</li>
 			<li class="last"><span class="detail">IP address:</span> {{attributes.solusvm_main_ip.value}}</li>
 		</ul>
 	</div>

@@ -18,18 +18,16 @@
 <div class="container clearfix">
 	<ul class="tab-nav">
 		<li><a href="/manage/payment">Payment history</a></li>
-		<li><a href="/manage/subscriptions">Manage subscriptions</a></li>
+		<li><a href="/manage/invoices">Invoices</a></li>
 		<li><a href="/manage/methods" class="active">Payment methods</a></li>
 	</ul>
 	<div class="cards clearfix">
+		{% for card in cards %}
 		<div class="card clearfix">
 			<a href="#"><img src="../images/remove_grey.svg" title="Remove card"></a>
-			<p>Aleksi Tappura XXXX1716</p>
+			<p><strong>Card:</strong> {{card.type}} &nbsp; <strong>Number:</strong> {{card.number}}</p>
 		</div>
-		<div class="card clearfix">
-			<a href="#"><img src="../images/remove_grey.svg" title="Remove card"></a>
-			<p>Aleksi Tappura XXXX1234</p>
-		</div>
+		{% endfor %}
 	</div>
 	<div class="add-cc clearfix">
 	<h3>Add a new card</h3>

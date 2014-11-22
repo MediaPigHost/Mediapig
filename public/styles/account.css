@@ -111,9 +111,9 @@ header .right a:after {
 	visibility: hidden;
 	opacity: 0;
 	background: #333;
-  -webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+  -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
   color: #FFF;
   content: attr(data-tooltip);
   left: -2.143em;
@@ -278,14 +278,18 @@ body.account-home .top-head, body.account-product .top-head {
 	padding-bottom: 2.143em;
 }
 
+.profile {
+	position: relative;
+}
+
 .product {
 	margin-bottom: 2.143em;
-	padding: 2em;
+	padding: 2.5em;
 	position: relative;
 	background-color: #FFF;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .product.pending,
@@ -301,6 +305,58 @@ body.account-home .top-head, body.account-product .top-head {
 	opacity: 0.4;
 }
 
+.utilities {
+	margin-bottom: 2.143em;
+}
+
+.btn.account {
+	text-align: center;
+	color: #999;
+	display: inline-block;
+	background-color: #E7E7E7;
+	padding: .8em 1.3em;
+	text-decoration: none;
+	font-size: 1.2em;
+	border-radius: 5px;
+	box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+	margin-right: 10px;
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	-ms-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+}
+
+.service-add {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	padding: 1.2em 1.4em;
+	display: block;
+	margin-right: 0;
+}
+
+.server-status {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: #e56262;
+	border-radius: 50% 50%;
+}
+
+.server-status.active {
+	background-color: #71bf7c;
+}
+
+.btn.account:active {
+	-webkit-transform: translateY(4px);
+	-ms-transform: translateY(4px);
+	-o-transform: translateY(4px);
+	transform: translateY(4px);
+	-webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+}
 
 .notification-bubble:after {
 	content: attr(data-notification);
@@ -391,9 +447,9 @@ body.account-home .top-head, body.account-product .top-head {
 	margin-bottom: 2.143em;
 	float: left;
 	background-color: #FFF;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	overflow: hidden;
 }
 
@@ -456,9 +512,14 @@ body.account-home .top-head, body.account-product .top-head {
 	font-weight: 600;
 }
 
-.details .detail {
+.details .detail,
+.details .status {
 	display: block;
 	font-weight: 600;
+}
+
+.details .status {
+	margin-bottom: 3px;
 }
 
 .detail-wrap .detail {
@@ -535,9 +596,9 @@ form button {
 	-webkit-box-shadow: 0 0.214em 0 #354C5F;
 	-moz-box-shadow: 0 0.214em 0 #354C5F;
 	box-shadow: 0 0.214em 0 #354C5F;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
 	-ms-transition: all .2s ease-in-out;
@@ -566,9 +627,9 @@ form input, form textarea, form select {
 	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 	-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
 }
 
 .paymentform form input {
@@ -645,15 +706,15 @@ thead th {
 }
 
 td.first, th.first {
-	-webkit-border-radius: 0.214em 0 0 0.214em;
-	-moz-border-radius: 0.214em 0 0 0.214em;
-	border-radius: 0.214em 0 0 0.214em;
+	-webkit-border-radius: 5px 0 0 5px;
+	-moz-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
 }
 
 td.last, th.last {
-	-webkit-border-radius: 0 0.214em 0.214em 0;
-	-moz-border-radius: 0 0.214em 0.214em 0;
-	border-radius: 0 0.214em 0.214em 0;
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
 }
 
 td.last a {
@@ -700,9 +761,9 @@ td.last a .icon {
 	-webkit-box-shadow: 0 0.214em 0 #354C5F;
 	-moz-box-shadow: 0 0.214em 0 #354C5F;
 	box-shadow: 0 0.214em 0 #354C5F;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
 	-ms-transition: all .2s ease-in-out;
@@ -770,9 +831,9 @@ td.last a .icon {
 	margin-bottom: 2.143em;
 	padding: 2.143em 2.143em 1.071em;
 	border: solid 1px #DDD;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .reply .date, .reply .author {
@@ -780,7 +841,7 @@ td.last a .icon {
 }
 
 .reply .author {
-	margin-bottom: 0.214em;
+	margin-bottom: 5px;
 	font-weight: 600;
 }
 
@@ -799,7 +860,7 @@ td.last a .icon {
 }
 
 .reply .text-module {
-	margin: 0.214em 0 0 0.500em;
+	margin: 0.f214em 0 0 0.500em;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -823,9 +884,9 @@ td.last a .icon {
 	-webkit-box-shadow: 0 0.214em 0 #8E4242;
 	-moz-box-shadow: 0 0.214em 0 #8E4242;
 	box-shadow: 0 0.214em 0 #8E4242;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
 	-ms-transition: all .2s ease-in-out;
@@ -858,9 +919,9 @@ td.last a .icon {
 	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 	-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .new-reply button {
@@ -875,9 +936,9 @@ td.last a .icon {
 	-webkit-box-shadow: 0 0.214em 0 #354C5F;
 	-moz-box-shadow: 0 0.214em 0 #354C5F;
 	box-shadow: 0 0.214em 0 #354C5F;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .tab-nav {
@@ -901,9 +962,9 @@ td.last a .icon {
 	color: #666;
 	display: inline-block;
 	text-decoration: none;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	-webkit-transition: color .2s ease-in-out;
 	-moz-transition: color .2s ease-in-out;
 	-ms-transition: color .2s ease-in-out;
@@ -924,9 +985,9 @@ td.last a .icon {
 	padding: 1.429em 1.643em;
 	border: 1px solid #DDD;
 	background-color: #F2F2F2;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .card p {
@@ -963,10 +1024,9 @@ td.last a .icon {
 	padding: 1em;
 	color: #FFF;
 	background-color: #D76868;
-	border: 1px solid #A14D4D;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .notification p {
@@ -1011,9 +1071,9 @@ td.last a .icon {
   *display: inline;
   zoom: 1;
   background: #EFEFEF;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
  	-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.1), 0 1px 1px rgba(255,255,255,0.1);
 	-moz-box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.1), 0 1px 1px rgba(255,255,255,0.1);
 	box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.1), 0 1px 1px rgba(255,255,255,0.1);
@@ -1119,9 +1179,9 @@ td.last a .icon {
   left: 50%;
   background: #FFF;
   z-index: 9999;
-	-webkit-border-radius: 0.214em;
-	-moz-border-radius: 0.214em;
-	border-radius: 0.214em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .method-modal__close, .upgrade-modal__close {

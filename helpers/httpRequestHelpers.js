@@ -115,7 +115,19 @@ var Requests = function () {
             }
           },
           methods: function(req, res, next) {
-            res.render('account/methods', data);
+            var out = req.body,
+                customer = customerValues(req, res);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/getusercards', body: customer}, function (error, response, body) {
+              if (body.status !== 'fail'){
+                console.log(body);
+                var out = extend(data, body);
+                res.render('account/methods', out);
+              } else {
+                next();
+              }
+            });
           },
           newticket: {
             read: function(req, res, next) {
@@ -153,6 +165,17 @@ var Requests = function () {
                   console.log(body);
                   var out = extend(data, { payments: body });
                   res.render('account/payment', out);
+                } else {
+                  res.redirect('/home');
+                }
+            });
+          },
+          invoices: function(req, res, next) {
+            var customer = customerValues(req, res);
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/invoice/listinvoices', body: customer}, function (error, response, body) {
+                if (body.status !== 'fail'){
+                  var out = extend(data, body);
+                  res.render('account/invoices', out);
                 } else {
                   res.redirect('/home');
                 }
@@ -303,6 +326,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/newticket', Requests.account.newticket.read);
     this.app.get('/manage/password', Requests.account.password);
     this.app.get('/manage/payment', Requests.account.payment);
+    this.app.get('/manage/invoices', Requests.account.invoices);
     this.app.get('/manage/product/:serviceid', Requests.account.product);
     this.app.get('/manage/subscriptions', Requests.account.subscriptions);
     this.app.get('/manage/support', Requests.account.support);

@@ -18,7 +18,7 @@
 <div class="container">
 	<ul class="tab-nav">
 		<li><a href="/manage/payment" class="active">Payment history</a></li>
-		<li><a href="/manage/subscriptions">Manage subscriptions</a></li>
+		<li><a href="/manage/invoices">Invoices</a></li>
 		<li><a href="/manage/methods">Payment methods</a></li>
 	</ul>
 	<table class="tickets">
@@ -36,7 +36,7 @@
 				<td class="first" data-title="Number">{{payment.id}}</td>
 				<td data-title="Subject">{{payment.date}}</td>
 				<td data-title="Product">{{payment.description}}</td>
-				<td data-title="Last updated">{{payment.amount}} £</td>
+				<td data-title="Last updated">£{{payment.amount}}</td>
 			</tr>
 			{% endfor %}
 		</tbody>

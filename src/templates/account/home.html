@@ -13,12 +13,13 @@
 				<h3>Logged in as</h3>
 				<h2>{{first_name}} {{last_name}}</h2>
 			</div>
+			<a href="/order" class="btn account service-add"><i class="add-icon"></i>Add new service</a>
 		</div>
 	</div>
 </div>
 <div class="container">
 	<div class="products">
-		{% for service in services %}
+		{% for service in services|reverse %}
 			<div class="product clearfix {{service.status|lower}}">
 				<h3>{{service.value}}</h3>
 				<a href="manage/product/{{service.id}}" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>

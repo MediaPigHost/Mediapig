@@ -1,0 +1,47 @@
+{% extends "../account.html" %}
+
+{% block content %}
+<div class="breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/manage">Account</a></li>
+      <li class="active">Billing</li>
+    </ul>
+  </div>
+</div>
+<div class="top-head">
+  <div class="container">
+    <h2>Billing</h2>
+    <h3>Invoices</h3>
+  </div>
+</div>
+<div class="container">
+  <ul class="tab-nav">
+    <li><a href="/manage/payment">Payment history</a></li>
+    <li><a href="/manage/invoices" class="active">Invoices</a></li>
+    <li><a href="/manage/methods">Payment methods</a></li>
+  </ul>
+  <table class="tickets">
+    <thead>
+      <tr>
+        <th class="first">Invoice</th>
+        <th>Date</th>
+        <th>Due</th>
+        <th>Paid</th>
+        <th class="last">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for invoice in invoices %}
+      <tr>
+        <td class="first" data-title="Number">{{invoice.id}}</td>
+        <td data-title="Date">{{invoice.date}}</td>
+        <td data-title="Due">{{invoice.paid}}</td>
+        <td data-title="Paid">{{invoice.paid}}</td>
+        <td data-title="Cost">£{{invoice.total_cost}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
