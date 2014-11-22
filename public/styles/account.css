@@ -1087,6 +1087,10 @@ td.last a .icon {
 	opacity: 1;
 }
 
+.notification.success {
+	background-color: #A2C07B;
+}
+
 .selectbox {
 	height: 2.143em;
 	width: 80%;

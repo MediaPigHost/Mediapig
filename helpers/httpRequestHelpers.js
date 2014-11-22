@@ -155,8 +155,27 @@ var Requests = function () {
               });
             }
           },
-          password: function(req, res, next) {
-            res.render('account/password', data);
+          password: {
+            read: function(req, res, next) {
+              res.render('account/password', data);
+            },
+            add: function(req, res, next) {
+              console.log(req.body);
+              var out = req.body,
+                  customer = customerValues(req, res);
+              out.door = customer.door;
+              out.user = customer.user;
+              console.log(out);
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/update', body: out}, function (error, response, body) {
+                  console.log(body);
+                  if (body.status !== 'fail'){
+                    var out = extend(data, body);
+                    res.render('account/password', out);
+                  } else {
+                    next();
+                  }
+              });
+            }
           },
           payment: function(req, res, next) {
             var customer = customerValues(req, res);
@@ -324,7 +343,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/account', Requests.account.account.read);
     this.app.get('/manage/methods', Requests.account.methods);
     this.app.get('/manage/newticket', Requests.account.newticket.read);
-    this.app.get('/manage/password', Requests.account.password);
+    this.app.get('/manage/password', Requests.account.password.read);
     this.app.get('/manage/payment', Requests.account.payment);
     this.app.get('/manage/invoices', Requests.account.invoices);
     this.app.get('/manage/product/:serviceid', Requests.account.product);
@@ -340,6 +359,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/post/order', Requests.fragments.setupOrder);
     this.app.post('/manage/account', Requests.account.account.update);
     this.app.post('/manage/newticket', Requests.account.newticket.add);
+    this.app.post('/manage/password', Requests.account.password.add);
     this.app.post('/login', Requests.account.login);
 
     this.app.get('/404', Requests.notFound);
