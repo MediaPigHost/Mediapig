@@ -317,12 +317,25 @@ body.account-home .top-head, body.account-product .top-head {
 	border-radius: 5px;
 }
 
-.product.pending,
-.product.suspended {
-	-webkit-animation: flash 2s infinite;
-	-moz-animation: flash 2s infinite;
-	-o-animation: flash 2s infinite;
-	animation: flash 2s infinite;
+.product .loading {
+	display: none;
+}
+
+.product.pending .loading,
+.product.suspended .loading {
+	display: block;
+	position: absolute;
+	color: #999;
+	right: 265px;
+	top: 20px;
+}
+
+.product.pending .loading-image,
+.product.suspended .loading-image {
+	top: 10px;
+	position: relative;
+	width: 30px;
+	margin-right: 5px;
 }
 
 .product.terminated,

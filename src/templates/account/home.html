@@ -22,6 +22,7 @@
 		{% for service in services|reverse %}
 			<div class="product clearfix {{service.status|lower}}">
 				<h3>{{service.value}}</h3>
+				<span class="loading"><img src="images/loading-colour.svg" alt="Loading..." class="loading-image" />&nbsp; Setting up...</span>
 				<a href="manage/product/{{service.id}}" class="last"><img src="../images/overview_grey.svg" alt="Manage">Details</a>
 			</div>
 		{% endfor %}
