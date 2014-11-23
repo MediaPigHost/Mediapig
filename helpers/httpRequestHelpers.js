@@ -289,7 +289,13 @@ var Requests = function () {
               order.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/create', body: order}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    res.render('pages/card-details', body);
+                    if (body.token){
+                      body.redirect = true;
+                      console.log(body);
+                      res.render('pages/card-details', body);
+                    } else {
+                      res.render('pages/card-details', body);
+                    }
                   } else {
                     next();
                   }

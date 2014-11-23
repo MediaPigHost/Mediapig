@@ -6,6 +6,10 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
     },
     startPurchase : function(){
       helpers.postJSON(siteObj.orderConfig, window.location.origin + '/post/order', function (xhr) {
+          if (document.getElementsByClassName('pending-redirect')){
+            window.location.href = '/manage';
+            return false;
+          }
           var overlay = document.getElementById("overlay-content");
           overlay.innerHTML += xhr.response;
           helpers.removeClass(overlay.parentNode, 'overlay-loading');
