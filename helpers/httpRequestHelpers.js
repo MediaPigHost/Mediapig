@@ -165,9 +165,7 @@ var Requests = function () {
                   customer = customerValues(req, res);
               out.door = customer.door;
               out.user = customer.user;
-              console.log(out);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/update', body: out}, function (error, response, body) {
-                  console.log(body);
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
                     res.render('account/password', out);
@@ -290,9 +288,16 @@ var Requests = function () {
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/create', body: order}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     if (body.token){
+                      // If token exists then card exists so take payment from existing card.
                       body.redirect = true;
-                      console.log(body);
-                      res.render('pages/card-details', body);
+                      var out = body;
+                      request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/process', body: body}, function (error, response, body) {
+                        if (body.status !== 'fail'){
+                          res.render('pages/card-details', out);
+                        } else {
+                          next();
+                        }
+                      });
                     } else {
                       res.render('pages/card-details', body);
                     }
