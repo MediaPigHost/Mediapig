@@ -253,8 +253,6 @@ var Requests = function () {
               out.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getticket', body: out}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    console.log(body);
-                    console.log(data);
                     var out = extend(data, body);
                     res.render('account/ticket', out);
                   } else {

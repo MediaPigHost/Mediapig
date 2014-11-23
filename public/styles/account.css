@@ -1287,17 +1287,14 @@ td.last a .icon {
 }
 
 .console-container {
-	background-color: #EEE;
-	border-radius: 5px;
-	overflow: hidden;
 	margin-top: 50px;
-	padding: 25px;
 }
 
 .console-container canvas {
-	width: 100%;
+	padding: 20px;
+	background-color: #EEE;
+	border-radius: 5px;
 }
-
 
 @-webkit-keyframes flash {
 	0% { opacity: 1; }
