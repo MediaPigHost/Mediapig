@@ -251,10 +251,29 @@ var Requests = function () {
                   customer = customerValues(req, res);
               out.door = customer.door;
               out.user = customer.user;
+              console.log(out);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getticket', body: out}, function (error, response, body) {
+                  console.log(body);
                   if (body.status !== 'fail'){
+                    body['ticket_id'] = parseInt(req.params.ticketid);
                     var out = extend(data, body);
                     res.render('account/ticket', out);
+                  } else {
+                    res.redirect('/home');
+                  }
+              });
+          },
+          ticketreply: function(req, res, next){
+              var out = req.body,
+                  customer = customerValues(req, res),
+                  ticketid = out['ticket_id'];
+              out.door = customer.door;
+              out.user = customer.user;
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/reply', body: out}, function (error, response, body) {
+                  console.log(customer);
+                  if (body.status !== 'fail'){
+                    var out = extend(data, body);
+                    res.redirect('/manage/ticket/' + ticketid);
                   } else {
                     res.redirect('/home');
                   }
@@ -339,6 +358,7 @@ var Requests = function () {
                       body.redirect = true;
                       var out = extend(body, customer);
                       request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/process', body: body}, function (error, response, body) {
+                        console.log(body);
                         if (body.status !== 'fail'){
                           console.log(out);
                           res.render('pages/card-details', out);
@@ -424,6 +444,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/order/process', Requests.order.process);
     this.app.post('/error/message', Requests.error.message);
     this.app.post('/post/order', Requests.fragments.setupOrder);
+    this.app.post('/manage/ticket/reply', Requests.account.ticketreply);
     this.app.post('/manage/account', Requests.account.account.update);
     this.app.post('/manage/newticket', Requests.account.newticket.add);
     this.app.post('/manage/password', Requests.account.password.add);

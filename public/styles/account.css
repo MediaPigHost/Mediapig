@@ -673,7 +673,7 @@ form button:active {
 	box-shadow: 0 0 0 #354C5F;
 }
 
-form input, form textarea, form select {
+form input, form select {
 	height: 2.143em;
 	width: 60%;
 	margin-bottom: 1.071em;
@@ -917,6 +917,7 @@ td.last a .icon {
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
+	margin-right: 10px;
 }
 
 .reply .text-module {

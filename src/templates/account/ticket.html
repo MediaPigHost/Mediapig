@@ -35,12 +35,12 @@
 	</dl>
 	<span class="replies-label">Replies:</span>
 	<section class="replies clearfix">
-		{% for reply in ticket_details.replies %}
+		{% for reply in replies %}
 		<div class="reply">
 			<div class="author-profile">
 				<img src="https://www.gravatar.com/avatar/{{reply.gravatar}}" class="avatar" alt="Aleksi Tappura">
 				<div class="text-module">
-					<p class="author">Ticket Owners Name</p>
+					<p class="author">{{reply.name}}</p>
 					<p class="date">{{reply.date}}</p>
 				</div>
 			</div>
@@ -51,9 +51,11 @@
 		{% endfor %}
 
 		<div class="new-reply">
-			<form role="form"></form>
-			<textarea rows="10"></textarea>
-			<button type="submit">Submit reply</button>
+			<form role="form" method="post" action="/manage/ticket/reply">
+				<textarea rows="10" cols="40" name="message"></textarea>
+				<input type="hidden" name="ticket_id" value="{{ticket_id}}">
+				<button type="submit">Submit reply</button>
+			</form>
 			<a href="#" class="remove-ticket">Delete ticket</a>
 		</div>
 	</section>

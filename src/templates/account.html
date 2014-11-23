@@ -41,8 +41,10 @@
 </footer> -->
 <script charset="utf-8">
   var siteObj = {
-    section: 'account',
-    service_id: {{service_id}}
+    section: 'account'
+    {% if service_id %}
+    , service_id: {{service_id}}
+    {% endif %}
   }
 </script>
 <script src="{{site.url}}/js/curl.js"></script>
