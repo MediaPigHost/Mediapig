@@ -290,9 +290,10 @@ var Requests = function () {
                     if (body.token){
                       // If token exists then card exists so take payment from existing card.
                       body.redirect = true;
-                      var out = body;
+                      var out = extend(body, customer);
                       request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/process', body: body}, function (error, response, body) {
                         if (body.status !== 'fail'){
+                          console.log(out);
                           res.render('pages/card-details', out);
                         } else {
                           next();
