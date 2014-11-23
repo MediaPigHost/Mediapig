@@ -1,5 +1,5 @@
 var cfg = {
-  baseUrl: './js/',
+  baseUrl: '/js/',
   paths: {
     require: './require',
     helpers: 'helpers',
@@ -24,6 +24,13 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                 if (siteObj.pagetype === 'landing') {
                   curl('landing', function(landing){
                       landing.init();
+                  });
+
+                }
+
+                if (siteObj.section === 'account') {
+                  curl('account', function(account){
+                      account.init();
                   });
 
                 }

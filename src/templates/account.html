@@ -39,8 +39,13 @@
     <p>Copyright &copy; 2014 MediaPig.</p>
   </div>
 </footer> -->
-<script src="{{url}}/js/jquery.min.js"></script>
-<script src="{{url}}/js/account.js"></script>
+<script charset="utf-8">
+  var siteObj = {
+    section: 'account'
+  }
+</script>
+<script src="{{site.url}}/js/curl.js"></script>
+<script src="{{site.url}}/js/app.js"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
