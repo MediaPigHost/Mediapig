@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{url}}styles/account_mobile.css">
   <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  {% block blockingscripts %}{% endblock %}
 </head>
 <body class="{% block pageclass %}account-default{% endblock %}">
   <header>
@@ -40,5 +41,6 @@
 </footer> -->
 <script src="{{url}}/js/jquery.min.js"></script>
 <script src="{{url}}/js/account.js"></script>
+{% block scripts %}{% endblock %}
 </body>
 </html>

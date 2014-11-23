@@ -7,7 +7,7 @@
 	<div class="container">
 		<ul>
 			<li><a href="/manage">Account</a></li>
-			<li class="active">{{attributes.hostname.value}}</li>
+			<li class="active">Service</li>
 		</ul>
 	</div>
 </div>
@@ -33,7 +33,7 @@
 			<a href="/service/start" class="btn account"><i class="add-icon"></i>Start</a>
 		{% endif %}
 		<a href="/service/start" class="btn account"><i class="add-icon"></i>Restart</a>
-		<a href="/service/vnc" class="btn account"><i class="add-icon"></i>Console</a>
+		<a href="/service/vnc/{{service_id}}" class="btn account"><i class="add-icon"></i>Console</a>
 	</div>
 	<div class="overview">
 		<h3>General</h3>

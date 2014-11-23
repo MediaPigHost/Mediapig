@@ -1251,23 +1251,11 @@ td.last a .icon {
 	margin: 0 0 1.071em;
 }
 
-footer {
-	height: 5.000em;
-	position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #F2F2F2;
-}
-
-body.account-home footer, body.account-product footer {
-	background-color: #E4E4E4;
-}
-
-footer p {
-	margin: 0;
-	color: #999;
-	line-height: 5.000em;
+.console-container {
+	background-color: #EEE;
+	border-radius: 5px;
+	overflow: hidden;
+	margin-top: 50px;
 }
 
 

@@ -207,8 +207,8 @@ var Requests = function () {
             out.user = customer.user;
             console.log(out);
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/getdetails', body: out}, function (error, response, body) {
-                console.log(body);
                 if (body.status !== 'fail'){
+                  body['service_id'] = parseInt(req.params.serviceid);
                   var out = extend(data, body);
                   res.render('account/product', data);
                 } else {
@@ -267,6 +267,13 @@ var Requests = function () {
           },
           upgrade: function(req, res, next) {
             res.render('account/upgrade', data);
+          }
+        },
+        service : {
+          vnc : function(req, res, next) {
+            var service = { 'service_id' : parseInt(req.params.serviceid)};
+            var out = extend(data, service);
+            res.render('account/vnc', out);
           }
         },
         error: {
@@ -351,6 +358,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/support', Requests.account.support);
     this.app.get('/manage/ticket/:ticketid', Requests.account.ticket);
     this.app.get('/manage/upgrade', Requests.account.upgrade);
+    this.app.get('/service/vnc/:serviceid', Requests.service.vnc);
     this.app.get('/logout', Requests.account.logout);
     //this.app.get('/manage/:page', Requests.account.pages);
 
