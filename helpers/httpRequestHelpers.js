@@ -279,6 +279,23 @@ var Requests = function () {
                   }
               });
           },
+          ticketclose: function(req, res, next){
+              var out = { 'ticket_id' : parseInt(req.params.ticketid) },
+                  customer = customerValues(req, res),
+                  ticketid = out['ticket_id'];
+              out.door = customer.door;
+              out.user = customer.user;
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/closeticket', body: out}, function (error, response, body) {
+                  console.log(body);
+                  if (body.status !== 'fail'){
+                    body['ticket_id'] = parseInt(req.params.ticketid);
+                    var out = extend(data, body);
+                    res.redirect('/manage/ticket/' + ticketid);
+                  } else {
+                    res.redirect('/home');
+                  }
+              });
+          },
           upgrade: function(req, res, next) {
             res.render('account/upgrade', data);
           }
@@ -436,6 +453,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/subscriptions', Requests.account.subscriptions);
     this.app.get('/manage/support', Requests.account.support);
     this.app.get('/manage/ticket/:ticketid', Requests.account.ticket);
+    this.app.get('/manage/close/ticket/:ticketid', Requests.account.ticketclose);
     this.app.get('/manage/upgrade', Requests.account.upgrade);
     this.app.get('/service/vnc/:serviceid', Requests.service.vnc);
     this.app.get('/logout', Requests.account.logout);
