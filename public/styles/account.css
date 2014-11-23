@@ -675,7 +675,7 @@ form button:active {
 
 form input, form textarea, form select {
 	height: 2.143em;
-	width: 70%;
+	width: 60%;
 	margin-bottom: 1.071em;
 	padding: 0.714em 0.929em;
 	float: left;
