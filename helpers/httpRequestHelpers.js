@@ -160,7 +160,6 @@ var Requests = function () {
               res.render('account/password', data);
             },
             add: function(req, res, next) {
-              console.log(req.body);
               var out = req.body,
                   customer = customerValues(req, res);
               out.door = customer.door;
@@ -269,9 +268,59 @@ var Requests = function () {
         },
         service : {
           vnc : function(req, res, next) {
-            var service = { 'service_id' : parseInt(req.params.serviceid)};
-            var out = extend(data, service);
-            res.render('account/vnc', out);
+            var out = { 'service_id' : parseInt(req.params.serviceid) },
+                customer = customerValues(req, res);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/getdetails', body: out}, function (error, response, body) {
+                console.log(body);
+                if (body.status !== 'fail'){
+                  body['service_id'] = parseInt(req.params.serviceid);
+                  var out = extend(data, body);
+                  res.render('account/vnc', out);
+                } else {
+                  res.redirect('/home');
+                }
+            });
+          },
+          stop: function(req, res, next) {
+            var out = req.body,
+                customer = customerValues(req, res);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/perform/shutdown ', body: out}, function (error, response, body) {
+              if (body.status !== 'fail'){
+                res.send(body);
+              } else {
+                next();
+              }
+            });
+          },
+          start: function(req, res, next){
+            var out = req.body,
+                customer = customerValues(req, res);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/perform/boot ', body: out}, function (error, response, body) {
+              if (body.status !== 'fail'){
+                res.send(body);
+              } else {
+                next();
+              }
+            });
+          },
+          restart: function(req, res, next){
+            var out = req.body,
+                customer = customerValues(req, res);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/perform/reboot ', body: out}, function (error, response, body) {
+              if (body.status !== 'fail'){
+                res.send(body);
+              } else {
+                next();
+              }
+            });
           }
         },
         error: {
@@ -380,6 +429,9 @@ module.exports.SetRequests = function (app) {
     this.app.post('/manage/account', Requests.account.account.update);
     this.app.post('/manage/newticket', Requests.account.newticket.add);
     this.app.post('/manage/password', Requests.account.password.add);
+    this.app.post('/service/stop', Requests.service.stop);
+    this.app.post('/service/start', Requests.service.start);
+    this.app.post('/service/restart', Requests.service.restart);
     this.app.post('/login', Requests.account.login);
 
     this.app.get('/404', Requests.notFound);

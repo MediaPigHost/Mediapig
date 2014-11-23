@@ -350,6 +350,7 @@ body.account-home .top-head, body.account-product .top-head {
 .btn.account {
 	text-align: center;
 	color: #999;
+	position: relative;
 	display: inline-block;
 	background-color: #E7E7E7;
 	padding: .8em 1.3em;
@@ -363,6 +364,26 @@ body.account-home .top-head, body.account-product .top-head {
 	-ms-transition: all .2s;
 	-o-transition: all .2s;
 	transition: all .2s;
+}
+
+.btn.loading {
+	padding-left: 55px;
+}
+
+.btn .loading-image {
+	display: none
+}
+
+.btn.loading .loading-image {
+	width: 30px;
+	display: inline-block;
+	position: absolute;
+	left: 15px;
+	top: 7px;
+}
+
+.btn.hide {
+	display: none;
 }
 
 .service-add {
@@ -382,7 +403,8 @@ body.account-home .top-head, body.account-product .top-head {
 	border-radius: 50% 50%;
 }
 
-.server-status.active {
+.server-status.active,
+.server-status.online {
 	background-color: #71bf7c;
 }
 
@@ -1269,6 +1291,11 @@ td.last a .icon {
 	border-radius: 5px;
 	overflow: hidden;
 	margin-top: 50px;
+	padding: 25px;
+}
+
+.console-container canvas {
+	width: 100%;
 }
 
 

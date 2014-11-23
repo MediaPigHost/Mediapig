@@ -6,34 +6,34 @@
 }
 
 @media only screen and (max-width : 54.857em) {
-	table, 
-	thead, 
-	tbody, 
-	th, 
-	td, 
-	tr { 
-		display: block; 
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
 	}
- 
-	thead tr { 
+
+	thead tr {
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
 	}
- 
-	td { 
+
+	td {
 		border: none;
 		position: relative;
 		padding: 1.786em 1.071em 0.357em !important;
 		white-space: normal;
 		text-align: left;
 	}
- 
-	td:before { 
+
+	td:before {
 		position: absolute;
 		top: 0.357em;
 		left: 1.071em;
-		width: 45%; 
+		width: 45%;
 		padding-right: 0.714em;
 		white-space: nowrap;
 		text-align:left;
@@ -58,7 +58,7 @@
 	}
 
 	body {
-		font-size: 0.750em; 
+		font-size: 0.750em;
 	  -webkit-text-size-adjust: 0.750em;
 	  -ms-text-size-adjust: 0.750em;
 	}
@@ -70,7 +70,7 @@
     width: 100%;
     margin: 0;
   }
-  
+
   .method-modal__close, .upgrade-modal__close {
     display: block;
   }
@@ -145,4 +145,13 @@
   	margin: 0.357em 0 0;
   }
 
+	.btn.loading {
+		padding-left: 45px;
+	}
+
+	.btn.loading .loading-image {
+		width: 25px;
+		left: 10px;
+		top: 5px;
+	}
 }

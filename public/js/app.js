@@ -7,13 +7,30 @@ var cfg = {
     pubsub: 'pubsub',
     slide: 'slide'
   }
-}
+},
+app;
 
 curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (require, helpers, microAjax, pubsub, slide) {
         var configOrder = {};
 
         var site = {
             init: function () {
+
+                app = {
+                    help: helpers,
+                    ajax: microAjax,
+                    publish: pubsub.publish,
+                    subscribe: pubsub.subscribe,
+                    unsubscribe: pubsub.unsubscribe,
+                    slide: slide
+                };
+
+                var dom = {
+                    overlayClose: document.getElementById('overlay-close'),
+                    overlayContent: document.getElementById('overlay-content'),
+                    body: document.getElementsByTagName('body')
+                };
+
 
                 if (siteObj.pagetype === 'order') {
                   curl('order', function(order){
@@ -34,21 +51,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                   });
 
                 }
-
-                var app = {
-                    help: helpers,
-                    ajax: microAjax,
-                    publish: pubsub.publish,
-                    subscribe: pubsub.subscribe,
-                    unsubscribe: pubsub.unsubscribe,
-                    slide: slide
-                };
-
-                var dom = {
-                    overlayClose: document.getElementById('overlay-close'),
-                    overlayContent: document.getElementById('overlay-content'),
-                    body: document.getElementsByTagName('body')
-                };
 
                 site.events(app, dom);
             },
