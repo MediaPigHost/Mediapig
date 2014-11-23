@@ -350,7 +350,6 @@ body.account-home .top-head, body.account-product .top-head {
 .btn.account {
 	text-align: center;
 	color: #999;
-	position: relative;
 	display: inline-block;
 	background-color: #E7E7E7;
 	padding: .8em 1.3em;
@@ -368,6 +367,7 @@ body.account-home .top-head, body.account-product .top-head {
 
 .btn.loading {
 	padding-left: 55px;
+	position: relative;
 }
 
 .btn .loading-image {
