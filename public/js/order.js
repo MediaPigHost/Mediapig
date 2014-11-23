@@ -6,7 +6,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
     },
     startPurchase : function(){
       helpers.postJSON(siteObj.orderConfig, window.location.origin + '/post/order', function (xhr) {
-          if (document.getElementsByClassName('pending-redirect')){
+          if (document.getElementsByClassName('pending-redirect').length){
             window.location.href = '/manage';
             return false;
           }
