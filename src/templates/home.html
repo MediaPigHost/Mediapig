@@ -30,10 +30,11 @@
         <div class="right">
           <ul>
             <li><a href="" class="active">Home</a></li>
-            <li><a class="overlay-trigger" href="#">Place an order</a></li>
             {% if logged_in %}
+              <li><a href="/order">New service</a></li>
               <li><a href="/manage">Manage</a></li>
             {% else %}
+              <li><a class="overlay-trigger" href="#">Place an order</a></li>
               <li><a href="/signin" class="signin-btn">Sign in</a></li>
             {% endif %}
           </ul>
@@ -44,7 +45,11 @@
           <h1>Hosting without the hassle.</h1>
           <h2 class="sub">Simple, affordable VPS hosting is just the beginning. <a href="#" class="highlight-anchor">Learn why.</a></h2>
         </hgroup>
-        <a href="#" class="btn large overlay-trigger">Get started now</a>
+        {% if logged_in %}
+          <a href="/order" class="btn large">Get started now</a>
+        {% else %}
+          <a href="#" class="btn large overlay-trigger">Get started now</a>
+        {% endif %}
       </article>
     </div>
     <div class="overlay">
@@ -143,20 +148,24 @@
             <p>Gaming.fo</p>
           </cite>
         </blockquote>
-        <div class="testimonials-pagination">
+        <!-- <div class="testimonials-pagination">
           <p>
             <span class="active"><img src="../images/testimonials_dot.svg"></span>
             <span><img src="../images/testimonials_dot.svg"></span>
             <span><img src="../images/testimonials_dot.svg"></span>
           </p>
-        </div>
+        </div> -->
       </div>
     </section>
     <section class="dark-section call-to-action">
       <div class="wrap">
         <h2>Upgrade your hosting now!</h2>
         <h3>And start getting everything you want from hosting <br />without the hassle.</h3>
-        <a class="btn large overlay-trigger" href="#">Get started now</a>
+        {% if logged_in %}
+          <a href="/order" class="btn large">Get started now</a>
+        {% else %}
+          <a href="#" class="btn large overlay-trigger">Get started now</a>
+        {% endif %}
       </div>
     </section>
     <footer class="footer">
