@@ -34,6 +34,12 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         window.location.href = target.getAttribute('data-href');
       });
 
+      helpers.addEventListenerByClass('ticket-line', 'click', function(e){
+        e.preventDefault();
+        var target = e.currentTarget;
+        window.location.href = target.getAttribute('data-href');
+      });
+
       if(startService){
         startService.addEventListener('click', function (e) {
           e.preventDefault();

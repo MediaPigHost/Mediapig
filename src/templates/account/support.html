@@ -25,20 +25,16 @@
 					<th class="first">Number</th>
 					<th>Subject</th>
 					<th>Status</th>
-					<th>Last updated</th>
-					<th class="last">Details</th>
+					<th class="last">Last updated</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for ticket in tickets %}
-					<tr>
+					<tr class="ticket-line" data-href="/manage/ticket/{{ticket.id}}">
 						<td class="first" data-title="Number">#{{ticket.id}}</td>
 						<td data-title="Subject">{{ticket.title}}</td>
 						<td data-title="Status"><span class="badge {{ticket.status|lower|replace(' ', '-', 'g')}}">{{ticket.status}}</span></td>
-						<td data-title="Last updated">{{ticket.timestamp}}</td>
-						<td class="last" data-title="Details">
-							<a href="ticket/{{ticket.id}}"><img src="../images/ticket_grey.svg" class="icon">View ticket</a>
-						</td>
+						<td class="last" data-title="Last updated">{{ticket.timestamp}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

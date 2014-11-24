@@ -1305,7 +1305,8 @@ td.last a .icon {
 	color: #666;
 }
 
-.invoice-line {
+.invoice-line,
+.ticket-line {
 	cursor: pointer;
 	-webkit-transition: all 1s;
 	-o-transition: all 1s;
@@ -1313,7 +1314,8 @@ td.last a .icon {
 	margin: 10px 0;
 }
 
-.invoice-line:hover {
+.invoice-line:hover,
+.ticket-line:hover {
 	background-color: #FEFEFE;
 	color: #000;
 }
