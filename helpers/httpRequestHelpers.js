@@ -28,7 +28,9 @@ var Requests = function () {
       if (cookies.key && cookies.user) {
         return customer;
       } else {
-        res.redirect('/home');
+        if (req.url != '/home'){
+          res.redirect('/home');
+        }
         return false;
       }
     }
@@ -61,13 +63,20 @@ var Requests = function () {
 
     return {
         index: function(req, res){
-            res.render('index', data);
+          res.render('index', data);
         },
         home: function(req, res){
-            res.render('home', data);
+          var customer = customerValues(req, res);
+          if (customer){
+            var out = extend({'logged_in' : true}, data);
+          } else {
+            var out = data;
+          }
+          console.log(out);
+          res.render('home', out);
         },
         page: function(req, res){
-            res.render('pages/' + req.params.page, data);
+          res.render('pages/' + req.params.page, data);
         },
         account : {
           login: function(req, res, next){

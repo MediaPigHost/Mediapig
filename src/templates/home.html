@@ -31,7 +31,11 @@
           <ul>
             <li><a href="" class="active">Home</a></li>
             <li><a class="overlay-trigger" href="#">Place an order</a></li>
-            <li><a href="/signin" class="signin-btn">Sign in</a></li>
+            {% if logged_in %}
+              <li><a href="/manage">Manage</a></li>
+            {% else %}
+              <li><a href="/signin" class="signin-btn">Sign in</a></li>
+            {% endif %}
           </ul>
         </div>
       </header>
