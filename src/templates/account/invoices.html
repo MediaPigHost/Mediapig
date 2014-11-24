@@ -34,7 +34,7 @@
     <tbody>
       {% for invoice in invoices %}
       <tr>
-        <td class="first" data-title="Number">{{invoice.id}}</td>
+        <td class="first" data-title="Number"><a href="/manage/invoice/{{invoice.id}}">{{invoice.id}}</a></td>
         <td data-title="Date">{{invoice.date}}</td>
         <td data-title="Due">{{invoice.paid}}</td>
         <td data-title="Paid">{{invoice.paid}}</td>

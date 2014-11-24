@@ -197,6 +197,26 @@ var Requests = function () {
                 }
             });
           },
+          invoice : {
+            read: function(req, res, next) {
+                var invoiceid =  parseInt(req.params.invoiceid),
+                    out = { 'invoice_id' : invoiceid },
+                    customer = customerValues(req, res);
+                out.door = customer.door;
+                out.user = customer.user;
+
+                request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/invoice/showinvoice', body: out}, function (error, response, body) {
+                    console.log(body);
+                    if (body.status !== 'fail'){
+                      body['invoice_id'] = invoiceid;
+                      var out = extend(data, body);
+                      res.render('account/invoice', data);
+                    } else {
+                      res.redirect('/home');
+                    }
+                });
+            }
+          },
           product: function(req, res, next) {
             var out = { 'service_id' : parseInt(req.params.serviceid) },
                 customer = customerValues(req, res);
@@ -207,7 +227,7 @@ var Requests = function () {
                 if (body.status !== 'fail'){
                   body['service_id'] = parseInt(req.params.serviceid);
                   var out = extend(data, body);
-                  res.render('account/product', data);
+                  res.render('account/product', out);
                 } else {
                   res.redirect('/home');
                 }
@@ -449,6 +469,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/password', Requests.account.password.read);
     this.app.get('/manage/payment', Requests.account.payment);
     this.app.get('/manage/invoices', Requests.account.invoices);
+    this.app.get('/manage/invoice/:invoiceid', Requests.account.invoice.read);
     this.app.get('/manage/product/:serviceid', Requests.account.product);
     this.app.get('/manage/subscriptions', Requests.account.subscriptions);
     this.app.get('/manage/support', Requests.account.support);

@@ -1297,6 +1297,17 @@ td.last a .icon {
 	border-radius: 5px;
 }
 
+.invoice-price {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	color: #666;
+}
+
+.invoice-price h2 {
+	font-weight: 200;
+}
+
 @-webkit-keyframes flash {
 	0% { opacity: 1; }
 	50% { opacity: 0.6; }

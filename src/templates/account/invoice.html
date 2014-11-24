@@ -1,0 +1,34 @@
+{% extends "../account.html" %}
+
+{% block content %}
+<div class="breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/manage">Account</a></li>
+      <li><a href="/manage/invoices">Account</a></li>
+      <li class="active">Invoice #{{invoice_id}}</li>
+    </ul>
+  </div>
+</div>
+<div class="top-head">
+  <div class="container">
+    <h2>Invoice #{{invoice_id}}</h2>
+    <h3>Details</h3>
+    <div class="invoice-price">
+      <h2>Total: £{{invoice_details.details.total_cost}}</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  {{invoice_details.details.total_cost}}
+  {{invoice_details.details.created}}
+  {{invoice_details.details.due}}
+  {{invoice_details.details.paid}}
+  {{invoice_details.details.status}}
+  {% for line in invoice_details.lines %}
+    {{line.description}}
+    {{line.cost}}
+    {{line.service_id}}
+  {% endfor %}
+</div>
+{% endblock %}
