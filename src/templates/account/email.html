@@ -1,0 +1,47 @@
+{% extends "../account.html" %}
+
+{% block content %}
+<div class="breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/manage">Account</a></li>
+      <li class="active">Settings</li>
+    </ul>
+  </div>
+</div>
+<div class="top-head">
+  <div class="container">
+    <h2>Settings</h2>
+    <h3>Change email</h3>
+  </div>
+</div>
+<div class="container clearfix">
+  <ul class="tab-nav">
+    <li><a href="/manage/account">General</a></li>
+    <li><a href="/manage/email" class="active">Change email</a></li>
+    <li><a href="/manage/password">Change password</a></li>
+  </ul>
+  {% if status == 'error' %}
+    {% for key, val in errors %}
+    <div class="notification clearfix" id="panel">
+      <a href="#" class="remove" id="remove" title="Mark as read"><img src="{{url}}/images/remove.svg"></a>
+      <p>{{val}}</p>
+    </div>
+    {% endfor %}
+  {% endif %}
+  <div class="generalform clearfix">
+    <h3>General</h3>
+    <form role="form" action="/manage/email" method="post" class="account-form">
+      <div class="formgroup clearfix">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{email}}">
+      </div>
+      <div class="formgroup clearfix">
+        <label for="password">Confirm password:</label>
+        <input type="password" name="password" id="password" value="{{email}}">
+      </div>
+      <button type="submit">Change email</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

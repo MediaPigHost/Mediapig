@@ -183,6 +183,25 @@ var Requests = function () {
               });
             }
           },
+          email: {
+            read: function(req, res, next) {
+              res.render('account/email', data);
+            },
+            add: function(req, res, next) {
+              var out = req.body,
+                  customer = customerValues(req, res);
+              out.door = customer.door;
+              out.user = customer.user;
+              request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/updateemail', body: out}, function (error, response, body) {
+                  if (body.status !== 'fail'){
+                    var out = extend(data, body);
+                    res.render('account/email', out);
+                  } else {
+                    next();
+                  }
+              });
+            }
+          },
           payment: function(req, res, next) {
             var customer = customerValues(req, res);
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/payment/listpayments', body: customer}, function (error, response, body) {
@@ -476,6 +495,7 @@ module.exports.SetRequests = function (app) {
     this.app.get('/manage/methods', Requests.account.methods);
     this.app.get('/manage/newticket', Requests.account.newticket.read);
     this.app.get('/manage/password', Requests.account.password.read);
+    this.app.get('/manage/email', Requests.account.email.read);
     this.app.get('/manage/payment', Requests.account.payment);
     this.app.get('/manage/invoices', Requests.account.invoices);
     this.app.get('/manage/invoice/:invoiceid', Requests.account.invoice.read);
@@ -496,6 +516,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/manage/account', Requests.account.account.update);
     this.app.post('/manage/newticket', Requests.account.newticket.add);
     this.app.post('/manage/password', Requests.account.password.add);
+    this.app.post('/manage/email', Requests.account.email.add);
     this.app.post('/service/stop', Requests.service.stop);
     this.app.post('/service/start', Requests.service.start);
     this.app.post('/service/restart', Requests.service.restart);
