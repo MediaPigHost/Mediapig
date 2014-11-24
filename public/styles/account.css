@@ -1305,6 +1305,19 @@ td.last a .icon {
 	color: #666;
 }
 
+.invoice-line {
+	cursor: pointer;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+	margin: 10px 0;
+}
+
+.invoice-line:hover {
+	background-color: #FEFEFE;
+	color: #000;
+}
+
 .invoice-price h2 {
 	font-weight: 200;
 }

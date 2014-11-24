@@ -28,6 +28,12 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         });
       }
 
+      helpers.addEventListenerByClass('invoice-line', 'click', function(e){
+        e.preventDefault();
+        var target = e.currentTarget;
+        window.location.href = target.getAttribute('data-href');
+      });
+
       if(startService){
         startService.addEventListener('click', function (e) {
           e.preventDefault();
