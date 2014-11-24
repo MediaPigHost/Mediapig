@@ -31,7 +31,7 @@
 		<dd>{{ticket_details.message}}</dd>
 
 		<dt>Status:</dt>
-		<dd><span class="badge {{ticket_details.status|lower}}">{{ticket_details.status}}</span></dd>
+		<dd><span class="badge {{ticket_details.status|lower|replace(' ', '-', 'g')}}">{{ticket_details.status}}</span></dd>
 
 		<dt>Last updated:</dt>
 		<dd>{{ticket_details.date}}</dd>
