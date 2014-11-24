@@ -24,7 +24,6 @@
 				<tr>
 					<th class="first">Number</th>
 					<th>Subject</th>
-					<th>Product</th>
 					<th>Status</th>
 					<th>Last updated</th>
 					<th class="last">Details</th>
@@ -35,7 +34,6 @@
 					<tr>
 						<td class="first" data-title="Number">#{{ticket.id}}</td>
 						<td data-title="Subject">{{ticket.title}}</td>
-						<td data-title="Product">{{ticket.service}}</td>
 						<td data-title="Status"><span class="badge {{ticket.status|lower|replace(' ', '-', 'g')}}">{{ticket.status}}</span></td>
 						<td data-title="Last updated">{{ticket.timestamp}}</td>
 						<td class="last" data-title="Details">
