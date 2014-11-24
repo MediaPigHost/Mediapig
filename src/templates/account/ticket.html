@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		{% endfor %}
-
+		{% if ticket_details.status|lower != 'closed' %}
 		<div class="new-reply">
 			<form role="form" method="post" action="/manage/ticket/reply">
 				<textarea rows="10" cols="40" name="message"></textarea>
@@ -61,6 +61,7 @@
 			</form>
 			<a href="#" class="remove-ticket">Delete ticket</a>
 		</div>
+		{% endif %}
 	</section>
 </div>
 {% endblock %}
