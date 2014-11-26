@@ -91,6 +91,20 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     });
                 });
 
+                app.subscribe("/view/signin/loaded", function(flag) {
+                  if (flag === true) {
+                    var signin = document.getElementById('signin');
+                    signin.addEventListener('submit', function(e){
+                      e.preventDefault();
+                      var signin = document.getElementById('signin');
+                      app.help.postJSON({ "ajax" : true, "email" : signin.elements.namedItem("email").value, "password" : signin.elements.namedItem("password").value }, window.location.origin + '/login', function (xhr) {
+                        var errors = JSON.parse(xhr.response);
+                        app.publish('/message/error', errors.errors);
+                      });
+                    });
+                  }
+                });
+
                 app.subscribe("/view/register/loaded", function (flag) {
 
                     if (flag === true) {
@@ -161,7 +175,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
 
                         if (res.errors) {
                             app.publish('/form/register/update', 'fail');
-                            app.publish('/message/error', res.errors)
+                            app.publish('/message/error', res.errors);
                         }
                         else {
                             window.location.href = '/order';

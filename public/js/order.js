@@ -6,65 +6,69 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
     },
     startPurchase : function(){
       helpers.postJSON(siteObj.orderConfig, window.location.origin + '/post/order', function (xhr) {
-          if (document.getElementsByClassName('pending-redirect').length){
+          if (xhr.response === 'redirect'){
             window.location.href = '/manage';
             return false;
+          } else {
+            var overlay = document.getElementById("overlay-content");
+            overlay.innerHTML += xhr.response;
+            helpers.removeClass(overlay.parentNode, 'overlay-loading');
+
+            var invoiceID = document.getElementById('invoice_id').getAttribute('value');
+            stripe = new helpers.stripe();
+            stripe.setInvoiceID(invoiceID);
+            var form = document.getElementById('cardDetails');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                var submitEl = document.getElementById('submitCardDetails');
+                if (submitEl.className.indexOf('disabled') > -1) {
+                    return;
+                }
+
+                submitEl.className += ' disabled';
+
+                var formElements = form.elements;
+                stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
+                var cardDetails = {};
+
+                for (var i = 0, length = formElements.length; i < length; i++) {
+                    if (formElements[i].type !== "submit") {
+                        cardDetails[formElements[i].name] = formElements[i].value;
+                    }
+                }
+
+                stripe.createToken(cardDetails, function (status, response) {
+                    if (status === 200) {
+                        var token = response.id;
+
+                        var orderDetails = {
+                            invoice_id: +stripe.getInvoiceID(),
+                            token: token,
+                            first_name: cardDetails.firstname,
+                            last_name: cardDetails.surname
+                        };
+
+                        helpers.postJSON(orderDetails, '/order/process', function (res) {
+                            var response = JSON.parse(res.response);
+
+                            if (response.status === 'success') {
+                                window.location.href = '/manage';
+                            } else {
+                                submitEl.className = submitEl.className.replace(/(?:^|\s)disabled(?!\S)/, '');
+                                app.publish('/message/error', response.errors.stripe);
+                            }
+                        });
+                    }
+                    else {
+                        submitEl.className = submitEl.className.replace(/(?:^|\s)disabled(?!\S)/, '');
+                        app.publish('/message/error', "Incorrect card details - Please check again!");
+                    }
+                }, function(status, response){
+                  document.getElementById('card-details-form-error').innerHTML = 'Error - Check logs for now.';
+                });
+            });
           }
-          var overlay = document.getElementById("overlay-content");
-          overlay.innerHTML += xhr.response;
-          helpers.removeClass(overlay.parentNode, 'overlay-loading');
-
-          var invoiceID = document.getElementById('invoice_id').getAttribute('value');
-          stripe = new helpers.stripe();
-          stripe.setInvoiceID(invoiceID);
-
-          helpers.addEventListenerByClass('submit-card-details', 'click', function (event) {
-              event.preventDefault();
-
-              if (event.currentTarget.className.indexOf('disabled') > -1) {
-                  return;
-              }
-
-              event.currentTarget.className += ' disabled';
-
-              var formElements = document.getElementById("cardDetails").elements;
-              stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
-              var cardDetails = {};
-
-              for (var i = 0, length = formElements.length; i < length; i++) {
-                  if (formElements[i].type !== "submit") {
-                      cardDetails[formElements[i].name] = formElements[i].value;
-                  }
-              }
-
-              stripe.createToken(cardDetails, function (status, response) {
-                  if (status === 200) {
-                      var token = response.id;
-
-                      var orderDetails = {
-                          invoice_id: +stripe.getInvoiceID(),
-                          token: token,
-                          first_name: cardDetails.firstname,
-                          last_name: cardDetails.surname
-                      };
-
-                      helpers.postJSON(orderDetails, '/order/process', function (res) {
-                          var response = JSON.parse(res.response);
-
-                          if (response.status === 'success') {
-                              window.location.href = '/manage';
-                          } else {
-                              event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
-                          }
-                      });
-                  }
-                  else {
-                      event.target.className = event.target.className.replace(/(?:^|\s)disabled(?!\S)/, '');
-                  }
-              }, function(status, response){
-                document.getElementById('card-details-form-error').innerHTML = 'Error - Check logs for now.';
-              });
-          });
       });
     },
     createOrder: function(){

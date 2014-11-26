@@ -28,37 +28,13 @@ var Requests = function () {
       if (cookies.key && cookies.user) {
         return customer;
       } else {
+        res.clearCookie('key');
+        res.clearCookie('user');
         if (req.url != '/home'){
           res.redirect('/home');
         }
         return false;
       }
-    }
-
-    function validCustomer (req, successCallback, errorCallback) {
-      var cookies = parseCookies(req);
-      var validity = request('https://api.mediapig.co.uk/index.php?/user/checksessionkey/' + cookies.key, function (error, response, customer) {
-        if (!error && response.statusCode == 200) {
-
-            var customer = JSON.parse(customer);
-            customer.door = cookies.key;
-            if (customer.user === false) {
-              if (typeof errorCallback === 'undefined'){
-                return false;
-              } else {
-                errorCallback();
-              }
-            } else {
-              if (typeof successCallback === 'undefined'){
-                return true;
-              } else {
-                successCallback(customer);
-              }
-            }
-        }
-      });
-
-      return validity;
     }
 
     return {
@@ -85,7 +61,7 @@ var Requests = function () {
                   res.cookie('user', body.user);
                   res.redirect('/manage');
                 } else {
-                  res.redirect('/home');
+                  res.send(body);
                 }
             });
           },
@@ -100,6 +76,7 @@ var Requests = function () {
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
+                    console.log(out);
                     res.render('account/account', out);
                   } else {
                     res.redirect('/home');
@@ -393,6 +370,7 @@ var Requests = function () {
         },
         error: {
             message: function(req, res, next) {
+                console.log(req.body);
                 res.render('pages/error', req.body);
             }
         },
@@ -410,7 +388,7 @@ var Requests = function () {
                       var out = extend(body, customer);
                       request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/process', body: body}, function (error, response, body) {
                         if (body.status !== 'fail'){
-                          res.render('pages/card-details', out);
+                          res.send('redirect');
                         } else {
                           next();
                         }

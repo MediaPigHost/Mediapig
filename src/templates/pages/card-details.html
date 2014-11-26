@@ -10,18 +10,18 @@
           <h2>Please, add your credit card</h2>
           <div class="name first-name">
             <label>First Name</label>
-            <input name="firstname" type="text" name="text" placeholder="John" />
+            <input name="firstname" type="text" name="text" placeholder="John" autofocus required/>
           </div>
           <div class="name">
             <label>Surname</label>
-            <input name="surname" type="text" name="text" placeholder="Doe" />
+            <input name="surname" type="text" name="text" placeholder="Doe" required />
           </div>
           <label>Card number</label>
-          <input type="text" name="number" placeholder="1234 5678 9123 4567" />
+          <input type="text" name="number" pattern="[0-9]{13,16}" title="Card number (No spaces no dashes)" required placeholder="1234 5678 9123 4567" />
           <label>3-digit CVC</label>
-          <input type="text" name="cvc" placeholder="123" />
+          <input class="cc" type="text" name="cvc" pattern="[0-9]{3,4}" title="CVC (3 or 4 Digit Security Code)" required placeholder="123" />
           <label>Expiration date</label>
-          <select class="first" id="cardExpiryMonth" name="exp_month">
+          <select class="first" id="cardExpiryMonth" name="exp_month" required>
               <option value="9999" disabled selected>Month</option>
               <option value="1">01</option>
               <option value="2">02</option>
@@ -36,7 +36,7 @@
               <option value="11">11</option>
               <option value="12">12</option>
           </select>
-          <select id="cardExpiryYear" name="exp_year">
+          <select id="cardExpiryYear" name="exp_year" required>
               <option value="9999" disabled selected>Year</option>
               <option value="2014">2014</option>
               <option value="2015">2015</option>

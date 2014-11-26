@@ -2,9 +2,9 @@
 	<h2>Sign in to your account</h2>
   <form id="signin" action="/login" method="post">
   	<label>Email</label>
-    <input type="email" name="email" placeholder="email@example.com" />
+    <input type="email" id="email" name="email" placeholder="email@example.com" required />
     <label>Password</label>
-    <input type="password" name="password" placeholder="" />
+    <input type="password" id="password" name="password" required placeholder="" />
     <input type="submit" id="login-button" class="btn large" value="Sign in">
     <a href="#">Forgot Password?</a>
   </form>
