@@ -13,22 +13,30 @@
 <div class="top-head">
   <div class="container">
     <h2>Invoice #{{invoice_id}}</h2>
-    <h3>Details</h3>
+    <h3>Status: <span class="invoice-status {{invoice_details.details.status|lower|replace(' ', '-', 'g')}}"></span>{{invoice_details.details.status}}</h3>
     <div class="invoice-price">
       <h2>Total: £{{invoice_details.details.total_cost}}</h2>
     </div>
   </div>
 </div>
 <div class="container">
-  {{invoice_details.details.total_cost}}
-  {{invoice_details.details.created}}
-  {{invoice_details.details.due}}
-  {{invoice_details.details.paid}}
-  {{invoice_details.details.status}}
-  {% for line in invoice_details.lines %}
-    {{line.description}}
-    {{line.cost}}
-    {{line.service_id}}
-  {% endfor %}
+  <span class="invoice-meta"> Due Date: {{invoice_details.details.due}} </span>
+  <span class="invoice-meta"> Paid Date: {{invoice_details.details.paid}} </span>
+  <table class="invoice-table">
+    <thead>
+      <tr>
+        <th class="first">Description</th>
+        <th class="last cost">Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for line in invoice_details.lines %}
+        <tr class="invoice-service-line">
+          <td class="first">{{line.description}}</td>
+          <td class="last cost">{{line.cost}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}

@@ -395,7 +395,21 @@ body.account-home .top-head, body.account-product .top-head {
 	margin-right: 0;
 }
 
-.server-status {
+span.invoice-meta {
+	display: inline-block;
+	padding: 12px;
+	border-radius: 5px;
+	background-color: rgb(242, 242, 242);
+	margin-top: 40px;
+	margin-right: 10px;
+}
+
+.invoice-status {
+	margin: 0 5px;
+}
+
+.server-status,
+.invoice-status {
 	display: inline-block;
 	width: 10px;
 	height: 10px;
@@ -404,9 +418,12 @@ body.account-home .top-head, body.account-product .top-head {
 }
 
 .server-status.active,
-.server-status.online {
+.server-status.online,
+.invoice-status.paid {
 	background-color: #71bf7c;
 }
+
+
 
 .btn.account:active {
 	-webkit-transform: translateY(4px);
@@ -739,7 +756,8 @@ form .file label {
 	margin-bottom: 1.429em;
 }
 
-.tickets {
+.tickets,
+.invoice-table {
 	width: 100%;
 	margin-top: 2.143em;
 	padding-bottom: 4.286em;
@@ -747,22 +765,29 @@ form .file label {
   border-spacing: 0;
 }
 
-.tickets thead {
+.tickets thead,
+.invoice-table thead {
 	text-align: left;
 	color: #333;
-	background-color: #F2F2F2;
 }
 
 thead th {
 	font-weight: 600;
 }
 
-.tickets tbody {
+.tickets tbody,
+.invoice-table tbody {
 	color: #666;
 }
 
-.tickets td, .tickets th {
+.tickets td, .tickets th,
+.invoice-table td, .invoice-table th {
 	padding: 1.071em;
+}
+
+.invoice-table td, .invoice-table th {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 td.first, th.first {
@@ -1301,7 +1326,7 @@ td.last a .icon {
 .invoice-price {
 	position: absolute;
 	top: 20px;
-	right: 0;
+	right: 30px;
 	color: #666;
 }
 
@@ -1316,8 +1341,12 @@ td.last a .icon {
 
 .invoice-line:hover,
 .ticket-line:hover {
-	background-color: #FEFEFE;
+	background-color: #F4F4F4;
 	color: #000;
+}
+
+.invoice-table .cost {
+	text-align: right;
 }
 
 .invoice-price h2 {

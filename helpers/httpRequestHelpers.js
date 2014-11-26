@@ -72,7 +72,6 @@ var Requests = function () {
           } else {
             var out = data;
           }
-          console.log(out);
           res.render('home', out);
         },
         page: function(req, res){
@@ -101,7 +100,6 @@ var Requests = function () {
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
-                    console.log(out);
                     res.render('account/account', out);
                   } else {
                     res.redirect('/home');
@@ -130,7 +128,6 @@ var Requests = function () {
             out.user = customer.user;
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/getusercards', body: customer}, function (error, response, body) {
               if (body.status !== 'fail'){
-                console.log(body);
                 var out = extend(data, body);
                 res.render('account/methods', out);
               } else {
@@ -206,7 +203,6 @@ var Requests = function () {
             var customer = customerValues(req, res);
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/payment/listpayments', body: customer}, function (error, response, body) {
                 if (body.status !== 'fail'){
-                  console.log(body);
                   var out = extend(data, { payments: body });
                   res.render('account/payment', out);
                 } else {
@@ -234,7 +230,6 @@ var Requests = function () {
                 out.user = customer.user;
 
                 request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/invoice/showinvoice', body: out}, function (error, response, body) {
-                    console.log(body);
                     if (body.status !== 'fail'){
                       body['invoice_id'] = invoiceid;
                       var out = extend(data, body);
@@ -250,7 +245,6 @@ var Requests = function () {
                 customer = customerValues(req, res);
             out.door = customer.door;
             out.user = customer.user;
-            console.log(out);
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/getdetails', body: out}, function (error, response, body) {
                 if (body.status !== 'fail'){
                   body['service_id'] = parseInt(req.params.serviceid);
@@ -266,13 +260,10 @@ var Requests = function () {
           },
           home: function(req, res, next){
               var customer = customerValues(req, res);
-              console.log('customer: %s', customer);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/read', body: customer}, function (error, response, body) {
-                  console.log(body);
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
                     request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/listservices', body: customer}, function(error, response, body){
-                      console.log(body);
                       if (body.status !== 'fail'){
                         out.services = body.services;
                         res.render('account/home', out);
@@ -299,9 +290,7 @@ var Requests = function () {
                   customer = customerValues(req, res);
               out.door = customer.door;
               out.user = customer.user;
-              console.log(out);
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/getticket', body: out}, function (error, response, body) {
-                  console.log(body);
                   if (body.status !== 'fail'){
                     body['ticket_id'] = parseInt(req.params.ticketid);
                     var out = extend(data, body);
@@ -318,7 +307,6 @@ var Requests = function () {
               out.door = customer.door;
               out.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/reply', body: out}, function (error, response, body) {
-                  console.log(customer);
                   if (body.status !== 'fail'){
                     var out = extend(data, body);
                     res.redirect('/manage/ticket/' + ticketid);
@@ -334,7 +322,6 @@ var Requests = function () {
               out.door = customer.door;
               out.user = customer.user;
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/ticket/closeticket', body: out}, function (error, response, body) {
-                  console.log(body);
                   if (body.status !== 'fail'){
                     body['ticket_id'] = parseInt(req.params.ticketid);
                     var out = extend(data, body);
@@ -355,7 +342,6 @@ var Requests = function () {
             out.door = customer.door;
             out.user = customer.user;
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/service/getdetails', body: out}, function (error, response, body) {
-                console.log(body);
                 if (body.status !== 'fail'){
                   body['service_id'] = parseInt(req.params.serviceid);
                   var out = extend(data, body);
@@ -423,9 +409,7 @@ var Requests = function () {
                       body.redirect = true;
                       var out = extend(body, customer);
                       request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/process', body: body}, function (error, response, body) {
-                        console.log(body);
                         if (body.status !== 'fail'){
-                          console.log(out);
                           res.render('pages/card-details', out);
                         } else {
                           next();
@@ -464,7 +448,6 @@ var Requests = function () {
               if (body.status !== 'fail') {
                 res.send(body);
               } else {
-                console.log(body);
                 next();
               }
             });
