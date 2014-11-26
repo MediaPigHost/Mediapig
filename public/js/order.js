@@ -29,7 +29,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
                 submitEl.className += ' disabled';
 
                 var formElements = form.elements;
-                stripe.setKey('pk_test_bszr3bswqa8VHE9zcaah6dhN');
+                stripe.setKey('pk_live_J61gKzscdY3Rxtctc7Uyi0Rb');
                 var cardDetails = {};
 
                 for (var i = 0, length = formElements.length; i < length; i++) {

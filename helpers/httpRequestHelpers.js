@@ -30,17 +30,14 @@ var Requests = function () {
       } else {
         res.clearCookie('key');
         res.clearCookie('user');
-        if (req.url != '/home'){
-          res.redirect('/home');
+        if (req.url != '/'){
+          res.redirect('/');
         }
         return false;
       }
     }
 
     return {
-        index: function(req, res){
-          res.render('index', data);
-        },
         home: function(req, res){
           var customer = customerValues(req, res);
           if (customer){
@@ -68,7 +65,7 @@ var Requests = function () {
           logout: function(req, res, next){
             res.clearCookie('key');
             res.clearCookie('user');
-            res.redirect('/home');
+            res.redirect('/');
           },
           account: {
             read: function(req, res, next) {
@@ -79,7 +76,7 @@ var Requests = function () {
                     console.log(out);
                     res.render('account/account', out);
                   } else {
-                    res.redirect('/home');
+                    res.redirect('/');
                   }
               });
             },
@@ -183,7 +180,7 @@ var Requests = function () {
                   var out = extend(data, { payments: body });
                   res.render('account/payment', out);
                 } else {
-                  res.redirect('/home');
+                  res.redirect('/');
                 }
             });
           },
@@ -194,7 +191,7 @@ var Requests = function () {
                   var out = extend(data, body);
                   res.render('account/invoices', out);
                 } else {
-                  res.redirect('/home');
+                  res.redirect('/');
                 }
             });
           },
@@ -212,7 +209,7 @@ var Requests = function () {
                       var out = extend(data, body);
                       res.render('account/invoice', data);
                     } else {
-                      res.redirect('/home');
+                      res.redirect('/');
                     }
                 });
             }
@@ -228,7 +225,7 @@ var Requests = function () {
                   var out = extend(data, body);
                   res.render('account/product', out);
                 } else {
-                  res.redirect('/home');
+                  res.redirect('/');
                 }
             });
           },
@@ -247,7 +244,7 @@ var Requests = function () {
                       }
                     });
                   } else {
-                    res.redirect('/home');
+                    res.redirect('/');
                   }
               });
           },
@@ -273,7 +270,7 @@ var Requests = function () {
                     var out = extend(data, body);
                     res.render('account/ticket', out);
                   } else {
-                    res.redirect('/home');
+                    res.redirect('/');
                   }
               });
           },
@@ -288,7 +285,7 @@ var Requests = function () {
                     var out = extend(data, body);
                     res.redirect('/manage/ticket/' + ticketid);
                   } else {
-                    res.redirect('/home');
+                    res.redirect('/');
                   }
               });
           },
@@ -304,7 +301,7 @@ var Requests = function () {
                     var out = extend(data, body);
                     res.redirect('/manage/ticket/' + ticketid);
                   } else {
-                    res.redirect('/home');
+                    res.redirect('/');
                   }
               });
           },
@@ -324,7 +321,7 @@ var Requests = function () {
                   var out = extend(data, body);
                   res.render('account/vnc', out);
                 } else {
-                  res.redirect('/home');
+                  res.redirect('/');
                 }
             });
           },
@@ -412,7 +409,7 @@ var Requests = function () {
                   body.customer = customer;
                   res.render('order', body);
                 } else {
-                  res.redirect('/home');
+                  res.redirect('/');
                 }
             });
           },
@@ -446,8 +443,7 @@ module.exports.SetRequests = function (app) {
 
     this.app = app;
 
-    this.app.get('/', Requests.index);
-    this.app.get('/home', Requests.home);
+    this.app.get('/', Requests.home);
     this.app.get('/page/:page', Requests.page);
     this.app.get('/order', Requests.order.setup);
 
