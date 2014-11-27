@@ -96,12 +96,63 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     var signin = document.getElementById('signin');
                     signin.addEventListener('submit', function(e){
                       e.preventDefault();
-                      var signin = document.getElementById('signin');
+                      var signin = document.getElementById('signin'); // Cache buster
                       app.help.postJSON({ "ajax" : true, "email" : signin.elements.namedItem("email").value, "password" : signin.elements.namedItem("password").value }, window.location.origin + '/login', function (xhr) {
-                        var errors = JSON.parse(xhr.response);
-                        app.publish('/message/error', errors.errors);
+                        console.log(xhr.response);
+                        var body = JSON.parse(xhr.response);
+                        if (body.errors){
+                          app.publish('/message/error', body.errors);
+                        }
+
+                        if (body.status === 'success'){
+                          window.location.href = window.location.origin + '/manage';
+                        }
                       });
                     });
+
+                    var forgotpass = document.getElementById('forgotpass');
+                    forgotpass.addEventListener('submit', function(e){
+                      e.preventDefault();
+                      var forgotpass = document.getElementById('forgotpass');
+                      app.help.postJSON({ "ajax" : true, "email" : forgotpass.elements.namedItem("email").value }, window.location.origin + '/forgot', function (xhr) {
+                        var body = JSON.parse(xhr.response);
+                        console.log(body);
+                        if (body.errors){
+                          app.publish('/message/error', body.errors);
+                        } else {
+                          var success = document.getElementById('reset-success'),
+                              forgotView = document.getElementById('forgotpass-form');
+                          success.className += ' visible';
+                          app.help.removeClass(forgotView, 'visible');
+                        }
+                      });
+                    });
+
+                    var forgotpassLink = document.getElementById('forgotpass-link');
+
+                    forgotpassLink.addEventListener('click', function(e){
+                      e.preventDefault();
+                      var forgotView = document.getElementById('forgotpass-form'),
+                          signupView = document.getElementById('signin-form');
+
+                      forgotView.className += ' visible';
+                      app.help.removeClass(signupView, 'visible');
+                    });
+
+                    var signupLink = document.getElementsByClassName('signup-link');
+                    for (var i = 0; i < signupLink.length; i++) {
+                      signupLink[i].addEventListener('click', function(e){
+                        e.preventDefault();
+                        var forgotView = document.getElementById('forgotpass-form'),
+                            successView = document.getElementById('reset-success'),
+                            signupView = document.getElementById('signin-form');
+
+                        signupView.className += ' visible';
+                        app.help.removeClass(successView, 'visible');
+                        app.help.removeClass(forgotView, 'visible');
+                      });
+                    }
+
                   }
                 });
 
@@ -120,8 +171,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     var button = document.getElementById('create-account-button');
 
                     if (flag === 'success') {
-
-                        app.help.addBodyClass('register-success-transition');
                         app.help.loading(button, 'success');
 
                         setTimeout(function () {
@@ -148,7 +197,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     app.help.postJSON({'errors': data }, window.location.origin + '/error/message', function (xhr) {
                         var errorWrap = document.getElementById("error-wrap");
                         errorWrap.innerHTML += xhr.response;
-                        errorWrap.className = errorWrap.className + ' active-error';
+                        errorWrap.className += ' active-error';
                         setTimeout(function () {
                           app.help.removeClass(errorWrap, 'active-error');
                         }, 5000);

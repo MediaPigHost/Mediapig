@@ -51,12 +51,17 @@ var Requests = function () {
           res.render('pages/' + req.params.page, data);
         },
         account : {
+          forgotpass: function(req, res, next){
+            request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/forgotpassword', body: req.body}, function (error, response, body) {
+              res.send(body);
+            });
+          },
           login: function(req, res, next){
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/user/login', body: req.body}, function (error, response, body) {
                 if (body.status !== 'fail'){
                   res.cookie('key', body.door);
                   res.cookie('user', body.user);
-                  res.redirect('/manage');
+                  res.send({'status' : 'success'});
                 } else {
                   res.send(body);
                 }
@@ -478,6 +483,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/service/start', Requests.service.start);
     this.app.post('/service/restart', Requests.service.restart);
     this.app.post('/login', Requests.account.login);
+    this.app.post('/forgot', Requests.account.forgotpass);
 
     this.app.get('/404', Requests.notFound);
     this.app.get('/404', Requests.serverError);

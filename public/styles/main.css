@@ -1210,10 +1210,10 @@ body {
   -o-animation: hide .4s ease 0s 1 normal forwards;
   animation: hide .4s ease 0s 1 normal forwards;
 }
-
+/*
 .overlay-visible .error {
   display: block;
-}
+}*/
 
 .overlay-visible .overlay {
   color: #666;
@@ -1282,6 +1282,31 @@ body {
   margin-bottom: 0;
 }
 
+.reset-success {
+  text-align: center;
+}
+
+.reset-success img {
+  margin-bottom: 30px;
+}
+
+.signin-form,
+.forgotpass-form,
+.reset-success {
+  display: none;
+}
+
+.signin-form.visible,
+.forgotpass-form.visible,
+.reset-success.visible {
+  display: block;
+  opactiy: 0;
+  -webkit-animation: show .5s ease 0s 1 normal forwards;
+  -moz-animation: show .5s ease 0s 1 normal forwards;
+  -o-animation: show .5s ease 0s 1 normal forwards;
+  animation: show .5s ease 0s 1 normal forwards;
+}
+
 .signup label,
 .signin-form label {
   color: #999;
@@ -1292,7 +1317,9 @@ body {
 .signup input[type=email],
 .signup input[type=password],
 .signin-form input[type=email],
-.signin-form input[type=password] {
+.signin-form input[type=password],
+.forgotpass-form input[type=email],
+.forgotpass-form input[type=password] {
   color: #666;
   background-color: #EFEFEF;
   border: none;
@@ -1303,13 +1330,14 @@ body {
   box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 }
 
-.signup h2, .signin-form h2 {
+.signup h2, .signin-form h2, .forgotpass-form h2, .reset-success h2  {
   color: #666;
   margin-bottom: 19px;
   font-size: 1.250em;
 }
 
-.signin-form a {
+.signin-form a,
+.forgotpass-form a {
   display: inline-block;
   margin: 20px 0 0 20px;
   vertical-align: -1px;
@@ -1322,11 +1350,17 @@ body {
   transition: color .2s;
 }
 
-.signin-form a:hover {
+.signin-form a:hover,
+.forgotpass-form a:hover {
   color: #666;
 }
 
+.forgotpass-form {
+  display: none;
+}
+
 .error {
+  display: none;
   color: #E6E7E8;
   background-color: #c88c64;
   padding: 20px 0;
@@ -1337,6 +1371,10 @@ body {
   -o-animation: move .4s ease 0s 1 normal forwards;
   animation: move .4s ease 0s 1 normal forwards;
   z-index: 10;
+}
+
+.active-error .error:first-child {
+  display: block;
 }
 
 .error-wrap {
