@@ -1504,6 +1504,35 @@ body {
   margin-bottom: 25px;
 }
 
+.block {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 40px 60px;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  width: 300px;
+  position: relative;
+  text-align: center;
+  height: 300px;
+  float: left;
+}
+
+.block img {
+  margin-bottom: 40px;
+}
+
+.block-logo img {
+  margin: 80px 0;
+}
+
+.page .block h2 {
+  margin: 0;
+}
+
+.press-page .content {
+  min-height: 400px;
+}
+
 @-webkit-keyframes move {
   0% { -webkit-transform: translate(0, 0); }
   100% { -webkit-transform: translate(0, -60px); } }
