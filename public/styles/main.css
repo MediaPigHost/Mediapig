@@ -1571,6 +1571,12 @@ body {
   min-height: 400px;
 }
 
+.btn-sub {
+  color: rgba(255,255,255,0.4);
+  display: block;
+  margin-top: 10px;
+}
+
 @-webkit-keyframes move {
   0% { -webkit-transform: translate(0, 0); }
   100% { -webkit-transform: translate(0, -60px); } }
