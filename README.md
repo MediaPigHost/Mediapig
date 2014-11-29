@@ -1,4 +1,4 @@
-MediaPig-Holding
+Mediapig Website
 ================
 
-Holding Page @ MediaPig
+Front-end repository for MediaPig
