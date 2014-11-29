@@ -1553,6 +1553,12 @@ body {
   text-align: center;
   height: 300px;
   float: left;
+  color: #666;
+  text-decoration: none;
+}
+
+.block-press {
+  opacity: 0.4;
 }
 
 .block img {
