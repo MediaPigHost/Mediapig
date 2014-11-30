@@ -1,24 +1,26 @@
-<section class='signup'>
-  <h2>Just a few things...</h2>
-  <form id="signup" action="https://api.mediapig.co.uk/index.php?/user/create" method="post">
-    <div class="form-inputs">
-      <label>Email</label>
-      <input type="email" name="email" placeholder="email@example.com" />
-      <label>Password</label>
-      <div class="password-field">
-        <input type="password" name="password" placeholder="" />
-        <span class="help">?</span>
-        <span class="help-message">You'll need 8 characters, including a number.</span>
+<div id="signup-form-wrap">
+  <section class='signup'>
+    <h2>Just a few things...</h2>
+    <form id="signup" action="https://api.mediapig.co.uk/index.php?/user/create" method="post">
+      <div class="form-inputs">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="email@example.com" />
+        <label>Password</label>
+        <div class="password-field">
+          <input type="password" name="password" placeholder="" />
+          <span class="help">?</span>
+          <span class="help-message">You'll need 8 characters, including a number.</span>
+        </div>
       </div>
-    </div>
-    <div class="form-submit">
-      <span class="loading"></span>
-      <span class="tick icon-checkmark"></span>
-      <input type="submit" id="create-account-button" class="btn large" value="Create an account">
-    </div>
-  </form>
-</section>
+      <div class="form-submit">
+        <span class="loading"></span>
+        <span class="tick icon-checkmark"></span>
+        <input type="submit" id="create-account-button" class="btn large" value="Create an account">
+      </div>
+    </form>
+  </section>
 
-<script charset="utf-8">
-  ga('send', 'pageview');
-</script>
+  <script charset="utf-8">
+    ga('send', 'pageview');
+  </script>
+</div>

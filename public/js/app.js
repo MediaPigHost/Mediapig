@@ -36,6 +36,10 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                   curl('order', function(order){
                       order.init();
                   });
+
+                  curl('register', function(register){
+                      register.init();
+                  });
                 }
 
                 if (siteObj.pagetype === 'landing') {
@@ -68,16 +72,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     });
                 }
 
-
-                app.help.addEventListenerByClass('overlay-trigger', 'click', function () {
-
-                    app.publish('/event/register/submit', true);
-
-                    app.ajax(window.location.origin + '/page/register', function (res) {
-                        app.publish('/view/register/loaded', true);
-                        dom.overlayContent.innerHTML = res;
-                    });
-                });
 
                 app.help.addEventListenerByClass('signin-btn', 'click', function (event) {
 
@@ -139,7 +133,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                       app.help.removeClass(signupView, 'visible');
                     });
 
-                    var signupLink = document.getElementsByClassName('signup-link');
+                    var signupLink = document.getElementsByClassName('signin-link');
                     for (var i = 0; i < signupLink.length; i++) {
                       signupLink[i].addEventListener('click', function(e){
                         e.preventDefault();
@@ -154,32 +148,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     }
 
                   }
-                });
-
-                app.subscribe("/view/register/loaded", function (flag) {
-
-                    if (flag === true) {
-                        site.postSignup(app);
-                        app.help.addEventListenerByClass('help', 'click', function (event) {
-                            app.help.showTooltip(event, 'help-message');
-                        });
-                    }
-                });
-
-                app.subscribe("/form/register/update", function (flag) {
-
-                    var button = document.getElementById('create-account-button');
-
-                    if (flag === 'success') {
-                        app.help.loading(button, 'success');
-
-                        setTimeout(function () {
-                            app.publish('/view/order', true);
-                        }, 2000);
-                    }
-                    else {
-                        app.help.loading(button, 'remove');
-                    }
                 });
 
                 app.subscribe("/event/register/submit", function () {
@@ -201,38 +169,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                         setTimeout(function () {
                           app.help.removeClass(errorWrap, 'active-error');
                         }, 5000);
-                    });
-                });
-            },
-            postSignup: function (app) {
-
-                var submitAccount = document.getElementById('create-account-button');
-
-                submitAccount.addEventListener('click', function (event) {
-
-                    event.preventDefault();
-
-                    app.help.loading(submitAccount);
-
-                    var signupFormEl = document.getElementById("signup");
-                    var formData = new FormData(signupFormEl);
-
-                    app.help.postForm(signupFormEl, function (xhr) {
-                        app.help.removeElementsByClass('error');
-
-                        var res = JSON.parse(xhr.response);
-
-                        if (res.errors) {
-                            app.publish('/form/register/update', 'fail');
-                            app.publish('/message/error', res.errors);
-                        }
-                        else {
-                            window.location.href = '/order';
-                            history.pushState('order', 'order', '/order');
-                            app.help.setCookie('key', res.key, '1');
-                            app.help.setCookie('user', res.customer_id, '1');
-                            app.publish('/form/register/update', 'success');
-                        }
                     });
                 });
             }
