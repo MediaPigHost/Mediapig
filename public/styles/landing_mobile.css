@@ -1,4 +1,10 @@
 @media screen and (max-width: 1220px) {
+	*, *:before, *:after { 
+	  -webkit-box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  box-sizing: border-box;
+	}
+	
 	.feature {
 		width: 100%;
 	}
@@ -49,7 +55,7 @@
 	.order .wrap,
 	.page .wrap,
 	.order .order-total {
-	  min-width: 100%;
+	  min-width: initial;
 	}
 
 	.deploy-section .feature-list-text {
