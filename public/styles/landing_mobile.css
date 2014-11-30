@@ -61,7 +61,7 @@
 		visibility: visible;
 	}
 
-	header .right ul {
+	header .right ul, .menu-toggle {
 		display: none;
 		visibility: hidden;
 	}
