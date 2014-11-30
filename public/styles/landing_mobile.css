@@ -55,4 +55,14 @@
 	.deploy-section .feature-list-text {
 		margin: 0;
 	}
+
+	.mobile-nav {
+		display: block;
+		visibility: visible;
+	}
+
+	header .right ul {
+		display: none;
+		visibility: hidden;
+	}
 }

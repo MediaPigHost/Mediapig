@@ -13,6 +13,17 @@
   </head>
 
   <body class="home">
+    <ul class="mobile-nav">
+      <li><a href="" class="active">Home<span class="right">&rsaquo;</span></a></li>
+      {% if logged_in %}
+        <li><a href="/order">New service<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/manage">Manage<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/logout">Sign out<span class="right">&rsaquo;</span></a></li>
+      {% else %}
+        <li><a class="overlay-trigger" href="#">Place an order<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/signin" class="signin-btn">Sign in<span class="right">&rsaquo;</span></a></li>
+      {% endif %}
+    </ul>
     <div class="bg">
       <div class="mountrange">
         <div class="mountrange-fencing">
@@ -25,6 +36,7 @@
       </div>
     </div>
     <div class="intro-head">
+      <a href="#" class="menu-toggle">&#9776; Menu</a>
       <header class="header line clearfix">
         <div class="left">
           <a id="logo" href="/" class="logo">{{name}}</a>
