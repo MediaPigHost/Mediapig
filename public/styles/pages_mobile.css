@@ -1,0 +1,25 @@
+@media screen and (max-width: 1220px) {
+
+	.wrap {
+		min-width: 100% !important;
+	}
+
+	.mobile-nav, .menu-toggle {
+		display: block;
+		visibility: visible;
+	}
+
+	header .right ul {
+		display: none;
+		visibility: hidden;
+	}
+
+	.column-1, .column-2, .column-3, .column-4 {
+		float: none;
+		width: 100%;
+	}
+
+	.column-1, .column-2, .column-3 {
+		margin-bottom: 40px;
+	}
+}
