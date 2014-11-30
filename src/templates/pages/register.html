@@ -4,14 +4,20 @@
     <form id="signup" action="https://api.mediapig.co.uk/index.php?/user/create" method="post">
       <div class="form-inputs">
         <label>Email</label>
-        <input type="email" name="email" placeholder="email@example.com" />
+        <input type="email" name="email" placeholder="email@example.com" required />
         <label>Password</label>
         <div class="password-field">
-          <input type="password" name="password" placeholder="" />
+          <input type="password" name="password" placeholder="" required />
           <span class="help">?</span>
           <span class="help-message">You'll need 8 characters, including a number.</span>
         </div>
       </div>
+      <p class="terms-field">
+        <input class="terms-checkbox" type="checkbox" id="agree" required />
+        <label class="terms-label" for="agree">
+          I agree with the <a href="/page/terms" target="_blank">terms and conditions</a>.
+        </label>
+      </p>
       <div class="form-submit">
         <span class="loading"></span>
         <span class="tick icon-checkmark"></span>
@@ -19,8 +25,4 @@
       </div>
     </form>
   </section>
-
-  <script charset="utf-8">
-    ga('send', 'pageview');
-  </script>
 </div>

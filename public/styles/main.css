@@ -1405,6 +1405,32 @@ body {
   color: #666;
 }
 
+.terms-field {
+  float: none;
+  text-align: left;
+  clear: both;
+  margin: 10px 0;
+}
+
+.terms-checkbox {
+  float: none;
+  vertical-align: middle;
+  top: -1px;
+  position: relative;
+}
+
+.signup .terms-label {
+  display: inline;
+  float: none;
+  color: #888;
+  padding-left: 5px;
+}
+
+.signup .terms-label a {
+  color: #597F9D;
+  text-decoration: none;
+}
+
 .forgotpass-form {
   display: none;
 }
@@ -1420,7 +1446,7 @@ body {
   -moz-animation: move .4s ease 0s 1 normal forwards;
   -o-animation: move .4s ease 0s 1 normal forwards;
   animation: move .4s ease 0s 1 normal forwards;
-  z-index: 10;
+  z-index: 7000;
 }
 
 .active-error .error:first-child {
@@ -1431,6 +1457,7 @@ body {
   position: absolute;
   bottom: -60px;
   width: 100%;
+  z-index: 7001;
 }
 
 .password-field {

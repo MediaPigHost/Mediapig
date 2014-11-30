@@ -45,13 +45,13 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
     },
     postSignup: function () {
 
-        var submitAccount = document.getElementById('create-account-button');
+        var submitAccount = document.getElementById('signup');
 
-        submitAccount.addEventListener('click', function (event) {
+        submitAccount.addEventListener('submit', function (event) {
 
             event.preventDefault();
-
-            app.help.loading(submitAccount);
+            var button = document.getElementById('create-account-button');
+            app.help.loading(button);
 
             var signupFormEl = document.getElementById("signup");
             var formData = new FormData(signupFormEl);
