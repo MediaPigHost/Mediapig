@@ -218,6 +218,8 @@ body.account-home .top-head, body.account-product .top-head {
 	margin-left: 1.786em;
 	display: inline-block;
 	vertical-align: middle;
+	max-width: 450px;
+	word-wrap: break-word;
 }
 
 .top-head .profile h2 {
@@ -1352,6 +1354,7 @@ td.last a .icon {
 .invoice-price h2 {
 	font-weight: 200;
 }
+
 
 @-webkit-keyframes flash {
 	0% { opacity: 1; }
