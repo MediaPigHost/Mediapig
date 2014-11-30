@@ -123,8 +123,26 @@
 	  border-color: rgba(0,0,0,0.2);
 	}
 
-	.page.page-contact .content input[type="text"], .page.page-contact .content input[type="email"], .page.page-contact .content textarea {
+	.page.page-contact .content input[type="text"], .page.page-contact .content input[type="email"], .page.page-contact .content textarea, .page.page-contact .content input[type="submit"] {
 	  max-width: 600px;
-	  width: auto !important;
+	  width: 100% !important;
+	}
+
+	.page.page-contact h1 {
+		display: none;
+		visibility: hidden;
+	}
+
+	.page.page-contact header.header.line {
+		width: 100%;
+		margin-left: -20px;
+	}
+
+	.page.page-contact .content {
+		padding-top: 250px;
+	}
+
+	.page.page-contact #logo {
+		margin-left: 20px;
 	}
 }
