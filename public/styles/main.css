@@ -704,6 +704,8 @@ body {
   width: 100%;
   position: absolute;
   bottom: -255px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
 }
 
 .home .intro-head {
