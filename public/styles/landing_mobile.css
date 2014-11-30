@@ -104,4 +104,8 @@
 	.features {
 		margin-bottom: 370px;
 	}
+
+	.deploy-section .feature-list {
+		margin-top: 45px;
+	}
 }
