@@ -56,12 +56,12 @@
 		margin: 0;
 	}
 
-	.mobile-nav {
+	.mobile-nav, .menu-toggle {
 		display: block;
 		visibility: visible;
 	}
 
-	header .right ul, .menu-toggle {
+	header .right ul {
 		display: none;
 		visibility: hidden;
 	}
