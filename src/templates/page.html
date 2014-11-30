@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
     <link rel="stylesheet" href="{{url}}styles/main.css">
+    <link rel="stylesheet" href="{{url}}styles/pages_mobile.css">
     <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <title>
@@ -11,9 +12,21 @@
   </head>
 
   <body class="page content {% block pageclass %}default{% endblock %}">
+    <ul class="mobile-nav">
+      <li><a href="" class="active">Home<span class="right">&rsaquo;</span></a></li>
+      {% if logged_in %}
+        <li><a href="/order">New service<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/manage">Manage<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/logout">Sign out<span class="right">&rsaquo;</span></a></li>
+      {% else %}
+        <li><a href="/order">Place an order<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/signin" class="signin-btn">Sign in<span class="right">&rsaquo;</span></a></li>
+      {% endif %}
+    </ul>
     <div class="bg"></div>
     <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
       <header class="header line">
+        <a href="#" class="menu-toggle">&#9776; Menu</a>
         <div class="left">
           <a id="logo" href="/" class="logo">{{name}}</a>
         </div>
