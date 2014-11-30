@@ -1,5 +1,5 @@
 @media screen and (max-width: 1220px) {
-	*, *:before, *:after { 
+	*, *:before, *:after {
 	  -webkit-box-sizing: border-box;
 	  -moz-box-sizing: border-box;
 	  box-sizing: border-box;
@@ -71,7 +71,7 @@
 		margin: 0;
 	}
 
-	.mobile-nav, .menu-toggle {
+	.menu-toggle, .mobile-nav.active {
 		display: block;
 		visibility: visible;
 	}

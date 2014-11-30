@@ -85,6 +85,17 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     });
                 });
 
+                app.help.addEventListenerByClass('menu-toggle', 'click', function (e) {
+                    e.preventDefault();
+                    var menu = document.getElementById('mobile-nav');
+                    if (menu.className.indexOf('active') == -1) {
+                        menu.className += ' active';
+                    } else {
+                        app.help.removeClass(menu, 'active');
+                    }
+
+                });
+
                 app.subscribe("/view/signin/loaded", function(flag) {
                   if (flag === true) {
                     var signin = document.getElementById('signin');
@@ -92,7 +103,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                       e.preventDefault();
                       var signin = document.getElementById('signin'); // Cache buster
                       app.help.postJSON({ "ajax" : true, "email" : signin.elements.namedItem("email").value, "password" : signin.elements.namedItem("password").value }, window.location.origin + '/login', function (xhr) {
-                        console.log(xhr.response);
                         var body = JSON.parse(xhr.response);
                         if (body.errors){
                           app.publish('/message/error', body.errors);
