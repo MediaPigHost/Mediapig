@@ -102,6 +102,7 @@
 
 	.feature {
 		width: 100%;
+		clear: both;
 	}
 
 	.feature .right, .feature .left {
