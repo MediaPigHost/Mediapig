@@ -1,4 +1,7 @@
 @media screen and (max-width: 480px) {
+
+	/* Landing page */
+
 	*, *:before, *:after {
 	  -webkit-box-sizing: border-box;
 	  -moz-box-sizing: border-box;
@@ -107,5 +110,21 @@
 
 	.deploy-section .feature-list {
 		margin-top: 45px;
+	}
+
+	/* Subpages */
+
+	.wrap {
+		min-width: 100% !important;
+	}
+
+	.page-contact .menu-toggle {
+	  color: #666;
+	  border-color: rgba(0,0,0,0.2);
+	}
+
+	.page.page-contact .content input[type="text"], .page.page-contact .content input[type="email"], .page.page-contact .content textarea {
+	  max-width: 600px;
+	  width: auto !important;
 	}
 }
