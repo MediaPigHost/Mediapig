@@ -4,7 +4,7 @@
 	  -moz-box-sizing: border-box;
 	  box-sizing: border-box;
 	}
-	
+
 	.feature {
 		width: 100%;
 	}
@@ -65,6 +65,10 @@
 	.mobile-nav, .menu-toggle {
 		display: block;
 		visibility: visible;
+	}
+
+	.header {
+		width: auto;
 	}
 
 	header .right ul {

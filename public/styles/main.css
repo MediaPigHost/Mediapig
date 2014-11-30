@@ -764,8 +764,8 @@ body {
   padding: 30px 0;
   display: block;
   max-width: 1140px;
-  width: 100%;
   position: absolute;
+  width: 100%;
   top: 0;
 }
 
@@ -1158,6 +1158,10 @@ body {
 .footer {
   padding: 100px 0;
   background-color: #2C2C2C;
+}
+
+.footer .wrap {
+  width: 100%;
 }
 
 .column-1, .column-2, .column-3, .column-4, .column-5 {
