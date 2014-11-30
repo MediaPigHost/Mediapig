@@ -7,6 +7,10 @@
 		box-sizing: border-box;
 	}
 
+	.header {
+		width: auto;
+	}
+
 	.footer .column-1, .footer .column-2, .footer .column-3, .footer .column-4 {
 		width: 33%;
 		margin-bottom: 50px;
@@ -56,14 +60,9 @@
 		padding: 0 20px;
 	}
 
-	.header {
-		padding: 30px;
-	}
-
 	.feature {
 		display: block;
-		width: auto;
-		float: none;
+		width: 100%;
 	}
 
 	.footer .newsletter-input {
@@ -84,6 +83,10 @@
 
 	.block {
 		height: auto;
+	}
+
+	.home .testimonials {
+		clear: both;
 	}
 }
 
@@ -193,10 +196,6 @@
 		margin-bottom: 40px;
 	}
 
-	.features {
-		margin-bottom: 370px;
-	}
-
 	.deploy-section .feature-list {
 		margin-top: 45px;
 	}
@@ -253,5 +252,18 @@
 
 	.block-press h2 {
 		margin-top: -12px !important;
+	}
+
+	.page .bg {
+		height: 250px;
+	}
+
+	.page .heading-left h1,
+	.page .heading-center h1 {
+		margin: 75px 0 0;
+	}
+
+	.header {
+		padding: 30px 0;
 	}
 }
