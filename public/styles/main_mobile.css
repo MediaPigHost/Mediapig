@@ -145,4 +145,24 @@
 	.page.page-contact #logo {
 		margin-left: 20px;
 	}
+
+	.block-press:first-child {
+		margin: 0 auto;
+	}
+
+	.block {
+		width: 100%;
+	}
+
+	.block img {
+		margin-bottom: 20px;
+	}
+
+	.block-logo {
+		margin-top: 40px;
+	}
+
+	.block-press h2 {
+		margin-top: -12px !important;
+	}
 }
