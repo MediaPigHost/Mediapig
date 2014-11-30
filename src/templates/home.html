@@ -1,8 +1,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
     <link rel="stylesheet" href="{{url}}styles/main.css">
+    <link rel="stylesheet" href="{{url}}styles/main_mobile.css">
     <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <title>
@@ -11,6 +13,17 @@
   </head>
 
   <body class="home">
+    <ul class="mobile-nav" id="mobile-nav">
+      <li><a href="" class="active">Home<span class="right">&rsaquo;</span></a></li>
+      {% if logged_in %}
+        <li><a href="/order">New service<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/manage">Manage<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/logout">Sign out<span class="right">&rsaquo;</span></a></li>
+      {% else %}
+        <li><a href="/order">Place an order<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/signin" class="signin-btn">Sign in<span class="right">&rsaquo;</span></a></li>
+      {% endif %}
+    </ul>
     <div class="bg">
       <div class="mountrange">
         <div class="mountrange-fencing">
@@ -23,7 +36,8 @@
       </div>
     </div>
     <div class="intro-head">
-      <header class="header line">
+      <a href="#" class="menu-toggle">&#9776; Menu</a>
+      <header class="header line clearfix">
         <div class="left">
           <a id="logo" href="/" class="logo">{{name}}</a>
         </div>
@@ -35,7 +49,7 @@
               <li><a href="/manage">Manage</a></li>
               <li><a href="/logout">Sign out</a></li>
             {% else %}
-              <li><a class="overlay-trigger" href="#">Place an order</a></li>
+              <li><a href="/order">Place an order</a></li>
               <li><a href="/signin" class="signin-btn">Sign in</a></li>
             {% endif %}
           </ul>
@@ -46,13 +60,8 @@
           <h1>Hosting without the hassle.</h1>
           <h2 class="sub">Simple, affordable VPS hosting is just the beginning. <a href="#more" class="highlight-anchor">Learn why.</a></h2>
         </hgroup>
-        {% if logged_in %}
-          <a href="/order" class="btn large">Get started now</a>
-          <span class="btn-sub">Pricing starts at £6/m</span>
-        {% else %}
-          <a href="#" class="btn large overlay-trigger">Get started now</a>
-          <span class="btn-sub">Pricing starts at £6/m</span>
-        {% endif %}
+        <a href="/order" class="btn large">Get started now</a>
+        <span class="btn-sub">Pricing starts at £6/m</span>
       </article>
     </div>
     <div class="overlay">
@@ -164,11 +173,7 @@
       <div class="wrap">
         <h2>Upgrade your hosting now!</h2>
         <h3>And start getting everything you want from hosting <br />without the hassle.</h3>
-        {% if logged_in %}
-          <a href="/order" class="btn large">Get started now</a>
-        {% else %}
-          <a href="#" class="btn large overlay-trigger">Get started now</a>
-        {% endif %}
+        <a href="/order" class="btn large">Get started now</a>
       </div>
     </section>
     <footer class="footer">

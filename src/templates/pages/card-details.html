@@ -1,56 +1,58 @@
-{% if redirect %}
-  <div class="pending-redirect">
-    <h4>Found existing card...</h4>
-    <img src="images/loading.svg" alt="Loading..." class="loading-image" />
-  </div>
-{% else %}
-  <section class="card-details-form">
-      <div id="card-details-form-error" class="card-details-form-error"></div>
-      <form id="cardDetails" action="" method="post">
-          <h2>Please, add your credit card</h2>
-          <div class="name first-name">
-            <label>First Name</label>
-            <input name="firstname" type="text" name="text" placeholder="John" autofocus required/>
-          </div>
-          <div class="name">
-            <label>Surname</label>
-            <input name="surname" type="text" name="text" placeholder="Doe" required />
-          </div>
-          <label>Card number</label>
-          <input type="text" name="number" pattern="[0-9]{13,16}" title="Card number (No spaces no dashes)" required placeholder="1234 5678 9123 4567" />
-          <label>3-digit CVC</label>
-          <input class="cc" type="text" name="cvc" pattern="[0-9]{3,4}" title="CVC (3 or 4 Digit Security Code)" required placeholder="123" />
-          <label>Expiration date</label>
-          <select class="first" id="cardExpiryMonth" name="exp_month" required>
-              <option value="9999" disabled selected>Month</option>
-              <option value="1">01</option>
-              <option value="2">02</option>
-              <option value="3">03</option>
-              <option value="4">04</option>
-              <option value="5">05</option>
-              <option value="6">06</option>
-              <option value="7">07</option>
-              <option value="8">08</option>
-              <option value="9">09</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-          </select>
-          <select id="cardExpiryYear" name="exp_year" required>
-              <option value="9999" disabled selected>Year</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-          </select>
-          <input type="hidden" id="order_id" name="order_id" value="{{order_id}}" />
-          <input type="hidden" id="invoice_id" name="invoice_id" value="{{invoice_id}}">
-          <input type="submit" id="submitCardDetails" class="btn large submit-card-details" value="Confirm your payment" />
-      </form>
-  </section>
-{% endif %}
+<div id="card-details-form-wrap">
+  {% if redirect %}
+    <div class="pending-redirect">
+      <h4>Found existing card...</h4>
+      <img src="images/loading.svg" alt="Loading..." class="loading-image" />
+    </div>
+  {% else %}
+    <section class="card-details-form">
+        <div id="card-details-form-error" class="card-details-form-error"></div>
+        <form id="cardDetails" action="" method="post">
+            <h2>Please, add your credit card</h2>
+            <div class="name first-name">
+              <label>First Name</label>
+              <input name="firstname" type="text" name="text" placeholder="John" autofocus required/>
+            </div>
+            <div class="name">
+              <label>Surname</label>
+              <input name="surname" type="text" name="text" placeholder="Doe" required />
+            </div>
+            <label>Card number</label>
+            <input type="text" name="number" pattern="[0-9]{13,16}" title="Card number (No spaces no dashes)" required placeholder="1234 5678 9123 4567" />
+            <label>3-digit CVC</label>
+            <input class="cc" type="text" name="cvc" pattern="[0-9]{3,4}" title="CVC (3 or 4 Digit Security Code)" required placeholder="123" />
+            <label>Expiration date</label>
+            <select class="first" id="cardExpiryMonth" name="exp_month" required>
+                <option value="9999" disabled selected>Month</option>
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+                <option value="4">04</option>
+                <option value="5">05</option>
+                <option value="6">06</option>
+                <option value="7">07</option>
+                <option value="8">08</option>
+                <option value="9">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select id="cardExpiryYear" name="exp_year" required>
+                <option value="9999" disabled selected>Year</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+            </select>
+            <input type="hidden" id="order_id" name="order_id" value="{{order_id}}" />
+            <input type="hidden" id="invoice_id" name="invoice_id" value="{{invoice_id}}">
+            <input type="submit" id="submitCardDetails" class="btn large submit-card-details" value="Confirm your payment" />
+        </form>
+    </section>
+  {% endif %}
 
-<script charset="utf-8">
-  ga('send', 'pageview');
-</script>
+  <script charset="utf-8">
+    ga('send', 'pageview');
+  </script>
+</div>

@@ -82,7 +82,7 @@
             {% endif %}
           {% endfor %}
         </div>
-        <a href="#" id="order-button" class="btn large payment-trigger disabled">Make Payment</a>
+        <a href="#" id="order-button" class="btn large disabled {% if customer.user %}payment-trigger{% else %}register-trigger{% endif %}">Make Payment</a>
       </div>
     </aside>
     <div class="overlay">

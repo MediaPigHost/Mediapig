@@ -1,31 +1,29 @@
-<section class="signin-form visible" id="signin-form">
-	<h2>Sign in to your account</h2>
-  <form id="signin" action="/login" method="post">
-  	<label>Email</label>
-    <input type="email" id="email" name="email" placeholder="email@example.com" required />
-    <label>Password</label>
-    <input type="password" id="password" name="password" required placeholder="" />
-    <input type="submit" id="login-button" class="btn large" value="Sign in">
-    <a href="#" id="forgotpass-link">Forgot Password?</a>
-  </form>
-</section>
+<div id="signin-form-wrap">
+	<section class="signin-form visible" id="signin-form">
+		<h2>Sign in to your account</h2>
+	  <form id="signin" action="/login" method="post">
+	  	<label>Email</label>
+	    <input type="email" id="email" name="email" placeholder="email@example.com" required />
+	    <label>Password</label>
+	    <input type="password" id="password" name="password" required placeholder="" />
+	    <input type="submit" id="login-button" class="btn large" value="Sign in">
+	    <a href="#" id="forgotpass-link">Forgot Password?</a>
+	  </form>
+	</section>
 
-<section class="forgotpass-form" id="forgotpass-form">
-	<h2>Forgotten password</h2>
-	<form id="forgotpass" action="/forgot" method="post">
-		<label>Email</label>
-		<input type="email" id="email" name="email" placeholder="email@example.com" required />
-		<input type="submit" id="login-button" class="btn large" value="Submit">
-		<a href="#" class="signup-link">Go back</a>
-	</form>
-</section>
+	<section class="forgotpass-form" id="forgotpass-form">
+		<h2>Forgotten password</h2>
+		<form id="forgotpass" action="/forgot" method="post">
+			<label>Email</label>
+			<input type="email" id="email" name="email" placeholder="email@example.com" required />
+			<input type="submit" id="login-button" class="btn large" value="Submit">
+			<a href="#" class="signin-link">Go back</a>
+		</form>
+	</section>
 
-<section class="reset-success" id="reset-success">
-	<img src="/images/tick.svg" alt="Success!" width="100"/>
-	<h2>Your password has been sent to you!</h2>
-	<a href="#" class="btn large signup-link">Go back</a>
-</section>
-
-<script charset="utf-8">
-	ga('send', 'pageview');
-</script>
+	<section class="reset-success" id="reset-success">
+		<img src="/images/tick.svg" alt="Success!" width="100"/>
+		<h2>Your password has been sent to you!</h2>
+		<a href="#" class="btn large signin-link">Go back</a>
+	</section>
+</div>

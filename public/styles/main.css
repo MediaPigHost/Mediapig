@@ -371,6 +371,8 @@ body {
 .page.page-contact .header {
   background: url('/images/mediapig-support2.svg') center 45px no-repeat;
   height: 720px;
+  position: absolute;
+  width: 95%;
 }
 
 .page.page-contact .header a.active,
@@ -393,6 +395,10 @@ body {
 .page.page-contact .bg {
   height: 535px;
   background-color: #faf9f4;
+}
+
+.page.page-contact .intro-head {
+  background-color: transparent;
 }
 
 .page.page-contact .content input[type="text"],
@@ -503,6 +509,52 @@ body {
   Landing Page
 */
 
+.menu-toggle {
+  padding: 5px 10px;
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  color: #FFF;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.2);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 3;
+  display: none;
+  visibility: hidden;
+}
+
+.mobile-nav {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background-color: #222;
+}
+
+.mobile-nav li a {
+  padding: 15px 20px;
+  color: #FFF;
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+.mobile-nav li a span {
+  color: #999;
+  font-size: 25px;
+  display: inline-block;
+  margin-top: -5px;
+}
+
+.mobile-nav li:last-child a {
+  border-bottom: 0;
+}
+
 .landing .content {
   width: 400px;
   height: 400px;
@@ -561,6 +613,7 @@ body {
 
 .intro-head {
   color: #FFF;
+  background-color: #4E4D55;
 }
 
 .home .bg,
@@ -719,10 +772,9 @@ body {
   display: block;
   max-width: 1140px;
   width: 100%;
-  position: absolute;
   top: 0;
+  position: absolute;
 }
-
 
 .header ul  {
   padding-top: 8px;
@@ -1114,6 +1166,10 @@ body {
   background-color: #2C2C2C;
 }
 
+.footer .wrap {
+  width: 100%;
+}
+
 .column-1, .column-2, .column-3, .column-4, .column-5 {
   width: 228px;
   float: left;
@@ -1355,6 +1411,32 @@ body {
   color: #666;
 }
 
+.terms-field {
+  float: none;
+  text-align: left;
+  clear: both;
+  margin: 10px 0;
+}
+
+.terms-checkbox {
+  float: none;
+  vertical-align: middle;
+  top: -1px;
+  position: relative;
+}
+
+.signup .terms-label {
+  display: inline;
+  float: none;
+  color: #888;
+  padding-left: 5px;
+}
+
+.signup .terms-label a {
+  color: #597F9D;
+  text-decoration: none;
+}
+
 .forgotpass-form {
   display: none;
 }
@@ -1370,7 +1452,7 @@ body {
   -moz-animation: move .4s ease 0s 1 normal forwards;
   -o-animation: move .4s ease 0s 1 normal forwards;
   animation: move .4s ease 0s 1 normal forwards;
-  z-index: 10;
+  z-index: 7000;
 }
 
 .active-error .error:first-child {
@@ -1381,6 +1463,7 @@ body {
   position: absolute;
   bottom: -60px;
   width: 100%;
+  z-index: 7001;
 }
 
 .password-field {

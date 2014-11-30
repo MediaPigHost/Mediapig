@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
     <link rel="stylesheet" href="{{url}}styles/main.css">
+    <link rel="stylesheet" href="{{url}}styles/main_mobile.css">
     <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <title>
@@ -11,8 +12,20 @@
   </head>
 
   <body class="page content {% block pageclass %}default{% endblock %}">
-    <div class="bg"></div>
+    <ul id="mobile-nav" class="mobile-nav">
+      <li><a href="" class="active">Home<span class="right">&rsaquo;</span></a></li>
+      {% if logged_in %}
+        <li><a href="/order">New service<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/manage">Manage<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/logout">Sign out<span class="right">&rsaquo;</span></a></li>
+      {% else %}
+        <li><a href="/order">Place an order<span class="right">&rsaquo;</span></a></li>
+        <li><a href="/signin" class="signin-btn">Sign in<span class="right">&rsaquo;</span></a></li>
+      {% endif %}
+    </ul>
+    {% block bghack %}{% endblock %}
     <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
+      <a href="#" class="menu-toggle">&#9776; Menu</a>
       <header class="header line">
         <div class="left">
           <a id="logo" href="/" class="logo">{{name}}</a>
@@ -20,7 +33,7 @@
         <div class="right">
           <ul>
             <li><a href="" class="active">Home</a></li>
-            <li><a class="overlay-trigger" href="#">Place an order</a></li>
+            <li><a href="/order">Place an order</a></li>
             <li><a href="/signin" class="signin-btn">Sign in</a></li>
           </ul>
         </div>

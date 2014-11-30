@@ -1,7 +1,3 @@
 {% for error in errors |reverse %}
   <div class="error">{{ error }}</div>
 {% endfor %}
-
-<script charset="utf-8">
-  _gaq.push(['_trackEvent', 'Error', 'Generic', {{ error }}]);
-</script>

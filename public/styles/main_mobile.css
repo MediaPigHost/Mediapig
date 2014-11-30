@@ -1,0 +1,269 @@
+@media screen and (max-width: 1220px) {
+	/* Landing page */
+
+	*, *:before, *:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.header {
+		width: 95%;
+	}
+
+	.footer .column-1, .footer .column-2, .footer .column-3, .footer .column-4 {
+		width: 33%;
+		margin-bottom: 50px;
+	}
+
+	.footer .column-4 {
+		display: block;
+		float: none;
+		width: 100%;
+		clear: both;
+	}
+
+	.footer-bar p {
+		text-align: center;
+	}
+
+	.intro-head,
+	.home .wrap,
+	.order .wrap,
+	.page .wrap,
+	.order .order-total {
+		width: auto;
+		max-width: none;
+		min-width: 0;
+		margin: 0 auto;
+	}
+
+	.oneclick-window {
+		display: none;
+	}
+
+	.deploy-time .oneclick-text,
+	.gray-section .oneclick-text {
+		display: block;
+		max-width: none;
+	}
+
+	.gray-section .big-feature {
+		float: none;
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	.gray-section .big-feature .big-feature-text {
+		text-align: center;
+		margin: 0;
+		padding: 0 20px;
+	}
+
+	.feature {
+		display: block;
+		width: 100%;
+	}
+
+	.footer .newsletter-input {
+		width: 60%;
+	}
+
+	.deploy-section .feature-list {
+		width: auto;
+		float: none;
+		margin-top: 0;
+	}
+
+	.deploy {
+		width: auto;
+		margin-top: 100px;
+		background: url('../images/deploy.svg') 150px 0 no-repeat;
+	}
+
+	.block {
+		height: auto;
+	}
+
+	.home .testimonials {
+		clear: both;
+	}
+}
+
+@media screen and (max-width: 480px) {
+
+	/* Landing page */
+
+	*, *:before, *:after {
+	  -webkit-box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  box-sizing: border-box;
+	}
+
+	.feature {
+		width: 100%;
+	}
+
+	.feature .right, .feature .left {
+		float: none;
+	}
+
+	.feature .right {
+		margin-top: 40px;
+	}
+
+	.deploy, .oneclick-window {
+		display: none;
+		visibility: hidden;
+	}
+
+	.white-section .feature-list {
+		width: 100%;
+		float: none;
+		text-align: center;
+	}
+
+	.gray-section .big-feature, .gray-section .big-feature .big-feature-text {
+		float: none !important;
+		text-align: center;
+	}
+
+	.gray-section .oneclick-text {
+		max-width: 100%;
+	}
+
+	.footer .column-1, .footer .column-2, .footer .column-3, .footer .column-4 {
+		float: none;
+		width: 100%;
+	}
+
+	.footer .newsletter-input {
+		margin-bottom: 10px;
+		max-width: 100%;
+		width: 100%;
+		display: block;
+	}
+
+	.footer .newsletter-button {
+		margin: 0;
+		display: block;
+		float: none;
+	}
+
+	.column-1, .column-2, .column-3 {
+		margin-bottom: 40px;
+	}
+
+	.intro-head,
+	.home .wrap,
+	.order .wrap,
+	.page .wrap,
+	.order .order-total {
+	  min-width: initial;
+	}
+
+	.deploy-section .feature-list-text {
+		margin: 0;
+	}
+
+	.menu-toggle, .mobile-nav.active {
+		display: block;
+		visibility: visible;
+	}
+
+	.header {
+		width: auto;
+	}
+
+	header .right ul {
+		display: none;
+		visibility: hidden;
+	}
+
+	.body {
+		width: auto;
+		height: 369px;
+		max-width: 260px;
+		margin-left: -130px;
+		margin-top: -185px;
+	}
+
+	.gray-section .oneclick-text .big-feature-text {
+		margin-right: 0;
+	}
+
+	.feature {
+		margin-bottom: 40px;
+	}
+
+	.deploy-section .feature-list {
+		margin-top: 45px;
+	}
+
+	/* Subpages */
+
+	.wrap {
+		min-width: 100% !important;
+	}
+
+	.page-contact .menu-toggle {
+	  color: #666;
+	  border-color: rgba(0,0,0,0.2);
+	}
+
+	.page.page-contact .content input[type="text"], .page.page-contact .content input[type="email"], .page.page-contact .content textarea, .page.page-contact .content input[type="submit"] {
+	  max-width: 600px;
+	  width: 100% !important;
+	}
+
+	.page.page-contact h1 {
+		display: none;
+		visibility: hidden;
+	}
+
+	.page.page-contact header.header.line {
+		width: 100%;
+		margin-left: -20px;
+	}
+
+	.page.page-contact .content {
+		padding-top: 250px;
+	}
+
+	.page.page-contact #logo {
+		margin-left: 20px;
+	}
+
+	.block-press:first-child {
+		margin: 0 auto;
+	}
+
+	.block {
+		width: 100%;
+	}
+
+	.block img {
+		margin-bottom: 20px;
+	}
+
+	.block-logo {
+		margin-top: 40px;
+	}
+
+	.block-press h2 {
+		margin-top: -12px !important;
+	}
+
+	.page .bg {
+		height: 250px;
+	}
+
+	.page .heading-left h1,
+	.page .heading-center h1 {
+		margin: 75px 0 0;
+	}
+
+	.header {
+		padding: 30px 0;
+	}
+}

@@ -406,9 +406,14 @@ var Requests = function () {
         },
         order: {
           setup: function(req, res, next){
-            var customer = customerValues(req, res);
+
             request('https://api.mediapig.co.uk/index.php?/attributes/producttype/1', function (error, response, body) {
                 if (!error && response.statusCode == 200 && body.status != 'fail') {
+                  var cookies = parseCookies(req),
+                      customer = {
+                        'door' : cookies.key,
+                        'user' : cookies.user,
+                      };
                   var body = JSON.parse(body);
                   body.site = siteData;
                   body.customer = customer;

@@ -11,6 +11,11 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
             return false;
           } else {
             var overlay = document.getElementById("overlay-content");
+            var signup = document.getElementById("signup-form-wrap");
+            if (signup.length){
+              signup.parentNode.removeChild(signup);
+            }
+            overlay.parentNode.className += ' order-overlay';
             overlay.innerHTML += xhr.response;
             helpers.removeClass(overlay.parentNode, 'overlay-loading');
 
@@ -142,6 +147,8 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
     },
     events : function(){
+
+
       helpers.addEventListenerByClass('order-grid-item', 'click', function (e) {
 
           var target = e.currentTarget,
@@ -206,11 +213,27 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         e.preventDefault();
       });
 
+      app.subscribe("/form/register/update", function (flag) {
+        if (flag === 'success'){
+          document.getElementById('overlay-content').parentNode.className += ' overlay-loading';
+          order.startPurchase();
+        }
+      });
+
       helpers.addEventListenerByClass('overlay-close', 'click', function (e) {
         helpers.removeBodyClass('overlay-visible');
         // Cleanup view for next open
-        document.getElementById('overlay-content').parentNode.className += ' overlay-loading';
-        document.getElementsByClassName('card-details-form')[0].outerHTML = "";
+        document.getElementById('overlay-content').parentNode.className = 'overlay-wrap overlay-loading';
+
+        var cardform = document.getElementById("card-details-form-wrap");
+        if (cardform){
+          cardform.parentNode.removeChild(cardform);
+        }
+
+        var signup = document.getElementById("signup-form-wrap");
+        if (signup){
+          signup.parentNode.removeChild(signup);
+        }
         e.preventDefault();
       });
 

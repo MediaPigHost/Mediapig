@@ -274,8 +274,13 @@ h3.order-total-price {
   display: none;
 }
 
-.overlay-wrap {
+.order-overlay.overlay-wrap {
   width: 345px;
+}
+
+.order-overlay .signup,
+.overlay-loading .signup {
+  display: none;
 }
 
 .loading-text,
@@ -368,4 +373,8 @@ input.submit-card-details {
 
 .overlay-wrap {
   top: 100px;
+}
+
+.signup h2 {
+  color: #666;
 }

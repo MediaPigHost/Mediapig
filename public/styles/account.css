@@ -1211,7 +1211,7 @@ td.last a .icon {
 
 .select-arrow:after {
 	display: inline-block;
-	margin: 0.429em 0 0 0.571em;
+	margin: 0.429em 0 0 0.429em;
 	color: #999;
 	content:'\25BC';
 }
