@@ -23,9 +23,22 @@
 		visibility: hidden;
 	}
 
-	.column-1, .column-2, .column-3, .column-4 {
+	.footer .column-1, .footer .column-2, .footer .column-3, .footer .column-4 {
 		float: none;
 		width: 100%;
+	}
+
+	.footer .newsletter-input {
+		margin-bottom: 10px;
+		max-width: 100%;
+		width: 100%;
+		display: block;
+	}
+
+	.footer .newsletter-button {
+		margin: 0;
+		display: block;
+		float: none;
 	}
 
 	.column-1, .column-2, .column-3 {
