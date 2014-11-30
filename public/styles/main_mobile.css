@@ -81,6 +81,10 @@
 		margin-top: 100px;
 		background: url('../images/deploy.svg') 150px 0 no-repeat;
 	}
+
+	.block {
+		height: auto;
+	}
 }
 
 @media screen and (max-width: 480px) {
