@@ -88,6 +88,10 @@
 	.home .testimonials {
 		clear: both;
 	}
+
+	input[type=text], input[type=email], input[type=password] {
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -280,6 +284,10 @@
 	}
 
 	.gray-section .big-feature {
+		width: 100%;
+	}
+
+	input[type=text], input[type=email], input[type=password] {
 		width: 100%;
 	}
 }
