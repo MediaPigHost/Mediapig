@@ -92,6 +92,12 @@
 	input[type=text], input[type=email], input[type=password] {
 		width: 100%;
 	}
+
+	/* Order page */
+	.order .wrap,
+	.order .order-total {
+	  min-width: 1180px;
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -289,5 +295,66 @@
 
 	input[type=text], input[type=email], input[type=password] {
 		width: 100%;
+	}
+
+	.order-summary .for, .option-ram, .option-disk, .option {
+		display: none;
+		visibility: hidden;
+	}
+
+	.intro-head, .home .wrap, .order .wrap, .page .wrap, .order .order-total {
+		min-width: initial;
+	}
+
+	h3.order-total-price, .order-total .large {
+		float: none;
+	}
+
+	.order-total .large {
+		margin-top: 11px;
+		margin-left: 0;
+		margin-bottom: 9px;
+		width: 100%;
+		text-align: center;
+	}
+
+	.order-summary {
+		margin: 0 auto;
+		text-align: center;
+		float: none;
+	}
+
+	.order-grid li {
+		width: 100%;
+		float: none;
+	}
+
+	.order-box {
+		margin-right: 0;
+	}
+
+	.selected-variation {
+		padding: 25px 0;
+	}
+
+	.option-value {
+		margin-top: -5px;
+	}
+
+	.os-trigger .icon-arrow-down {
+		padding: 26px 16px;
+	}
+
+	.order-box h4 {
+		padding: 15px 0;
+		margin-top: 5px;
+	}
+
+	.os-dropdown {
+		bottom: 60px;
+	}
+
+	.order .logo {
+		margin: 0 auto;
 	}
 }
