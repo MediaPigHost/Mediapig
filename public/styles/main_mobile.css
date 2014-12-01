@@ -278,4 +278,8 @@
 	.home .sub {
 		display: none;
 	}
+
+	.gray-section .big-feature {
+		width: 100%;
+	}
 }
