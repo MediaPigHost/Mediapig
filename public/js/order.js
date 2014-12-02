@@ -12,7 +12,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
           } else {
             var overlay = document.getElementById("overlay-content");
             var signup = document.getElementById("signup-form-wrap");
-            if (signup.length){
+            if (signup && signup.length){
               signup.parentNode.removeChild(signup);
             }
             overlay.parentNode.className += ' order-overlay';
