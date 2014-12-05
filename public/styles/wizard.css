@@ -69,6 +69,13 @@ h2.order-grid-heading {
   border-radius: 5px;
 }
 
+.section-bandwidth .order-grid-heading {
+  margin: 0;
+  padding:  20px;
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 5px;
+}
+
 .order-box h4 {
   margin-bottom: 25px;
   margin-top: 20px;
