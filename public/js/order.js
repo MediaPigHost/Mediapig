@@ -2,6 +2,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
   var order = {
     init : function(){
       this.events();
+      this.subscriptions();
       this.calculatePrice();
     },
     startPurchase : function(){
@@ -76,8 +77,72 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
           }
       });
     },
-    createOrder: function(){
+    startDiscount: function(){
+      app.ajax(window.location.origin + '/page/discount', function (res) {
+        var overlay = document.getElementById("overlay-content");
+        overlay.parentNode.className += ' discount-overlay';
+        helpers.removeClass(overlay.parentNode, 'overlay-loading');
+        overlay.innerHTML += res;
 
+        var discount = document.getElementById("discount"),
+            discountCode = document.getElementById("discount-code");
+        discount.addEventListener("keyup", function (e) {
+          if (discountCode.value.length > 4) {
+            if(!discount.parentNode.classList.contains('enabled')){
+              discount.parentNode.className += ' enabled';
+              discountCode.disabled = true;
+              app.publish('/discount/post', discountCode.value);
+            }
+          } else {
+            if(discount.parentNode.classList.contains('enabled')){
+              helpers.removeClass(discount.parentNode, 'enabled');
+            }
+          }
+        });
+      });
+
+      app.subscribe("/discount/post", function(code) {
+        var discount = document.getElementById("discount"),
+            formDetails = {};
+        discount = discount.elements;
+
+        for (var i = 0, length = discount.length; i < length; i++) {
+          if (discount[i].type !== "submit") {
+            formDetails[discount[i].name] = discount[i].value;
+          }
+        }
+
+        siteObj.orderConfig['discount_code'] = formDetails.code;
+
+        helpers.postJSON(formDetails, '/discount/verify', function (res) {
+            var response = JSON.parse(res.response);
+
+            if (response.status === 'success') {
+              app.publish('/discount/success', response);
+            } else {
+              app.publish('/discount/fail', response);
+            }
+        });
+      });
+
+      app.subscribe("/discount/success", function(res) {
+        var discountForm = document.getElementById("discount-form");
+        helpers.removeClass(discountForm, 'enabled');
+        discountForm.className += ' success';
+        setTimeout(function () {
+          app.publish('/overlay/close', {});
+          siteObj.discountPercentage = res.discount_percent;
+          order.calculatePrice();
+        }, 1000);
+      });
+
+      app.subscribe("/discount/fail", function(res) {
+        var discount = document.getElementById("discount"),
+            discountCode = document.getElementById("discount-code");
+        discountCode.disabled = false;
+        helpers.removeClass(discount.parentNode, 'enabled');
+        app.publish('/message/error', res.errors);
+      });
     },
     calculatePrice : function(){
       var sections = document.getElementsByClassName('order-grid'),
@@ -101,6 +166,11 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
           price += parseFloat(selectedPrice);
         }
       }
+
+      if (typeof siteObj.discountPercentage != 'undefined'){
+          price = parseFloat(price - (price / 100 * siteObj.discountPercentage));
+      }
+
       helpers.removeClass(document.getElementById('order-button'), 'disabled');
       document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(2);
     },
@@ -213,28 +283,14 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         e.preventDefault();
       });
 
-      app.subscribe("/form/register/update", function (flag) {
-        if (flag === 'success'){
-          document.getElementById('overlay-content').parentNode.className += ' overlay-loading';
-          order.startPurchase();
-        }
+      helpers.addEventListenerByClass('discount-trigger', 'click', function (e) {
+        helpers.addBodyClass('overlay-visible');
+        order.startDiscount();
+        e.preventDefault();
       });
 
       helpers.addEventListenerByClass('overlay-close', 'click', function (e) {
-        helpers.removeBodyClass('overlay-visible');
-        // Cleanup view for next open
-        document.getElementById('overlay-content').parentNode.className = 'overlay-wrap overlay-loading';
-
-        var cardform = document.getElementById("card-details-form-wrap");
-        if (cardform){
-          cardform.parentNode.removeChild(cardform);
-        }
-
-        var signup = document.getElementById("signup-form-wrap");
-        if (signup){
-          signup.parentNode.removeChild(signup);
-        }
-        e.preventDefault();
+        app.publish('/overlay/close', e);
       });
 
       helpers.addEventListenerByClass('option-trigger', 'click', function (e) {
@@ -280,6 +336,39 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
       });
 
 
+    },
+    subscriptions: function(){
+      app.subscribe("/overlay/close", function() {
+        helpers.removeBodyClass('overlay-visible');
+        // Cleanup view for next open
+        document.getElementById('overlay-content').parentNode.className = 'overlay-wrap overlay-loading';
+
+        var cardform = document.getElementById("card-details-form-wrap");
+        if (cardform){
+          cardform.parentNode.removeChild(cardform);
+        }
+
+        var signup = document.getElementById("signup-form-wrap");
+        if (signup){
+          signup.parentNode.removeChild(signup);
+        }
+
+        var discount = document.getElementById("discount-form");
+        if (discount){
+          discount.parentNode.removeChild(discount);
+        }
+
+        if (typeof e != 'undefined') {
+          e.preventDefault();
+        }
+      });
+
+      app.subscribe("/form/register/update", function (flag) {
+        if (flag === 'success'){
+          document.getElementById('overlay-content').parentNode.className += ' overlay-loading';
+          order.startPurchase();
+        }
+      });
     }
   }
   module.exports = order;

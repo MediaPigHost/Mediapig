@@ -39,7 +39,7 @@ define(['require', 'exports', 'module', 'move', 'helpers'], function (require, e
             console.log(parent);
 
             var leftArrow = '<a href="#" class="slide-arrow-left icon-arrow-left"></a>';
-            var rightArrow = '<a href="#" class="slide-arrow-right icon-uniE604"></a>';
+            var rightArrow = '<a href="#" class="slide-arrow-right"></a>';
 
             parent.insertAdjacentHTML('beforeend', leftArrow);
             parent.insertAdjacentHTML('beforeend', rightArrow);

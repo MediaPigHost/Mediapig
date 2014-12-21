@@ -382,6 +382,7 @@ var Requests = function () {
                   customer = customerValues(req, res);
               order.door = customer.door;
               order.user = customer.user;
+              
               request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/create', body: order}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     if (body.token){
@@ -428,13 +429,20 @@ var Requests = function () {
                 customer = customerValues(req, res);
             order.door = customer.door;
             order.user = customer.user;
-
             request.post({json: true, url:'https://api.mediapig.co.uk/index.php?/order/process', body: order}, function (error, response, body) {
               if (body.status !== 'fail') {
                 res.send(body);
               } else {
                 next();
               }
+            });
+          }
+        },
+        discount: {
+          process : function(req, res, next){
+            var discount = req.body;
+            request('https://api.mediapig.co.uk/index.php?/discount/verify/' + discount.code, function (error, response, body) {
+              res.send(body);
             });
           }
         },
@@ -477,6 +485,7 @@ module.exports.SetRequests = function (app) {
     //this.app.get('/manage/:page', Requests.account.pages);
 
     this.app.post('/order/process', Requests.order.process);
+    this.app.post('/discount/verify', Requests.discount.process);
     this.app.post('/error/message', Requests.error.message);
     this.app.post('/post/order', Requests.fragments.setupOrder);
     this.app.post('/manage/ticket/reply', Requests.account.ticketreply);

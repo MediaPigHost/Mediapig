@@ -286,19 +286,22 @@ textarea {
 }
 
 .icon-checkmark:before {
-  content: "\e600";
+  content: "\ea10";
 }
 .icon-arrow-left:before {
-	content: "\e601";
+	content: "\e60b";
+}
+.icon-arrow-right:before {
+  content: "\e60e";
 }
 .icon-arrow-down:before {
-	content: "\e602";
+	content: "\e60c";
 }
 .icon-arrow-up:before {
-	content: "\e603";
+	content: "\e60d";
 }
-.icon-uniE604:before {
-	content: "\e604";
+.icon-add:before {
+  content: "\e606";
 }
 
 /*====================================
@@ -1582,7 +1585,7 @@ body {
 }
 
 .active.success .btn {
-  background-color: #58E493;
+  background-color: #88cf97;
   -webkit-box-sizing: 0px 4px 0px #9bae7e;
   -moz-box-sizing: 0px 4px 0px #9bae7e;
   box-sizing: 0px 4px 0px #9bae7e;
@@ -1864,11 +1867,11 @@ body {
 
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?-lcj9le');
-	src:url('../fonts/icomoon.eot?#iefix-lcj9le') format('embedded-opentype'),
-		url('../fonts/icomoon.woff?-lcj9le') format('woff'),
-		url('../fonts/icomoon.ttf?-lcj9le') format('truetype'),
-		url('../fonts/icomoon.svg?-lcj9le#icomoon') format('svg');
+	src:url('../fonts/icomoon/fonts/icomoon.eot?-lcj9le');
+	src:url('../fonts/icomoon/fonts/icomoon.eot?#iefix-lcj9le') format('embedded-opentype'),
+		url('../fonts/icomoon/fonts/icomoon.woff?-lcj9le') format('woff'),
+		url('../fonts/icomoon/fonts/icomoon.ttf?-lcj9le') format('truetype'),
+		url('../fonts/icomoon/fonts/icomoon.svg?-lcj9le#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

@@ -86,8 +86,9 @@
             </div>
             {% endif %}
           {% endfor %}
+          <a href="#" class="btn tertiary discount-code discount-trigger"><i class="icon-add"></i>Add discount</a>
         </div>
-        <a href="#" id="order-button" class="btn large disabled {% if customer.user %}payment-trigger{% else %}register-trigger{% endif %}">Make Payment</a>
+        <a href="#" id="order-button" class="btn large disabled {% if customer.user %}payment-trigger{% else %}register-trigger{% endif %}">Checkout</a>
       </div>
     </aside>
     <div class="overlay">

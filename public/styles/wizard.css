@@ -100,7 +100,7 @@ h2.order-grid-heading {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   float: right;
 }
 
@@ -122,7 +122,8 @@ h3.order-total-price {
 }
 
 .option-trigger,
-.os-trigger {
+.os-trigger,
+.btn.tertiary {
   background-color: rgba(0,0,0,0.2);
   padding: 0.875em 3.225em 0.875em 1.625em;
   border-radius: 5px;
@@ -132,6 +133,10 @@ h3.order-total-price {
   position: relative;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.btn.tertiary {
+  padding: 0.875em 1.625em;
 }
 
 .os-trigger {
@@ -354,7 +359,8 @@ h3.order-total-price {
   margin-right: 15px;
 }
 
-.card-details-form input[type='text'], .card-details-form select {
+.card-details-form input[type='text'], .card-details-form select,
+.discount-form input[type='text'], .discount-form select {
   color: #666;
   background-color: #EFEFEF;
 }
@@ -364,13 +370,15 @@ h3.order-total-price {
   text-indent: -9999px;
 }
 
-input.submit-card-details {
+input.submit-card-details,
+input.discount-form {
   width: 100%;
   margin-top: 30px;
   color: #FFF;
 }
 
-.card-details-form input:not(.btn) {
+.card-details-form input:not(.btn),
+.discount-form input:not(.btn) {
   width: 100%;
   -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
   -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
@@ -383,4 +391,72 @@ input.submit-card-details {
 
 .signup h2 {
   color: #666;
+}
+
+.btn.discount-code {
+  background-color: rgba(0,0,0,0.1);
+  color: #999;
+  margin-left: 45px;
+  padding: 0.875em 1.3em 0.875em 2.9em;
+}
+
+.btn.discount-code:hover {
+  background-color: rgba(0,0,0,0.2);
+  color: #FFF;
+}
+
+
+.btn.discount-code i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 14px 17px;
+  font-size: 1.2em;
+}
+
+.discount-form h3 {
+  margin: 20px 0;
+}
+
+.discount-form input.code {
+  margin: 0;
+  width: 70%;
+  float: left;
+  border-radius: 5px 0 0 5px;
+}
+
+.discount-form .btn {
+  float: left;
+  box-shadow: none;
+  border-radius: 0 5px 5px 0;
+  width: 88px;
+}
+
+.discount-form form {
+  width: 100%;
+  position: relative;
+}
+
+.discount-head {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.discount-form.enabled .btn {
+  background: rgba(0,0,0,0.2) url('../images/loading-white.svg') no-repeat center;
+  text-indent: -9999px;
+}
+
+.discount-form.success .btn {
+  background: #88cf97;
+  text-indent: -9999px;
+}
+
+.discount-form.success .tick {
+  position: absolute;
+  right: 36px;
+  top: 12px;
+  display: block;
+  color: #FFF;
+  font-size: 1.4em;
 }
