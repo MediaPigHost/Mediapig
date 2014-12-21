@@ -734,7 +734,8 @@ body {
 .order h3,
 .page h1,
 .page h2,
-.page h3 {
+.page h3,
+.discount-message {
   font-family: 'proxima-nova-soft', sans-serif;
   font-weight: 600;
   margin: 0;

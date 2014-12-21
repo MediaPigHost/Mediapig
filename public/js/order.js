@@ -133,6 +133,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
           app.publish('/overlay/close', {});
           siteObj.discountPercentage = res.discount_percent;
           order.calculatePrice();
+          app.publish('/discount/applied', {});
         }, 1000);
       });
 
@@ -361,6 +362,18 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         if (typeof e != 'undefined') {
           e.preventDefault();
         }
+      });
+
+      app.subscribe("/discount/applied", function() {
+        helpers.addBodyClass('discount-applied');
+        setTimeout(function () {
+          helpers.addBodyClass('discount-applied-fadeout');
+          helpers.removeBodyClass('discount-applied');
+        }, 5000);
+
+        setTimeout(function () {
+          helpers.removeBodyClass('discount-applied-fadeout');
+        }, 7000);
       });
 
       app.subscribe("/form/register/update", function (flag) {

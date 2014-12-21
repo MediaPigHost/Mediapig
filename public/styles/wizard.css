@@ -460,3 +460,44 @@ input.discount-form {
   color: #FFF;
   font-size: 1.4em;
 }
+
+.discount-message {
+  display: none;
+  opacity: 0;
+  border-radius: 5px;
+  background-color: rgba(38,37,42, 0.95);
+  padding: 10px;
+  position: absolute;
+  top: -50px;
+  left: 105px;
+  -webkit-animation: show .5s ease .1s 1 normal forwards;
+  -o-animation: show .5s ease .1s 1 normal forwards;
+  animation: show .5s ease .1s 1 normal forwards;
+}
+
+.discount-message:after {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(39, 38, 43, 0);
+	border-top-color: #27262b;
+	border-width: 5px;
+	margin-left: -5px;
+}
+
+.discount-applied .discount-message,
+.discount-applied-fadeout .discount-message {
+  display: inline-block;
+}
+
+.discount-applied-fadeout .discount-message {
+  opacity: 1;
+  -webkit-animation: hide 1.5s ease .8s 1 normal forwards;
+  -o-animation: hide 1.5s ease .8s 1 normal forwards;
+  animation: hide 1.5s ease .8s 1 normal forwards;
+}
