@@ -8,6 +8,7 @@
 .order .order-total {
   color: #FFF;
   padding: 10px 0;
+  position: relative;
 }
 
 .order .content {
@@ -469,7 +470,7 @@ input.discount-form {
   padding: 10px;
   position: absolute;
   top: -50px;
-  left: 105px;
+  left: 10px;
   -webkit-animation: show .5s ease .1s 1 normal forwards;
   -o-animation: show .5s ease .1s 1 normal forwards;
   animation: show .5s ease .1s 1 normal forwards;
