@@ -98,6 +98,14 @@
 	.order .order-total {
 	  min-width: 1180px;
 	}
+
+	.discount-form input.code {
+		width: 60%;
+	}
+
+	.discount-applied .discount-message, .discount-applied-fadeout .discount-message {
+		left: 10px;
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -356,5 +364,18 @@
 
 	.order .logo {
 		margin: 0 auto;
+	}
+
+	.discount-form input.code {
+		width: 60%;
+	}
+
+	.discount-applied .discount-message, .discount-applied-fadeout .discount-message {
+		left: 110px;
+	}
+
+	.btn.discount-code {
+		width: 100%;
+		margin: 0;
 	}
 }
