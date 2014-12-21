@@ -86,18 +86,22 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
         var discount = document.getElementById("discount"),
             discountCode = document.getElementById("discount-code");
+
         discount.addEventListener("keyup", function (e) {
           if (discountCode.value.length > 4) {
             if(!discount.parentNode.classList.contains('enabled')){
-              discount.parentNode.className += ' enabled';
-              discountCode.disabled = true;
-              app.publish('/discount/post', discountCode.value);
+              app.publish('/discount/validate', discountCode.value);
             }
           } else {
             if(discount.parentNode.classList.contains('enabled')){
               helpers.removeClass(discount.parentNode, 'enabled');
             }
           }
+        });
+
+        discount.addEventListener("submit", function (e){
+          e.preventDefault();
+          app.publish('/discount/validate', discountCode.value);
         });
       });
 
@@ -123,6 +127,15 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
               app.publish('/discount/fail', response);
             }
         });
+      });
+
+      app.subscribe("/discount/validate", function(){
+        var discount = document.getElementById("discount"),
+            discountCode = document.getElementById("discount-code");
+
+        discount.parentNode.className += ' enabled';
+        discountCode.disabled = true;
+        app.publish('/discount/post', discountCode.value);
       });
 
       app.subscribe("/discount/success", function(res) {
