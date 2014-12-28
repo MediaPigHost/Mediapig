@@ -1064,6 +1064,12 @@ body {
   padding: 100px 0 0;
 }
 
+.deploy-section a {
+  text-decoration: none;
+  color: #597F9D;
+  border-bottom: 1px dotted #597F9D;
+}
+
 .deploy-time {
   padding: 30px;
   color: #333;
