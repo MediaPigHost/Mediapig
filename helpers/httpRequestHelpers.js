@@ -243,10 +243,13 @@ var Requests = function () {
               var customer = customerValues(req, res);
               request.post({json: true, url: data.api + 'index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
+                    console.log(body);
                     var out = extend(data, body);
+                    console.log(out);
                     request.post({json: true, url: data.api + 'index.php?/service/listservices', body: customer}, function(error, response, body){
                       if (body.status !== 'fail'){
                         out.services = body.services;
+                        console.log(out);
                         res.render('account/home', out);
                       }
                     });
