@@ -8,3 +8,9 @@ deployment:
       - npm install -g gulp
       - gulp compress
       - ./deploy_prod.sh
+  staging:
+    branch: master
+    commands:
+      - npm install -g gulp
+      - gulp compress
+      - ./deploy_stage.sh
