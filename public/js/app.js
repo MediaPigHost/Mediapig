@@ -60,7 +60,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
             },
             events: function (app, dom) {
 
-                var invoiceID = "";
+                var serviceID = "";
                 var stripe = null;
                 var animateStatus = [{}];
 

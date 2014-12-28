@@ -192,15 +192,15 @@ define(function (require, exports, module) {
 
             var _self = this;
 
-            this.invoiceID = '';
+            this.serviceID = '';
 
 
             return {
-                getInvoiceID: function () {
-                    return _self.invoiceID;
+                getServiceID: function () {
+                    return _self.serviceID;
                 },
-                setInvoiceID: function (id) {
-                    _self.invoiceID = id;
+                setServiceID: function (id) {
+                    _self.serviceID = id;
                 },
                 setKey: function (key) {
                     Stripe.setPublishableKey(key);

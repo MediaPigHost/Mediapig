@@ -524,7 +524,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/service/stop', Requests.service.stop);
     this.app.post('/service/start', Requests.service.start);
     this.app.post('/service/restart', Requests.service.restart);
-    this.app.post('/service/terminate', Requests.service.restart);
+    this.app.post('/service/terminate', Requests.service.terminate);
     this.app.post('/login', Requests.account.login);
     this.app.post('/forgot', Requests.account.forgotpass);
 
