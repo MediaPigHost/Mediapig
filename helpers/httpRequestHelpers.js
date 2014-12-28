@@ -443,6 +443,7 @@ var Requests = function () {
             order.door = customer.door;
             order.user = customer.user;
             request.post({json: true, url: data.api + 'index.php?/order/process', body: order}, function (error, response, body) {
+              console.log(body);
               if (body.status !== 'fail') {
                 res.send(body);
               } else {
