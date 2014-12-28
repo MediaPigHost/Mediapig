@@ -20,9 +20,9 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
             overlay.innerHTML += xhr.response;
             helpers.removeClass(overlay.parentNode, 'overlay-loading');
 
-            var invoiceID = document.getElementById('invoice_id').getAttribute('value');
+            var serviceID = document.getElementById('service_id').getAttribute('value');
             stripe = new helpers.stripe();
-            stripe.setInvoiceID(invoiceID);
+            stripe.setServiceID(serviceID);
             var form = document.getElementById('cardDetails');
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
@@ -55,7 +55,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
                         var token = response.id;
 
                         var orderDetails = {
-                            invoice_id: +stripe.getInvoiceID(),
+                            service_id: stripe.getServiceID(),
                             token: token,
                             first_name: cardDetails.firstname,
                             last_name: cardDetails.surname
