@@ -191,6 +191,11 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
           price = parseFloat(price - (price / 100 * siteObj.discountPercentage));
       }
 
+      if (siteObj.term != 'month'){
+        // hourly
+        price = parseFloat(price / 666);
+      }
+
       helpers.removeClass(document.getElementById('order-button'), 'disabled');
       document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(2);
     },
@@ -355,7 +360,17 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
           e.preventDefault();
       });
 
+      document.getElementById('month-multi').addEventListener('click', function (e) {
+        e.preventDefault();
+        siteObj.term = 'month';
+        order.calculatePrice();
+      });
 
+      document.getElementById('hour-multi').addEventListener('click', function (e) {
+        e.preventDefault();
+        siteObj.term = 'hour';
+        order.calculatePrice();
+      });
     },
     subscriptions: function(){
       app.subscribe("/overlay/close", function() {
