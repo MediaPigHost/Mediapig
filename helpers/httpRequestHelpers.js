@@ -40,11 +40,13 @@ var Requests = function () {
     return {
         home: function(req, res){
           var customer = customerValues(req, res);
+          console.log(data);
           if (customer){
             var out = extend({'logged_in' : true}, data);
           } else {
             var out = data;
           }
+          console.log(out);
           res.render('home', out);
         },
         page: function(req, res){
