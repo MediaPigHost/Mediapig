@@ -68,7 +68,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
                                 window.location.href = '/manage';
                             } else {
                                 submitEl.className = submitEl.className.replace(/(?:^|\s)disabled(?!\S)/, '');
-                                app.publish('/message/error', response.errors.stripe);
+                                app.publish('/message/error', response.errors);
                             }
                         });
                     }
