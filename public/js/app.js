@@ -65,7 +65,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                 var animateStatus = [{}];
 
                 if (dom.overlayClose) {
-
                     dom.overlayClose.addEventListener('click', function () {
                         app.help.removeBodyClass('overlay-visible');
                         app.publish('/view/overlay/closed', true);
@@ -120,7 +119,6 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                       var forgotpass = document.getElementById('forgotpass');
                       app.help.postJSON({ "ajax" : true, "email" : forgotpass.elements.namedItem("email").value }, window.location.origin + '/forgot', function (xhr) {
                         var body = JSON.parse(xhr.response);
-                        console.log(body);
                         if (body.errors){
                           app.publish('/message/error', body.errors);
                         } else {

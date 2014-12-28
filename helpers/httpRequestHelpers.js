@@ -368,6 +368,19 @@ var Requests = function () {
                 next();
               }
             });
+          },
+          terminate: function(req, res, next){
+            var out = req.body,
+                customer = customerValues(req, res);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url: data.api + 'index.php?/service/terminateservice ', body: out}, function (error, response, body) {
+              if (body.status !== 'fail'){
+                res.send(body);
+              } else {
+                next();
+              }
+            });
           }
         },
         error: {
@@ -496,6 +509,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/service/stop', Requests.service.stop);
     this.app.post('/service/start', Requests.service.start);
     this.app.post('/service/restart', Requests.service.restart);
+    this.app.post('/service/terminate', Requests.service.restart);
     this.app.post('/login', Requests.account.login);
     this.app.post('/forgot', Requests.account.forgotpass);
 
