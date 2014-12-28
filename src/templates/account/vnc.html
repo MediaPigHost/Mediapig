@@ -1,7 +1,7 @@
 {% extends "../account.html" %}
 
 {% block blockingscripts %}
-  <script src="{{url}}js/vnc/util.js"></script>
+  <script src="{{site.url}}js/vnc/util.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -29,7 +29,7 @@
       /*jslint white: false */
       /*global window, $, Util, RFB, */
       "use strict";
-      var INCLUDE_URI = '{{url}}';
+      var INCLUDE_URI = '{{site.url}}';
       // Load supporting scripts
       Util.load_scripts(["/js/vnc/webutil.js", "./js/vnc/base64.js", "./js/vnc/websock.js", "./js/vnc/des.js",
                          "./js/vnc/keysymdef.js", "./js/vnc/keyboard.js", "./js/vnc/input.js", "./js/vnc/display.js",

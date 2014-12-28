@@ -14,7 +14,7 @@
 <div class="container">
 	{% if stats.status == 'error' %}
 		<div class="notification clearfix" id="panel">
-			<a href="#" class="remove" id="remove" title="Mark as read"><img src="{{url}}/images/remove.svg"></a>
+			<a href="#" class="remove" id="remove" title="Mark as read"><img src="{{site.url}}/images/remove.svg"></a>
 			<p>{{stats.statusmsg}}</p>
 		</div>
 	{% endif %}
@@ -27,12 +27,12 @@
 </div>
 <div class="container clearfix">
 	<div class="utilities">
-		<a href="/service/stop" id="service-stop" class="btn account {% if server_status|lower == 'offline' %}hide{% endif %}"><img src="{{url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Stop</a>
-		<a href="/service/start" id="service-start" class="btn account {% if server_status|lower == 'online' %}hide{% endif %}"><img src="{{url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Start</a>
-		<a href="/service/restart" id="service-restart" class="btn account"><img src="{{url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Restart</a>
+		<a href="/service/stop" id="service-stop" class="btn account {% if server_status|lower == 'offline' %}hide{% endif %}"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Stop</a>
+		<a href="/service/start" id="service-start" class="btn account {% if server_status|lower == 'online' %}hide{% endif %}"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Start</a>
+		<a href="/service/restart" id="service-restart" class="btn account"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Restart</a>
 		<a href="/service/vnc/{{service_id}}" class="btn account {% if server_status|lower == 'offline' %}hide{% endif %}"><i class="add-icon"></i>Console</a>
 
-		<a href="/service/terminate" id="service-terminate" class="btn account"><img src="{{url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Cancel</a>
+		<a href="/service/terminate" id="service-terminate" class="btn account"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Cancel</a>
 	</div>
 	<div class="overview">
 		<h3>General</h3>

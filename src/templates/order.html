@@ -16,7 +16,7 @@
   <body class="order">
     <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
       <header class="header line">
-        <a id="logo" href="/" class="logo">{{name}}</a>
+        <a id="logo" href="/" class="logo">{{site.name}}</a>
       </header>
     </div>
     <div class="wrap">
@@ -31,7 +31,7 @@
                   <li class="order-grid-item {% if value.default %}selected{% endif %}" data-value="{{value.value|lower}}" data-price="0.00" data-name="{{attribute.name}}" data-product-id="{{value.id}}">
                     <div class="order-box">
                       <div class="os-logo">
-                        <img width="175" src="{{url}}images/{{value.value|lower}}.png" alt="" />
+                        <img width="175" src="{{site.url}}images/{{value.value|lower}}.png" alt="" />
                       </div>
                       <h4>{{value.value}}</h4>
                       <div class="os-variations">
