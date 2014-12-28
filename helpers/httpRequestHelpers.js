@@ -41,14 +41,14 @@ var Requests = function () {
         home: function(req, res){
           var customer = customerValues(req, res);
           if (customer){
-            var out = extend({'logged_in' : true}, data);
+            var out = extend({'logged_in' : true}, { site : data });
           } else {
             var out = data;
           }
           res.render('home', out);
         },
         page: function(req, res){
-          res.render('pages/' + req.params.page, data);
+          res.render('pages/' + req.params.page, { site : data });
         },
         account : {
           forgotpass: function(req, res, next){
@@ -77,8 +77,8 @@ var Requests = function () {
               var customer = customerValues(req, res);
               request.post({json: true, url: data.api + 'index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    var out = extend(data, body);
-                    console.log(out);
+                    var out = body;
+                    out.site = data;
                     res.render('account/account', out);
                   } else {
                     res.redirect('/');
@@ -107,7 +107,8 @@ var Requests = function () {
             out.user = customer.user;
             request.post({json: true, url: data.api + 'index.php?/user/getusercards', body: customer}, function (error, response, body) {
               if (body.status !== 'fail'){
-                var out = extend(data, body);
+                var out = body;
+                out.site = data;
                 res.render('account/methods', out);
               } else {
                 next();
@@ -119,7 +120,8 @@ var Requests = function () {
               var customer = customerValues(req, res);
               request.post({json: true, url: data.api + 'index.php?/service/listservices', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     res.render('account/newticket', out);
                   } else {
                     next();
@@ -142,7 +144,7 @@ var Requests = function () {
           },
           password: {
             read: function(req, res, next) {
-              res.render('account/password', data);
+              res.render('account/password', { site: data });
             },
             add: function(req, res, next) {
               var out = req.body,
@@ -151,7 +153,8 @@ var Requests = function () {
               out.user = customer.user;
               request.post({json: true, url: data.api + 'index.php?/user/update', body: out}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     res.render('account/password', out);
                   } else {
                     next();
@@ -161,7 +164,7 @@ var Requests = function () {
           },
           email: {
             read: function(req, res, next) {
-              res.render('account/email', data);
+              res.render('account/email', { site: data });
             },
             add: function(req, res, next) {
               var out = req.body,
@@ -170,7 +173,8 @@ var Requests = function () {
               out.user = customer.user;
               request.post({json: true, url: data.api + 'index.php?/user/updateemail', body: out}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     res.render('account/email', out);
                   } else {
                     next();
@@ -182,7 +186,8 @@ var Requests = function () {
             var customer = customerValues(req, res);
             request.post({json: true, url: data.api + 'index.php?/payment/listpayments', body: customer}, function (error, response, body) {
                 if (body.status !== 'fail'){
-                  var out = extend(data, { payments: body });
+                  var out = { payments: body };
+                  out.site = data;
                   res.render('account/payment', out);
                 } else {
                   res.redirect('/');
@@ -193,7 +198,8 @@ var Requests = function () {
             var customer = customerValues(req, res);
             request.post({json: true, url: data.api + 'index.php?/invoice/listinvoices', body: customer}, function (error, response, body) {
                 if (body.status !== 'fail'){
-                  var out = extend(data, body);
+                  var out = body;
+                  out.site = data;
                   res.render('account/invoices', out);
                 } else {
                   res.redirect('/');
@@ -211,8 +217,9 @@ var Requests = function () {
                 request.post({json: true, url: data.api + 'index.php?/invoice/showinvoice', body: out}, function (error, response, body) {
                     if (body.status !== 'fail'){
                       body['invoice_id'] = invoiceid;
-                      var out = extend(data, body);
-                      res.render('account/invoice', data);
+                      var out = body;
+                      out.site = data;
+                      res.render('account/invoice', { site: data });
                     } else {
                       res.redirect('/');
                     }
@@ -227,7 +234,8 @@ var Requests = function () {
             request.post({json: true, url: data.api + 'index.php?/service/getdetails', body: out}, function (error, response, body) {
                 if (body.status !== 'fail'){
                   body['service_id'] = parseInt(req.params.serviceid);
-                  var out = extend(data, body);
+                  var out = body;
+                  out.site = data;
                   res.render('account/product', out);
                 } else {
                   res.redirect('/');
@@ -235,13 +243,14 @@ var Requests = function () {
             });
           },
           subscriptions: function(req, res, next) {
-            res.render('account/subscriptions', data);
+            res.render('account/subscriptions', { site: data });
           },
           home: function(req, res, next){
               var customer = customerValues(req, res);
               request.post({json: true, url: data.api + 'index.php?/user/read', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     request.post({json: true, url: data.api + 'index.php?/service/listservices', body: customer}, function(error, response, body){
                       if (body.status !== 'fail'){
                         out.services = body.services;
@@ -257,7 +266,8 @@ var Requests = function () {
               var customer = customerValues(req, res);
               request.post({json: true, url: data.api + 'index.php?/ticket/showlist', body: customer}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     res.render('account/support', out);
                   } else {
                     next();
@@ -272,7 +282,8 @@ var Requests = function () {
               request.post({json: true, url: data.api + 'index.php?/ticket/getticket', body: out}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     body['ticket_id'] = parseInt(req.params.ticketid);
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     res.render('account/ticket', out);
                   } else {
                     res.redirect('/');
@@ -287,7 +298,8 @@ var Requests = function () {
               out.user = customer.user;
               request.post({json: true, url: data.api + 'index.php?/ticket/reply', body: out}, function (error, response, body) {
                   if (body.status !== 'fail'){
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     res.redirect('/manage/ticket/' + ticketid);
                   } else {
                     res.redirect('/');
@@ -303,7 +315,8 @@ var Requests = function () {
               request.post({json: true, url: data.api + 'index.php?/ticket/closeticket', body: out}, function (error, response, body) {
                   if (body.status !== 'fail'){
                     body['ticket_id'] = parseInt(req.params.ticketid);
-                    var out = extend(data, body);
+                    var out = body;
+                    out.site = data;
                     res.redirect('/manage/ticket/' + ticketid);
                   } else {
                     res.redirect('/');
@@ -311,7 +324,7 @@ var Requests = function () {
               });
           },
           upgrade: function(req, res, next) {
-            res.render('account/upgrade', data);
+            res.render('account/upgrade', { site: data });
           }
         },
         service : {
@@ -323,7 +336,8 @@ var Requests = function () {
             request.post({json: true, url: data.api + 'index.php?/service/getdetails', body: out}, function (error, response, body) {
                 if (body.status !== 'fail'){
                   body['service_id'] = parseInt(req.params.serviceid);
-                  var out = extend(data, body);
+                  var out = body;
+                  out.site = data;
                   res.render('account/vnc', out);
                 } else {
                   res.redirect('/');
@@ -362,6 +376,19 @@ var Requests = function () {
             out.door = customer.door;
             out.user = customer.user;
             request.post({json: true, url: data.api + 'index.php?/service/perform/reboot ', body: out}, function (error, response, body) {
+              if (body.status !== 'fail'){
+                res.send(body);
+              } else {
+                next();
+              }
+            });
+          },
+          terminate: function(req, res, next){
+            var out = req.body,
+                customer = customerValues(req, res);
+            out.door = customer.door;
+            out.user = customer.user;
+            request.post({json: true, url: data.api + 'index.php?/service/terminateservice ', body: out}, function (error, response, body) {
               if (body.status !== 'fail'){
                 res.send(body);
               } else {
@@ -430,6 +457,7 @@ var Requests = function () {
             order.door = customer.door;
             order.user = customer.user;
             request.post({json: true, url: data.api + 'index.php?/order/process', body: order}, function (error, response, body) {
+              console.log(body);
               if (body.status !== 'fail') {
                 res.send(body);
               } else {
@@ -496,6 +524,7 @@ module.exports.SetRequests = function (app) {
     this.app.post('/service/stop', Requests.service.stop);
     this.app.post('/service/start', Requests.service.start);
     this.app.post('/service/restart', Requests.service.restart);
+    this.app.post('/service/terminate', Requests.service.restart);
     this.app.post('/login', Requests.account.login);
     this.app.post('/forgot', Requests.account.forgotpass);
 

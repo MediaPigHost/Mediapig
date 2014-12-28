@@ -6,7 +6,8 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
     events : function(){
       var stopService = document.getElementById('service-stop'),
           startService = document.getElementById('service-start'),
-          restartService = document.getElementById('service-restart');
+          restartService = document.getElementById('service-restart'),
+          termianteService = document.getElementById('service-terminate');
 
       if(stopService){
         stopService.addEventListener('click', function (e) {
@@ -52,6 +53,26 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
                 helpers.removeClass(target, 'loading');
                 target.className += 'hide';
                 helpers.removeClass(stopService, 'hide');
+              } else {
+                helpers.removeClass(target, 'loading');
+              }
+            });
+          }
+        });
+      }
+
+      if(termianteService){
+        termianteService.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = e.currentTarget;
+          if (!target.classList.contains('loading')){
+            target.className += " loading";
+
+            helpers.postJSON({'service_id' : siteObj['service_id']}, window.location.origin + '/service/terminate', function (body) {
+              var res = JSON.parse(body.response);
+              if(res.status == 'success'){
+                helpers.removeClass(target, 'loading');
+                window.location.href = window.location.origin + '/manage';
               } else {
                 helpers.removeClass(target, 'loading');
               }

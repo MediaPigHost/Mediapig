@@ -3,12 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="wnkygCdBqV2WZPPBvBK5wanYcAz-hlJeu_Pn4EuIXxc" />
-    <link rel="stylesheet" href="{{url}}styles/main.css">
-    <link rel="stylesheet" href="{{url}}styles/main_mobile.css">
-    <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <link rel="stylesheet" href="{{site.url}}styles/main.css">
+    <link rel="stylesheet" href="{{site.url}}styles/main_mobile.css">
+    <script src="//use.typekit.net/bpu0jzj.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
     <title>
-      {{name}} | Hosting without the hassle
+      {{site.name}} | Hosting without the hassle
     </title>
   </head>
 
@@ -29,7 +29,7 @@
       <a href="#" class="menu-toggle">&#9776; Menu</a>
       <header class="header line">
         <div class="left">
-          <a id="logo" href="/" class="logo">{{name}}</a>
+          <a id="logo" href="/" class="logo">{{site.name}}</a>
         </div>
         <div class="right">
           <ul>
@@ -110,14 +110,14 @@
     </script>
     <script charset="utf-8">
     var curl = {
-        baseUrl: '{{url}}'
+        baseUrl: '{{site.url}}'
     };
     var siteObj = {
       pagetype: 'page'
     };
     </script>
-    <script src="{{url}}js/curl.js"></script>
-    <script src="{{url}}js/app.js"></script>
+    <script src="{{site.url}}js/curl.js"></script>
+    <script src="{{site.url}}js/app.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   </body>
 </html>

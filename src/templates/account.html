@@ -6,26 +6,26 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{name}} | Manage</title>
+  <title>{{site.name}} | Manage</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{url}}styles/normalize.css">
-  <link rel="stylesheet" href="{{url}}styles/account.css">
-  <link rel="stylesheet" href="{{url}}styles/account_mobile.css">
-  <script type="text/javascript" src="//use.typekit.net/umh2auy.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <link rel="stylesheet" href="{{site.url}}styles/normalize.css">
+  <link rel="stylesheet" href="{{site.url}}styles/account.css">
+  <link rel="stylesheet" href="{{site.url}}styles/account_mobile.css">
+  <script src="//use.typekit.net/bpu0jzj.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
   {% block blockingscripts %}{% endblock %}
 </head>
 <body class="{% block pageclass %}account-default{% endblock %}">
   <header>
     <div class="container clearfix">
-      <a href="/manage" class="logo"><img src="{{url}}/images/logo-small.svg"></a>
+      <a href="/manage" class="logo"><img src="{{site.url}}/images/logo-small.svg"></a>
       <div class="right">
-        <a href="/manage" class="name" data-tooltip="Account"><img src="{{url}}/images/account.svg" height="18"></a>
-        <a href="/manage/payment" class="name" data-tooltip="Billing"><img src="{{url}}/images/billing.svg" height="18"></a>
-        <a href="/manage/support" data-tooltip="Support"><img src="{{url}}/images/support.svg" height="18"></a>
-        <a href="/manage/account" data-tooltip="Settings"><img src="{{url}}/images/cog.svg" height="18"></a>
-        <a href="/logout" class="last" data-tooltip="Sign out"><img src="{{url}}/images/signout.svg" height="18"></a>
+        <a href="/manage" class="name" data-tooltip="Account"><img src="{{site.url}}/images/account.svg" height="18"></a>
+        <a href="/manage/payment" class="name" data-tooltip="Billing"><img src="{{site.url}}/images/billing.svg" height="18"></a>
+        <a href="/manage/support" data-tooltip="Support"><img src="{{site.url}}/images/support.svg" height="18"></a>
+        <a href="/manage/account" data-tooltip="Settings"><img src="{{site.url}}/images/cog.svg" height="18"></a>
+        <a href="/logout" class="last" data-tooltip="Sign out"><img src="{{site.url}}/images/signout.svg" height="18"></a>
       </div>
     </div>
   </header>

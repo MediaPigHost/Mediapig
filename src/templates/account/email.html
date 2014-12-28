@@ -24,7 +24,7 @@
   {% if status == 'error' %}
     {% for key, val in errors %}
     <div class="notification clearfix" id="panel">
-      <a href="#" class="remove" id="remove" title="Mark as read"><img src="{{url}}/images/remove.svg"></a>
+      <a href="#" class="remove" id="remove" title="Mark as read"><img src="{{site.url}}/images/remove.svg"></a>
       <p>{{val}}</p>
     </div>
     {% endfor %}
