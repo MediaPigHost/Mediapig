@@ -3,7 +3,7 @@ machine:
     version: v0.11.12
 deployment:
   production:
-    branch: master
+    branch: production
     commands:
       - npm install -g gulp
       - gulp compress
