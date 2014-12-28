@@ -166,7 +166,8 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
     },
     calculatePrice : function(){
       var sections = document.getElementsByClassName('order-grid'),
-          price = parseFloat(siteObj.basePrice);
+          price = parseFloat(siteObj.basePrice),
+          decimals = 2;
 
       siteObj.orderConfig.attributes = [];
 
@@ -194,10 +195,11 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
       if (siteObj.term != 'month'){
         // hourly
         price = parseFloat(price / 666);
+        decimals = 3;
       }
 
       helpers.removeClass(document.getElementById('order-button'), 'disabled');
-      document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(2);
+      document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(decimals);
     },
     refreshSelectionViews : function(name, id, value){
       var dropdownSelectedEl = document.getElementsByClassName('option-' + name);
