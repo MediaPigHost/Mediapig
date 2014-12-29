@@ -43,8 +43,9 @@ var Requests = function () {
           if (customer){
             var out = extend({'logged_in' : true}, { site : data });
           } else {
-            var out = data;
+            var out = { site: data };
           }
+          console.log(out);
           res.render('home', out);
         },
         page: function(req, res){
