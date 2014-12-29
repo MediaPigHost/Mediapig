@@ -169,7 +169,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                       arr.push(data);
                       data = arr;
                     }
-
+                    ga('send', 'error', 'displayed', data);
                     app.help.postJSON({'errors': data }, window.location.origin + '/error/message', function (xhr) {
                         var errorWrap = document.getElementById("error-wrap");
                         errorWrap.innerHTML += xhr.response;

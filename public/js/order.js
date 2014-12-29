@@ -11,6 +11,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
             window.location.href = '/manage';
             return false;
           } else {
+            ga('send', 'event', 'overlay', 'signup visible');
             var overlay = document.getElementById("overlay-content");
             var signup = document.getElementById("signup-form-wrap");
             if (signup && signup.length){
@@ -200,6 +201,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
       helpers.removeClass(document.getElementById('order-button'), 'disabled');
       document.getElementById('order-total-value').innerHTML = (parseFloat(price)).toFixed(decimals);
+      ga('send', 'event', 'price change', 'new selection');
     },
     refreshSelectionViews : function(name, id, value){
       var dropdownSelectedEl = document.getElementsByClassName('option-' + name);
@@ -307,12 +309,14 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
       helpers.addEventListenerByClass('payment-trigger', 'click', function (e) {
         helpers.addBodyClass('overlay-visible');
         order.startPurchase();
+        ga('send', 'event', 'click', 'payment trigger');
         e.preventDefault();
       });
 
       helpers.addEventListenerByClass('discount-trigger', 'click', function (e) {
         helpers.addBodyClass('overlay-visible');
         order.startDiscount();
+        ga('send', 'event', 'click', 'discount trigger');
         e.preventDefault();
       });
 
@@ -364,12 +368,14 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
       document.getElementById('month-multi').addEventListener('click', function (e) {
         e.preventDefault();
+        ga('send', 'order', 'click', 'monthly trigger');
         siteObj.term = 'month';
         order.calculatePrice();
       });
 
       document.getElementById('hour-multi').addEventListener('click', function (e) {
         e.preventDefault();
+        ga('send', 'order', 'click', 'hourly trigger');
         siteObj.term = 'hour';
         order.calculatePrice();
       });
@@ -402,6 +408,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
       app.subscribe("/discount/applied", function() {
         helpers.addBodyClass('discount-applied');
+        ga('send', 'order', 'price change', 'discount applied');
         setTimeout(function () {
           helpers.addBodyClass('discount-applied-fadeout');
           helpers.removeBodyClass('discount-applied');
