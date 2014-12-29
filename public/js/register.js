@@ -15,6 +15,8 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
               helpers.removeClass(overlay.parentNode, 'overlay-loading');
           });
 
+          ga('send', 'event', 'click', 'register trigger');
+
       });
 
       app.subscribe("/view/register/loaded", function (flag) {
@@ -33,8 +35,9 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
           if (flag === 'success') {
               app.help.loading(button, 'success');
-
+              ga('send', 'event', 'action', 'register success');
               setTimeout(function () {
+                  ga('send', 'event', 'loaded', 'order form');
                   app.publish('/view/order', true);
               }, 2000);
           }
