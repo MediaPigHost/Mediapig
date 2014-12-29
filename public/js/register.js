@@ -15,6 +15,8 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
               helpers.removeClass(overlay.parentNode, 'overlay-loading');
           });
 
+          ga('send', 'event', 'click', 'register trigger');
+
       });
 
       app.subscribe("/view/register/loaded", function (flag) {
