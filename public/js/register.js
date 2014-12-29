@@ -35,8 +35,9 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
 
           if (flag === 'success') {
               app.help.loading(button, 'success');
-
+              ga('send', 'event', 'action', 'register success');
               setTimeout(function () {
+                  ga('send', 'event', 'loaded', 'order form');
                   app.publish('/view/order', true);
               }, 2000);
           }
