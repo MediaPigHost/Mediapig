@@ -14,3 +14,6 @@ deployment:
       - npm install -g gulp
       - gulp compress
       - ./deploy_stage.sh
+test:
+  override:
+    - casperjs test tests/e2e/ # use PHPunit for testing
