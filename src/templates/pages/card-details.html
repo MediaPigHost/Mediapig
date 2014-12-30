@@ -50,7 +50,12 @@
             </select>
             <input type="hidden" id="order_id" name="order_id" value="{{order_id}}" />
             <input type="hidden" id="service_id" name="service_id" value="{{service_id}}">
-            <input type="submit" id="submitCardDetails" class="btn large submit-card-details" value="Confirm your payment" />
+            <div class="security-details clearfix">
+                <div class="stripe"></div>
+                <div class="lock"></div>
+                <p>We don't store card details.</p>
+            </div>
+            <input type="submit" id="submitCardDetails" class="btn large submit-card-details" value="Make secure payment" />
         </form>
     </section>
   {% endif %}
