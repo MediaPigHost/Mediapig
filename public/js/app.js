@@ -27,6 +27,7 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
 
                 var dom = {
                     overlayClose: document.getElementById('overlay-close'),
+                    overlayBackground: document.getElementsByClassName('overlay'),
                     overlayContent: document.getElementById('overlay-content'),
                     body: document.getElementsByTagName('body')
                 };
@@ -71,6 +72,17 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     });
                 }
 
+                if (dom.overlayBackground) {
+                  dom.overlayBackground[0].addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var target = e.target;
+
+                    if (target === this){
+                      app.help.removeBodyClass('overlay-visible');
+                      app.publish('/overlay/close', true);
+                    }
+                  });
+                }
 
                 app.help.addEventListenerByClass('signin-btn', 'click', function (event) {
 

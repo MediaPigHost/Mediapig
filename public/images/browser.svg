@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1180px" height="692px" viewBox="0 0 1180 692" enable-background="new 0 0 1180 692" xml:space="preserve">
+<g opacity="0.6">
+	<defs>
+		<rect id="SVGID_1_" x="21.5" y="61" opacity="0.6" width="1135" height="631"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	
+		<radialGradient id="SVGID_3_" cx="588.8467" cy="760.5508" r="535.7404" gradientTransform="matrix(1 0 0 1.4459 0 -523.6368)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0.9031" style="stop-color:#FFFFFF"/>
+		<stop  offset="0.9124" style="stop-color:#F7F7F7;stop-opacity:0.9044"/>
+		<stop  offset="0.9434" style="stop-color:#E1E2E3;stop-opacity:0.5842"/>
+		<stop  offset="0.9731" style="stop-color:#D4D5D6;stop-opacity:0.2772"/>
+		<stop  offset="1" style="stop-color:#CFD1D2;stop-opacity:0"/>
+	</radialGradient>
+	<ellipse clip-path="url(#SVGID_2_)" fill="url(#SVGID_3_)" cx="588.847" cy="576.082" rx="567.722" ry="725.466"/>
+</g>
+<path fill="#E0E0E0" d="M1089.5,90H87.5V67.215c0-3.461,2.068-6.215,5.563-6.215h991.414c3.499,0,5.022,2.754,5.022,6.215V90z"/>
+<circle opacity="0.5" fill="#E74C3C" cx="103.141" cy="76.617" r="5.903"/>
+<circle opacity="0.5" fill="#F1C40F" cx="122.458" cy="76.617" r="5.903"/>
+<circle opacity="0.5" fill="#2ECC71" cx="141.778" cy="76.617" r="5.903"/>
+<path fill="#EDEDED" d="M296.072,72.923c-0.496-1.491-1.684-1.923-3.76-1.923H178.241c-2.077,0-3.265,0.485-3.76,1.923
+	l-5.015,15.369c-0.43,1.252-2.507,1.708-2.507,1.708h136.635c0,0-2.077-0.339-2.507-1.708L296.072,72.923z"/>
+<path fill="#FFFFFF" d="M1089.5,752.812c0,4.199-1.834,7.188-5.714,7.188H93.755c-3.878,0-6.255-2.989-6.255-7.188V117h1002V752.812
+	z"/>
+<rect x="87.5" y="90" fill="#EDEDED" width="1002" height="27"/>
+</svg>
