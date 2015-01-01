@@ -126,11 +126,6 @@
 		width: 714px;
 	}
 
-	.feedback .feedback-blocks blockquote {
-		left: 0;
-		right: 0;
-	}
-
 	.control-section .browser {
 		width: 690px;
 		background-size: 690px 600px;
@@ -143,6 +138,12 @@
 		left: 51px;
 		top: 166px;
 		height: 295px;
+	}
+
+
+	.feedback .feedback-blocks blockquote {
+		left: 0;
+		right: 0;
 	}
 
 	.checklist {
@@ -496,5 +497,75 @@
 	.btn.discount-code {
 		width: 100%;
 		margin: 0;
+	}
+
+	.corperate-features {
+		width: auto;
+	}
+
+	.corperate-features li {
+		width: 100%;
+		border-right: 0;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+
+	.corperate-features li:nth-last-child(-n+2) {
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+
+	.corperate-features li:nth-last-child(-n+1) {
+		border-bottom: 0;
+	}
+
+	.checklist li {
+		width: 100%;
+	}
+
+	.checklist h3 {
+		font-size: 1em;
+	}
+
+	.feedback-blocks blockquote {
+		right: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.feedback-blocks .testimonial {
+		width: auto;
+	}
+
+	.feedback-blocks cite {
+		float: none;
+		width: auto;
+		top: 0;
+		margin: 0;
+	}
+
+	.control-section .browser {
+		width: 714px;
+	}
+
+	.control-section .browser {
+		width: 300px;
+		background-size: 300px 245px;
+		height: 225px;
+	}
+
+	.control-section .screenshot {
+		width: 255px;
+		background-size: 299px 160px;
+		left: 22px;
+		top: 65px;
+		height: 160px;
+		background-position: -25px;
+	}
+
+	.feedback-blocks blockquote:nth-child(odd) .testimonial:after {
+		display: none;
+	}
+
+	.feedback {
+		padding: 150px 15px 100px;
 	}
 }
