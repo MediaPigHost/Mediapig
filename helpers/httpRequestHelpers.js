@@ -1,9 +1,17 @@
-var data    = require('../src/content/site.json');
+
+if (process.env.ENV){
+  var data = require('../src/config/env-'+ process.env.ENV +'.json');
+} else {
+  var data = require('../src/config/env-local.json');
+}
+
+var nav     = require('../src/config/nav.json');
 var request = require('request');
 var extend  = require('extend');
 
 var Requests = function () {
 
+    data.nav = nav.menu;
     var siteData = data;
 
     function parseCookies (request) {
@@ -45,7 +53,6 @@ var Requests = function () {
           } else {
             var out = { site: data };
           }
-          console.log(out);
           res.render('home', out);
         },
         page: function(req, res){
@@ -443,9 +450,14 @@ var Requests = function () {
                         'door' : cookies.key,
                         'user' : cookies.user,
                       };
-                  var body = JSON.parse(body);
+                  var body = JSON.parse(body),
+                      cookies = parseCookies(req);
+
                   body.site = siteData;
                   body.customer = customer;
+                  if (cookies.key && cookies.user){
+                    body.logged_in = true;
+                  }
                   res.render('order', body);
                 } else {
                   res.redirect('/');

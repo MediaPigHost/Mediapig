@@ -1,0 +1,55 @@
+{% extends "../page.html" %}
+
+{% block heading-alignment %}
+heading-center
+{% endblock %}
+
+{% block bghack %}
+<div class="bg"></div>
+{% endblock %}
+
+{% block body %}
+<h1 class="clearfix">Frequently Asked Questions</h1>
+<div class="faq-item">
+  <h2>Do you provide IPv6?</h2>
+  <p>
+    At the minute we have not implemented IPv6. All of our kit is IPv6 ready and we are looking to go ahead with this very soon!
+  </p>
+</div>
+<div class="faq-item">
+  <h2>Can users run their own kernels, or are these externally provided?</h2>
+  <p>
+    There are no restrictions for users to run their own kernels.
+  </p>
+</div>
+<div class="faq-item">
+  <h2>Do you provide access to the serial console, or VNC, if the user makes a firewalling mistake?</h2>
+  <p>
+    We provide access to a remote console access via HTML5 Canvas. That's available in your account immediately after purchase.
+  </p>
+</div>
+<div class="faq-item">
+  <h2>Where are your machines hosted, and do you own them or merely resell?</h2>
+  <p>
+    Currently our machines are owned by Hivelocity in the United States but we do have around the clock support with them.
+  </p>
+</div>
+<div class="faq-item">
+  <h2>Can users configure custom reverse DNS for their IPs?</h2>
+  <p>
+    Yes, we allow users to configure custom reverse DNS for their IPs.
+  </p>
+</div>
+<div class="faq-item">
+  <h2>Do you offer backups?</h2>
+  <p>
+    We can provide backups. At the minute these need to be individually requested but we want to automate this in an upcoming release.
+  </p>
+</div>
+<div class="faq-item">
+  <h2>What virtualization technology do you use?</h2>
+  <p>
+    Our disk space is using RAID 10 SATA and we use KVM Virtualisation.
+  </p>
+</div>
+{% endblock %}

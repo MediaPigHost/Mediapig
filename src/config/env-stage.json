@@ -1,0 +1,6 @@
+{
+  "name" : "Mediapig",
+  "url" : "//staging.mediapig.co.uk/",
+  "api" : "https://apistaging.mediapig.co.uk/",
+  "stripe_mode" : "test"
+}

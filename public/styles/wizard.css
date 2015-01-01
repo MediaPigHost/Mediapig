@@ -1,3 +1,7 @@
+.order .intro-head {
+  margin-bottom: 40px;
+}
+
 .order .order-total-wrap {
   position: fixed;
   bottom: 0;
@@ -17,8 +21,8 @@
   text-align: center;
 }
 
-.order h1,
-.order h2 {
+.order .wrap h1,
+.order .wrap h2 {
   color: #FFF;
 }
 
@@ -378,6 +382,10 @@ input.discount-form {
   color: #FFF;
 }
 
+input.submit-card-details {
+  margin-top: 15px;
+}
+
 .card-details-form input:not(.btn),
 .discount-form input:not(.btn) {
   width: 100%;
@@ -501,4 +509,43 @@ input.discount-form {
   -webkit-animation: hide 1.5s ease .8s 1 normal forwards;
   -o-animation: hide 1.5s ease .8s 1 normal forwards;
   animation: hide 1.5s ease .8s 1 normal forwards;
+}
+
+
+.security-details {
+  font-size: 0.8em;
+  line-height: 20px;
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+  opacity: 0.5;
+}
+
+.security-details .stripe {
+  float: right;
+  height: 20px;
+  width: 92px;
+  background: url('../images/stripe.png') no-repeat center center;
+  background-size: 100%;
+}
+
+.security-details p {
+  float: left;
+  margin: 0;
+  display: inline-block;
+  color: #666;
+  padding-left: 30px;
+  text-transform: uppercase;
+}
+
+.security-details p:before {
+  background: url('../images/shield_check.svg') no-repeat center center;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  content: " ";
+  display: block;
+  position: absolute;
+  margin-left: -30px;
 }

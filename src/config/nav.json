@@ -1,0 +1,44 @@
+{
+  "menu" : {
+    "footer" : [{
+      "id" : "company",
+      "value" : "Company",
+      "children" : [{
+        "id" : "about",
+        "value" : "About Us"
+        }, {
+          "id" : "contact",
+          "value" : "Contact Us"
+          }, {
+            "id" : "press",
+            "value" : "Press"
+            }]
+          },
+          {
+            "id" : "support",
+            "value" : "Support",
+            "children" : [{
+              "id" : "faq",
+              "value" : "FAQ"
+              }, {
+                "id" : "feedback",
+                "value" : "Give Feedback",
+                "link" : "mailto:team@mediapig.co.uk"
+                }]
+                },{
+                  "id" : "legal",
+                  "value" : "Legal",
+                  "children" : [{
+                    "id" : "terms",
+                    "value" : "Terms & Conditions"
+                    }, {
+                      "id" : "privacy",
+                      "value" : "Privacy Policy"
+                      }, {
+                        "id" : "sla",
+                        "value" : "Service Level Agreement"
+                        }]
+                        }]
+                      }
+                    }
+                    

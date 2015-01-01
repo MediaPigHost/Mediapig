@@ -16,7 +16,22 @@
   <body class="order">
     <div class="intro-head {% block heading-alignment %}heading-left{% endblock %}">
       <header class="header line">
-        <a id="logo" href="/" class="logo">{{site.name}}</a>
+        <div class="left">
+          <a id="logo" href="/" class="logo">{{site.name}}</a>
+        </div>
+        <div class="right">
+          <ul>
+            <li><a href="/">Home</a></li>
+            {% if logged_in %}
+            <li><a href="/order" class="active">New service</a></li>
+            <li><a href="/manage">Manage</a></li>
+            <li><a href="/logout">Sign out</a></li>
+            {% else %}
+            <li><a href="/order" class="active">Place an order</a></li>
+            <li><a href="/signin" class="signin-btn">Sign in</a></li>
+            {% endif %}
+          </ul>
+        </div>
       </header>
     </div>
     <div class="wrap">
@@ -56,7 +71,7 @@
           </div>
         {% endfor %}
         <div class="order-wrap clearfix section-bandwidth">
-          <h2 class="order-grid-heading">Bandwidth: 2TB Free</h2>
+          <h2 class="order-grid-heading">Transfer: 2TB Free</h2>
         </div>
       </div>
     </div>
