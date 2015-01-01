@@ -1285,6 +1285,13 @@ ol.key-number-list > li:before {
   position: relative;
 }
 
+.feedback-blocks .testimonial span {
+  font-style: italic;
+  opacity: 0.5;
+  font-size: 0.75em;
+  margin-left: 5px;
+}
+
 .feedback-blocks blockquote:nth-child(even) cite {
   margin: 0;
   margin-right: 15px;
@@ -1316,6 +1323,10 @@ ol.key-number-list > li:before {
 .feedback-blocks .as-seen li {
   display: inline-block;
   margin-right: 30px;
+}
+
+.feedback-blocks .as-seen li.last {
+  margin-right: 0;
 }
 
 .feedback-blocks .as-seen img {

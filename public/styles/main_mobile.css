@@ -142,14 +142,13 @@
 		height: 295px;
 	}
 
-
 	.feedback .feedback-blocks blockquote {
 		left: 0;
 		right: 0;
 	}
 
 	.checklist {
-		width: auto;
+		width: 705px;
 	}
 
 	.checklist h3 {
