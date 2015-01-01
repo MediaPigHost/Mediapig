@@ -86,12 +86,6 @@
 		width: 100%;
 	}
 
-	/* Order page */
-	.order .wrap,
-	.order .order-total {
-	  min-width: 1180px;
-	}
-
 	.discount-form input.code {
 		width: 60%;
 	}
@@ -168,6 +162,68 @@
 
 	.page .sidebar {
 		display: none;
+	}
+
+	.order .order-grid-item img {
+		width: 100%;
+	}
+
+	.os-variations .option-value {
+		font-size: 0.85em;
+	}
+
+	h3.order-total-price {
+		font-size: 1.6em;
+	}
+
+	.option-trigger,
+	.order-total .large,
+	.btn.discount-code {
+		font-size: 0.9em;
+	}
+
+	.for,
+	.option-ram,
+	.option-trigger-disk {
+		display: none;
+	}
+
+	.order-grid li:nth-child(4n+4) .order-box {
+		margin: 0 15px 15px 0;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	/* Order page */
+	.order .wrap,
+	.order .order-total {
+		min-width: auto;
+	}
+
+	.order .content {
+		width: auto;
+	}
+
+	.order-grid > li {
+		width: 50%;
+	}
+
+	.order-grid li:nth-child(even) .order-box {
+		margin: 0 0 15px 0;
+	}
+
+	.order-grid .os-logo {
+		height: 233px;
+		width: auto;
+	}
+
+	.order .order-grid-item img {
+		width: auto;
+		height: 100%;
+	}
+
+	.os-variations .option-value {
+		font-size: 1em;
 	}
 }
 
