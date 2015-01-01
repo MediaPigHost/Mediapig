@@ -1364,10 +1364,6 @@ ol.key-number-list > li:before {
   opacity: 0;
 }
 
-.product-overview.expanded {
-  height: 1300px;
-}
-
 .product-overview.expanded .product-overview-extra {
   clear: both;
   display: block;
@@ -1433,7 +1429,7 @@ only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min-device-pixel-ratio: 1.5) {
   .control-section .screenshot {
     background: url('../images/screenshot@x2.jpg') no-repeat;
-    background-size: 1004px 484px;
+    background-size: cover;
   }
 }
 

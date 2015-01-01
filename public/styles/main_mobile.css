@@ -1,11 +1,4 @@
 @media screen and (max-width: 1220px) {
-	/* Landing page */
-
-	*, *:before, *:after {
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-	}
 
 	.header {
 		width: 95%;
@@ -105,6 +98,65 @@
 
 	.discount-applied .discount-message, .discount-applied-fadeout .discount-message {
 		left: 10px;
+	}
+
+	.corperate-features {
+		width: 714px;
+		margin: 0 auto;
+		background: none;
+	}
+
+	.corperate-features li {
+		width: 292px;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		float: left;
+	}
+
+	.corperate-features li:nth-child(even) {
+		border-right: 0;
+	}
+
+	.corperate-features li:nth-last-child(-n+2) {
+		border-bottom: 0;
+	}
+
+	.checklist {
+		clear: both;
+	}
+
+	ol.key-number-list > li:before {
+		display: none;
+	}
+
+	.control-section .browser {
+		width: 714px;
+	}
+
+	.feedback .feedback-blocks blockquote {
+		left: 0;
+		right: 0;
+	}
+
+	.control-section .browser {
+		width: 690px;
+		background-size: 690px 600px;
+		height: 460px;
+	}
+
+	.control-section .screenshot {
+		width: 586px;
+		background-size: 586px 294px;
+		left: 51px;
+		top: 166px;
+		height: 295px;
+	}
+
+	.checklist {
+		width: auto;
+	}
+
+	.checklist h3 {
+		padding-left: 77px;
 	}
 }
 
