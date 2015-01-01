@@ -1,9 +1,5 @@
 {% extends "../page.html" %}
 
-{% block heading %}
-  <h1 class="clearfix">Say hello!</h1>
-{% endblock %}
-
 {% block pageclass %}
   page-contact
 {% endblock %}
@@ -13,6 +9,7 @@
 {% endblock %}
 
 {% block body %}
+  <h1 class="clearfix">Say hello!</h1>
   <form id="contact" action="mailto:mail@mediapig.co.uk" method="get" enctype="text/plain">
     <input type="email" name="email" placeholder="Your e-mail address" />
     <input type="text" name="subject" placeholder="Your e-mail subject" />

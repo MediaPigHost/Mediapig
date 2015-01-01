@@ -80,7 +80,7 @@
         <h2>Deploy a new VPS server in <span class="seconds">80 seconds!</span></h2>
       </div>
     </section>
-    <section class="gray-section">
+    <section class="gray-section product-overview" id="product-overview">
       <div class="wrap clearfix">
         <div class="oneclick-window">
           <div class="oneclick-window-fade"></div>
@@ -91,27 +91,58 @@
           <div class="oneclick-cursor"></div>
         </div>
         <div class="big-feature oneclick-text">
-          <div class="big-feature-text">
-            <h3>We've gone one-click mad!</h3>
-            <p>We're proud to be able to offer a great experience and being able to create new servers in seconds after a single click is something we are proud of. And lets face it. It's just way more exciting that filling out forms.</p>
-            <p>Not only do we want you to find it easy to get started we want you to feel comfortable managing your hosting too. So we've built a control panel from the ground up so you have the tools to spawn, upgrade, install to your hearts content. Letting you get in and straight back out again.</p>
-          </div>
+          <ol class="big-feature-text key-number-list">
+            <li>
+              <h3>We keeping it simple.</h3>
+              <p>Create new servers in seconds after a single click. Destroy them just as quick.</p>
+            </li>
+            <li>
+              <h3>Pay only for what you use.</h3>
+              <p>Hourly billing is our standard. Don't pay for what you're not using. Terminate your server when you're ready! But some <a href="{{site.url}}page/terms">terms</a> do apply.</p>
+            </li>
+            <li>
+              <h3>Take control and monitor everything.</h3>
+              <p>We give you your own control panel to manage and monitor your VPS without needing your terminal. You can even start and stop your servers from your mobile.</p>
+            </li>
+          </ol>
         </div>
-      </div>
-    </section>
-    <section class="white-section deploy-section">
-      <div class="wrap clearfix">
-        <div class="feature-list">
-          <div class="feature-list-text">
-            <h3>Deploy without a wait</h3>
-            <p>With less than 80 seconds spawn time your instance will be ready almost as soon as you've placed your order.</p>
-            <h3>Full Root Access</h3>
-            <p>We don't restrict your access. You control everything from start to finish. The way your VPS should be.</p>
-            <h3>Pay for what you use</h3>
-            <p>All services will be billed on an hourly basis and a combined invoice for all services will be generated at the end of the billing period. Making your payment super simple. But some <a href="{{site.url}}page/terms">terms</a> do apply.</p>
-          </div>
-        </div>
-        <div class="deploy"></div>
+
+        <a href="#" id="product-overview-more" class="product-overview-more btn keyline">
+          See more features
+        </a>
+
+        <section class="product-overview-extra">
+          <ul class="corperate-features">
+            <li>
+              <img src="/images/network.svg" width="190" height="190">
+              <h3>We're IPv6 ready!</h3>
+            </li>
+            <li>
+              <img src="/images/remote.svg" width="190" height="190">
+              <h3>Remote Console</h3>
+            </li>
+            <li>
+              <img src="/images/kvm.svg" width="190" height="190">
+              <h3>KVM Virtualisation</h3>
+            </li>
+            <li>
+              <img src="/images/rootaccess.svg" width="190" height="190">
+              <h3>Full Root Access</h3>
+            </li>
+          </ul>
+
+          <ul class="checklist">
+            <li><h3>RAID 10 SATA</h3></li>
+            <li><h3>Aggregated billing</h3></li>
+            <li><h3>One click order</h3></li>
+            <li><h3>Resource monitoring</h3></li>
+            <li><h3>Technical support staff</h3></li>
+            <li><h3>Your own kernels</h3></li>
+            <li><h3>Configurable reverse DNS</h3></li>
+            <li><h3>Two CPU cores per server</h3></li>
+          </ul>
+
+        </section>
       </div>
     </section>
     <section class="white-section features">
@@ -119,7 +150,7 @@
         <div class="feature feature-1 left">
           <div class="feature-img"></div>
           <h3>Easy Setup</h3>
-          <p>We don't make things difficult so you can spend more time running your website.</p>
+          <p>We don't make things difficult so you can spend more time using your VPS.</p>
         </div>
         <div class="feature feature-2">
           <div class="feature-img"></div>
@@ -170,7 +201,7 @@
         </div> -->
       </div>
     </section>
-    <section class="map-section"></section>
+
     <section class="dark-section call-to-action">
       <div class="wrap">
         <h2>Upgrade your hosting now!</h2>
@@ -180,32 +211,16 @@
     </section>
     <footer class="footer">
       <div class="wrap clearfix">
-        <div class="column-1">
-          <h3>Company</h3>
+        {% for footer in site.nav.footer %}
+        <div class="column-{{loop.revindex}}">
+          <h3>{{footer.value}}</h3>
           <ul class="footer-links">
-            <li><a href="/page/about">About Us</a></li>
-            <li><a href="/page/contact">Contact Us</a></li>
-            <li><a href="/page/press">Press</a></li>
+            {% for children in footer.children %}
+            <li><a href="{% if children.link %}{{children.link}}{%else%}/page/{{children.id}}{% endif %}">{{children.value}}</a></li>
+            {% endfor %}
           </ul>
         </div>
-        <div class="column-2">
-          <h3>Support</h3>
-          <ul class="footer-links">
-            <!-- <li><a href="">FAQ</a></li> -->
-            <!-- <li><a href="/login?ref=">Submit a Ticket</a></li> -->
-            <li><a href="/page/faq">FAQ</a></li>
-            <li><a href="mailto:team@mediapig.co.uk">Give Feedback</a></li>
-          </ul>
-        </div>
-        <div class="column-3">
-          <h3>Legal</h3>
-          <ul class="footer-links">
-            <li><a href="/page/terms">Terms of Service</a></li>
-            <li><a href="/page/privacy">Privacy Policy</a></li>
-            <li><a href="/page/refund">Refund Policy</a></li>
-            <li><a href="/page/sla">Service Level Agreement</a></li>
-          </ul>
-        </div>
+        {% endfor %}
         <div class="column-4">
           <h3>Newsletter Sign-up</h3>
           <p class="newsletter-description">Sign up to Mediapig's newsletter to find out the latest news and offers!</p>
@@ -218,7 +233,7 @@
     </footer>
     <section class="footer-bar">
       <div class="wrap">
-        <p>Copyright &copy; 2014 MediaPig. All rights reserved.</p>
+        <p>Copyright &copy; 2014 {{site.name}}. All rights reserved.</p>
       </div>
     </section>
     <script>

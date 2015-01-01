@@ -79,7 +79,11 @@ curl(cfg, ['require', 'helpers','microAjax','pubsub','slide']).then(function (re
                     app.help.addBodyClass('overlay-visible');
 
                     app.ajax(window.location.origin + '/page/signin', function (res) {
+                        var signinOverlay = document.getElementsByClassName('overlay-wrap')[0];
                         app.publish('/view/signin/loaded', true);
+                        if (signinOverlay){
+                          app.help.removeClass(signinOverlay, 'overlay-loading');
+                        }
                         dom.overlayContent.innerHTML = res;
                     });
                 });

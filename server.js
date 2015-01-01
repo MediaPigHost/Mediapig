@@ -1,5 +1,4 @@
 var express             = require('express');
-var data                = require('./src/content/site.json');
 var cons                = require('consolidate');
 var httpRequestHelpers  = require('./helpers/httpRequestHelpers');
 var cookieParser        = require('cookie-parser');
@@ -13,6 +12,12 @@ var winston             = require('winston');
 var domain              = require('domain').create();
 var cluster             = require('cluster');
 var numCPUs             = require('os').cpus().length || 1;
+
+if (process.env.ENV){
+  var data = require('./src/config/env-'+ process.env.ENV +'.json');
+} else {
+  var data = require('./src/config/env-local.json');
+}
 
 var logger = new (winston.Logger)({
     transports: [
@@ -87,7 +92,7 @@ else {
             res.render('500', { error: err });
         });
 
-        if (process.env.DEVENV === 'false') {
+        if (process.env.ENV === 'stage' || process.env.ENV === 'live') {
 
             var options = {
                 key: fs.readFileSync('/etc/ssl/server.key'),

@@ -38,13 +38,19 @@
             <li><a href="/signin" class="signin-btn">Sign in</a></li>
           </ul>
         </div>
-
-        {% block heading %}
-          <h1 class="clearfix">Uh oh!</h1>
-        {% endblock %}
       </header>
     </div>
     <div class="wrap">
+      <aside class="sidebar">
+        {% for footer in site.nav.footer %}
+          <h3>{{footer.value}}</h3>
+          <ul class="sidebar-links">
+            {% for children in footer.children %}
+            <li><a href="{% if children.link %}{{children.link}}{%else%}/page/{{children.id}}{% endif %}">{{children.value}}</a></li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </aside>
       <article class="content">
         {% block body %}
           Sorry - This page doesn't exist!
@@ -60,30 +66,16 @@
     </div>
     <footer class="footer">
       <div class="wrap clearfix">
-        <div class="column-1">
-          <h3>Company</h3>
+        {% for footer in site.nav.footer %}
+        <div class="column-{{loop.revindex}}">
+          <h3>{{footer.value}}</h3>
           <ul class="footer-links">
-            <li><a href="/page/about">About Us</a></li>
-            <li><a href="/page/contact">Contact Us</a></li>
-            <li><a href="/page/press">Press</a></li>
+            {% for children in footer.children %}
+            <li><a href="{% if children.link %}{{children.link}}{%else%}/page/{{children.id}}{% endif %}">{{children.value}}</a></li>
+            {% endfor %}
           </ul>
         </div>
-        <div class="column-2">
-          <h3>Support</h3>
-          <ul class="footer-links">
-            <li><a href="/page/faq">FAQ</a></li>
-            <li><a href="mailto:team@mediapig.co.uk">Give Feedback</a></li>
-          </ul>
-        </div>
-        <div class="column-3">
-          <h3>Legal</h3>
-          <ul class="footer-links">
-            <li><a href="/page/terms">Terms of Service</a></li>
-            <li><a href="/page/privacy">Privacy Policy</a></li>
-            <li><a href="/page/refund">Refund Policy</a></li>
-            <li><a href="/page/sla">Service Level Agreement</a></li>
-          </ul>
-        </div>
+        {% endfor %}
         <div class="column-4">
           <h3>Newsletter Sign-up</h3>
           <p class="newsletter-description">Sign up to Mediapig's newsletter to find out the latest news and offers!</p>
@@ -96,7 +88,7 @@
     </footer>
     <section class="footer-bar">
       <div class="wrap">
-        <p>Copyright &copy; 2014 MediaPig. All rights reserved.</p>
+        <p>Copyright &copy; 2014 {{site.name}}. All rights reserved.</p>
       </div>
     </section>
     <script>
