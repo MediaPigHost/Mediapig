@@ -97,13 +97,11 @@
 	.corperate-features {
 		width: 714px;
 		margin: 0 auto;
-		background: none;
 	}
 
 	.corperate-features li {
 		width: 292px;
 		border-bottom: 1px solid rgba(0,0,0,0.1);
-		float: left;
 	}
 
 	.corperate-features li:nth-child(even) {
@@ -501,6 +499,8 @@
 
 	.corperate-features {
 		width: auto;
+		background: none;
+		box-shadow: none;
 	}
 
 	.corperate-features li {
