@@ -372,6 +372,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         siteObj.term = 'month';
         var term = document.getElementById('selected-term');
         term.innerHTML = this.innerHTML;
+        helpers.removeClass(this.parentNode.parentNode, "selected");
         order.calculatePrice();
       });
 
@@ -381,6 +382,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax'], function (requi
         siteObj.term = 'hour';
         var term = document.getElementById('selected-term');
         term.innerHTML = this.innerHTML;
+        helpers.removeClass(this.parentNode.parentNode, "selected");
         order.calculatePrice();
       });
     },
