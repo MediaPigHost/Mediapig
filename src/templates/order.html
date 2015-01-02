@@ -84,10 +84,10 @@
           <h3 class="order-total-price">£<span id="order-total-value">{{default_price}}</span></h3>
           <div href="#" class="option">
             <ul class="option-dropdown">
-              <li><a href="#" id="month-multi">Per month </a></li>
-              <li><a href="#" id="hour-multi" class="enabled">Per hour</a></li>
+              <li><a href="#" id="month-multi" class="option-link">Per month </a></li>
+              <li><a href="#" id="hour-multi" class="enabled option-link">Per hour</a></li>
             </ul>
-            <a href="#" class="option-trigger">Per hour <i class="icon-arrow-down"></i></a>
+            <a href="#" class="option-trigger"><span id="selected-term">Per hour</span><i class="icon-arrow-down"></i></a>
           </div>
           <h3 class="for">for</h3>
           {% for attribute in attributes %}
