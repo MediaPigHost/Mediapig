@@ -467,6 +467,7 @@ var Requests = function () {
           process : function(req, res, next){
             var order = req.body,
                 customer = customerValues(req, res);
+            console.log(order);
             order.door = customer.door;
             order.user = customer.user;
             request.post({json: true, url: data.api + 'index.php?/order/process', body: order}, function (error, response, body) {

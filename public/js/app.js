@@ -5,7 +5,11 @@ var cfg = {
     helpers: 'helpers',
     microAjax: 'microajax',
     pubsub: 'pubsub',
-    slide: 'slide'
+    slide: 'slide',
+    google: {
+      location: '//www.google.com/jsapi?noext',
+      exports: 'google'
+    }
   }
 },
 app;
