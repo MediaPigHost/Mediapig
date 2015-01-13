@@ -58,7 +58,7 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax', 'js!google'], fu
                 crosshair: {
                   color: 'transparent'
                 },
-                colors: ['#a5d3ed'],
+                colors: ['#bee2ed'],
                 dataOpacity: 0.3
               }
             }, {
@@ -108,6 +108,8 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax', 'js!google'], fu
                 colors: ['#edd1a5'],
                 dataOpacity: 0.3
               }
+            }, {
+
             }];
 
             graphs[0].data = new google.visualization.DataTable();
@@ -169,6 +171,36 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax', 'js!google'], fu
               [new Date(2015,01,9,24,00,0), 10]
               ]);
 
+            graphs[2].data = new google.visualization.DataTable();
+            graphs[2].data.addColumn('datetime', 'Time');
+            graphs[2].data.addColumn('number', 'Load');
+            graphs[2].data.addRows([
+              [new Date(2015,01,9,01,00,0), 04],
+              [new Date(2015,01,9,02,00,0), 05],
+              [new Date(2015,01,9,03,00,0), 02],
+              [new Date(2015,01,9,04,00,0), 01],
+              [new Date(2015,01,9,05,00,0), 05],
+              [new Date(2015,01,9,06,00,0), 02],
+              [new Date(2015,01,9,07,00,0), 05],
+              [new Date(2015,01,9,08,00,0), 02],
+              [new Date(2015,01,9,09,00,0), 06],
+              [new Date(2015,01,9,10,00,0), 03],
+              [new Date(2015,01,9,11,00,0), 03],
+              [new Date(2015,01,9,12,00,0), 10],
+              [new Date(2015,01,9,13,00,0), 01],
+              [new Date(2015,01,9,14,00,0), 01],
+              [new Date(2015,01,9,15,00,0), 01],
+              [new Date(2015,01,9,16,00,0), 90],
+              [new Date(2015,01,9,17,00,0), 90],
+              [new Date(2015,01,9,18,00,0), 80],
+              [new Date(2015,01,9,19,00,0), 01],
+              [new Date(2015,01,9,20,00,0), 02],
+              [new Date(2015,01,9,21,00,0), 03],
+              [new Date(2015,01,9,22,00,0), 05],
+              [new Date(2015,01,9,23,00,0), 03],
+              [new Date(2015,01,9,24,00,0), 04]
+              ]);
+
             function resize(){
               var chartEl = document.getElementById('chart_div'),
                   chart = new google.visualization.AreaChart(chartEl),
@@ -183,8 +215,16 @@ define(['require', 'exports', 'module', 'helpers', 'microAjax', 'js!google'], fu
                   chartContainer = chartEl.parentNode;
 
               chartEl.style.width = chartContainer.offsetWidth + 'px';
-              graphs[1].options.width = chartContainer.offsetWidth;
-              chart2.draw(graphs[1].data, graphs[1].options);
+              graphs[0].options.width = chartContainer.offsetWidth;
+              chart2.draw(graphs[1].data, graphs[0].options);
+
+              var chartEl = document.getElementById('chart3_div'),
+                  chart3 = new google.visualization.AreaChart(chartEl),
+                  chartContainer = chartEl.parentNode;
+
+              chartEl.style.width = chartContainer.offsetWidth + 'px';
+              graphs[0].options.width = chartContainer.offsetWidth;
+              chart3.draw(graphs[2].data, graphs[0].options);
             }
 
             window.onload = resize();
