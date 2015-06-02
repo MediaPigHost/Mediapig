@@ -93,7 +93,7 @@
 
           rfb = new RFB({'target':       $D('noVNC_canvas'),
                          'encrypt':      WebUtil.getQueryVar('encrypt',
-                                  (window.location.protocol === "https:")),
+                                  (window.location.protocol === "wss:")),
                          'repeaterID':   WebUtil.getQueryVar('repeaterID', ''),
                          'true_color':   WebUtil.getQueryVar('true_color', true),
                          'local_cursor': WebUtil.getQueryVar('cursor', true),
