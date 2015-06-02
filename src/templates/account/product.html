@@ -3,81 +3,72 @@
 {% block pageclass %}account-product{% endblock %}
 
 {% block content %}
-<div class="breadcrumb">
-	<div class="container">
-		<ul>
-			<li><a href="/manage">Account</a></li>
-			<li class="active">Service</li>
-		</ul>
-	</div>
-</div>
-<div class="container">
-	{% if stats.status == 'error' %}
-		<div class="notification clearfix" id="panel">
-			<a href="#" class="remove" id="remove" title="Mark as read"><img src="{{site.url}}/images/remove.svg"></a>
-			<p>{{stats.statusmsg}}</p>
+<div class="col8">
+	<div class="block-wrap span2">
+		<div class="block push">
+			<h2 class="block-title">Server Details</h2>
+			<dl class="block-list">
+				<dt>Hostname: </dt>
+				<dd>{{attributes.hostname.value}}</dd>
+				<dt>Address: </dt>
+				<dd>{{attributes.solusvm_main_ip.value}}</dd>
+				<!-- <dt>OS: </dt>
+				<dd>{{attributes.os.value}}</dd> -->
+				{% if stats.status != 'error' %}
+				<dt>Bandwidth:</dt>
+				<dd>{{stats.bandwidth.used}} / {{stats.bandwidth.total}} GB</dd>
+				<dt>Storage: </dt>
+				<dd>{{attributes.disk.value}}GB</dd>
+				<dt>Memory: </dt>
+				<dd>{{attributes.ram.value}}MB</dd>
+				{% endif %}
+			</dl>
 		</div>
-	{% endif %}
-</div>
-<div class="top-head">
-	<div class="container">
-		<h2>{{attributes.hostname.value}}</h2>
-		<h3>Details</h3>
+		<div class="block push">
+			<h2 class="block-title">VM Details / SSH</h2>
+			<dl class="block-list">
+				<dt>Username:</dt>
+				<dd>root</dd>
+				<dt>Password</dt>
+				<dd>{{attributes.solusvm_root_password.value}}</dd>
+			</dl>
+		</div>
 	</div>
-</div>
-<div class="container clearfix">
-	<div class="utilities">
-		<a href="/service/stop" id="service-stop" class="btn account {% if server_status|lower == 'offline' %}hide{% endif %}"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Stop</a>
-		<a href="/service/start" id="service-start" class="btn account {% if server_status|lower == 'online' %}hide{% endif %}"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Start</a>
-		<a href="/service/restart" id="service-restart" class="btn account"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Restart</a>
-		<a href="/service/vnc/{{service_id}}" class="btn account {% if server_status|lower == 'offline' %}hide{% endif %}"><i class="add-icon"></i>Console</a>
+	<div class="block-wrap span4">
+		<div class="block block-graph">
+			<h2 class="block-title">CPU Load</h2>
+			<div id="chart_div" class="graph"></div>
+		</div>
 
-		<a href="/service/terminate" id="service-terminate" class="btn account"><img src="{{site.url}}/images/loading-colour.svg" alt="Loading..." class="loading-image" />Cancel</a>
-	</div>
-	<div class="overview">
-		<h3>General</h3>
-		<ul class="details">
-			<li><span class="detail">Hostname:</span> {{attributes.hostname.value}}</li>
-			<li><span class="status">Server status: </span><span class="server-status {{server_status|lower}}"></span> {{server_status}}</li>
-			<li><span class="status">Service status: </span><span class="server-status {{service_status|lower}}"></span> {{service_status}}</li>
-			<li class="last"><span class="detail">IP address:</span> {{attributes.solusvm_main_ip.value}}</li>
-		</ul>
-	</div>
-	<div class="ftp">
-		<h3>VM Details / SSH</h3>
-		<ul class="details">
-			<li><span class="detail">Username:</span> root</li>
-			<li class="last"><span class="detail">Password:</span> {{attributes.solusvm_root_password.value}}</li>
-		</ul>
-	</div>
-	{% if stats.status != 'error' %}
-	<div class="usage">
-		<h3>Usage</h3>
-		<ul class="details">
-			<div class="detail-wrap">
-				<li>Bandwidth:</li>
-				<span class="detail">{{stats.bandwidth.used}} / {{stats.bandwidth.total}} GB</span>
-				<progress value="{{stats.bandwidth.used}}" max="{{stats.bandwidth.total}}"></progress>
-			</div>
-			<div class="comingsoon">Coming Soon</div>
-			<div class="detail-wrap">
-				<li>CPU usage:</li>
-				<span class="detail">20%</span>
-				<progress value="40" max="100"></progress>
-			</div>
-			<div class="detail-wrap">
-				<li>Memory usage:</li>
-				<span class="detail">24 / 512 MB</span>
-				<progress value="5" max="100"></progress>
-			</div>
-			<div class="detail-wrap last">
-				<li>Disk space:</li>
-				<span class="detail">0.25 / 10 GB</span>
-				<progress value="10" max="100"></progress>
-			</div>
+		<div class="block block-graph">
+			<h2 class="block-title">Memory Utilisation</h2>
+			<div id="chart2_div" class="graph"></div>
+		</div>
 
-		</ul>
+		<div class="block block-graph">
+			<h2 class="block-title">Disk I/O</h2>
+			<div id="chart3_div" class="graph"></div>
+		</div>
 	</div>
-	{% endif %}
+	<div class="block-wrap span2">
+		<div class="block">
+			<div class="block-number">
+				<h3>1,232</h3>
+				<h4>Service Events</h4>
+				<p>Last: 2 hours ago</p>
+			</div>
+		</div>
+		<a href="#" class="block reward">
+			<img src="{{site.url}}images/reward.svg" width="171" height="171" />
+			<h2>Earn your 50 free hours!</h2>
+			<span>Find out more</span>
+		</a>
+	</div>
+	<!-- <div class="block-wrap">
+		<div class="block"></div>
+	</div>
+	<div class="block-wrap">
+		<div class="block"></div>
+	</div> -->
 </div>
 {% endblock %}

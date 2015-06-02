@@ -38,11 +38,11 @@ body {
 }
 
 h1, h2 {
-	font-family: 'proxima-nova-soft', Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: 'Proxima Nova Soft', 'proxima-nova-soft', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 h3, h4, h5, h6 {
-	font-family: "proxima-nova", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: "Proxima Nova", "proxima-nova", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -283,6 +283,10 @@ h3, h4, h5, h6 {
 	background-color: #b1c69e;
 	top: 4px;
 	left: 5px;
+}
+
+.node-list .status.offline {
+	background-color: #ef7373;
 }
 
 .node-list .arrow {

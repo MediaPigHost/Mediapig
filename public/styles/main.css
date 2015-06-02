@@ -871,7 +871,7 @@ ol.key-number-list > li:before {
 .page h2,
 .page h3,
 .discount-message {
-  font-family: 'proxima-nova-soft', sans-serif;
+  font-family: 'Proxima Nova Soft', 'proxima-nova-soft', sans-serif;
   font-weight: 600;
   margin: 0;
   line-height: 1.4;
@@ -895,7 +895,7 @@ ol.key-number-list > li:before {
 .sub {
   color: #E6E7E8;
   font-size: 1.250em;
-  font-family: 'proxima-nova', sans-serif !important;
+  font-family: 'Proxima Nova', 'proxima-nova', sans-serif !important;
   font-weight: 400 !important;
 }
 

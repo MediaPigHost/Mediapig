@@ -19,20 +19,7 @@
 <body class="{% block pageclass %}account-default{% endblock %}">
   <header class="header">
     <div class="clearfix">
-      <nav class="node-list">
-        <a href="#">
-          <span class="status"></span> beedfcb84c3d87929d2dc9f13fe8786f <i class="arrow icon-arrow-down"></i>
-        </a>
-      </nav>
       <a href="/manage" class="logo"><img src="{{site.url}}/images/logo-small.svg"></a>
-      <!-- <div class="right">
-        <a href="/manage" class="name" data-tooltip="Account"><img src="{{site.url}}/images/account.svg" height="18"></a>
-        <a href="/manage/payment" class="name" data-tooltip="Billing"><img src="{{site.url}}/images/billing.svg" height="18"></a>
-        <a href="/manage/support" data-tooltip="Support"><img src="{{site.url}}/images/support.svg" height="18"></a>
-        <a href="/manage/account" data-tooltip="Settings"><img src="{{site.url}}/images/cog.svg" height="18"></a>
-        <a href="/logout" class="last" data-tooltip="Sign out"><img src="{{site.url}}/images/signout.svg" height="18"></a>
-      </div> -->
-
     </div>
   </header>
 
@@ -61,77 +48,9 @@
   {% endblock %}
 
   {% block content %}
-  <div class="col8">
-    <div class="block-wrap span2">
-      <div class="block push">
-        <h2 class="block-title">Server Details</h2>
-        <dl class="block-list">
-          <dt>Hostname: </dt>
-          <dd>6bead2eee1fc88044a8f9bc7f969d5f1</dd>
-          <dt>Address: </dt>
-          <dd>199.167.149.244</dd>
-          <dt>OS: </dt>
-          <dd>Centos 6.5</dd>
-          <dt>Storage: </dt>
-          <dd>40GB</dd>
-          <dt>Memory: </dt>
-          <dd>512MB</dd>
-        </dl>
-      </div>
-      <div class="block push">
-        <h2 class="block-title">VM Details / SSH</h2>
-        <dl class="block-list">
-          <dt>Username:</dt>
-          <dd>root</dd>
-          <dt>Password</dt>
-          <dd>q03UbnEk</dd>
-        </dl>
-      </div>
-    </div>
-    <div class="block-wrap span4">
-      <div class="block block-graph">
-        <h2 class="block-title">CPU Load</h2>
-        <div id="chart_div" class="graph"></div>
-      </div>
 
-      <div class="block block-graph">
-        <h2 class="block-title">Memory Utilisation</h2>
-        <div id="chart2_div" class="graph"></div>
-      </div>
-
-      <div class="block block-graph">
-        <h2 class="block-title">Disk I/O</h2>
-        <div id="chart3_div" class="graph"></div>
-      </div>
-    </div>
-    <div class="block-wrap span2">
-      <div class="block">
-        <div class="block-number">
-          <h3>1,232</h3>
-          <h4>Service Events</h4>
-          <p>Last: 2 hours ago</p>
-        </div>
-      </div>
-      <a href="#" class="block reward">
-        <img src="images/reward.svg" width="171" height="171" />
-        <h2>Earn your 50 free hours!</h2>
-        <span>Find out more</span>
-      </a>
-    </div>
-    <!-- <div class="block-wrap">
-      <div class="block"></div>
-    </div>
-    <div class="block-wrap">
-      <div class="block"></div>
-    </div> -->
-  </div>
   {% endblock %}
 
-<!-- <footer>
-  <div class="container">
-    <p>Copyright &copy; 2014 MediaPig.</p>
-  </div>
-</footer> -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

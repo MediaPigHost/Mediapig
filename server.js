@@ -16,6 +16,7 @@ var numCPUs             = require('os').cpus().length || 1;
 if (process.env.ENV){
   var data = require('./src/config/env-'+ process.env.ENV +'.json');
 } else {
+  console.log('loading local config');
   var data = require('./src/config/env-local.json');
 }
 

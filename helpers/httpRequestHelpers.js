@@ -244,6 +244,7 @@ var Requests = function () {
                   body['service_id'] = parseInt(req.params.serviceid);
                   var out = body;
                   out.site = data;
+                  console.log(out);
                   res.render('account/product', out);
                 } else {
                   res.redirect('/');
@@ -262,6 +263,7 @@ var Requests = function () {
                     request.post({json: true, url: data.api + 'index.php?/service/listservices', body: customer}, function(error, response, body){
                       if (body.status !== 'fail'){
                         out.services = body.services;
+                        console.log(out);
                         res.render('account/home', out);
                       }
                     });

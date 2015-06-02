@@ -1,6 +1,6 @@
 {
   "name" : "Mediapig",
   "url" : "//localhost:4333/",
-  "api" : "https://apistaging.mediapig.co.uk/",
+  "api" : "http://localhost:8888/Mediapig-API/",
   "stripe_mode" : "test"
 }
