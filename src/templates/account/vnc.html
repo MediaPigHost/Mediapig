@@ -100,7 +100,7 @@
                          'shared':       WebUtil.getQueryVar('shared', true),
                          'view_only':    WebUtil.getQueryVar('view_only', false),
                          'onPasswordRequired':  passwordRequired});
-          rfb.connect('ws.mediapig.io', 8080, '{{attributes.solusvm_vnc_password.value}}', '?token={{service_id}}');
+          rfb.connect('wss.mediapig.io', 8080, '{{attributes.solusvm_vnc_password.value}}', '?token={{service_id}}');
       };
       </script>
   </div>
